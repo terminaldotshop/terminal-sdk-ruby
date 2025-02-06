@@ -1,0 +1,17 @@
+module Terminal
+  module Models
+    type token_list_response = { data: Array[Terminal::Models::TokenAPI] }
+
+    class TokenListResponse < Terminal::BaseModel
+      attr_accessor data: Array[Terminal::Models::TokenAPI]
+
+      def initialize:
+        (data: Array[Terminal::Models::TokenAPI]) -> void
+        | (
+          ?Terminal::Models::token_list_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::token_list_response
+    end
+  end
+end

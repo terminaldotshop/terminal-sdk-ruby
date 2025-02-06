@@ -1,0 +1,58 @@
+module Terminal
+  module Models
+    type address_api =
+      {
+        id: String,
+        city: String,
+        country: String,
+        name: String,
+        :street1 => String,
+        zip: String,
+        phone: String,
+        province: String,
+        :street2 => String
+      }
+
+    class AddressAPI < Terminal::BaseModel
+      attr_accessor id: String
+
+      attr_accessor city: String
+
+      attr_accessor country: String
+
+      attr_accessor name: String
+
+      attr_accessor street1: String
+
+      attr_accessor zip: String
+
+      attr_reader phone: String?
+
+      def phone=: (String) -> void
+
+      attr_reader province: String?
+
+      def province=: (String) -> void
+
+      attr_reader street2: String?
+
+      def street2=: (String) -> void
+
+      def initialize:
+        (
+          id: String,
+          city: String,
+          country: String,
+          name: String,
+          street1: String,
+          zip: String,
+          phone: String,
+          province: String,
+          street2: String
+        ) -> void
+        | (?Terminal::Models::address_api | Terminal::BaseModel data) -> void
+
+      def to_hash: -> Terminal::Models::address_api
+    end
+  end
+end

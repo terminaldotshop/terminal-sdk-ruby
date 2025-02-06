@@ -1,0 +1,17 @@
+module Terminal
+  module Models
+    type product_list_response = { data: Array[Terminal::Models::ProductAPI] }
+
+    class ProductListResponse < Terminal::BaseModel
+      attr_accessor data: Array[Terminal::Models::ProductAPI]
+
+      def initialize:
+        (data: Array[Terminal::Models::ProductAPI]) -> void
+        | (
+          ?Terminal::Models::product_list_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::product_list_response
+    end
+  end
+end

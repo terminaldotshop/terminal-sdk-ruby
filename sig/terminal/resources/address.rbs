@@ -1,0 +1,41 @@
+module Terminal
+  module Resources
+    class Address
+      def create:
+        (
+          Terminal::Models::AddressCreateParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::AddressCreateResponse
+        | (
+          city: String,
+          country: String,
+          name: String,
+          street1: String,
+          zip: String,
+          phone: String,
+          province: String,
+          street2: String,
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::AddressCreateResponse
+
+      def list:
+        (
+          ?Terminal::Models::AddressListParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::AddressListResponse
+        | (
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::AddressListResponse
+
+      def delete:
+        (
+          String id,
+          ?Terminal::Models::AddressDeleteParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::AddressDeleteResponse
+        | (
+          String id,
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::AddressDeleteResponse
+
+      def initialize: (client: Terminal::Client) -> void
+    end
+  end
+end

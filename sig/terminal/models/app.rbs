@@ -1,0 +1,19 @@
+module Terminal
+  module Models
+    type app_api = { id: String, name: String, redirect_uri: String }
+
+    class AppAPI < Terminal::BaseModel
+      attr_accessor id: String
+
+      attr_accessor name: String
+
+      attr_accessor redirect_uri: String
+
+      def initialize:
+        (id: String, name: String, redirect_uri: String) -> void
+        | (?Terminal::Models::app_api | Terminal::BaseModel data) -> void
+
+      def to_hash: -> Terminal::Models::app_api
+    end
+  end
+end

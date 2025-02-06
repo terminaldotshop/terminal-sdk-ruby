@@ -1,0 +1,12 @@
+dependencies:
+  - cgi
+  - date
+  - erb
+  - etc
+  - json
+  - net/http
+  - securerandom
+  - set
+  - stringio
+  - time
+  - uri

@@ -1,0 +1,18 @@
+module Terminal
+  module Models
+    type token_get_params = {  } & Terminal::request_parameters
+
+    class TokenGetParams < Terminal::BaseModel
+      extend Terminal::RequestParameters::Converter
+      include Terminal::RequestParameters
+
+      def initialize:
+        (request_options: Terminal::request_opts) -> void
+        | (
+          ?Terminal::Models::token_get_params | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::token_get_params
+    end
+  end
+end

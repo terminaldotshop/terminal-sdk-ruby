@@ -1,0 +1,19 @@
+module Terminal
+  module Models
+    type subscription_create_params = {  } & Terminal::request_parameters
+
+    class SubscriptionCreateParams < Terminal::Models::SubscriptionAPI
+      extend Terminal::RequestParameters::Converter
+      include Terminal::RequestParameters
+
+      def initialize:
+        (request_options: Terminal::request_opts) -> void
+        | (
+          ?Terminal::Models::subscription_create_params
+          | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::subscription_create_params
+    end
+  end
+end
