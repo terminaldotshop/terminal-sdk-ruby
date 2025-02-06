@@ -17,7 +17,7 @@ To use this gem during the beta, install directly from GitHub with Bundler by
 adding the following to your application's `Gemfile`:
 
 ```ruby
-gem "terminal-shop", git: "https://github.com/stainless-sdks/terminal-ruby", branch: "main"
+gem "terminal-shop", git: "https://github.com/terminaldotshop/terminal-sdk-ruby", branch: "main"
 ```
 
 To fetch an initial copy of the gem:
