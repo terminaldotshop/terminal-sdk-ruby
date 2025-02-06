@@ -1,0 +1,20 @@
+module TerminalShop
+  module BasePage[Elem]
+    def next_page?: -> bool
+
+    def next_page: -> self
+
+    def auto_paging_each: { (Elem arg0) -> void } -> void
+
+    def to_enum: -> Enumerable[Elem]
+
+    alias enum_for to_enum
+
+    def initialize: (
+      client: TerminalShop::BaseClient,
+      req: TerminalShop::BaseClient::request,
+      headers: Hash[String, String],
+      unwrapped: top
+    ) -> void
+  end
+end

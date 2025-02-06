@@ -1,0 +1,18 @@
+module TerminalShop
+  module Models
+    type cart_get_response = { data: TerminalShop::Models::CartAPI }
+
+    class CartGetResponse < TerminalShop::BaseModel
+      attr_accessor data: TerminalShop::Models::CartAPI
+
+      def initialize:
+        (data: TerminalShop::Models::CartAPI) -> void
+        | (
+          ?TerminalShop::Models::cart_get_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_get_response
+    end
+  end
+end

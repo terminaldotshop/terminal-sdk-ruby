@@ -1,0 +1,36 @@
+module TerminalShop
+  module Models
+    type app_create_response =
+      { data: TerminalShop::Models::AppCreateResponse::Data }
+
+    class AppCreateResponse < TerminalShop::BaseModel
+      attr_accessor data: TerminalShop::Models::AppCreateResponse::Data
+
+      def initialize:
+        (data: TerminalShop::Models::AppCreateResponse::Data) -> void
+        | (
+          ?TerminalShop::Models::app_create_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::app_create_response
+
+      type data = { id: String, secret: String }
+
+      class Data < TerminalShop::BaseModel
+        attr_accessor id: String
+
+        attr_accessor secret: String
+
+        def initialize:
+          (id: String, secret: String) -> void
+          | (
+            ?TerminalShop::Models::AppCreateResponse::data
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::AppCreateResponse::data
+      end
+    end
+  end
+end

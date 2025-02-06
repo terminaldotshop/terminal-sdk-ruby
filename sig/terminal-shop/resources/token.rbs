@@ -1,0 +1,43 @@
+module TerminalShop
+  module Resources
+    class Token
+      def create:
+        (
+          ?TerminalShop::Models::TokenCreateParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::TokenCreateResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::TokenCreateResponse
+
+      def list:
+        (
+          ?TerminalShop::Models::TokenListParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::TokenListResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::TokenListResponse
+
+      def delete:
+        (
+          String id,
+          ?TerminalShop::Models::TokenDeleteParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::TokenDeleteResponse
+        | (
+          String id,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::TokenDeleteResponse
+
+      def get:
+        (
+          String id,
+          ?TerminalShop::Models::TokenGetParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::TokenGetResponse
+        | (
+          String id,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::TokenGetResponse
+
+      def initialize: (client: TerminalShop::Client) -> void
+    end
+  end
+end

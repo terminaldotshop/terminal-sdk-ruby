@@ -1,0 +1,19 @@
+module TerminalShop
+  module Models
+    type token_delete_params = {  } & TerminalShop::request_parameters
+
+    class TokenDeleteParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      def initialize:
+        (request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::token_delete_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::token_delete_params
+    end
+  end
+end

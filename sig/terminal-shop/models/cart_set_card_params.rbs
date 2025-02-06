@@ -1,0 +1,22 @@
+module TerminalShop
+  module Models
+    type cart_set_card_params =
+      { card_id: String } & TerminalShop::request_parameters
+
+    class CartSetCardParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      attr_accessor card_id: String
+
+      def initialize:
+        (card_id: String, request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::cart_set_card_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_set_card_params
+    end
+  end
+end

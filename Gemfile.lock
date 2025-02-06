@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    terminal (0.0.1.pre.alpha.0)
+    terminal-shop (0.0.1.pre.alpha.0)
       connection_pool
 
 GEM
@@ -125,7 +125,7 @@ DEPENDENCIES
   steep
   syntax_tree
   syntax_tree-rbs!
-  terminal!
+  terminal-shop!
   webrick
   yard
 

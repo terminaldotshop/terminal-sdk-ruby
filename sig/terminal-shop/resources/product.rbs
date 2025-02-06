@@ -1,0 +1,15 @@
+module TerminalShop
+  module Resources
+    class Product
+      def list:
+        (
+          ?TerminalShop::Models::ProductListParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::ProductListResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::ProductListResponse
+
+      def initialize: (client: TerminalShop::Client) -> void
+    end
+  end
+end

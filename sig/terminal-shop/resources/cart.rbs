@@ -1,0 +1,51 @@
+module TerminalShop
+  module Resources
+    class Cart
+      def convert:
+        (
+          ?TerminalShop::Models::CartConvertParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartConvertResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartConvertResponse
+
+      def get:
+        (
+          ?TerminalShop::Models::CartGetParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartGetResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartGetResponse
+
+      def set_address:
+        (
+          TerminalShop::Models::CartSetAddressParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartSetAddressResponse
+        | (
+          address_id: String,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartSetAddressResponse
+
+      def set_card:
+        (
+          TerminalShop::Models::CartSetCardParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartSetCardResponse
+        | (
+          card_id: String,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartSetCardResponse
+
+      def set_item:
+        (
+          TerminalShop::Models::CartSetItemParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartSetItemResponse
+        | (
+          product_variant_id: String,
+          quantity: Integer,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartSetItemResponse
+
+      def initialize: (client: TerminalShop::Client) -> void
+    end
+  end
+end

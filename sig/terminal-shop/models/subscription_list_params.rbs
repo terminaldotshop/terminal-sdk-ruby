@@ -1,0 +1,19 @@
+module TerminalShop
+  module Models
+    type subscription_list_params = {  } & TerminalShop::request_parameters
+
+    class SubscriptionListParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      def initialize:
+        (request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::subscription_list_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::subscription_list_params
+    end
+  end
+end

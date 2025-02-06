@@ -1,0 +1,15 @@
+module TerminalShop
+  module Resources
+    class View
+      def init:
+        (
+          ?TerminalShop::Models::ViewInitParams | Hash[Symbol, top] params
+        ) -> TerminalShop::Models::ViewInitResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::ViewInitResponse
+
+      def initialize: (client: TerminalShop::Client) -> void
+    end
+  end
+end

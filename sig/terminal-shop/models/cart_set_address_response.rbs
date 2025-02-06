@@ -1,0 +1,18 @@
+module TerminalShop
+  module Models
+    type cart_set_address_response = { data: :ok }
+
+    class CartSetAddressResponse < TerminalShop::BaseModel
+      attr_accessor data: :ok
+
+      def initialize:
+        (data: :ok) -> void
+        | (
+          ?TerminalShop::Models::cart_set_address_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_set_address_response
+    end
+  end
+end

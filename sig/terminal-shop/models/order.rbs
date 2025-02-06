@@ -1,0 +1,179 @@
+module TerminalShop
+  module Models
+    type order_api =
+      {
+        id: String,
+        amount: TerminalShop::Models::OrderAPI::Amount,
+        items: Array[TerminalShop::Models::OrderAPI::Item],
+        shipping: TerminalShop::Models::OrderAPI::Shipping,
+        tracking: TerminalShop::Models::OrderAPI::Tracking,
+        index: Integer
+      }
+
+    class OrderAPI < TerminalShop::BaseModel
+      attr_accessor id: String
+
+      attr_accessor amount: TerminalShop::Models::OrderAPI::Amount
+
+      attr_accessor items: Array[TerminalShop::Models::OrderAPI::Item]
+
+      attr_accessor shipping: TerminalShop::Models::OrderAPI::Shipping
+
+      attr_accessor tracking: TerminalShop::Models::OrderAPI::Tracking
+
+      attr_reader index: Integer?
+
+      def index=: (Integer) -> void
+
+      def initialize:
+        (
+          id: String,
+          amount: TerminalShop::Models::OrderAPI::Amount,
+          items: Array[TerminalShop::Models::OrderAPI::Item],
+          shipping: TerminalShop::Models::OrderAPI::Shipping,
+          tracking: TerminalShop::Models::OrderAPI::Tracking,
+          index: Integer
+        ) -> void
+        | (
+          ?TerminalShop::Models::order_api | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::order_api
+
+      type amount = { shipping: Integer, subtotal: Integer }
+
+      class Amount < TerminalShop::BaseModel
+        attr_accessor shipping: Integer
+
+        attr_accessor subtotal: Integer
+
+        def initialize:
+          (shipping: Integer, subtotal: Integer) -> void
+          | (
+            ?TerminalShop::Models::OrderAPI::amount
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::OrderAPI::amount
+      end
+
+      type item =
+        {
+          id: String,
+          amount: Integer,
+          quantity: Integer,
+          description: String,
+          product_variant_id: String
+        }
+
+      class Item < TerminalShop::BaseModel
+        attr_accessor id: String
+
+        attr_accessor amount: Integer
+
+        attr_accessor quantity: Integer
+
+        attr_reader description: String?
+
+        def description=: (String) -> void
+
+        attr_reader product_variant_id: String?
+
+        def product_variant_id=: (String) -> void
+
+        def initialize:
+          (
+            id: String,
+            amount: Integer,
+            quantity: Integer,
+            description: String,
+            product_variant_id: String
+          ) -> void
+          | (
+            ?TerminalShop::Models::OrderAPI::item | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::OrderAPI::item
+      end
+
+      type shipping =
+        {
+          city: String,
+          country: String,
+          name: String,
+          :street1 => String,
+          zip: String,
+          phone: String,
+          province: String,
+          :street2 => String
+        }
+
+      class Shipping < TerminalShop::BaseModel
+        attr_accessor city: String
+
+        attr_accessor country: String
+
+        attr_accessor name: String
+
+        attr_accessor street1: String
+
+        attr_accessor zip: String
+
+        attr_reader phone: String?
+
+        def phone=: (String) -> void
+
+        attr_reader province: String?
+
+        def province=: (String) -> void
+
+        attr_reader street2: String?
+
+        def street2=: (String) -> void
+
+        def initialize:
+          (
+            city: String,
+            country: String,
+            name: String,
+            street1: String,
+            zip: String,
+            phone: String,
+            province: String,
+            street2: String
+          ) -> void
+          | (
+            ?TerminalShop::Models::OrderAPI::shipping
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::OrderAPI::shipping
+      end
+
+      type tracking = { number: String, service: String, url: String }
+
+      class Tracking < TerminalShop::BaseModel
+        attr_reader number: String?
+
+        def number=: (String) -> void
+
+        attr_reader service: String?
+
+        def service=: (String) -> void
+
+        attr_reader url: String?
+
+        def url=: (String) -> void
+
+        def initialize:
+          (number: String, service: String, url: String) -> void
+          | (
+            ?TerminalShop::Models::OrderAPI::tracking
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::OrderAPI::tracking
+      end
+    end
+  end
+end

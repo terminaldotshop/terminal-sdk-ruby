@@ -1,0 +1,25 @@
+module TerminalShop
+  module Models
+    type cart_set_address_params =
+      { address_id: String } & TerminalShop::request_parameters
+
+    class CartSetAddressParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      attr_accessor address_id: String
+
+      def initialize:
+        (
+          address_id: String,
+          request_options: TerminalShop::request_opts
+        ) -> void
+        | (
+          ?TerminalShop::Models::cart_set_address_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_set_address_params
+    end
+  end
+end

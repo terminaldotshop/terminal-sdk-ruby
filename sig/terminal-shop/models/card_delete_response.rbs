@@ -1,0 +1,18 @@
+module TerminalShop
+  module Models
+    type card_delete_response = { data: :ok }
+
+    class CardDeleteResponse < TerminalShop::BaseModel
+      attr_accessor data: :ok
+
+      def initialize:
+        (data: :ok) -> void
+        | (
+          ?TerminalShop::Models::card_delete_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::card_delete_response
+    end
+  end
+end

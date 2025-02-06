@@ -1,0 +1,52 @@
+module TerminalShop
+  class Client < TerminalShop::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    ENVIRONMENTS: {
+      production: "https://api.terminal.shop/",
+      sandbox: "https://sandbox.terminal.shop/"
+    }
+
+    attr_reader bearer_token: String
+
+    attr_reader product: TerminalShop::Resources::Product
+
+    attr_reader profile: TerminalShop::Resources::Profile
+
+    attr_reader address: TerminalShop::Resources::Address
+
+    attr_reader card: TerminalShop::Resources::Card
+
+    attr_reader cart: TerminalShop::Resources::Cart
+
+    attr_reader order: TerminalShop::Resources::Order
+
+    attr_reader subscription: TerminalShop::Resources::Subscription
+
+    attr_reader token: TerminalShop::Resources::Token
+
+    attr_reader app: TerminalShop::Resources::App
+
+    attr_reader email: TerminalShop::Resources::Email
+
+    attr_reader view: TerminalShop::Resources::View
+
+    private def auth_headers: -> Hash[String, String]
+
+    def initialize: (
+      environment: :production | :sandbox | nil,
+      base_url: String?,
+      bearer_token: String?,
+      max_retries: Integer,
+      timeout: Float,
+      initial_retry_delay: Float,
+      max_retry_delay: Float
+    ) -> void
+  end
+end
