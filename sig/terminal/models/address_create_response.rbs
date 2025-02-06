@@ -1,0 +1,17 @@
+module Terminal
+  module Models
+    type address_create_response = { data: String }
+
+    class AddressCreateResponse < Terminal::BaseModel
+      attr_accessor data: String
+
+      def initialize:
+        (data: String) -> void
+        | (
+          ?Terminal::Models::address_create_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::address_create_response
+    end
+  end
+end

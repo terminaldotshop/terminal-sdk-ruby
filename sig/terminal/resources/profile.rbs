@@ -1,0 +1,25 @@
+module Terminal
+  module Resources
+    class Profile
+      def update:
+        (
+          ?Terminal::Models::ProfileUpdateParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::ProfileUpdateResponse
+        | (
+          email: String?,
+          name: String?,
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::ProfileUpdateResponse
+
+      def me:
+        (
+          ?Terminal::Models::ProfileMeParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::ProfileMeResponse
+        | (
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::ProfileMeResponse
+
+      def initialize: (client: Terminal::Client) -> void
+    end
+  end
+end

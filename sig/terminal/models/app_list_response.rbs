@@ -1,0 +1,17 @@
+module Terminal
+  module Models
+    type app_list_response = { data: Array[Terminal::Models::AppAPI] }
+
+    class AppListResponse < Terminal::BaseModel
+      attr_accessor data: Array[Terminal::Models::AppAPI]
+
+      def initialize:
+        (data: Array[Terminal::Models::AppAPI]) -> void
+        | (
+          ?Terminal::Models::app_list_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::app_list_response
+    end
+  end
+end

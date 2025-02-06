@@ -1,0 +1,61 @@
+module Terminal
+  module Models
+    type address_create_params =
+      {
+        city: String,
+        country: String,
+        name: String,
+        :street1 => String,
+        zip: String,
+        phone: String,
+        province: String,
+        :street2 => String
+      }
+      & Terminal::request_parameters
+
+    class AddressCreateParams < Terminal::BaseModel
+      extend Terminal::RequestParameters::Converter
+      include Terminal::RequestParameters
+
+      attr_accessor city: String
+
+      attr_accessor country: String
+
+      attr_accessor name: String
+
+      attr_accessor street1: String
+
+      attr_accessor zip: String
+
+      attr_reader phone: String?
+
+      def phone=: (String) -> void
+
+      attr_reader province: String?
+
+      def province=: (String) -> void
+
+      attr_reader street2: String?
+
+      def street2=: (String) -> void
+
+      def initialize:
+        (
+          city: String,
+          country: String,
+          name: String,
+          street1: String,
+          zip: String,
+          phone: String,
+          province: String,
+          street2: String,
+          request_options: Terminal::request_opts
+        ) -> void
+        | (
+          ?Terminal::Models::address_create_params | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::address_create_params
+    end
+  end
+end

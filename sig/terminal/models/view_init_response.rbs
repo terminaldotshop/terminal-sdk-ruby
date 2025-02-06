@@ -1,0 +1,68 @@
+module Terminal
+  module Models
+    type view_init_response = { data: Terminal::Models::ViewInitResponse::Data }
+
+    class ViewInitResponse < Terminal::BaseModel
+      attr_accessor data: Terminal::Models::ViewInitResponse::Data
+
+      def initialize:
+        (data: Terminal::Models::ViewInitResponse::Data) -> void
+        | (
+          ?Terminal::Models::view_init_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::view_init_response
+
+      type data =
+        {
+          addresses: Array[Terminal::Models::AddressAPI],
+          apps: Array[Terminal::Models::AppAPI],
+          cards: Array[Terminal::Models::CardAPI],
+          cart: Terminal::Models::CartAPI,
+          orders: Array[Terminal::Models::OrderAPI],
+          products: Array[Terminal::Models::ProductAPI],
+          profile: Terminal::Models::ProfileAPI,
+          subscriptions: Array[Terminal::Models::SubscriptionAPI],
+          tokens: Array[Terminal::Models::TokenAPI]
+        }
+
+      class Data < Terminal::BaseModel
+        attr_accessor addresses: Array[Terminal::Models::AddressAPI]
+
+        attr_accessor apps: Array[Terminal::Models::AppAPI]
+
+        attr_accessor cards: Array[Terminal::Models::CardAPI]
+
+        attr_accessor cart: Terminal::Models::CartAPI
+
+        attr_accessor orders: Array[Terminal::Models::OrderAPI]
+
+        attr_accessor products: Array[Terminal::Models::ProductAPI]
+
+        attr_accessor profile: Terminal::Models::ProfileAPI
+
+        attr_accessor subscriptions: Array[Terminal::Models::SubscriptionAPI]
+
+        attr_accessor tokens: Array[Terminal::Models::TokenAPI]
+
+        def initialize:
+          (
+            addresses: Array[Terminal::Models::AddressAPI],
+            apps: Array[Terminal::Models::AppAPI],
+            cards: Array[Terminal::Models::CardAPI],
+            cart: Terminal::Models::CartAPI,
+            orders: Array[Terminal::Models::OrderAPI],
+            products: Array[Terminal::Models::ProductAPI],
+            profile: Terminal::Models::ProfileAPI,
+            subscriptions: Array[Terminal::Models::SubscriptionAPI],
+            tokens: Array[Terminal::Models::TokenAPI]
+          ) -> void
+          | (
+            ?Terminal::Models::ViewInitResponse::data | Terminal::BaseModel data
+          ) -> void
+
+        def to_hash: -> Terminal::Models::ViewInitResponse::data
+      end
+    end
+  end
+end

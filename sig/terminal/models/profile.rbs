@@ -1,0 +1,50 @@
+module Terminal
+  module Models
+    type profile_api = { user: Terminal::Models::ProfileAPI::User }
+
+    class ProfileAPI < Terminal::BaseModel
+      attr_accessor user: Terminal::Models::ProfileAPI::User
+
+      def initialize:
+        (user: Terminal::Models::ProfileAPI::User) -> void
+        | (?Terminal::Models::profile_api | Terminal::BaseModel data) -> void
+
+      def to_hash: -> Terminal::Models::profile_api
+
+      type user =
+        {
+          id: String,
+          email: String?,
+          fingerprint: String?,
+          name: String?,
+          stripe_customer_id: String
+        }
+
+      class User < Terminal::BaseModel
+        attr_accessor id: String
+
+        attr_accessor email: String?
+
+        attr_accessor fingerprint: String?
+
+        attr_accessor name: String?
+
+        attr_accessor stripe_customer_id: String
+
+        def initialize:
+          (
+            id: String,
+            email: String?,
+            fingerprint: String?,
+            name: String?,
+            stripe_customer_id: String
+          ) -> void
+          | (
+            ?Terminal::Models::ProfileAPI::user | Terminal::BaseModel data
+          ) -> void
+
+        def to_hash: -> Terminal::Models::ProfileAPI::user
+      end
+    end
+  end
+end

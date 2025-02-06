@@ -1,0 +1,19 @@
+module Terminal
+  module Models
+    type subscription_list_response =
+      { data: Array[Terminal::Models::SubscriptionAPI] }
+
+    class SubscriptionListResponse < Terminal::BaseModel
+      attr_accessor data: Array[Terminal::Models::SubscriptionAPI]
+
+      def initialize:
+        (data: Array[Terminal::Models::SubscriptionAPI]) -> void
+        | (
+          ?Terminal::Models::subscription_list_response
+          | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::subscription_list_response
+    end
+  end
+end

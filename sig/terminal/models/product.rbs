@@ -1,0 +1,72 @@
+module Terminal
+  module Models
+    type product_api =
+      {
+        id: String,
+        description: String,
+        filters: Array[Terminal::Models::ProductAPI::filter],
+        name: String,
+        variants: Array[Terminal::Models::ProductVariant],
+        order: Integer,
+        subscription: Terminal::Models::ProductAPI::subscription,
+        tags: Hash[Symbol, String]
+      }
+
+    class ProductAPI < Terminal::BaseModel
+      attr_accessor id: String
+
+      attr_accessor description: String
+
+      attr_accessor filters: Array[Terminal::Models::ProductAPI::filter]
+
+      attr_accessor name: String
+
+      attr_accessor variants: Array[Terminal::Models::ProductVariant]
+
+      attr_reader order: Integer?
+
+      def order=: (Integer) -> void
+
+      attr_reader subscription: Terminal::Models::ProductAPI::subscription?
+
+      def subscription=: (Terminal::Models::ProductAPI::subscription) -> void
+
+      attr_reader tags: Hash[Symbol, String]?
+
+      def tags=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          id: String,
+          description: String,
+          filters: Array[Terminal::Models::ProductAPI::filter],
+          name: String,
+          variants: Array[Terminal::Models::ProductVariant],
+          order: Integer,
+          subscription: Terminal::Models::ProductAPI::subscription,
+          tags: Hash[Symbol, String]
+        ) -> void
+        | (?Terminal::Models::product_api | Terminal::BaseModel data) -> void
+
+      def to_hash: -> Terminal::Models::product_api
+
+      type filter = :eu | :na
+
+      class Filter < Terminal::Enum
+        EU: :eu
+        NA: :na
+
+        def self.values: -> Array[Terminal::Models::ProductAPI::filter]
+      end
+
+      type subscription = :allowed | :required
+
+      class Subscription < Terminal::Enum
+        ALLOWED: :allowed
+        REQUIRED: :required
+
+        def self.values: -> Array[Terminal::Models::ProductAPI::subscription]
+      end
+    end
+  end
+end

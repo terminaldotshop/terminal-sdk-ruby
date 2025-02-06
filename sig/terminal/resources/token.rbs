@@ -1,0 +1,43 @@
+module Terminal
+  module Resources
+    class Token
+      def create:
+        (
+          ?Terminal::Models::TokenCreateParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::TokenCreateResponse
+        | (
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::TokenCreateResponse
+
+      def list:
+        (
+          ?Terminal::Models::TokenListParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::TokenListResponse
+        | (
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::TokenListResponse
+
+      def delete:
+        (
+          String id,
+          ?Terminal::Models::TokenDeleteParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::TokenDeleteResponse
+        | (
+          String id,
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::TokenDeleteResponse
+
+      def get:
+        (
+          String id,
+          ?Terminal::Models::TokenGetParams | Hash[Symbol, top] params
+        ) -> Terminal::Models::TokenGetResponse
+        | (
+          String id,
+          request_options: Terminal::request_opts
+        ) -> Terminal::Models::TokenGetResponse
+
+      def initialize: (client: Terminal::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,17 @@
+module Terminal
+  module Models
+    type address_delete_response = { data: :ok }
+
+    class AddressDeleteResponse < Terminal::BaseModel
+      attr_accessor data: :ok
+
+      def initialize:
+        (data: :ok) -> void
+        | (
+          ?Terminal::Models::address_delete_response | Terminal::BaseModel data
+        ) -> void
+
+      def to_hash: -> Terminal::Models::address_delete_response
+    end
+  end
+end

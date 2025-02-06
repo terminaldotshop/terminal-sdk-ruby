@@ -1,0 +1,98 @@
+module Terminal
+  class Error < StandardError
+    attr_reader cause: StandardError?
+  end
+
+  class ConversionError < Terminal::Error
+  end
+
+  class APIError < Terminal::Error
+    attr_reader url: URI::Generic
+
+    attr_reader status: Integer?
+
+    attr_reader body: top?
+
+    def initialize: (
+      url: URI::Generic,
+      status: Integer?,
+      body: Object?,
+      request: nil,
+      response: nil,
+      message: String?
+    ) -> void
+  end
+
+  class APIConnectionError < Terminal::APIError
+    def initialize: (
+      url: URI::Generic,
+      status: nil,
+      body: nil,
+      request: nil,
+      response: nil,
+      message: String?
+    ) -> void
+  end
+
+  class APITimeoutError < Terminal::APIConnectionError
+    def initialize: (
+      url: URI::Generic,
+      status: nil,
+      body: nil,
+      request: nil,
+      response: nil,
+      message: String?
+    ) -> void
+  end
+
+  class APIStatusError < Terminal::APIError
+    def self.for: (
+      url: URI::Generic,
+      status: Integer,
+      body: Object?,
+      request: nil,
+      response: nil
+    ) -> instance
+
+    def initialize: (
+      url: URI::Generic,
+      status: Integer,
+      body: Object?,
+      request: nil,
+      response: nil,
+      message: String?
+    ) -> void
+  end
+
+  class BadRequestError < Terminal::APIStatusError
+    HTTP_STATUS: 400
+  end
+
+  class AuthenticationError < Terminal::APIStatusError
+    HTTP_STATUS: 401
+  end
+
+  class PermissionDeniedError < Terminal::APIStatusError
+    HTTP_STATUS: 403
+  end
+
+  class NotFoundError < Terminal::APIStatusError
+    HTTP_STATUS: 404
+  end
+
+  class ConflictError < Terminal::APIStatusError
+    HTTP_STATUS: 409
+  end
+
+  class UnprocessableEntityError < Terminal::APIStatusError
+    HTTP_STATUS: 422
+  end
+
+  class RateLimitError < Terminal::APIStatusError
+    HTTP_STATUS: 429
+  end
+
+  class InternalServerError < Terminal::APIStatusError
+    HTTP_STATUS: Range[Integer]
+  end
+end
