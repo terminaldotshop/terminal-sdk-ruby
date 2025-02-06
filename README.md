@@ -7,7 +7,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-Documentation for the most recent release of this gem can be found [on RubyDoc](https://gemdocs.org/gems/terminal/latest).
+Documentation for the most recent release of this gem can be found [on RubyDoc](https://gemdocs.org/gems/terminal-shop/latest).
 
 The underlying REST API documentation can be found on [terminal.shop](https://terminal.shop/docs).
 
@@ -17,7 +17,7 @@ To use this gem during the beta, install directly from GitHub with Bundler by
 adding the following to your application's `Gemfile`:
 
 ```ruby
-gem "terminal", git: "https://github.com/stainless-sdks/terminal-ruby", branch: "main"
+gem "terminal-shop", git: "https://github.com/stainless-sdks/terminal-ruby", branch: "main"
 ```
 
 To fetch an initial copy of the gem:
@@ -30,16 +30,16 @@ To update the version used by your application when updates are pushed to
 GitHub:
 
 ```sh
-bundle update terminal
+bundle update terminal-shop
 ```
 
 ## Usage
 
 ```ruby
 require "bundler/setup"
-require "terminal"
+require "terminal-shop"
 
-terminal = Terminal::Client.new(
+terminal = TerminalShop::Client.new(
   bearer_token: "My Bearer Token", # defaults to ENV["TERMINAL_BEARER_TOKEN"]
   environment: "sandbox" # defaults to "production"
 )
@@ -53,12 +53,12 @@ puts(product.data)
 
 When the library is unable to connect to the API, or if the API returns a
 non-success status code (i.e., 4xx or 5xx response), a subclass of
-`Terminal::Error` will be thrown:
+`TerminalShop::Error` will be thrown:
 
 ```ruby
 begin
   product = terminal.product.list
-rescue Terminal::Error => e
+rescue TerminalShop::Error => e
   puts(e.status) # 400
 end
 ```
@@ -90,7 +90,7 @@ You can use the `max_retries` option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
-terminal = Terminal::Client.new(
+terminal = TerminalShop::Client.new(
   max_retries: 0 # default is 2
 )
 
@@ -108,7 +108,7 @@ You can use the `timeout` option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
-terminal = Terminal::Client.new(
+terminal = TerminalShop::Client.new(
   timeout: nil # default is 60
 )
 

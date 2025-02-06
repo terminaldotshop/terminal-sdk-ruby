@@ -1,0 +1,22 @@
+module TerminalShop
+  module Models
+    type email_create_params =
+      { email: String } & TerminalShop::request_parameters
+
+    class EmailCreateParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      attr_accessor email: String
+
+      def initialize:
+        (email: String, request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::email_create_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::email_create_params
+    end
+  end
+end

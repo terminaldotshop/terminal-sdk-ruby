@@ -1,0 +1,60 @@
+module TerminalShop
+  module Models
+    type subscription_api =
+      {
+        id: String,
+        address_id: String,
+        card_id: String,
+        frequency: TerminalShop::Models::SubscriptionAPI::frequency,
+        product_variant_id: String,
+        quantity: Integer,
+        next_: String
+      }
+
+    class SubscriptionAPI < TerminalShop::BaseModel
+      attr_accessor id: String
+
+      attr_accessor address_id: String
+
+      attr_accessor card_id: String
+
+      attr_accessor frequency: TerminalShop::Models::SubscriptionAPI::frequency
+
+      attr_accessor product_variant_id: String
+
+      attr_accessor quantity: Integer
+
+      attr_reader next_: String?
+
+      def next_=: (String) -> void
+
+      def initialize:
+        (
+          id: String,
+          address_id: String,
+          card_id: String,
+          frequency: TerminalShop::Models::SubscriptionAPI::frequency,
+          product_variant_id: String,
+          quantity: Integer,
+          next_: String
+        ) -> void
+        | (
+          ?TerminalShop::Models::subscription_api | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::subscription_api
+
+      type frequency = :fixed | :daily | :weekly | :monthly | :yearly
+
+      class Frequency < TerminalShop::Enum
+        FIXED: :fixed
+        DAILY: :daily
+        WEEKLY: :weekly
+        MONTHLY: :monthly
+        YEARLY: :yearly
+
+        def self.values: -> Array[TerminalShop::Models::SubscriptionAPI::frequency]
+      end
+    end
+  end
+end

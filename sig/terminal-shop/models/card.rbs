@@ -1,0 +1,51 @@
+module TerminalShop
+  module Models
+    type card_api =
+      {
+        id: String,
+        brand: String,
+        expiration: TerminalShop::Models::CardAPI::Expiration,
+        :last4 => String
+      }
+
+    class CardAPI < TerminalShop::BaseModel
+      attr_accessor id: String
+
+      attr_accessor brand: String
+
+      attr_accessor expiration: TerminalShop::Models::CardAPI::Expiration
+
+      attr_accessor last4: String
+
+      def initialize:
+        (
+          id: String,
+          brand: String,
+          expiration: TerminalShop::Models::CardAPI::Expiration,
+          last4: String
+        ) -> void
+        | (
+          ?TerminalShop::Models::card_api | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::card_api
+
+      type expiration = { month: Integer, year: Integer }
+
+      class Expiration < TerminalShop::BaseModel
+        attr_accessor month: Integer
+
+        attr_accessor year: Integer
+
+        def initialize:
+          (month: Integer, year: Integer) -> void
+          | (
+            ?TerminalShop::Models::CardAPI::expiration
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::CardAPI::expiration
+      end
+    end
+  end
+end

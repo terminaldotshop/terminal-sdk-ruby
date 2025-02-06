@@ -1,0 +1,21 @@
+module TerminalShop
+  module Models
+    type product_variant = { id: String, name: String, price: Integer }
+
+    class ProductVariant < TerminalShop::BaseModel
+      attr_accessor id: String
+
+      attr_accessor name: String
+
+      attr_accessor price: Integer
+
+      def initialize:
+        (id: String, name: String, price: Integer) -> void
+        | (
+          ?TerminalShop::Models::product_variant | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::product_variant
+    end
+  end
+end

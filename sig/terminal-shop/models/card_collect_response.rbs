@@ -1,0 +1,34 @@
+module TerminalShop
+  module Models
+    type card_collect_response =
+      { data: TerminalShop::Models::CardCollectResponse::Data }
+
+    class CardCollectResponse < TerminalShop::BaseModel
+      attr_accessor data: TerminalShop::Models::CardCollectResponse::Data
+
+      def initialize:
+        (data: TerminalShop::Models::CardCollectResponse::Data) -> void
+        | (
+          ?TerminalShop::Models::card_collect_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::card_collect_response
+
+      type data = { url: String }
+
+      class Data < TerminalShop::BaseModel
+        attr_accessor url: String
+
+        def initialize:
+          (url: String) -> void
+          | (
+            ?TerminalShop::Models::CardCollectResponse::data
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::CardCollectResponse::data
+      end
+    end
+  end
+end

@@ -1,4 +1,0 @@
-module Terminal
-  module Extern
-  end
-end

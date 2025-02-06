@@ -77,9 +77,9 @@ multitask(typecheck: [:steep, :sorbet])
 multitask(lint: [:rubocop, :typecheck])
 
 multitask(:build) do
-  sh(*%w[gem build -- terminal.gemspec])
+  sh(*%w[gem build -- terminal-shop.gemspec])
 end
 
 multitask(release: [:build]) do
-  sh(*%w[gem push], *FileList["terminal-*.gem"])
+  sh(*%w[gem push], *FileList["terminal-shop-*.gem"])
 end

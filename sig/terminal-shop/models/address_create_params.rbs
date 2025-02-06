@@ -1,0 +1,62 @@
+module TerminalShop
+  module Models
+    type address_create_params =
+      {
+        city: String,
+        country: String,
+        name: String,
+        :street1 => String,
+        zip: String,
+        phone: String,
+        province: String,
+        :street2 => String
+      }
+      & TerminalShop::request_parameters
+
+    class AddressCreateParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      attr_accessor city: String
+
+      attr_accessor country: String
+
+      attr_accessor name: String
+
+      attr_accessor street1: String
+
+      attr_accessor zip: String
+
+      attr_reader phone: String?
+
+      def phone=: (String) -> void
+
+      attr_reader province: String?
+
+      def province=: (String) -> void
+
+      attr_reader street2: String?
+
+      def street2=: (String) -> void
+
+      def initialize:
+        (
+          city: String,
+          country: String,
+          name: String,
+          street1: String,
+          zip: String,
+          phone: String,
+          province: String,
+          street2: String,
+          request_options: TerminalShop::request_opts
+        ) -> void
+        | (
+          ?TerminalShop::Models::address_create_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::address_create_params
+    end
+  end
+end

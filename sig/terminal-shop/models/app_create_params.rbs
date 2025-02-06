@@ -1,0 +1,19 @@
+module TerminalShop
+  module Models
+    type app_create_params = {  } & TerminalShop::request_parameters
+
+    class AppCreateParams < TerminalShop::Models::AppAPI
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      def initialize:
+        (request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::app_create_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::app_create_params
+    end
+  end
+end

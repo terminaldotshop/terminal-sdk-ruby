@@ -124,8 +124,8 @@ Layout/LineLength:
   Max: 110
   AllowedPatterns:
     - '^(\s*#)' # Comments for YARD docs: @param and similar.
-    - '= Terminal::Resources::\S+\.new\(client: (self|client)\)$' # Instantiating resources.
-    - '^\s*(-> { )?Terminal::Models::[a-zA-Z0-9:]+( })?$' # Line is entirely a reference to a fully-qualified Model.
+    - '= TerminalShop::Resources::\S+\.new\(client: (self|client)\)$' # Instantiating resources.
+    - '^\s*(-> { )?TerminalShop::Models::[a-zA-Z0-9:]+( })?$' # Line is entirely a reference to a fully-qualified Model.
 
 # Start the assignment on the same line variable is mentioned.
 Layout/MultilineAssignmentLayout:

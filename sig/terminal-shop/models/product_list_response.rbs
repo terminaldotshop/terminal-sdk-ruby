@@ -1,0 +1,19 @@
+module TerminalShop
+  module Models
+    type product_list_response =
+      { data: Array[TerminalShop::Models::ProductAPI] }
+
+    class ProductListResponse < TerminalShop::BaseModel
+      attr_accessor data: Array[TerminalShop::Models::ProductAPI]
+
+      def initialize:
+        (data: Array[TerminalShop::Models::ProductAPI]) -> void
+        | (
+          ?TerminalShop::Models::product_list_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::product_list_response
+    end
+  end
+end
