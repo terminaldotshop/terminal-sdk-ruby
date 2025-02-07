@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-02-07)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Chores
+
+* **internal:** version bump ([#18](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/18)) ([7992768](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7992768d850c6f922ce8d77752fb837c71d782ab))
+
 ## 0.1.0-alpha.5 (2025-02-07)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
