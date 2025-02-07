@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.1 (2025-02-07)
+
+Full Changelog: [v0.0.1-alpha.2...v0.1.0-alpha.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.0.1-alpha.2...v0.1.0-alpha.1)
+
+### Features
+
+* bundle typing manifests with gem release ([#9](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/9)) ([8ef8493](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8ef849304a65d8bfd63d883fa0ef8f834331b1ee))
+
+
+### Chores
+
+* do not git ignore `bin/` ([#8](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/8)) ([770b67f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/770b67fd1d8e39d315d00f0630bb7778ab8bde6c))
+* **internal:** codegen related update ([#6](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/6)) ([43c6885](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/43c688587b8af23dd4315db6452e86dd20884df5))
+
 ## 0.0.1-alpha.2 (2025-02-07)
 
 Full Changelog: [v0.0.1-alpha.1...v0.0.1-alpha.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.0.1-alpha.1...v0.0.1-alpha.2)
