@@ -4,7 +4,7 @@ module TerminalShop
       {
         id: String,
         amount: TerminalShop::Models::OrderAPI::Amount,
-        items: Array[TerminalShop::Models::OrderAPI::Item],
+        items: ::Array[TerminalShop::Models::OrderAPI::Item],
         shipping: TerminalShop::Models::OrderAPI::Shipping,
         tracking: TerminalShop::Models::OrderAPI::Tracking,
         index: Integer
@@ -15,7 +15,7 @@ module TerminalShop
 
       attr_accessor amount: TerminalShop::Models::OrderAPI::Amount
 
-      attr_accessor items: Array[TerminalShop::Models::OrderAPI::Item]
+      attr_accessor items: ::Array[TerminalShop::Models::OrderAPI::Item]
 
       attr_accessor shipping: TerminalShop::Models::OrderAPI::Shipping
 
@@ -29,7 +29,7 @@ module TerminalShop
         (
           id: String,
           amount: TerminalShop::Models::OrderAPI::Amount,
-          items: Array[TerminalShop::Models::OrderAPI::Item],
+          items: ::Array[TerminalShop::Models::OrderAPI::Item],
           shipping: TerminalShop::Models::OrderAPI::Shipping,
           tracking: TerminalShop::Models::OrderAPI::Tracking,
           index: Integer
