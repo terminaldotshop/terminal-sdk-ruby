@@ -1,12 +1,12 @@
 module TerminalShop
   module Models
-    type app_list_response = { data: Array[TerminalShop::Models::AppAPI] }
+    type app_list_response = { data: ::Array[TerminalShop::Models::AppAPI] }
 
     class AppListResponse < TerminalShop::BaseModel
-      attr_accessor data: Array[TerminalShop::Models::AppAPI]
+      attr_accessor data: ::Array[TerminalShop::Models::AppAPI]
 
       def initialize:
-        (data: Array[TerminalShop::Models::AppAPI]) -> void
+        (data: ::Array[TerminalShop::Models::AppAPI]) -> void
         | (
           ?TerminalShop::Models::app_list_response
           | TerminalShop::BaseModel data

@@ -3,7 +3,7 @@ module TerminalShop
     class Address
       def create:
         (
-          TerminalShop::Models::AddressCreateParams | Hash[Symbol, top] params
+          TerminalShop::Models::AddressCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AddressCreateResponse
         | (
           city: String,
@@ -19,7 +19,7 @@ module TerminalShop
 
       def list:
         (
-          ?TerminalShop::Models::AddressListParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::AddressListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AddressListResponse
         | (
           request_options: TerminalShop::request_opts
@@ -28,7 +28,8 @@ module TerminalShop
       def delete:
         (
           String id,
-          ?TerminalShop::Models::AddressDeleteParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::AddressDeleteParams
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AddressDeleteResponse
         | (
           String id,

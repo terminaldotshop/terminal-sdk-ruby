@@ -3,7 +3,7 @@ module TerminalShop
     class Cart
       def convert:
         (
-          ?TerminalShop::Models::CartConvertParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::CartConvertParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartConvertResponse
         | (
           request_options: TerminalShop::request_opts
@@ -11,7 +11,7 @@ module TerminalShop
 
       def get:
         (
-          ?TerminalShop::Models::CartGetParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::CartGetParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartGetResponse
         | (
           request_options: TerminalShop::request_opts
@@ -19,7 +19,8 @@ module TerminalShop
 
       def set_address:
         (
-          TerminalShop::Models::CartSetAddressParams | Hash[Symbol, top] params
+          TerminalShop::Models::CartSetAddressParams
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartSetAddressResponse
         | (
           address_id: String,
@@ -28,7 +29,7 @@ module TerminalShop
 
       def set_card:
         (
-          TerminalShop::Models::CartSetCardParams | Hash[Symbol, top] params
+          TerminalShop::Models::CartSetCardParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartSetCardResponse
         | (
           card_id: String,
@@ -37,7 +38,7 @@ module TerminalShop
 
       def set_item:
         (
-          TerminalShop::Models::CartSetItemParams | Hash[Symbol, top] params
+          TerminalShop::Models::CartSetItemParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartSetItemResponse
         | (
           product_variant_id: String,

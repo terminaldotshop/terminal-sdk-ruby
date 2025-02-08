@@ -3,7 +3,7 @@ module TerminalShop
     class Email
       def create:
         (
-          TerminalShop::Models::EmailCreateParams | Hash[Symbol, top] params
+          TerminalShop::Models::EmailCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::EmailCreateResponse
         | (
           email: String,

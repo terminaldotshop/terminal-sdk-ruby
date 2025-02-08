@@ -1,12 +1,12 @@
 module TerminalShop
   module Models
-    type token_list_response = { data: Array[TerminalShop::Models::TokenAPI] }
+    type token_list_response = { data: ::Array[TerminalShop::Models::TokenAPI] }
 
     class TokenListResponse < TerminalShop::BaseModel
-      attr_accessor data: Array[TerminalShop::Models::TokenAPI]
+      attr_accessor data: ::Array[TerminalShop::Models::TokenAPI]
 
       def initialize:
-        (data: Array[TerminalShop::Models::TokenAPI]) -> void
+        (data: ::Array[TerminalShop::Models::TokenAPI]) -> void
         | (
           ?TerminalShop::Models::token_list_response
           | TerminalShop::BaseModel data
