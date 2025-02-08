@@ -1,13 +1,13 @@
 module TerminalShop
   module Models
     type subscription_list_response =
-      { data: Array[TerminalShop::Models::SubscriptionAPI] }
+      { data: ::Array[TerminalShop::Models::SubscriptionAPI] }
 
     class SubscriptionListResponse < TerminalShop::BaseModel
-      attr_accessor data: Array[TerminalShop::Models::SubscriptionAPI]
+      attr_accessor data: ::Array[TerminalShop::Models::SubscriptionAPI]
 
       def initialize:
-        (data: Array[TerminalShop::Models::SubscriptionAPI]) -> void
+        (data: ::Array[TerminalShop::Models::SubscriptionAPI]) -> void
         | (
           ?TerminalShop::Models::subscription_list_response
           | TerminalShop::BaseModel data

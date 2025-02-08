@@ -53,7 +53,7 @@ module TerminalShop
         MONTHLY: :monthly
         YEARLY: :yearly
 
-        def self.values: -> Array[TerminalShop::Models::SubscriptionAPI::frequency]
+        def self.values: -> ::Array[TerminalShop::Models::SubscriptionAPI::frequency]
       end
     end
   end
