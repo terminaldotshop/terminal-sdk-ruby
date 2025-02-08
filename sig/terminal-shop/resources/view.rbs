@@ -3,7 +3,7 @@ module TerminalShop
     class View
       def init:
         (
-          ?TerminalShop::Models::ViewInitParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::ViewInitParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::ViewInitResponse
         | (
           request_options: TerminalShop::request_opts

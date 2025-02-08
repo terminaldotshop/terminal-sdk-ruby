@@ -3,7 +3,8 @@ module TerminalShop
     class Profile
       def update:
         (
-          ?TerminalShop::Models::ProfileUpdateParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::ProfileUpdateParams
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::ProfileUpdateResponse
         | (
           email: String?,
@@ -13,7 +14,7 @@ module TerminalShop
 
       def me:
         (
-          ?TerminalShop::Models::ProfileMeParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::ProfileMeParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::ProfileMeResponse
         | (
           request_options: TerminalShop::request_opts

@@ -3,7 +3,7 @@ module TerminalShop
     class Card
       def create:
         (
-          TerminalShop::Models::CardCreateParams | Hash[Symbol, top] params
+          TerminalShop::Models::CardCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardCreateResponse
         | (
           token: String,
@@ -12,7 +12,7 @@ module TerminalShop
 
       def list:
         (
-          ?TerminalShop::Models::CardListParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::CardListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardListResponse
         | (
           request_options: TerminalShop::request_opts
@@ -21,7 +21,7 @@ module TerminalShop
       def delete:
         (
           String id,
-          ?TerminalShop::Models::CardDeleteParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::CardDeleteParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardDeleteResponse
         | (
           String id,
@@ -30,7 +30,7 @@ module TerminalShop
 
       def collect:
         (
-          ?TerminalShop::Models::CardCollectParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::CardCollectParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardCollectResponse
         | (
           request_options: TerminalShop::request_opts
