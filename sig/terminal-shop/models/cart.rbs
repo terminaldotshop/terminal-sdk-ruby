@@ -3,7 +3,7 @@ module TerminalShop
     type cart_api =
       {
         amount: TerminalShop::Models::CartAPI::Amount,
-        items: Array[TerminalShop::Models::CartAPI::Item],
+        items: ::Array[TerminalShop::Models::CartAPI::Item],
         subtotal: Integer,
         address_id: String,
         card_id: String,
@@ -13,7 +13,7 @@ module TerminalShop
     class CartAPI < TerminalShop::BaseModel
       attr_accessor amount: TerminalShop::Models::CartAPI::Amount
 
-      attr_accessor items: Array[TerminalShop::Models::CartAPI::Item]
+      attr_accessor items: ::Array[TerminalShop::Models::CartAPI::Item]
 
       attr_accessor subtotal: Integer
 
@@ -32,7 +32,7 @@ module TerminalShop
       def initialize:
         (
           amount: TerminalShop::Models::CartAPI::Amount,
-          items: Array[TerminalShop::Models::CartAPI::Item],
+          items: ::Array[TerminalShop::Models::CartAPI::Item],
           subtotal: Integer,
           address_id: String,
           card_id: String,

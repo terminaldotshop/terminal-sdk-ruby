@@ -3,7 +3,7 @@ module TerminalShop
     class App
       def create:
         (
-          TerminalShop::Models::AppCreateParams | Hash[Symbol, top] params
+          TerminalShop::Models::AppCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppCreateResponse
         | (
           id: String,
@@ -14,7 +14,7 @@ module TerminalShop
 
       def list:
         (
-          ?TerminalShop::Models::AppListParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::AppListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppListResponse
         | (
           request_options: TerminalShop::request_opts
@@ -23,7 +23,7 @@ module TerminalShop
       def delete:
         (
           String id,
-          ?TerminalShop::Models::AppDeleteParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::AppDeleteParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppDeleteResponse
         | (
           String id,
@@ -33,7 +33,7 @@ module TerminalShop
       def get:
         (
           String id,
-          ?TerminalShop::Models::AppGetParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::AppGetParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppGetResponse
         | (
           String id,

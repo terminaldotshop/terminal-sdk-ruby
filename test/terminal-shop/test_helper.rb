@@ -9,7 +9,7 @@
 require_relative "../../lib/terminal-shop"
 require_relative "test_namespaces"
 
-require "minitest"
+require "minitest/autorun"
 require "minitest/focus"
 require "minitest/hooks/test"
 
@@ -32,8 +32,8 @@ module Kernel
   alias_method :_sleep, :sleep
 
   def sleep(secs)
-    case (counter = Thread.current.thread_variable_get(:mock_sleep))
-    in Array
+    case Thread.current.thread_variable_get(:mock_sleep)
+    in Array => counter
       counter << secs
       secs
     else

@@ -4,7 +4,7 @@ module TerminalShop
       def create:
         (
           TerminalShop::Models::SubscriptionCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::SubscriptionCreateResponse
         | (
           id: String,
@@ -20,7 +20,7 @@ module TerminalShop
       def list:
         (
           ?TerminalShop::Models::SubscriptionListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::SubscriptionListResponse
         | (
           request_options: TerminalShop::request_opts
@@ -30,7 +30,7 @@ module TerminalShop
         (
           String id,
           ?TerminalShop::Models::SubscriptionDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::SubscriptionDeleteResponse
         | (
           String id,

@@ -37,7 +37,7 @@ module TerminalShop
 
     attr_reader view: TerminalShop::Resources::View
 
-    private def auth_headers: -> Hash[String, String]
+    private def auth_headers: -> ::Hash[String, String]
 
     def initialize: (
       environment: :production | :sandbox | nil,

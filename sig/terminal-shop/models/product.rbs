@@ -4,12 +4,12 @@ module TerminalShop
       {
         id: String,
         description: String,
-        filters: Array[TerminalShop::Models::ProductAPI::filter],
+        filters: ::Array[TerminalShop::Models::ProductAPI::filter],
         name: String,
-        variants: Array[TerminalShop::Models::ProductVariant],
+        variants: ::Array[TerminalShop::Models::ProductVariant],
         order: Integer,
         subscription: TerminalShop::Models::ProductAPI::subscription,
-        tags: Hash[Symbol, String]
+        tags: ::Hash[Symbol, String]
       }
 
     class ProductAPI < TerminalShop::BaseModel
@@ -17,11 +17,11 @@ module TerminalShop
 
       attr_accessor description: String
 
-      attr_accessor filters: Array[TerminalShop::Models::ProductAPI::filter]
+      attr_accessor filters: ::Array[TerminalShop::Models::ProductAPI::filter]
 
       attr_accessor name: String
 
-      attr_accessor variants: Array[TerminalShop::Models::ProductVariant]
+      attr_accessor variants: ::Array[TerminalShop::Models::ProductVariant]
 
       attr_reader order: Integer?
 
@@ -33,20 +33,20 @@ module TerminalShop
         TerminalShop::Models::ProductAPI::subscription
       ) -> void
 
-      attr_reader tags: Hash[Symbol, String]?
+      attr_reader tags: ::Hash[Symbol, String]?
 
-      def tags=: (Hash[Symbol, String]) -> void
+      def tags=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
           id: String,
           description: String,
-          filters: Array[TerminalShop::Models::ProductAPI::filter],
+          filters: ::Array[TerminalShop::Models::ProductAPI::filter],
           name: String,
-          variants: Array[TerminalShop::Models::ProductVariant],
+          variants: ::Array[TerminalShop::Models::ProductVariant],
           order: Integer,
           subscription: TerminalShop::Models::ProductAPI::subscription,
-          tags: Hash[Symbol, String]
+          tags: ::Hash[Symbol, String]
         ) -> void
         | (
           ?TerminalShop::Models::product_api | TerminalShop::BaseModel data
@@ -60,7 +60,7 @@ module TerminalShop
         EU: :eu
         NA: :na
 
-        def self.values: -> Array[TerminalShop::Models::ProductAPI::filter]
+        def self.values: -> ::Array[TerminalShop::Models::ProductAPI::filter]
       end
 
       type subscription = :allowed | :required
@@ -69,7 +69,7 @@ module TerminalShop
         ALLOWED: :allowed
         REQUIRED: :required
 
-        def self.values: -> Array[TerminalShop::Models::ProductAPI::subscription]
+        def self.values: -> ::Array[TerminalShop::Models::ProductAPI::subscription]
       end
     end
   end

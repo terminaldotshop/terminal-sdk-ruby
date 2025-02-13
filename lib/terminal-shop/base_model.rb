@@ -586,7 +586,7 @@ module TerminalShop
       case other
       in Array
         # rubocop:disable Style/CaseEquality
-        other.all? { |item| type === item }
+        other.all? { type === _1 }
         # rubocop:enable Style/CaseEquality
       else
         false
@@ -609,7 +609,7 @@ module TerminalShop
       type = item_type
       case value
       in Enumerable unless value.is_a?(Hash)
-        value.map { |item| TerminalShop::Converter.coerce(type, item) }
+        value.map { TerminalShop::Converter.coerce(type, _1) }
       else
         value
       end
@@ -625,7 +625,7 @@ module TerminalShop
       type = item_type
       case value
       in Enumerable unless value.is_a?(Hash)
-        value.map { |item| TerminalShop::Converter.dump(type, item) }.to_a
+        value.map { TerminalShop::Converter.dump(type, _1) }.to_a
       else
         value
       end
@@ -906,7 +906,7 @@ module TerminalShop
       setter = "#{name_sym}="
 
       if known_fields.key?(name_sym)
-        [name_sym, setter].each { |name| undef_method(name) }
+        [name_sym, setter].each { undef_method(_1) }
       end
 
       known_fields[name_sym] = {mode: @mode, key: key, required: required, type_fn: type_fn}
@@ -1015,8 +1015,8 @@ module TerminalShop
     # @return [TerminalShop::BaseModel, Object]
     #
     def self.coerce(value)
-      case (coerced = TerminalShop::Util.coerce_hash(value))
-      in Hash
+      case TerminalShop::Util.coerce_hash(value)
+      in Hash => coerced
         new(coerced)
       else
         value
@@ -1166,8 +1166,8 @@ module TerminalShop
     # @param data [Hash{Symbol=>Object}, TerminalShop::BaseModel]
     #
     def initialize(data = {})
-      case (coerced = TerminalShop::Util.coerce_hash(data))
-      in Hash
+      case TerminalShop::Util.coerce_hash(data)
+      in Hash => coerced
         @data = coerced.transform_keys(&:to_sym)
       else
         raise ArgumentError.new("Expected a #{Hash} or #{TerminalShop::BaseModel}, got #{data.inspect}")

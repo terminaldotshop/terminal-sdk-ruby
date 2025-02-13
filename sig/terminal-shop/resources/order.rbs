@@ -3,7 +3,7 @@ module TerminalShop
     class Order
       def list:
         (
-          ?TerminalShop::Models::OrderListParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::OrderListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::OrderListResponse
         | (
           request_options: TerminalShop::request_opts
@@ -12,7 +12,7 @@ module TerminalShop
       def get:
         (
           String id,
-          ?TerminalShop::Models::OrderGetParams | Hash[Symbol, top] params
+          ?TerminalShop::Models::OrderGetParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::OrderGetResponse
         | (
           String id,
