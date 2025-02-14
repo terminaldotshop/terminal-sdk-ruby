@@ -25,17 +25,17 @@ module TerminalShop
 
       attr_reader order: Integer?
 
-      def order=: (Integer) -> void
+      def order=: (Integer) -> Integer
 
       attr_reader subscription: TerminalShop::Models::ProductAPI::subscription?
 
       def subscription=: (
         TerminalShop::Models::ProductAPI::subscription
-      ) -> void
+      ) -> TerminalShop::Models::ProductAPI::subscription
 
       attr_reader tags: ::Hash[Symbol, String]?
 
-      def tags=: (::Hash[Symbol, String]) -> void
+      def tags=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize:
         (

@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :card_id
+      def card_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def card_id=(_)
+      end
 
       sig do
         params(

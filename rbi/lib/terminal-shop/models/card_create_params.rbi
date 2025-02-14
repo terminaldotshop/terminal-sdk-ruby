@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :token
+      def token
+      end
+
+      sig { params(_: String).returns(String) }
+      def token=(_)
+      end
 
       sig do
         params(

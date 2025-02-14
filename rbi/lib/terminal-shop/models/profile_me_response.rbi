@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class ProfileMeResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::ProfileAPI) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: TerminalShop::Models::ProfileAPI).returns(TerminalShop::Models::ProfileAPI) }
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::ProfileAPI).void }
       def initialize(data:)

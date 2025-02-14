@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CartSetItemResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::CartAPI) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: TerminalShop::Models::CartAPI).returns(TerminalShop::Models::CartAPI) }
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::CartAPI).void }
       def initialize(data:)

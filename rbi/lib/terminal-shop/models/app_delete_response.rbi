@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class AppDeleteResponse < TerminalShop::BaseModel
       sig { returns(Symbol) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def data=(_)
+      end
 
       sig { params(data: Symbol).void }
       def initialize(data: :ok)
