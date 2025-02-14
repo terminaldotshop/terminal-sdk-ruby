@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CartConvertResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::OrderAPI) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: TerminalShop::Models::OrderAPI).returns(TerminalShop::Models::OrderAPI) }
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::OrderAPI).void }
       def initialize(data:)

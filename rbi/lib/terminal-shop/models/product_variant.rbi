@@ -4,13 +4,28 @@ module TerminalShop
   module Models
     class ProductVariant < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :price
+      def price
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def price=(_)
+      end
 
       sig { params(id: String, name: String, price: Integer).void }
       def initialize(id:, name:, price:)

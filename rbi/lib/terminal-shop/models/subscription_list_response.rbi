@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class SubscriptionListResponse < TerminalShop::BaseModel
       sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::SubscriptionAPI]).returns(T::Array[TerminalShop::Models::SubscriptionAPI])
+      end
+      def data=(_)
+      end
 
       sig { params(data: T::Array[TerminalShop::Models::SubscriptionAPI]).void }
       def initialize(data:)

@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CardCreateResponse < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: String).returns(String) }
+      def data=(_)
+      end
 
       sig { params(data: String).void }
       def initialize(data:)

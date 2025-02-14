@@ -4,25 +4,60 @@ module TerminalShop
   module Models
     class OrderAPI < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(TerminalShop::Models::OrderAPI::Amount) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig do
+        params(_: TerminalShop::Models::OrderAPI::Amount).returns(TerminalShop::Models::OrderAPI::Amount)
+      end
+      def amount=(_)
+      end
 
       sig { returns(T::Array[TerminalShop::Models::OrderAPI::Item]) }
-      attr_accessor :items
+      def items
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::OrderAPI::Item]).returns(T::Array[TerminalShop::Models::OrderAPI::Item])
+      end
+      def items=(_)
+      end
 
       sig { returns(TerminalShop::Models::OrderAPI::Shipping) }
-      attr_accessor :shipping
+      def shipping
+      end
+
+      sig do
+        params(_: TerminalShop::Models::OrderAPI::Shipping).returns(TerminalShop::Models::OrderAPI::Shipping)
+      end
+      def shipping=(_)
+      end
 
       sig { returns(TerminalShop::Models::OrderAPI::Tracking) }
-      attr_accessor :tracking
+      def tracking
+      end
+
+      sig do
+        params(_: TerminalShop::Models::OrderAPI::Tracking).returns(TerminalShop::Models::OrderAPI::Tracking)
+      end
+      def tracking=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :index
+      def index
+      end
 
-      sig { params(index: Integer).void }
-      attr_writer :index
+      sig { params(_: Integer).returns(Integer) }
+      def index=(_)
+      end
 
       sig do
         params(
@@ -54,10 +89,20 @@ module TerminalShop
 
       class Amount < TerminalShop::BaseModel
         sig { returns(Integer) }
-        attr_accessor :shipping
+        def shipping
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def shipping=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :subtotal
+        def subtotal
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def subtotal=(_)
+        end
 
         sig { params(shipping: Integer, subtotal: Integer).void }
         def initialize(shipping:, subtotal:)
@@ -70,25 +115,44 @@ module TerminalShop
 
       class Item < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :amount
+        def amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def amount=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :quantity
+        def quantity
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def quantity=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :description
+        def description
+        end
 
-        sig { params(description: String).void }
-        attr_writer :description
+        sig { params(_: String).returns(String) }
+        def description=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :product_variant_id
+        def product_variant_id
+        end
 
-        sig { params(product_variant_id: String).void }
-        attr_writer :product_variant_id
+        sig { params(_: String).returns(String) }
+        def product_variant_id=(_)
+        end
 
         sig do
           params(
@@ -119,37 +183,68 @@ module TerminalShop
 
       class Shipping < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :city
+        def city
+        end
+
+        sig { params(_: String).returns(String) }
+        def city=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: String).returns(String) }
+        def country=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :name
+        def name
+        end
+
+        sig { params(_: String).returns(String) }
+        def name=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :street1
+        def street1
+        end
+
+        sig { params(_: String).returns(String) }
+        def street1=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :zip
+        def zip
+        end
+
+        sig { params(_: String).returns(String) }
+        def zip=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :phone
+        def phone
+        end
 
-        sig { params(phone: String).void }
-        attr_writer :phone
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :province
-
-        sig { params(province: String).void }
-        attr_writer :province
+        sig { params(_: String).returns(String) }
+        def phone=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :street2
+        def province
+        end
 
-        sig { params(street2: String).void }
-        attr_writer :street2
+        sig { params(_: String).returns(String) }
+        def province=(_)
+        end
+
+        sig { returns(T.nilable(String)) }
+        def street2
+        end
+
+        sig { params(_: String).returns(String) }
+        def street2=(_)
+        end
 
         sig do
           params(
@@ -186,22 +281,28 @@ module TerminalShop
 
       class Tracking < TerminalShop::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_reader :number
+        def number
+        end
 
-        sig { params(number: String).void }
-        attr_writer :number
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :service
-
-        sig { params(service: String).void }
-        attr_writer :service
+        sig { params(_: String).returns(String) }
+        def number=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :url
+        def service
+        end
 
-        sig { params(url: String).void }
-        attr_writer :url
+        sig { params(_: String).returns(String) }
+        def service=(_)
+        end
+
+        sig { returns(T.nilable(String)) }
+        def url
+        end
+
+        sig { params(_: String).returns(String) }
+        def url=(_)
+        end
 
         sig { params(number: String, service: String, url: String).void }
         def initialize(number: nil, service: nil, url: nil)

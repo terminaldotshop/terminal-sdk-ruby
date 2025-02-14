@@ -19,15 +19,17 @@ module TerminalShop
 
       attr_reader address_id: String?
 
-      def address_id=: (String) -> void
+      def address_id=: (String) -> String
 
       attr_reader card_id: String?
 
-      def card_id=: (String) -> void
+      def card_id=: (String) -> String
 
       attr_reader shipping: TerminalShop::Models::CartAPI::Shipping?
 
-      def shipping=: (TerminalShop::Models::CartAPI::Shipping) -> void
+      def shipping=: (
+        TerminalShop::Models::CartAPI::Shipping
+      ) -> TerminalShop::Models::CartAPI::Shipping
 
       def initialize:
         (
@@ -51,7 +53,7 @@ module TerminalShop
 
         attr_reader shipping: Integer?
 
-        def shipping=: (Integer) -> void
+        def shipping=: (Integer) -> Integer
 
         def initialize:
           (subtotal: Integer, shipping: Integer) -> void
@@ -99,11 +101,11 @@ module TerminalShop
       class Shipping < TerminalShop::BaseModel
         attr_reader service: String?
 
-        def service=: (String) -> void
+        def service=: (String) -> String
 
         attr_reader timeframe: String?
 
-        def timeframe=: (String) -> void
+        def timeframe=: (String) -> String
 
         def initialize:
           (service: String, timeframe: String) -> void

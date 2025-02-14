@@ -4,13 +4,28 @@ module TerminalShop
   module Models
     class TokenAPI < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :token
+      def token
+      end
+
+      sig { params(_: String).returns(String) }
+      def token=(_)
+      end
 
       sig { returns(TerminalShop::Models::TokenAPI::Time) }
-      attr_accessor :time
+      def time
+      end
+
+      sig { params(_: TerminalShop::Models::TokenAPI::Time).returns(TerminalShop::Models::TokenAPI::Time) }
+      def time=(_)
+      end
 
       sig { params(id: String, token: String, time: TerminalShop::Models::TokenAPI::Time).void }
       def initialize(id:, token:, time:)
@@ -22,7 +37,12 @@ module TerminalShop
 
       class Time < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :created
+        def created
+        end
+
+        sig { params(_: String).returns(String) }
+        def created=(_)
+        end
 
         sig { params(created: String).void }
         def initialize(created:)

@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class ProfileAPI < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::ProfileAPI::User) }
-      attr_accessor :user
+      def user
+      end
+
+      sig do
+        params(_: TerminalShop::Models::ProfileAPI::User).returns(TerminalShop::Models::ProfileAPI::User)
+      end
+      def user=(_)
+      end
 
       sig { params(user: TerminalShop::Models::ProfileAPI::User).void }
       def initialize(user:)
@@ -16,19 +23,44 @@ module TerminalShop
 
       class User < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :email
+        def email
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def email=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :fingerprint
+        def fingerprint
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def fingerprint=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :name
+        def name
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def name=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :stripe_customer_id
+        def stripe_customer_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def stripe_customer_id=(_)
+        end
 
         sig do
           params(

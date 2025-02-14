@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class AppListResponse < TerminalShop::BaseModel
       sig { returns(T::Array[TerminalShop::Models::AppAPI]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::AppAPI]).returns(T::Array[TerminalShop::Models::AppAPI])
+      end
+      def data=(_)
+      end
 
       sig { params(data: T::Array[TerminalShop::Models::AppAPI]).void }
       def initialize(data:)

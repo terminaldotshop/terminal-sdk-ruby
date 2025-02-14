@@ -7,10 +7,20 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :product_variant_id
+      def product_variant_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def product_variant_id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :quantity
+      def quantity
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def quantity=(_)
+      end
 
       sig do
         params(
