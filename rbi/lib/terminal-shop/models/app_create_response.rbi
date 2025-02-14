@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class AppCreateResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::AppCreateResponse::Data) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: TerminalShop::Models::AppCreateResponse::Data).returns(TerminalShop::Models::AppCreateResponse::Data)
+      end
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::AppCreateResponse::Data).void }
       def initialize(data:)
@@ -16,10 +23,20 @@ module TerminalShop
 
       class Data < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :secret
+        def secret
+        end
+
+        sig { params(_: String).returns(String) }
+        def secret=(_)
+        end
 
         sig { params(id: String, secret: String).void }
         def initialize(id:, secret:)

@@ -4,31 +4,56 @@ module TerminalShop
   module Models
     class CartAPI < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::CartAPI::Amount) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: TerminalShop::Models::CartAPI::Amount).returns(TerminalShop::Models::CartAPI::Amount) }
+      def amount=(_)
+      end
 
       sig { returns(T::Array[TerminalShop::Models::CartAPI::Item]) }
-      attr_accessor :items
+      def items
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::CartAPI::Item]).returns(T::Array[TerminalShop::Models::CartAPI::Item])
+      end
+      def items=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :subtotal
+      def subtotal
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def subtotal=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :address_id
+      def address_id
+      end
 
-      sig { params(address_id: String).void }
-      attr_writer :address_id
+      sig { params(_: String).returns(String) }
+      def address_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :card_id
+      def card_id
+      end
 
-      sig { params(card_id: String).void }
-      attr_writer :card_id
+      sig { params(_: String).returns(String) }
+      def card_id=(_)
+      end
 
       sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
-      attr_reader :shipping
+      def shipping
+      end
 
-      sig { params(shipping: TerminalShop::Models::CartAPI::Shipping).void }
-      attr_writer :shipping
+      sig do
+        params(_: TerminalShop::Models::CartAPI::Shipping).returns(TerminalShop::Models::CartAPI::Shipping)
+      end
+      def shipping=(_)
+      end
 
       sig do
         params(
@@ -60,13 +85,20 @@ module TerminalShop
 
       class Amount < TerminalShop::BaseModel
         sig { returns(Integer) }
-        attr_accessor :subtotal
+        def subtotal
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def subtotal=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :shipping
+        def shipping
+        end
 
-        sig { params(shipping: Integer).void }
-        attr_writer :shipping
+        sig { params(_: Integer).returns(Integer) }
+        def shipping=(_)
+        end
 
         sig { params(subtotal: Integer, shipping: Integer).void }
         def initialize(subtotal:, shipping: nil)
@@ -79,16 +111,36 @@ module TerminalShop
 
       class Item < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :product_variant_id
+        def product_variant_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def product_variant_id=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :quantity
+        def quantity
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def quantity=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :subtotal
+        def subtotal
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def subtotal=(_)
+        end
 
         sig { params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer).void }
         def initialize(id:, product_variant_id:, quantity:, subtotal:)
@@ -103,16 +155,20 @@ module TerminalShop
 
       class Shipping < TerminalShop::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_reader :service
+        def service
+        end
 
-        sig { params(service: String).void }
-        attr_writer :service
+        sig { params(_: String).returns(String) }
+        def service=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :timeframe
+        def timeframe
+        end
 
-        sig { params(timeframe: String).void }
-        attr_writer :timeframe
+        sig { params(_: String).returns(String) }
+        def timeframe=(_)
+        end
 
         sig { params(service: String, timeframe: String).void }
         def initialize(service: nil, timeframe: nil)

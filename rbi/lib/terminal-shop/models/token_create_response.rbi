@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class TokenCreateResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::TokenCreateResponse::Data) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: TerminalShop::Models::TokenCreateResponse::Data).returns(TerminalShop::Models::TokenCreateResponse::Data)
+      end
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::TokenCreateResponse::Data).void }
       def initialize(data:)
@@ -16,10 +23,20 @@ module TerminalShop
 
       class Data < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :token
+        def token
+        end
+
+        sig { params(_: String).returns(String) }
+        def token=(_)
+        end
 
         sig { params(id: String, token: String).void }
         def initialize(id:, token:)

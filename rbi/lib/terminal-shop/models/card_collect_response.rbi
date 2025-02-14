@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class CardCollectResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: TerminalShop::Models::CardCollectResponse::Data).returns(TerminalShop::Models::CardCollectResponse::Data)
+      end
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::CardCollectResponse::Data).void }
       def initialize(data:)
@@ -16,7 +23,12 @@ module TerminalShop
 
       class Data < TerminalShop::BaseModel
         sig { returns(String) }
-        attr_accessor :url
+        def url
+        end
+
+        sig { params(_: String).returns(String) }
+        def url=(_)
+        end
 
         sig { params(url: String).void }
         def initialize(url:)

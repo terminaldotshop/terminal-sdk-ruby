@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class TokenGetResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::TokenAPI) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: TerminalShop::Models::TokenAPI).returns(TerminalShop::Models::TokenAPI) }
+      def data=(_)
+      end
 
       sig { params(data: TerminalShop::Models::TokenAPI).void }
       def initialize(data:)

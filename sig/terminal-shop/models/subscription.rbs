@@ -26,7 +26,7 @@ module TerminalShop
 
       attr_reader next_: String?
 
-      def next_=: (String) -> void
+      def next_=: (String) -> String
 
       def initialize:
         (

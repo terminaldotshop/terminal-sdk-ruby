@@ -4,28 +4,60 @@ module TerminalShop
   module Models
     class SubscriptionAPI < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :address_id
+      def address_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def address_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :card_id
+      def card_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def card_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :frequency
+      def frequency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def frequency=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :product_variant_id
+      def product_variant_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def product_variant_id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :quantity
+      def quantity
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def quantity=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :next_
+      def next_
+      end
 
-      sig { params(next_: String).void }
-      attr_writer :next_
+      sig { params(_: String).returns(String) }
+      def next_=(_)
+      end
 
       sig do
         params(
