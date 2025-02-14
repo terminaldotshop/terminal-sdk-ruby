@@ -28,15 +28,15 @@ module TerminalShop
 
       attr_reader phone: String?
 
-      def phone=: (String) -> void
+      def phone=: (String) -> String
 
       attr_reader province: String?
 
-      def province=: (String) -> void
+      def province=: (String) -> String
 
       attr_reader street2: String?
 
-      def street2=: (String) -> void
+      def street2=: (String) -> String
 
       def initialize:
         (

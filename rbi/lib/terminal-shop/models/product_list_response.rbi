@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class ProductListResponse < TerminalShop::BaseModel
       sig { returns(T::Array[TerminalShop::Models::ProductAPI]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::ProductAPI]).returns(T::Array[TerminalShop::Models::ProductAPI])
+      end
+      def data=(_)
+      end
 
       sig { params(data: T::Array[TerminalShop::Models::ProductAPI]).void }
       def initialize(data:)

@@ -16,40 +16,52 @@ module TerminalShop
     )
 
     sig { returns(String) }
-    attr_reader :bearer_token
+    def bearer_token
+    end
 
     sig { returns(TerminalShop::Resources::Product) }
-    attr_reader :product
+    def product
+    end
 
     sig { returns(TerminalShop::Resources::Profile) }
-    attr_reader :profile
+    def profile
+    end
 
     sig { returns(TerminalShop::Resources::Address) }
-    attr_reader :address
+    def address
+    end
 
     sig { returns(TerminalShop::Resources::Card) }
-    attr_reader :card
+    def card
+    end
 
     sig { returns(TerminalShop::Resources::Cart) }
-    attr_reader :cart
+    def cart
+    end
 
     sig { returns(TerminalShop::Resources::Order) }
-    attr_reader :order
+    def order
+    end
 
     sig { returns(TerminalShop::Resources::Subscription) }
-    attr_reader :subscription
+    def subscription
+    end
 
     sig { returns(TerminalShop::Resources::Token) }
-    attr_reader :token
+    def token
+    end
 
     sig { returns(TerminalShop::Resources::App) }
-    attr_reader :app
+    def app
+    end
 
     sig { returns(TerminalShop::Resources::Email) }
-    attr_reader :email
+    def email
+    end
 
     sig { returns(TerminalShop::Resources::View) }
-    attr_reader :view
+    def view
+    end
 
     sig { returns(T::Hash[String, String]) }
     private def auth_headers

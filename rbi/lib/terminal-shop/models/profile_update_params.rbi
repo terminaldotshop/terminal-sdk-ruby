@@ -7,10 +7,20 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :email
+      def email
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def email=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def name=(_)
+      end
 
       sig do
         params(

@@ -4,40 +4,76 @@ module TerminalShop
   module Models
     class AddressAPI < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :city
+      def city
+      end
+
+      sig { params(_: String).returns(String) }
+      def city=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :country
+      def country
+      end
+
+      sig { params(_: String).returns(String) }
+      def country=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :street1
+      def street1
+      end
+
+      sig { params(_: String).returns(String) }
+      def street1=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :zip
+      def zip
+      end
+
+      sig { params(_: String).returns(String) }
+      def zip=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :phone
+      def phone
+      end
 
-      sig { params(phone: String).void }
-      attr_writer :phone
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :province
-
-      sig { params(province: String).void }
-      attr_writer :province
+      sig { params(_: String).returns(String) }
+      def phone=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :street2
+      def province
+      end
 
-      sig { params(street2: String).void }
-      attr_writer :street2
+      sig { params(_: String).returns(String) }
+      def province=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def street2
+      end
+
+      sig { params(_: String).returns(String) }
+      def street2=(_)
+      end
 
       sig do
         params(

@@ -4,7 +4,14 @@ module TerminalShop
   module Models
     class AddressListResponse < TerminalShop::BaseModel
       sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI])
+      end
+      def data=(_)
+      end
 
       sig { params(data: T::Array[TerminalShop::Models::AddressAPI]).void }
       def initialize(data:)

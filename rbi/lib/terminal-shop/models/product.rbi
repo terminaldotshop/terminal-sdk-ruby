@@ -4,37 +4,70 @@ module TerminalShop
   module Models
     class ProductAPI < TerminalShop::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(T::Array[Symbol]) }
-      attr_accessor :filters
+      def filters
+      end
+
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def filters=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(T::Array[TerminalShop::Models::ProductVariant]) }
-      attr_accessor :variants
+      def variants
+      end
+
+      sig do
+        params(_: T::Array[TerminalShop::Models::ProductVariant]).returns(T::Array[TerminalShop::Models::ProductVariant])
+      end
+      def variants=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :order
+      def order
+      end
 
-      sig { params(order: Integer).void }
-      attr_writer :order
+      sig { params(_: Integer).returns(Integer) }
+      def order=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :subscription
+      def subscription
+      end
 
-      sig { params(subscription: Symbol).void }
-      attr_writer :subscription
+      sig { params(_: Symbol).returns(Symbol) }
+      def subscription=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :tags
+      def tags
+      end
 
-      sig { params(tags: T::Hash[Symbol, String]).void }
-      attr_writer :tags
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def tags=(_)
+      end
 
       sig do
         params(

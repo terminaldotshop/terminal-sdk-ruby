@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :address_id
+      def address_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def address_id=(_)
+      end
 
       sig do
         params(
