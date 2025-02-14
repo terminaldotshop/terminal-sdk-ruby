@@ -61,6 +61,8 @@ module TerminalShop
     # @return [Hash{String=>String}]
     #
     private def auth_headers
+      return {} if @bearer_token.nil?
+
       {"Authorization" => "Bearer #{@bearer_token}"}
     end
 
