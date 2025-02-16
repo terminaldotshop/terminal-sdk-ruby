@@ -44,9 +44,9 @@ terminal = TerminalShop::Client.new(
   environment: "dev" # defaults to "production"
 )
 
-product = terminal.product.list
+subscription = terminal.subscription.create
 
-puts(product.data)
+puts(subscription.data)
 ```
 
 ### Errors
