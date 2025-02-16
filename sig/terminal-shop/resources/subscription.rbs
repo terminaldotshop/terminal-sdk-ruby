@@ -14,6 +14,7 @@ module TerminalShop
           product_variant_id: String,
           quantity: Integer,
           next_: String,
+          schedule: TerminalShop::Models::SubscriptionAPI::schedule,
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::SubscriptionCreateResponse
 

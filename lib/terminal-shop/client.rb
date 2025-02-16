@@ -16,7 +16,7 @@ module TerminalShop
     DEFAULT_MAX_RETRY_DELAY = 8.0
 
     # rubocop:disable Style/MutableConstant
-    ENVIRONMENTS = {production: "https://api.terminal.shop/", sandbox: "https://sandbox.terminal.shop/"}
+    ENVIRONMENTS = {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"}
     # rubocop:enable Style/MutableConstant
 
     # Client option
@@ -68,12 +68,12 @@ module TerminalShop
 
     # Creates and returns a new client for interacting with the API.
     #
-    # @param environment [:production, :sandbox, nil] Specifies the environment to use for the API.
+    # @param environment [:production, :dev, nil] Specifies the environment to use for the API.
     #
     #   Each environment maps to a different base URL:
     #
     #   - `production` corresponds to `https://api.terminal.shop/`
-    #   - `sandbox` corresponds to `https://sandbox.terminal.shop/`
+    #   - `dev` corresponds to `https://api.dev.terminal.shop/`
     #
     # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
     #

@@ -41,7 +41,7 @@ require "terminal-shop"
 
 terminal = TerminalShop::Client.new(
   bearer_token: "My Bearer Token", # defaults to ENV["TERMINAL_BEARER_TOKEN"]
-  environment: "sandbox" # defaults to "production"
+  environment: "dev" # defaults to "production"
 )
 
 product = terminal.product.list
