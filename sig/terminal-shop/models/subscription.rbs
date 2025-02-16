@@ -8,7 +8,8 @@ module TerminalShop
         frequency: TerminalShop::Models::SubscriptionAPI::frequency,
         product_variant_id: String,
         quantity: Integer,
-        next_: String
+        next_: String,
+        schedule: TerminalShop::Models::SubscriptionAPI::schedule
       }
 
     class SubscriptionAPI < TerminalShop::BaseModel
@@ -28,6 +29,12 @@ module TerminalShop
 
       def next_=: (String) -> String
 
+      attr_reader schedule: TerminalShop::Models::SubscriptionAPI::schedule?
+
+      def schedule=: (
+        TerminalShop::Models::SubscriptionAPI::schedule
+      ) -> TerminalShop::Models::SubscriptionAPI::schedule
+
       def initialize:
         (
           id: String,
@@ -36,7 +43,8 @@ module TerminalShop
           frequency: TerminalShop::Models::SubscriptionAPI::frequency,
           product_variant_id: String,
           quantity: Integer,
-          next_: String
+          next_: String,
+          schedule: TerminalShop::Models::SubscriptionAPI::schedule
         ) -> void
         | (
           ?TerminalShop::Models::subscription_api | TerminalShop::BaseModel data
@@ -54,6 +62,46 @@ module TerminalShop
         YEARLY: :yearly
 
         def self.values: -> ::Array[TerminalShop::Models::SubscriptionAPI::frequency]
+      end
+
+      type schedule =
+        TerminalShop::Models::SubscriptionAPI::Schedule::Type
+        | TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+
+      class Schedule < TerminalShop::Union
+        type type_ = { type: :fixed }
+
+        class Type < TerminalShop::BaseModel
+          attr_accessor type: :fixed
+
+          def initialize:
+            (type: :fixed) -> void
+            | (
+              ?TerminalShop::Models::SubscriptionAPI::Schedule::type_
+              | TerminalShop::BaseModel data
+            ) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::type_
+        end
+
+        type union_member1 = { interval: Integer, type: :weekly }
+
+        class UnionMember1 < TerminalShop::BaseModel
+          attr_accessor interval: Integer
+
+          attr_accessor type: :weekly
+
+          def initialize:
+            (interval: Integer, type: :weekly) -> void
+            | (
+              ?TerminalShop::Models::SubscriptionAPI::Schedule::union_member1
+              | TerminalShop::BaseModel data
+            ) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::union_member1
+        end
+
+        private def self.variants: -> [[nil, TerminalShop::Models::SubscriptionAPI::Schedule::Type], [nil, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]]
       end
     end
   end
