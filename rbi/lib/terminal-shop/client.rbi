@@ -11,7 +11,7 @@ module TerminalShop
     DEFAULT_MAX_RETRY_DELAY = T.let(8.0, Float)
 
     ENVIRONMENTS = T.let(
-      {production: "https://api.terminal.shop/", sandbox: "https://sandbox.terminal.shop/"},
+      {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"},
       T::Hash[Symbol, String]
     )
 

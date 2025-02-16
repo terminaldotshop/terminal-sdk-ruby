@@ -12,6 +12,10 @@ module TerminalShop
           product_variant_id: String,
           quantity: Integer,
           next_: String,
+          schedule: T.any(
+            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+          ),
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
@@ -23,6 +27,7 @@ module TerminalShop
         product_variant_id:,
         quantity:,
         next_: nil,
+        schedule: nil,
         request_options: {}
       )
       end

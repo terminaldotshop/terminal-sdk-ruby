@@ -10,7 +10,7 @@ module TerminalShop
 
     ENVIRONMENTS: {
       production: "https://api.terminal.shop/",
-      sandbox: "https://sandbox.terminal.shop/"
+      dev: "https://api.dev.terminal.shop/"
     }
 
     attr_reader bearer_token: String
@@ -40,7 +40,7 @@ module TerminalShop
     private def auth_headers: -> ::Hash[String, String]
 
     def initialize: (
-      environment: :production | :sandbox | nil,
+      environment: :production | :dev | nil,
       base_url: String?,
       bearer_token: String?,
       max_retries: Integer,
