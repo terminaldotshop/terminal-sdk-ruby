@@ -1,5 +1,5 @@
 # typed: strong
 
 module TerminalShop
-  VERSION = "0.1.0-alpha.7"
+  VERSION = "0.1.0-alpha.8"
 end
