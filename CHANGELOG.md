@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-02-16)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **api:** manual updates ([#33](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/33)) ([e52d253](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e52d2536057ad701672a61554b4a0c71fea5e8a4))
+
+
+### Chores
+
+* enable full pagination tests ([#31](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/31)) ([8538ba7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8538ba7b8e1c05dc6308aee2a074e00b71c35ae6))
+* fully qualify `Array` and `Hash` in rbs files to avoid collisions ([#23](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/23)) ([7dc6aff](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7dc6affdd4946e5a7c0edd661273f7b2bf4ab517))
+* **internal:** codegen related update ([#22](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/22)) ([d57e042](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d57e0426fa260e5ab108337aa99e867eb19a74f3))
+* **internal:** codegen related update ([#24](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/24)) ([6e055e3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6e055e353aabe503004da116be82f77edc5304a9))
+* **internal:** codegen related update ([#25](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/25)) ([0a62ec8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0a62ec8d1b1535dd655457cc6762b2bcbd3ae88c))
+* **internal:** codegen related update ([#27](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/27)) ([24077aa](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/24077aa26e63fd3224b85f729b442e72b2eb31b5))
+* **internal:** codegen related update ([#29](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/29)) ([2155bba](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2155bbaf680fc464cbde6b6f07f1048e139ee343))
+* **internal:** codegen related update ([#32](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/32)) ([cfb0794](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cfb07941345a9b99129aecf62bf68ad8fb882127))
+* **internal:** version bump ([#20](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/20)) ([f46ef1a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f46ef1a5d27f2f8d9f5ea73e92b33207b8d87823))
+* switch away from `attr_accessor` annotations to better match tapioca's compilation ([#30](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/30)) ([3147b33](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3147b33d6ad34f31ed1e684d5da4d13aa55354c4))
+* use concise syntax for pattern matching ([#26](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/26)) ([1cac179](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1cac179496f8d92a88552e77ba121b4853741eb9))
+
 ## 0.1.0-alpha.6 (2025-02-07)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
