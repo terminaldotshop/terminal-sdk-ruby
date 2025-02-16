@@ -60,6 +60,16 @@ module TerminalShop
       #   # @return [String]
       #   attr_writer :next_
 
+      # @!attribute [r] schedule
+      #   Schedule of the subscription.
+      #
+      #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1, nil]
+      optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
+
+      # @!parse
+      #   # @return [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
+      #   attr_writer :schedule
+
       # @!parse
       #   # Subscription to a Terminal shop product.
       #   #
@@ -70,8 +80,9 @@ module TerminalShop
       #   # @param product_variant_id [String]
       #   # @param quantity [Integer]
       #   # @param next_ [String]
+      #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
       #   #
-      #   def initialize(id:, address_id:, card_id:, frequency:, product_variant_id:, quantity:, next_: nil, **) = super
+      #   def initialize(id:, address_id:, card_id:, frequency:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
@@ -107,6 +118,72 @@ module TerminalShop
         #   # @return [Array<Symbol>]
         #   #
         #   def self.values; end
+      end
+
+      # @abstract
+      #
+      # Schedule of the subscription.
+      #
+      # @example
+      # ```ruby
+      # case schedule
+      # in TerminalShop::Models::SubscriptionAPI::Schedule::Type
+      #   # ...
+      # in TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+      #   # ...
+      # end
+      # ```
+      class Schedule < TerminalShop::Union
+        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Type }
+
+        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1 }
+
+        # @example
+        # ```ruby
+        # type => {
+        #   type: :fixed
+        # }
+        # ```
+        class Type < TerminalShop::BaseModel
+          # @!attribute type
+          #
+          #   @return [Symbol, :fixed]
+          required :type, const: :fixed
+
+          # @!parse
+          #   # @param type [Symbol, :fixed]
+          #   #
+          #   def initialize(type: :fixed, **) = super
+
+          # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        end
+
+        # @example
+        # ```ruby
+        # union_member1 => {
+        #   interval: Integer,
+        #   type: :weekly
+        # }
+        # ```
+        class UnionMember1 < TerminalShop::BaseModel
+          # @!attribute interval
+          #
+          #   @return [Integer]
+          required :interval, Integer
+
+          # @!attribute type
+          #
+          #   @return [Symbol, :weekly]
+          required :type, const: :weekly
+
+          # @!parse
+          #   # @param interval [Integer]
+          #   # @param type [Symbol, :weekly]
+          #   #
+          #   def initialize(interval:, type: :weekly, **) = super
+
+          # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        end
       end
     end
   end

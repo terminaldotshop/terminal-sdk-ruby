@@ -60,6 +60,33 @@ module TerminalShop
       end
 
       sig do
+        returns(
+          T.nilable(
+            T.any(
+              TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+              TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+            )
+          )
+        )
+      end
+      def schedule
+      end
+
+      sig do
+        params(
+          _: T.any(
+            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+          )
+        ).returns(T.any(
+                    TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+                    TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+                  ))
+      end
+      def schedule=(_)
+      end
+
+      sig do
         params(
           id: String,
           address_id: String,
@@ -67,10 +94,23 @@ module TerminalShop
           frequency: Symbol,
           product_variant_id: String,
           quantity: Integer,
-          next_: String
+          next_: String,
+          schedule: T.any(
+            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+          )
         ).void
       end
-      def initialize(id:, address_id:, card_id:, frequency:, product_variant_id:, quantity:, next_: nil)
+      def initialize(
+        id:,
+        address_id:,
+        card_id:,
+        frequency:,
+        product_variant_id:,
+        quantity:,
+        next_: nil,
+        schedule: nil
+      )
       end
 
       sig do
@@ -82,7 +122,11 @@ module TerminalShop
             frequency: Symbol,
             product_variant_id: String,
             quantity: Integer,
-            next_: String
+            next_: String,
+            schedule: T.any(
+              TerminalShop::Models::SubscriptionAPI::Schedule::Type,
+              TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+            )
           }
         )
       end
@@ -100,6 +144,65 @@ module TerminalShop
 
         sig { override.returns(T::Array[Symbol]) }
         def self.values
+        end
+      end
+
+      class Schedule < TerminalShop::Union
+        abstract!
+
+        class Type < TerminalShop::BaseModel
+          sig { returns(Symbol) }
+          def type
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def type=(_)
+          end
+
+          sig { params(type: Symbol).void }
+          def initialize(type: :fixed)
+          end
+
+          sig { override.returns({type: Symbol}) }
+          def to_hash
+          end
+        end
+
+        class UnionMember1 < TerminalShop::BaseModel
+          sig { returns(Integer) }
+          def interval
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def interval=(_)
+          end
+
+          sig { returns(Symbol) }
+          def type
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def type=(_)
+          end
+
+          sig { params(interval: Integer, type: Symbol).void }
+          def initialize(interval:, type: :weekly)
+          end
+
+          sig { override.returns({interval: Integer, type: Symbol}) }
+          def to_hash
+          end
+        end
+
+        sig do
+          override.returns(
+            [
+              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Type],
+              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
+            ]
+          )
+        end
+        private_class_method def self.variants
         end
       end
     end
