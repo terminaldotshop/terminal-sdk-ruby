@@ -63,8 +63,8 @@ module TerminalShop
         returns(
           T.nilable(
             T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-              TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
             )
           )
         )
@@ -75,12 +75,12 @@ module TerminalShop
       sig do
         params(
           _: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         ).returns(T.any(
-                    TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-                    TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+                    TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+                    TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
                   ))
       end
       def schedule=(_)
@@ -96,8 +96,8 @@ module TerminalShop
           quantity: Integer,
           next_: String,
           schedule: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         ).void
       end
@@ -124,8 +124,8 @@ module TerminalShop
             quantity: Integer,
             next_: String,
             schedule: T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-              TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
             )
           }
         )
@@ -150,7 +150,7 @@ module TerminalShop
       class Schedule < TerminalShop::Union
         abstract!
 
-        class Type < TerminalShop::BaseModel
+        class Fixed < TerminalShop::BaseModel
           sig { returns(Symbol) }
           def type
           end
@@ -168,7 +168,7 @@ module TerminalShop
           end
         end
 
-        class UnionMember1 < TerminalShop::BaseModel
+        class Weekly < TerminalShop::BaseModel
           sig { returns(Integer) }
           def interval
           end
@@ -197,8 +197,8 @@ module TerminalShop
         sig do
           override.returns(
             [
-              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Type],
-              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
+              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed],
+              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
             ]
           )
         end
