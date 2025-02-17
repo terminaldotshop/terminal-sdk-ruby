@@ -21,7 +21,7 @@ module TerminalShop
       #
       #   @option params [String] :next_ Next shipment and billing date for the subscription.
       #
-      #   @option params [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1] :schedule Schedule of the subscription.
+      #   @option params [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] :schedule Schedule of the subscription.
       #
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #

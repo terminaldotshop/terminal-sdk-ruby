@@ -44,9 +44,9 @@ terminal = TerminalShop::Client.new(
   environment: "dev" # defaults to "production"
 )
 
-subscription = terminal.subscription.create
+product = terminal.product.list
 
-puts(subscription.data)
+puts(product.data)
 ```
 
 ### Errors
@@ -57,7 +57,7 @@ non-success status code (i.e., 4xx or 5xx response), a subclass of
 
 ```ruby
 begin
-  subscription = terminal.subscription.create
+  product = terminal.product.list
 rescue TerminalShop::Error => e
   puts(e.status) # 400
 end
@@ -95,7 +95,7 @@ terminal = TerminalShop::Client.new(
 )
 
 # Or, configure per-request:
-terminal.subscription.create(request_options: {max_retries: 5})
+terminal.product.list(request_options: {max_retries: 5})
 ```
 
 ### Timeouts
@@ -113,7 +113,7 @@ terminal = TerminalShop::Client.new(
 )
 
 # Or, configure per-request:
-terminal.subscription.create(request_options: {timeout: 5})
+terminal.product.list(request_options: {timeout: 5})
 ```
 
 ## Versioning
