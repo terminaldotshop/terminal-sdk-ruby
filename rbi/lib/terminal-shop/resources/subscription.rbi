@@ -13,8 +13,8 @@ module TerminalShop
           quantity: Integer,
           next_: String,
           schedule: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Type,
-            TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           ),
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(TerminalShop::Models::SubscriptionCreateResponse)
