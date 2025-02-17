@@ -65,28 +65,28 @@ module TerminalShop
       end
 
       type schedule =
-        TerminalShop::Models::SubscriptionAPI::Schedule::Type
-        | TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+        TerminalShop::Models::SubscriptionAPI::Schedule::Fixed
+        | TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
 
       class Schedule < TerminalShop::Union
-        type type_ = { type: :fixed }
+        type fixed = { type: :fixed }
 
-        class Type < TerminalShop::BaseModel
+        class Fixed < TerminalShop::BaseModel
           attr_accessor type: :fixed
 
           def initialize:
             (type: :fixed) -> void
             | (
-              ?TerminalShop::Models::SubscriptionAPI::Schedule::type_
+              ?TerminalShop::Models::SubscriptionAPI::Schedule::fixed
               | TerminalShop::BaseModel data
             ) -> void
 
-          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::type_
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::fixed
         end
 
-        type union_member1 = { interval: Integer, type: :weekly }
+        type weekly = { interval: Integer, type: :weekly }
 
-        class UnionMember1 < TerminalShop::BaseModel
+        class Weekly < TerminalShop::BaseModel
           attr_accessor interval: Integer
 
           attr_accessor type: :weekly
@@ -94,14 +94,14 @@ module TerminalShop
           def initialize:
             (interval: Integer, type: :weekly) -> void
             | (
-              ?TerminalShop::Models::SubscriptionAPI::Schedule::union_member1
+              ?TerminalShop::Models::SubscriptionAPI::Schedule::weekly
               | TerminalShop::BaseModel data
             ) -> void
 
-          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::union_member1
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::weekly
         end
 
-        private def self.variants: -> [[nil, TerminalShop::Models::SubscriptionAPI::Schedule::Type], [nil, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]]
+        private def self.variants: -> [[nil, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [nil, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
       end
     end
   end

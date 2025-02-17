@@ -63,11 +63,11 @@ module TerminalShop
       # @!attribute [r] schedule
       #   Schedule of the subscription.
       #
-      #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1, nil]
+      #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
 
       # @!parse
-      #   # @return [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
+      #   # @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       #   attr_writer :schedule
 
       # @!parse
@@ -80,7 +80,7 @@ module TerminalShop
       #   # @param product_variant_id [String]
       #   # @param quantity [Integer]
       #   # @param next_ [String]
-      #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Type, TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1]
+      #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       #   #
       #   def initialize(id:, address_id:, card_id:, frequency:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
 
@@ -127,24 +127,24 @@ module TerminalShop
       # @example
       # ```ruby
       # case schedule
-      # in TerminalShop::Models::SubscriptionAPI::Schedule::Type
+      # in TerminalShop::Models::SubscriptionAPI::Schedule::Fixed
       #   # ...
-      # in TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1
+      # in TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
       #   # ...
       # end
       # ```
       class Schedule < TerminalShop::Union
-        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Type }
+        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Fixed }
 
-        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::UnionMember1 }
+        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Weekly }
 
         # @example
         # ```ruby
-        # type => {
+        # fixed => {
         #   type: :fixed
         # }
         # ```
-        class Type < TerminalShop::BaseModel
+        class Fixed < TerminalShop::BaseModel
           # @!attribute type
           #
           #   @return [Symbol, :fixed]
@@ -160,12 +160,12 @@ module TerminalShop
 
         # @example
         # ```ruby
-        # union_member1 => {
+        # weekly => {
         #   interval: Integer,
         #   type: :weekly
         # }
         # ```
-        class UnionMember1 < TerminalShop::BaseModel
+        class Weekly < TerminalShop::BaseModel
           # @!attribute interval
           #
           #   @return [Integer]

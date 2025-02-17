@@ -112,14 +112,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
     end
 
     assert_equal(3, requester.attempts.length)
@@ -135,14 +128,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
     end
 
     assert_equal(4, requester.attempts.length)
@@ -154,15 +140,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {max_retries: 3}
-      )
+      terminal.product.list(request_options: {max_retries: 3})
     end
 
     assert_equal(4, requester.attempts.length)
@@ -178,15 +156,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {max_retries: 4}
-      )
+      terminal.product.list(request_options: {max_retries: 4})
     end
 
     assert_equal(5, requester.attempts.length)
@@ -202,14 +172,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
     end
 
     assert_equal(2, requester.attempts.length)
@@ -227,14 +190,7 @@ class TerminalShopTest < Minitest::Test
 
     assert_raises(TerminalShop::InternalServerError) do
       Thread.current.thread_variable_set(:time_now, Time.now)
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
       Thread.current.thread_variable_set(:time_now, nil)
     end
 
@@ -252,14 +208,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
     end
 
     assert_equal(2, requester.attempts.length)
@@ -272,14 +221,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1
-      )
+      terminal.product.list
     end
 
     retry_count_headers = requester.attempts.map { |a| a[:headers]["x-stainless-retry-count"] }
@@ -292,15 +234,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {"x-stainless-retry-count" => nil}}
-      )
+      terminal.product.list(request_options: {extra_headers: {"x-stainless-retry-count" => nil}})
     end
 
     retry_count_headers = requester.attempts.map { |a| a[:headers]["x-stainless-retry-count"] }
@@ -313,15 +247,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::InternalServerError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {"x-stainless-retry-count" => "42"}}
-      )
+      terminal.product.list(request_options: {extra_headers: {"x-stainless-retry-count" => "42"}})
     end
 
     retry_count_headers = requester.attempts.map { |a| a[:headers]["x-stainless-retry-count"] }
@@ -334,15 +260,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::APIConnectionError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {}}
-      )
+      terminal.product.list(request_options: {extra_headers: {}})
     end
 
     assert_equal("/redirected", requester.attempts.last[:url].path)
@@ -360,15 +278,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::APIConnectionError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {}}
-      )
+      terminal.product.list(request_options: {extra_headers: {}})
     end
 
     assert_equal("/redirected", requester.attempts.last[:url].path)
@@ -383,15 +293,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::APIConnectionError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
-      )
+      terminal.product.list(request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
     assert_equal(
@@ -406,15 +308,7 @@ class TerminalShopTest < Minitest::Test
     terminal.requester = requester
 
     assert_raises(TerminalShop::APIConnectionError) do
-      terminal.subscription.create(
-        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        frequency: :fixed,
-        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-        quantity: 1,
-        request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
-      )
+      terminal.product.list(request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
     assert_nil(requester.attempts.last[:headers]["Authorization"])
@@ -424,14 +318,7 @@ class TerminalShopTest < Minitest::Test
     terminal = TerminalShop::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token")
     requester = MockRequester.new(200, {}, {})
     terminal.requester = requester
-    terminal.subscription.create(
-      id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      frequency: :fixed,
-      product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      quantity: 1
-    )
+    terminal.product.list
     headers = requester.attempts.first[:headers]
 
     refute_empty(headers["x-stainless-lang"])
