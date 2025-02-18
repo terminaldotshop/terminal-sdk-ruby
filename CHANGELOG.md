@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-02-18)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Features
+
+* support overlapping HTTP requests in same Fiber ([#43](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/43)) ([ff49d79](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ff49d79c1f7f0dfba74d69cb38193a9ba8f63900))
+
+
+### Bug Fixes
+
+* ssl timeout not required when TCP socket open timeout specified ([#44](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/44)) ([6b7506c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6b7506caedfc1e646b6d685a4d78a4b920847652))
+
+
+### Chores
+
+* **internal:** version bump ([#41](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/41)) ([612c7fc](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/612c7fc26e62bd035bed70b076121f5586656596))
+
 ## 0.1.0-alpha.9 (2025-02-17)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
