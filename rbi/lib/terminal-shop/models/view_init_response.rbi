@@ -8,7 +8,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: TerminalShop::Models::ViewInitResponse::Data).returns(TerminalShop::Models::ViewInitResponse::Data)
+        params(_: TerminalShop::Models::ViewInitResponse::Data)
+          .returns(TerminalShop::Models::ViewInitResponse::Data)
       end
       def data=(_)
       end
@@ -26,9 +27,7 @@ module TerminalShop
         def addresses
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI]) }
         def addresses=(_)
         end
 
@@ -36,9 +35,7 @@ module TerminalShop
         def apps
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::AppAPI]).returns(T::Array[TerminalShop::Models::AppAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::AppAPI]).returns(T::Array[TerminalShop::Models::AppAPI]) }
         def apps=(_)
         end
 
@@ -46,9 +43,7 @@ module TerminalShop
         def cards
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::CardAPI]).returns(T::Array[TerminalShop::Models::CardAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::CardAPI]).returns(T::Array[TerminalShop::Models::CardAPI]) }
         def cards=(_)
         end
 
@@ -64,9 +59,7 @@ module TerminalShop
         def orders
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI]) }
         def orders=(_)
         end
 
@@ -74,9 +67,7 @@ module TerminalShop
         def products
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::ProductAPI]).returns(T::Array[TerminalShop::Models::ProductAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::ProductAPI]).returns(T::Array[TerminalShop::Models::ProductAPI]) }
         def products=(_)
         end
 
@@ -93,7 +84,8 @@ module TerminalShop
         end
 
         sig do
-          params(_: T::Array[TerminalShop::Models::SubscriptionAPI]).returns(T::Array[TerminalShop::Models::SubscriptionAPI])
+          params(_: T::Array[TerminalShop::Models::SubscriptionAPI])
+            .returns(T::Array[TerminalShop::Models::SubscriptionAPI])
         end
         def subscriptions=(_)
         end
@@ -102,9 +94,7 @@ module TerminalShop
         def tokens
         end
 
-        sig do
-          params(_: T::Array[TerminalShop::Models::TokenAPI]).returns(T::Array[TerminalShop::Models::TokenAPI])
-        end
+        sig { params(_: T::Array[TerminalShop::Models::TokenAPI]).returns(T::Array[TerminalShop::Models::TokenAPI]) }
         def tokens=(_)
         end
 
@@ -119,7 +109,8 @@ module TerminalShop
             profile: TerminalShop::Models::ProfileAPI,
             subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: T::Array[TerminalShop::Models::TokenAPI]
-          ).void
+          )
+            .void
         end
         def initialize(
           addresses:,
@@ -135,19 +126,20 @@ module TerminalShop
         end
 
         sig do
-          override.returns(
-            {
-              addresses: T::Array[TerminalShop::Models::AddressAPI],
-              apps: T::Array[TerminalShop::Models::AppAPI],
-              cards: T::Array[TerminalShop::Models::CardAPI],
-              cart: TerminalShop::Models::CartAPI,
-              orders: T::Array[TerminalShop::Models::OrderAPI],
-              products: T::Array[TerminalShop::Models::ProductAPI],
-              profile: TerminalShop::Models::ProfileAPI,
-              subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
-              tokens: T::Array[TerminalShop::Models::TokenAPI]
-            }
-          )
+          override
+            .returns(
+              {
+                addresses: T::Array[TerminalShop::Models::AddressAPI],
+                apps: T::Array[TerminalShop::Models::AppAPI],
+                cards: T::Array[TerminalShop::Models::CardAPI],
+                cart: TerminalShop::Models::CartAPI,
+                orders: T::Array[TerminalShop::Models::OrderAPI],
+                products: T::Array[TerminalShop::Models::ProductAPI],
+                profile: TerminalShop::Models::ProfileAPI,
+                subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
+                tokens: T::Array[TerminalShop::Models::TokenAPI]
+              }
+            )
         end
         def to_hash
         end

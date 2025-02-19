@@ -8,7 +8,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: T::Array[TerminalShop::Models::SubscriptionAPI]).returns(T::Array[TerminalShop::Models::SubscriptionAPI])
+        params(_: T::Array[TerminalShop::Models::SubscriptionAPI])
+          .returns(T::Array[TerminalShop::Models::SubscriptionAPI])
       end
       def data=(_)
       end

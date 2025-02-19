@@ -86,25 +86,27 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String
-        ).void
+        )
+          .void
       end
       def initialize(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            city: String,
-            country: String,
-            name: String,
-            street1: String,
-            zip: String,
-            phone: String,
-            province: String,
-            street2: String
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              city: String,
+              country: String,
+              name: String,
+              street1: String,
+              zip: String,
+              phone: String,
+              province: String,
+              street2: String
+            }
+          )
       end
       def to_hash
       end

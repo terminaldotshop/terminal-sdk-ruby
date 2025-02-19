@@ -40,7 +40,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: T::Array[TerminalShop::Models::ProductVariant]).returns(T::Array[TerminalShop::Models::ProductVariant])
+        params(_: T::Array[TerminalShop::Models::ProductVariant])
+          .returns(T::Array[TerminalShop::Models::ProductVariant])
       end
       def variants=(_)
       end
@@ -79,24 +80,26 @@ module TerminalShop
           order: Integer,
           subscription: Symbol,
           tags: T::Hash[Symbol, String]
-        ).void
+        )
+          .void
       end
       def initialize(id:, description:, filters:, name:, variants:, order: nil, subscription: nil, tags: nil)
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            description: String,
-            filters: T::Array[Symbol],
-            name: String,
-            variants: T::Array[TerminalShop::Models::ProductVariant],
-            order: Integer,
-            subscription: Symbol,
-            tags: T::Hash[Symbol, String]
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              description: String,
+              filters: T::Array[Symbol],
+              name: String,
+              variants: T::Array[TerminalShop::Models::ProductVariant],
+              order: Integer,
+              subscription: Symbol,
+              tags: T::Hash[Symbol, String]
+            }
+          )
       end
       def to_hash
       end
