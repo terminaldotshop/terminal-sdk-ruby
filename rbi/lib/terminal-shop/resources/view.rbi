@@ -4,15 +4,8 @@ module TerminalShop
   module Resources
     class View
       sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              T::Hash[Symbol,
-                      T.anything]
-            )
-          )
-        ).returns(TerminalShop::Models::ViewInitResponse)
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+          .returns(TerminalShop::Models::ViewInitResponse)
       end
       def init(request_options: {})
       end

@@ -81,7 +81,8 @@ module TerminalShop
           province: String,
           street2: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         city:,
@@ -97,19 +98,20 @@ module TerminalShop
       end
 
       sig do
-        override.returns(
-          {
-            city: String,
-            country: String,
-            name: String,
-            street1: String,
-            zip: String,
-            phone: String,
-            province: String,
-            street2: String,
-            request_options: TerminalShop::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              city: String,
+              country: String,
+              name: String,
+              street1: String,
+              zip: String,
+              phone: String,
+              province: String,
+              street2: String,
+              request_options: TerminalShop::RequestOptions
+            }
+          )
       end
       def to_hash
       end
