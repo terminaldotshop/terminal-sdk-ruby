@@ -7,9 +7,7 @@ module TerminalShop
       def data
       end
 
-      sig do
-        params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI])
-      end
+      sig { params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI]) }
       def data=(_)
       end
 

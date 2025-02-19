@@ -17,7 +17,8 @@ module TerminalShop
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           ),
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(TerminalShop::Models::SubscriptionCreateResponse)
+        )
+          .returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
       def create(
         id:,
@@ -33,15 +34,8 @@ module TerminalShop
       end
 
       sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              T::Hash[Symbol,
-                      T.anything]
-            )
-          )
-        ).returns(TerminalShop::Models::SubscriptionListResponse)
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+          .returns(TerminalShop::Models::SubscriptionListResponse)
       end
       def list(request_options: {})
       end
@@ -50,7 +44,8 @@ module TerminalShop
         params(
           id: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(TerminalShop::Models::SubscriptionDeleteResponse)
+        )
+          .returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
       def delete(id, request_options: {})
       end

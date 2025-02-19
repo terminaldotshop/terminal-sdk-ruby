@@ -27,19 +27,17 @@ module TerminalShop
           email: T.nilable(String),
           name: T.nilable(String),
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(email: nil, name: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            email: T.nilable(String),
-            name: T.nilable(String),
-            request_options: TerminalShop::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {email: T.nilable(String), name: T.nilable(String), request_options: TerminalShop::RequestOptions}
+          )
       end
       def to_hash
       end
