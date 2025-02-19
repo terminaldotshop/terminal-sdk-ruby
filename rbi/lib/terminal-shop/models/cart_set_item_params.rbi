@@ -27,19 +27,19 @@ module TerminalShop
           product_variant_id: String,
           quantity: Integer,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(product_variant_id:, quantity:, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            product_variant_id: String,
-            quantity: Integer,
-            request_options: TerminalShop::RequestOptions
-          }
-        )
+        override
+          .returns({
+                     product_variant_id: String,
+                     quantity: Integer,
+                     request_options: TerminalShop::RequestOptions
+                   })
       end
       def to_hash
       end

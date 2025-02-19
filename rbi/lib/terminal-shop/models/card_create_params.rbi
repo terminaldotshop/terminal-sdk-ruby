@@ -17,8 +17,12 @@ module TerminalShop
       sig do
         params(
           token: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+          request_options: T.any(
+            TerminalShop::RequestOptions,
+            T::Hash[Symbol, T.anything]
+          )
+        )
+          .void
       end
       def initialize(token:, request_options: {})
       end

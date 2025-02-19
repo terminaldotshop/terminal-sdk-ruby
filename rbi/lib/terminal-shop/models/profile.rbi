@@ -7,9 +7,7 @@ module TerminalShop
       def user
       end
 
-      sig do
-        params(_: TerminalShop::Models::ProfileAPI::User).returns(TerminalShop::Models::ProfileAPI::User)
-      end
+      sig { params(_: TerminalShop::Models::ProfileAPI::User).returns(TerminalShop::Models::ProfileAPI::User) }
       def user=(_)
       end
 
@@ -69,21 +67,23 @@ module TerminalShop
             fingerprint: T.nilable(String),
             name: T.nilable(String),
             stripe_customer_id: String
-          ).void
+          )
+            .void
         end
         def initialize(id:, email:, fingerprint:, name:, stripe_customer_id:)
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              email: T.nilable(String),
-              fingerprint: T.nilable(String),
-              name: T.nilable(String),
-              stripe_customer_id: String
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                email: T.nilable(String),
+                fingerprint: T.nilable(String),
+                name: T.nilable(String),
+                stripe_customer_id: String
+              }
+            )
         end
         def to_hash
         end
