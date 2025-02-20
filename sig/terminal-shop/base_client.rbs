@@ -1,6 +1,6 @@
 module TerminalShop
   class BaseClient
-    type request =
+    type request_components =
       {
         method: Symbol,
         path: String | ::Array[String],
@@ -10,12 +10,10 @@ module TerminalShop
         unwrap: Symbol?,
         page: Class?,
         model: TerminalShop::Converter::input?,
-        options: (TerminalShop::RequestOptions
-        | TerminalShop::request_options
-        | ::Hash[Symbol, top])?
+        options: TerminalShop::request_opts?
       }
 
-    type normalized_request =
+    type request_input =
       {
         method: Symbol,
         url: URI::Generic,
@@ -27,7 +25,9 @@ module TerminalShop
 
     MAX_REDIRECTS: 20
 
-    def self.validate!: (TerminalShop::BaseClient::request req) -> void
+    def self.validate!: (
+      TerminalShop::BaseClient::request_components req
+    ) -> void
 
     # @private
     attr_accessor requester: top
@@ -47,9 +47,9 @@ module TerminalShop
     private def generate_idempotency_key: -> String
 
     private def build_request: (
-      TerminalShop::BaseClient::request req,
+      TerminalShop::BaseClient::request_components req,
       TerminalShop::request_options opts
-    ) -> TerminalShop::BaseClient::normalized_request
+    ) -> TerminalShop::BaseClient::request_input
 
     private def should_retry?: (
       Integer status,
@@ -62,20 +62,20 @@ module TerminalShop
     ) -> Float
 
     private def follow_redirect: (
-      TerminalShop::BaseClient::normalized_request request,
+      TerminalShop::BaseClient::request_input request,
       status: Integer,
       location_header: String
-    ) -> TerminalShop::BaseClient::normalized_request
+    ) -> TerminalShop::BaseClient::request_input
 
     private def send_request: (
-      TerminalShop::BaseClient::normalized_request request,
+      TerminalShop::BaseClient::request_input request,
       redirect_count: Integer,
       retry_count: Integer,
       send_retry_header: bool
     ) -> top
 
     private def parse_response: (
-      TerminalShop::BaseClient::request req,
+      TerminalShop::BaseClient::request_components req,
       nil response
     ) -> top
 
@@ -89,11 +89,9 @@ module TerminalShop
         unwrap: Symbol?,
         page: Class?,
         model: TerminalShop::Converter::input?,
-        options: (TerminalShop::RequestOptions
-        | TerminalShop::request_options
-        | ::Hash[Symbol, top])?
+        options: TerminalShop::request_opts?
       ) -> top
-      | (TerminalShop::BaseClient::request req) -> top
+      | (TerminalShop::BaseClient::request_components req) -> top
 
     def inspect: -> String
   end
