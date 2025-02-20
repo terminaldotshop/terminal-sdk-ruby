@@ -4,7 +4,7 @@ module TerminalShop
   class BaseClient
     abstract!
 
-    RequestShape = T.type_alias do
+    RequestComponentsShape = T.type_alias do
       {
         method: Symbol,
         path: T.any(String, T::Array[String]),
@@ -18,7 +18,7 @@ module TerminalShop
       }
     end
 
-    NormalizedRequestShape = T.type_alias do
+    RequestInputShape = T.type_alias do
       {
         method: Symbol,
         url: URI::Generic,
@@ -31,7 +31,7 @@ module TerminalShop
 
     MAX_REDIRECTS = 20
 
-    sig { params(req: TerminalShop::BaseClient::RequestShape).void }
+    sig { params(req: TerminalShop::BaseClient::RequestComponentsShape).void }
     def self.validate!(req)
     end
 
@@ -75,8 +75,8 @@ module TerminalShop
     end
 
     sig do
-      params(req: TerminalShop::BaseClient::RequestShape, opts: T::Hash[Symbol, T.anything])
-        .returns(TerminalShop::BaseClient::NormalizedRequestShape)
+      params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
     end
@@ -90,19 +90,15 @@ module TerminalShop
     end
 
     sig do
-      params(
-        request: TerminalShop::BaseClient::NormalizedRequestShape,
-        status: Integer,
-        location_header: String
-      )
-        .returns(TerminalShop::BaseClient::NormalizedRequestShape)
+      params(request: TerminalShop::BaseClient::RequestInputShape, status: Integer, location_header: String)
+        .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def follow_redirect(request, status:, location_header:)
     end
 
     sig do
       params(
-        request: TerminalShop::BaseClient::NormalizedRequestShape,
+        request: TerminalShop::BaseClient::RequestInputShape,
         redirect_count: Integer,
         retry_count: Integer,
         send_retry_header: T::Boolean
@@ -112,7 +108,9 @@ module TerminalShop
     private def send_request(request, redirect_count:, retry_count:, send_retry_header:)
     end
 
-    sig { params(req: TerminalShop::BaseClient::RequestShape, response: NilClass).returns(T.anything) }
+    sig do
+      params(req: TerminalShop::BaseClient::RequestComponentsShape, response: NilClass).returns(T.anything)
+    end
     private def parse_response(req, response)
     end
 

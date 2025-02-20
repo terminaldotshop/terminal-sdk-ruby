@@ -27,7 +27,7 @@ module TerminalShop
     sig do
       params(
         client: TerminalShop::BaseClient,
-        req: TerminalShop::BaseClient::RequestShape,
+        req: TerminalShop::BaseClient::RequestComponentsShape,
         headers: T::Hash[String, String],
         unwrapped: T.anything
       )
