@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # token_delete_response => {
-    #   data: :ok
-    # }
-    # ```
     class TokenDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #
