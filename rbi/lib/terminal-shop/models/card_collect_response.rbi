@@ -8,7 +8,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: TerminalShop::Models::CardCollectResponse::Data).returns(TerminalShop::Models::CardCollectResponse::Data)
+        params(_: TerminalShop::Models::CardCollectResponse::Data)
+          .returns(TerminalShop::Models::CardCollectResponse::Data)
       end
       def data=(_)
       end

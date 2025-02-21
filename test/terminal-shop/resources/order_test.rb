@@ -16,6 +16,12 @@ class TerminalShop::Test::Resources::OrderTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::OrderListResponse
     end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI])
+      }
+    end
   end
 
   def test_get
@@ -23,6 +29,12 @@ class TerminalShop::Test::Resources::OrderTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::OrderGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::OrderAPI
+      }
     end
   end
 end

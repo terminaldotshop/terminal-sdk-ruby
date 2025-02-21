@@ -8,7 +8,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: TerminalShop::Models::TokenCreateResponse::Data).returns(TerminalShop::Models::TokenCreateResponse::Data)
+        params(_: TerminalShop::Models::TokenCreateResponse::Data)
+          .returns(TerminalShop::Models::TokenCreateResponse::Data)
       end
       def data=(_)
       end

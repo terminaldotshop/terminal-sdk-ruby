@@ -20,6 +20,12 @@ class TerminalShop::Test::Resources::AppTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::AppCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::AppCreateResponse::Data
+      }
+    end
   end
 
   def test_list
@@ -27,6 +33,12 @@ class TerminalShop::Test::Resources::AppTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::AppListResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::AppAPI])
+      }
     end
   end
 
@@ -36,6 +48,12 @@ class TerminalShop::Test::Resources::AppTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::AppDeleteResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_get
@@ -43,6 +61,12 @@ class TerminalShop::Test::Resources::AppTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::AppGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::AppAPI
+      }
     end
   end
 end

@@ -16,6 +16,12 @@ class TerminalShop::Test::Resources::CardTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::CardCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: String
+      }
+    end
   end
 
   def test_list
@@ -23,6 +29,12 @@ class TerminalShop::Test::Resources::CardTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::CardListResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::CardAPI])
+      }
     end
   end
 
@@ -32,6 +44,12 @@ class TerminalShop::Test::Resources::CardTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::CardDeleteResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_collect
@@ -39,6 +57,12 @@ class TerminalShop::Test::Resources::CardTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::CardCollectResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::CardCollectResponse::Data
+      }
     end
   end
 end

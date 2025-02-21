@@ -27,10 +27,11 @@ module TerminalShop
     sig do
       params(
         client: TerminalShop::BaseClient,
-        req: TerminalShop::BaseClient::RequestShape,
-        headers: T::Hash[String, String],
+        req: TerminalShop::BaseClient::RequestComponentsShape,
+        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
         unwrapped: T.anything
-      ).void
+      )
+        .void
     end
     def initialize(client:, req:, headers:, unwrapped:)
     end

@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # profile_api => {
-    #   user: TerminalShop::Models::ProfileAPI::User
-    # }
-    # ```
     class ProfileAPI < TerminalShop::BaseModel
       # @!attribute user
       #   A Terminal shop user. (We have users, btw.)
@@ -24,16 +18,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # user => {
-      #   id: String,
-      #   email: String,
-      #   fingerprint: String,
-      #   name: String,
-      #   stripe_customer_id: String
-      # }
-      # ```
       class User < TerminalShop::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.

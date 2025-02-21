@@ -16,6 +16,12 @@ class TerminalShop::Test::Resources::TokenTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::TokenCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::TokenCreateResponse::Data
+      }
+    end
   end
 
   def test_list
@@ -23,6 +29,12 @@ class TerminalShop::Test::Resources::TokenTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::TokenListResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::TokenAPI])
+      }
     end
   end
 
@@ -32,6 +44,12 @@ class TerminalShop::Test::Resources::TokenTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::TokenDeleteResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_get
@@ -39,6 +57,12 @@ class TerminalShop::Test::Resources::TokenTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::TokenGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::TokenAPI
+      }
     end
   end
 end

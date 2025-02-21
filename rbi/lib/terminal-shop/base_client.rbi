@@ -4,7 +4,7 @@ module TerminalShop
   class BaseClient
     abstract!
 
-    RequestShape = T.type_alias do
+    RequestComponentsShape = T.type_alias do
       {
         method: Symbol,
         path: T.any(String, T::Array[String]),
@@ -18,12 +18,13 @@ module TerminalShop
       }
     end
 
-    NormalizedRequestShape = T.type_alias do
+    RequestInputShape = T.type_alias do
       {
         method: Symbol,
         url: URI::Generic,
         headers: T::Hash[String, String],
         body: T.anything,
+        streaming: T::Boolean,
         max_retries: Integer,
         timeout: Float
       }
@@ -31,8 +32,25 @@ module TerminalShop
 
     MAX_REDIRECTS = 20
 
-    sig { params(req: TerminalShop::BaseClient::RequestShape).void }
+    sig { params(req: TerminalShop::BaseClient::RequestComponentsShape).void }
     def self.validate!(req)
+    end
+
+    sig do
+      params(status: Integer, headers: T.any(T::Hash[String, String], Net::HTTPHeader)).returns(T::Boolean)
+    end
+    def self.should_retry?(status, headers:)
+    end
+
+    sig do
+      params(
+        request: TerminalShop::BaseClient::RequestInputShape,
+        status: Integer,
+        response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
+      )
+        .returns(TerminalShop::BaseClient::RequestInputShape)
+    end
+    def self.follow_redirect(request, status:, response_headers:)
     end
 
     sig { returns(T.anything) }
@@ -52,7 +70,8 @@ module TerminalShop
         max_retry_delay: Float,
         headers: T::Hash[String, T.nilable(String)],
         idempotency_header: T.nilable(String)
-      ).void
+      )
+        .void
     end
     def initialize(
       base_url:,
@@ -74,16 +93,11 @@ module TerminalShop
     end
 
     sig do
-      params(
-        req: TerminalShop::BaseClient::RequestShape,
-        opts: T::Hash[Symbol, T.anything]
-      ).returns(TerminalShop::BaseClient::NormalizedRequestShape)
+      overridable
+        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
-    end
-
-    sig { params(status: Integer, headers: T::Hash[String, String]).returns(T::Boolean) }
-    private def should_retry?(status, headers:)
     end
 
     sig { params(headers: T::Hash[String, String], retry_count: Integer).returns(Float) }
@@ -92,27 +106,25 @@ module TerminalShop
 
     sig do
       params(
-        request: TerminalShop::BaseClient::NormalizedRequestShape,
-        status: Integer,
-        location_header: String
-      ).returns(TerminalShop::BaseClient::NormalizedRequestShape)
-    end
-    private def follow_redirect(request, status:, location_header:)
-    end
-
-    sig do
-      params(
-        request: TerminalShop::BaseClient::NormalizedRequestShape,
+        request: TerminalShop::BaseClient::RequestInputShape,
         redirect_count: Integer,
         retry_count: Integer,
         send_retry_header: T::Boolean
-      ).returns(Net::HTTPResponse)
+      )
+        .returns([Net::HTTPResponse, T::Enumerable[String]])
     end
     private def send_request(request, redirect_count:, retry_count:, send_retry_header:)
     end
 
-    sig { params(req: TerminalShop::BaseClient::RequestShape, response: NilClass).returns(T.anything) }
-    private def parse_response(req, response)
+    sig do
+      params(
+        req: TerminalShop::BaseClient::RequestComponentsShape,
+        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
+        stream: T::Enumerable[String]
+      )
+        .returns(T.anything)
+    end
+    private def parse_response(req, headers:, stream:)
     end
 
     sig do
@@ -126,7 +138,8 @@ module TerminalShop
         page: T.nilable(T::Class[TerminalShop::BaseModel]),
         model: T.nilable(TerminalShop::Converter::Input),
         options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-      ).returns(T.anything)
+      )
+        .returns(T.anything)
     end
     def request(
       method,

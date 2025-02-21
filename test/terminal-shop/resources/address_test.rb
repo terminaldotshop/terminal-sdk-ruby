@@ -22,6 +22,12 @@ class TerminalShop::Test::Resources::AddressTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::AddressCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: String
+      }
+    end
   end
 
   def test_list
@@ -30,6 +36,12 @@ class TerminalShop::Test::Resources::AddressTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::AddressListResponse
     end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::AddressAPI])
+      }
+    end
   end
 
   def test_delete
@@ -37,6 +49,12 @@ class TerminalShop::Test::Resources::AddressTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::AddressDeleteResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
     end
   end
 end

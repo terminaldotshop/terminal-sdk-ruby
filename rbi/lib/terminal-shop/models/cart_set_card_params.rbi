@@ -17,8 +17,12 @@ module TerminalShop
       sig do
         params(
           card_id: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+          request_options: T.any(
+            TerminalShop::RequestOptions,
+            T::Hash[Symbol, T.anything]
+          )
+        )
+          .void
       end
       def initialize(card_id:, request_options: {})
       end

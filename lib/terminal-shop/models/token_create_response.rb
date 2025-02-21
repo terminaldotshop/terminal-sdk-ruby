@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # token_create_response => {
-    #   data: TerminalShop::Models::TokenCreateResponse::Data
-    # }
-    # ```
     class TokenCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #
@@ -21,13 +15,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # data => {
-      #   id: String,
-      #   token: String
-      # }
-      # ```
       class Data < TerminalShop::BaseModel
         # @!attribute id
         #   Personal token ID.

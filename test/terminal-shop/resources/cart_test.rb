@@ -16,6 +16,12 @@ class TerminalShop::Test::Resources::CartTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::CartConvertResponse
     end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::OrderAPI
+      }
+    end
   end
 
   def test_get
@@ -23,6 +29,12 @@ class TerminalShop::Test::Resources::CartTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::CartGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::CartAPI
+      }
     end
   end
 
@@ -32,6 +44,12 @@ class TerminalShop::Test::Resources::CartTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::CartSetAddressResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_set_card_required_params
@@ -40,6 +58,12 @@ class TerminalShop::Test::Resources::CartTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::CartSetCardResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_set_item_required_params
@@ -47,6 +71,12 @@ class TerminalShop::Test::Resources::CartTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::CartSetItemResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::CartAPI
+      }
     end
   end
 end

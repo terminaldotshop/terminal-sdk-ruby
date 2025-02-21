@@ -2,14 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # token_api => {
-    #   id: String,
-    #   token: String,
-    #   time: TerminalShop::Models::TokenAPI::Time
-    # }
-    # ```
     class TokenAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
@@ -41,12 +33,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # time => {
-      #   created: String
-      # }
-      # ```
       class Time < TerminalShop::BaseModel
         # @!attribute created
         #   The created time for the token.

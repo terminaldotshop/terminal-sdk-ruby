@@ -16,7 +16,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: T::Array[TerminalShop::Models::CartAPI::Item]).returns(T::Array[TerminalShop::Models::CartAPI::Item])
+        params(_: T::Array[TerminalShop::Models::CartAPI::Item])
+          .returns(T::Array[TerminalShop::Models::CartAPI::Item])
       end
       def items=(_)
       end
@@ -49,9 +50,7 @@ module TerminalShop
       def shipping
       end
 
-      sig do
-        params(_: TerminalShop::Models::CartAPI::Shipping).returns(TerminalShop::Models::CartAPI::Shipping)
-      end
+      sig { params(_: TerminalShop::Models::CartAPI::Shipping).returns(TerminalShop::Models::CartAPI::Shipping) }
       def shipping=(_)
       end
 
@@ -63,22 +62,24 @@ module TerminalShop
           address_id: String,
           card_id: String,
           shipping: TerminalShop::Models::CartAPI::Shipping
-        ).void
+        )
+          .void
       end
       def initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
       end
 
       sig do
-        override.returns(
-          {
-            amount: TerminalShop::Models::CartAPI::Amount,
-            items: T::Array[TerminalShop::Models::CartAPI::Item],
-            subtotal: Integer,
-            address_id: String,
-            card_id: String,
-            shipping: TerminalShop::Models::CartAPI::Shipping
-          }
-        )
+        override
+          .returns(
+            {
+              amount: TerminalShop::Models::CartAPI::Amount,
+              items: T::Array[TerminalShop::Models::CartAPI::Item],
+              subtotal: Integer,
+              address_id: String,
+              card_id: String,
+              shipping: TerminalShop::Models::CartAPI::Shipping
+            }
+          )
       end
       def to_hash
       end

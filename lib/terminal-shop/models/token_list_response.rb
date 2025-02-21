@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # token_list_response => {
-    #   data: -> { TerminalShop::ArrayOf[TerminalShop::Models::TokenAPI] === _1 }
-    # }
-    # ```
     class TokenListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of personal access tokens.

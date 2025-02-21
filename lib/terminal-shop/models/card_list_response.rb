@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # card_list_response => {
-    #   data: -> { TerminalShop::ArrayOf[TerminalShop::Models::CardAPI] === _1 }
-    # }
-    # ```
     class CardListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of cards associated with the user.

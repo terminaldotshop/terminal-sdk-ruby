@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # card_create_response => {
-    #   data: String
-    # }
-    # ```
     class CardCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   ID of the card.

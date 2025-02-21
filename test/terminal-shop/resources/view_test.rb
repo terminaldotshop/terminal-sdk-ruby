@@ -16,5 +16,11 @@ class TerminalShop::Test::Resources::ViewTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::ViewInitResponse
     end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::ViewInitResponse::Data
+      }
+    end
   end
 end

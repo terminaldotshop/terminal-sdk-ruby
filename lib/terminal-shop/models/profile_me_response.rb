@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # profile_me_response => {
-    #   data: TerminalShop::Models::ProfileAPI
-    # }
-    # ```
     class ProfileMeResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A Terminal shop user's profile. (We have users, btw.)

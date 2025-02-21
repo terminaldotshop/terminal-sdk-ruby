@@ -16,5 +16,11 @@ class TerminalShop::Test::Resources::ProductTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::ProductListResponse
     end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::ProductAPI])
+      }
+    end
   end
 end

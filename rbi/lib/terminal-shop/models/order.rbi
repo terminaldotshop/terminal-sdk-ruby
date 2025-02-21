@@ -15,9 +15,7 @@ module TerminalShop
       def amount
       end
 
-      sig do
-        params(_: TerminalShop::Models::OrderAPI::Amount).returns(TerminalShop::Models::OrderAPI::Amount)
-      end
+      sig { params(_: TerminalShop::Models::OrderAPI::Amount).returns(TerminalShop::Models::OrderAPI::Amount) }
       def amount=(_)
       end
 
@@ -26,7 +24,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: T::Array[TerminalShop::Models::OrderAPI::Item]).returns(T::Array[TerminalShop::Models::OrderAPI::Item])
+        params(_: T::Array[TerminalShop::Models::OrderAPI::Item])
+          .returns(T::Array[TerminalShop::Models::OrderAPI::Item])
       end
       def items=(_)
       end
@@ -35,9 +34,7 @@ module TerminalShop
       def shipping
       end
 
-      sig do
-        params(_: TerminalShop::Models::OrderAPI::Shipping).returns(TerminalShop::Models::OrderAPI::Shipping)
-      end
+      sig { params(_: TerminalShop::Models::OrderAPI::Shipping).returns(TerminalShop::Models::OrderAPI::Shipping) }
       def shipping=(_)
       end
 
@@ -45,9 +42,7 @@ module TerminalShop
       def tracking
       end
 
-      sig do
-        params(_: TerminalShop::Models::OrderAPI::Tracking).returns(TerminalShop::Models::OrderAPI::Tracking)
-      end
+      sig { params(_: TerminalShop::Models::OrderAPI::Tracking).returns(TerminalShop::Models::OrderAPI::Tracking) }
       def tracking=(_)
       end
 
@@ -67,22 +62,24 @@ module TerminalShop
           shipping: TerminalShop::Models::OrderAPI::Shipping,
           tracking: TerminalShop::Models::OrderAPI::Tracking,
           index: Integer
-        ).void
+        )
+          .void
       end
       def initialize(id:, amount:, items:, shipping:, tracking:, index: nil)
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            amount: TerminalShop::Models::OrderAPI::Amount,
-            items: T::Array[TerminalShop::Models::OrderAPI::Item],
-            shipping: TerminalShop::Models::OrderAPI::Shipping,
-            tracking: TerminalShop::Models::OrderAPI::Tracking,
-            index: Integer
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              amount: TerminalShop::Models::OrderAPI::Amount,
+              items: T::Array[TerminalShop::Models::OrderAPI::Item],
+              shipping: TerminalShop::Models::OrderAPI::Shipping,
+              tracking: TerminalShop::Models::OrderAPI::Tracking,
+              index: Integer
+            }
+          )
       end
       def to_hash
       end
@@ -161,21 +158,21 @@ module TerminalShop
             quantity: Integer,
             description: String,
             product_variant_id: String
-          ).void
+          )
+            .void
         end
         def initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil)
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              amount: Integer,
-              quantity: Integer,
-              description: String,
-              product_variant_id: String
-            }
-          )
+          override
+            .returns({
+                       id: String,
+                       amount: Integer,
+                       quantity: Integer,
+                       description: String,
+                       product_variant_id: String
+                     })
         end
         def to_hash
         end
@@ -256,24 +253,26 @@ module TerminalShop
             phone: String,
             province: String,
             street2: String
-          ).void
+          )
+            .void
         end
         def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
         end
 
         sig do
-          override.returns(
-            {
-              city: String,
-              country: String,
-              name: String,
-              street1: String,
-              zip: String,
-              phone: String,
-              province: String,
-              street2: String
-            }
-          )
+          override
+            .returns(
+              {
+                city: String,
+                country: String,
+                name: String,
+                street1: String,
+                zip: String,
+                phone: String,
+                province: String,
+                street2: String
+              }
+            )
         end
         def to_hash
         end

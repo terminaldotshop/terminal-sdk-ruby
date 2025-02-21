@@ -23,9 +23,7 @@ module TerminalShop
       def expiration
       end
 
-      sig do
-        params(_: TerminalShop::Models::CardAPI::Expiration).returns(TerminalShop::Models::CardAPI::Expiration)
-      end
+      sig { params(_: TerminalShop::Models::CardAPI::Expiration).returns(TerminalShop::Models::CardAPI::Expiration) }
       def expiration=(_)
       end
 
@@ -38,25 +36,15 @@ module TerminalShop
       end
 
       sig do
-        params(
-          id: String,
-          brand: String,
-          expiration: TerminalShop::Models::CardAPI::Expiration,
-          last4: String
-        ).void
+        params(id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String)
+          .void
       end
       def initialize(id:, brand:, expiration:, last4:)
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            brand: String,
-            expiration: TerminalShop::Models::CardAPI::Expiration,
-            last4: String
-          }
-        )
+        override
+          .returns({id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String})
       end
       def to_hash
       end

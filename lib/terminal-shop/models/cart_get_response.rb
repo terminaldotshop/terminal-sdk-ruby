@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # cart_get_response => {
-    #   data: TerminalShop::Models::CartAPI
-    # }
-    # ```
     class CartGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   The current Terminal shop user's cart.

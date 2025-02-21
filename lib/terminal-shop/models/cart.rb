@@ -2,16 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # cart_api => {
-    #   amount: TerminalShop::Models::CartAPI::Amount,
-    #   items: -> { TerminalShop::ArrayOf[TerminalShop::Models::CartAPI::Item] === _1 },
-    #   subtotal: Integer,
-    #   address_id: String,
-    #   card_id: String
-    # }
-    # ```
     class CartAPI < TerminalShop::BaseModel
       # @!attribute amount
       #   The subtotal and shipping amounts for the current user's cart.
@@ -75,13 +65,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # amount => {
-      #   subtotal: Integer,
-      #   shipping: Integer
-      # }
-      # ```
       class Amount < TerminalShop::BaseModel
         # @!attribute subtotal
         #   Subtotal of the current user's cart, in cents (USD).
@@ -110,15 +93,6 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # item => {
-      #   id: String,
-      #   product_variant_id: String,
-      #   quantity: Integer,
-      #   subtotal: Integer
-      # }
-      # ```
       class Item < TerminalShop::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
@@ -157,13 +131,6 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # shipping => {
-      #   service: String,
-      #   timeframe: String
-      # }
-      # ```
       class Shipping < TerminalShop::BaseModel
         # @!attribute [r] service
         #   Shipping service name.

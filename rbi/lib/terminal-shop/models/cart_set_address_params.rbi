@@ -18,7 +18,8 @@ module TerminalShop
         params(
           address_id: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(address_id:, request_options: {})
       end

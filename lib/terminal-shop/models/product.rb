@@ -2,17 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # product_api => {
-    #   id: String,
-    #   description: String,
-    #   filters: -> { TerminalShop::ArrayOf[enum: TerminalShop::Models::ProductAPI::Filter] === _1 },
-    #   name: String,
-    #   variants: -> { TerminalShop::ArrayOf[TerminalShop::Models::ProductVariant] === _1 },
-    #   **_
-    # }
-    # ```
     class ProductAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.

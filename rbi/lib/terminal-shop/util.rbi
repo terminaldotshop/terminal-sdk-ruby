@@ -26,12 +26,17 @@ module TerminalShop
     def self.coerce_hash(input)
     end
 
+    sig { returns(Float) }
+    def self.monotonic_secs
+    end
+
     sig do
       params(
         exceptions: T::Array[Exception],
         sentinel: T.nilable(T.anything),
         blk: T.nilable(T.proc.returns(T.anything))
-      ).returns(T.nilable(T.anything))
+      )
+        .returns(T.nilable(T.anything))
     end
     def self.suppress(*exceptions, sentinel: nil, &blk)
     end
@@ -39,11 +44,8 @@ module TerminalShop
     OMIT = T.let(T.anything, T.anything)
 
     sig do
-      params(
-        values: T::Array[T.anything],
-        sentinel: T.nilable(T.anything),
-        concat: T::Boolean
-      ).returns(T.anything)
+      params(values: T::Array[T.anything], sentinel: T.nilable(T.anything), concat: T::Boolean)
+        .returns(T.anything)
     end
     def self.deep_merge(*values, sentinel: nil, concat: false)
     end
@@ -54,7 +56,8 @@ module TerminalShop
         pick: T.nilable(T.any(Symbol, Integer, T::Array[T.any(Symbol, Integer)])),
         sentinel: T.nilable(T.anything),
         blk: T.nilable(T.proc.returns(T.anything))
-      ).returns(T.nilable(T.anything))
+      )
+        .returns(T.nilable(T.anything))
     end
     def self.dig(data, pick, sentinel = nil, &blk)
     end
@@ -86,10 +89,8 @@ module TerminalShop
     end
 
     sig do
-      params(
-        lhs: TerminalShop::Util::ParsedUriShape,
-        rhs: TerminalShop::Util::ParsedUriShape
-      ).returns(URI::Generic)
+      params(lhs: TerminalShop::Util::ParsedUriShape, rhs: TerminalShop::Util::ParsedUriShape)
+        .returns(URI::Generic)
     end
     def self.join_parsed_uri(lhs, rhs)
     end
@@ -99,21 +100,15 @@ module TerminalShop
     end
 
     sig do
-      params(
-        query: T.nilable(
-          T::Hash[String,
-                  T.nilable(T.any(T::Array[String], String))]
-        )
-      ).returns(T.nilable(String))
+      params(query: T.nilable(T::Hash[String, T.nilable(T.any(T::Array[String], String))]))
+        .returns(T.nilable(String))
     end
     def self.encode_query(query)
     end
 
     sig do
-      params(
-        headers: T::Array[T::Hash[String,
-                                  T.nilable(T.any(String, Integer))]]
-      ).returns(T::Hash[String, String])
+      params(headers: T::Array[T::Hash[String, T.nilable(T.any(String, Integer))]])
+        .returns(T::Hash[String, String])
     end
     def self.normalized_headers(*headers)
     end
@@ -122,8 +117,15 @@ module TerminalShop
     def self.encode_content(headers, body)
     end
 
-    sig { params(response: Net::HTTPResponse, suppress_error: T::Boolean).returns(T.anything) }
-    def self.decode_content(response, suppress_error: false)
+    sig do
+      params(
+        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
+        stream: T::Enumerable[String],
+        suppress_error: T::Boolean
+      )
+        .returns(T.anything)
+    end
+    def self.decode_content(headers, stream:, suppress_error: false)
     end
 
     sig { params(io: StringIO, boundary: String, key: T.any(Symbol, String), val: T.anything).void }

@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # cart_convert_response => {
-    #   data: TerminalShop::Models::OrderAPI
-    # }
-    # ```
     class CartConvertResponse < TerminalShop::BaseModel
       # @!attribute data
       #   An order from the Terminal shop.

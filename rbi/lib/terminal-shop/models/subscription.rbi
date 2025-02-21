@@ -78,10 +78,13 @@ module TerminalShop
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
-        ).returns(T.any(
-                    TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-                    TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-                  ))
+        )
+          .returns(
+            T.any(
+              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
+            )
+          )
       end
       def schedule=(_)
       end
@@ -99,7 +102,8 @@ module TerminalShop
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -114,21 +118,22 @@ module TerminalShop
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            address_id: String,
-            card_id: String,
-            frequency: Symbol,
-            product_variant_id: String,
-            quantity: Integer,
-            next_: String,
-            schedule: T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-            )
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              address_id: String,
+              card_id: String,
+              frequency: Symbol,
+              product_variant_id: String,
+              quantity: Integer,
+              next_: String,
+              schedule: T.any(
+                TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+                TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
+              )
+            }
+          )
       end
       def to_hash
       end
@@ -195,12 +200,10 @@ module TerminalShop
         end
 
         sig do
-          override.returns(
-            [
-              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed],
-              [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-            ]
-          )
+          override
+            .returns(
+              [[NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
+            )
         end
         private_class_method def self.variants
         end

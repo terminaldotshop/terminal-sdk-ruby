@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # view_init_response => {
-    #   data: TerminalShop::Models::ViewInitResponse::Data
-    # }
-    # ```
     class ViewInitResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Initial app data.
@@ -22,17 +16,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # data => {
-      #   addresses: -> { TerminalShop::ArrayOf[TerminalShop::Models::AddressAPI] === _1 },
-      #   apps: -> { TerminalShop::ArrayOf[TerminalShop::Models::AppAPI] === _1 },
-      #   cards: -> { TerminalShop::ArrayOf[TerminalShop::Models::CardAPI] === _1 },
-      #   cart: TerminalShop::Models::CartAPI,
-      #   orders: -> { TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI] === _1 },
-      #   **_
-      # }
-      # ```
       class Data < TerminalShop::BaseModel
         # @!attribute addresses
         #

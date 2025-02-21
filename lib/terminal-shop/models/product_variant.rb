@@ -2,14 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # product_variant => {
-    #   id: String,
-    #   name: String,
-    #   price: Integer
-    # }
-    # ```
     class ProductVariant < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.

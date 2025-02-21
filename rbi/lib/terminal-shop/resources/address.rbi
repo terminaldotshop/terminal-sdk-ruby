@@ -14,7 +14,8 @@ module TerminalShop
           province: String,
           street2: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(TerminalShop::Models::AddressCreateResponse)
+        )
+          .returns(TerminalShop::Models::AddressCreateResponse)
       end
       def create(
         city:,
@@ -30,15 +31,8 @@ module TerminalShop
       end
 
       sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              T::Hash[Symbol,
-                      T.anything]
-            )
-          )
-        ).returns(TerminalShop::Models::AddressListResponse)
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+          .returns(TerminalShop::Models::AddressListResponse)
       end
       def list(request_options: {})
       end
@@ -47,7 +41,8 @@ module TerminalShop
         params(
           id: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(TerminalShop::Models::AddressDeleteResponse)
+        )
+          .returns(TerminalShop::Models::AddressDeleteResponse)
       end
       def delete(id, request_options: {})
       end

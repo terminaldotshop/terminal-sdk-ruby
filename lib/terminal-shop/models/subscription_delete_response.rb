@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # subscription_delete_response => {
-    #   data: :ok
-    # }
-    # ```
     class SubscriptionDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #

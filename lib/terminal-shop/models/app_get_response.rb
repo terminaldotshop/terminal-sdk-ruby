@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # app_get_response => {
-    #   data: TerminalShop::Models::AppAPI
-    # }
-    # ```
     class AppGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A Terminal App used for configuring an OAuth 2.0 client.

@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # token_get_response => {
-    #   data: TerminalShop::Models::TokenAPI
-    # }
-    # ```
     class TokenGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A personal access token used to access the Terminal API. If you leak this,

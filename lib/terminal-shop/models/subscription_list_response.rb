@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # subscription_list_response => {
-    #   data: -> { TerminalShop::ArrayOf[TerminalShop::Models::SubscriptionAPI] === _1 }
-    # }
-    # ```
     class SubscriptionListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of subscriptions.
