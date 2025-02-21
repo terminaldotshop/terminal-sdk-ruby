@@ -93,7 +93,8 @@ module TerminalShop
     end
 
     sig do
-      params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+      overridable
+        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
         .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
