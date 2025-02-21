@@ -452,7 +452,7 @@ module TerminalShop
       self.class.validate!(req)
       opts = req[:options].to_h
       TerminalShop::RequestOptions.validate!(opts)
-      request = build_request(req, opts)
+      request = build_request(req.except(:options), opts)
 
       # Don't send the current retry count in the headers if the caller modified the header defaults.
       send_retry_header = request.fetch(:headers)["x-stainless-retry-count"] == "0"
