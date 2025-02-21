@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # email_create_response => {
-    #   data: :ok
-    # }
-    # ```
     class EmailCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #

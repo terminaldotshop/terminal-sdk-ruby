@@ -2,14 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # app_api => {
-    #   id: String,
-    #   name: String,
-    #   redirect_uri: String
-    # }
-    # ```
     class AppAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.

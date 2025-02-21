@@ -23,6 +23,12 @@ class TerminalShop::Test::Resources::SubscriptionTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::SubscriptionCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 
   def test_list
@@ -31,6 +37,12 @@ class TerminalShop::Test::Resources::SubscriptionTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::SubscriptionListResponse
     end
+
+    assert_pattern do
+      response => {
+        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::SubscriptionAPI])
+      }
+    end
   end
 
   def test_delete
@@ -38,6 +50,12 @@ class TerminalShop::Test::Resources::SubscriptionTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::SubscriptionDeleteResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
     end
   end
 end

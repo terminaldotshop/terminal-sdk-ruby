@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # address_delete_response => {
-    #   data: :ok
-    # }
-    # ```
     class AddressDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #
