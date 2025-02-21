@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # cart_set_address_response => {
-    #   data: :ok
-    # }
-    # ```
     class CartSetAddressResponse < TerminalShop::BaseModel
       # @!attribute data
       #

@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # address_create_response => {
-    #   data: String
-    # }
-    # ```
     class AddressCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Shipping address ID.

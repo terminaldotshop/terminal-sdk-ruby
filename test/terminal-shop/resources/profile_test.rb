@@ -16,6 +16,12 @@ class TerminalShop::Test::Resources::ProfileTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::ProfileUpdateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::ProfileAPI
+      }
+    end
   end
 
   def test_me
@@ -23,6 +29,12 @@ class TerminalShop::Test::Resources::ProfileTest < Minitest::Test
 
     assert_pattern do
       response => TerminalShop::Models::ProfileMeResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::ProfileAPI
+      }
     end
   end
 end

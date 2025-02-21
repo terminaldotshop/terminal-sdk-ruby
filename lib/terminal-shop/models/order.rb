@@ -2,16 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # order_api => {
-    #   id: String,
-    #   amount: TerminalShop::Models::OrderAPI::Amount,
-    #   items: -> { TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI::Item] === _1 },
-    #   shipping: TerminalShop::Models::OrderAPI::Shipping,
-    #   tracking: TerminalShop::Models::OrderAPI::Tracking
-    # }
-    # ```
     class OrderAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
@@ -67,13 +57,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # amount => {
-      #   shipping: Integer,
-      #   subtotal: Integer
-      # }
-      # ```
       class Amount < TerminalShop::BaseModel
         # @!attribute shipping
         #   Shipping amount of the order, in cents (USD).
@@ -98,16 +81,6 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # item => {
-      #   id: String,
-      #   amount: Integer,
-      #   quantity: Integer,
-      #   description: String,
-      #   product_variant_id: String
-      # }
-      # ```
       class Item < TerminalShop::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
@@ -159,17 +132,6 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # shipping => {
-      #   city: String,
-      #   country: String,
-      #   name: String,
-      #   street1: String,
-      #   zip: String,
-      #   **_
-      # }
-      # ```
       class Shipping < TerminalShop::BaseModel
         # @!attribute city
         #   City of the address.
@@ -248,14 +210,6 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # tracking => {
-      #   number: String,
-      #   service: String,
-      #   url: String
-      # }
-      # ```
       class Tracking < TerminalShop::BaseModel
         # @!attribute [r] number
         #   Tracking number of the order.

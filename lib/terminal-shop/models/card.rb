@@ -2,15 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # card_api => {
-    #   id: String,
-    #   brand: String,
-    #   expiration: TerminalShop::Models::CardAPI::Expiration,
-    #   last4: String
-    # }
-    # ```
     class CardAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
@@ -48,13 +39,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # expiration => {
-      #   month: Integer,
-      #   year: Integer
-      # }
-      # ```
       class Expiration < TerminalShop::BaseModel
         # @!attribute month
         #   Expiration month of the card.

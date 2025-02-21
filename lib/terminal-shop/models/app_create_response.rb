@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # app_create_response => {
-    #   data: TerminalShop::Models::AppCreateResponse::Data
-    # }
-    # ```
     class AppCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #
@@ -21,13 +15,6 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # data => {
-      #   id: String,
-      #   secret: String
-      # }
-      # ```
       class Data < TerminalShop::BaseModel
         # @!attribute id
         #   OAuth 2.0 client ID.
