@@ -28,7 +28,7 @@ module TerminalShop
       params(
         client: TerminalShop::BaseClient,
         req: TerminalShop::BaseClient::RequestComponentsShape,
-        headers: T::Hash[String, String],
+        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
         unwrapped: T.anything
       )
         .void
