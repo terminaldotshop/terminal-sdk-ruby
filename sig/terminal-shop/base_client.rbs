@@ -19,6 +19,7 @@ module TerminalShop
         url: URI::Generic,
         headers: ::Hash[String, String],
         body: top,
+        streaming: bool,
         max_retries: Integer,
         timeout: Float
       }
@@ -28,6 +29,17 @@ module TerminalShop
     def self.validate!: (
       TerminalShop::BaseClient::request_components req
     ) -> void
+
+    def self.should_retry?: (
+      Integer status,
+      headers: ::Hash[String, String]
+    ) -> bool
+
+    def self.follow_redirect: (
+      TerminalShop::BaseClient::request_input request,
+      status: Integer,
+      response_headers: ::Hash[String, String]
+    ) -> TerminalShop::BaseClient::request_input
 
     # @private
     attr_accessor requester: top
@@ -51,32 +63,22 @@ module TerminalShop
       TerminalShop::request_options opts
     ) -> TerminalShop::BaseClient::request_input
 
-    private def should_retry?: (
-      Integer status,
-      headers: ::Hash[String, String]
-    ) -> bool
-
     private def retry_delay: (
       ::Hash[String, String] headers,
       retry_count: Integer
     ) -> Float
-
-    private def follow_redirect: (
-      TerminalShop::BaseClient::request_input request,
-      status: Integer,
-      location_header: String
-    ) -> TerminalShop::BaseClient::request_input
 
     private def send_request: (
       TerminalShop::BaseClient::request_input request,
       redirect_count: Integer,
       retry_count: Integer,
       send_retry_header: bool
-    ) -> top
+    ) -> [top, Enumerable[String]]
 
     private def parse_response: (
       TerminalShop::BaseClient::request_components req,
-      nil response
+      headers: ::Hash[String, String],
+      stream: Enumerable[String]
     ) -> top
 
     def request:
