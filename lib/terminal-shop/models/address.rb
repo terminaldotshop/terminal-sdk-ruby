@@ -2,17 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # address_api => {
-    #   id: String,
-    #   city: String,
-    #   country: String,
-    #   name: String,
-    #   street1: String,
-    #   **_
-    # }
-    # ```
     class AddressAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.

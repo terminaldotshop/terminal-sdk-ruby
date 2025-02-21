@@ -16,5 +16,11 @@ class TerminalShop::Test::Resources::EmailTest < Minitest::Test
     assert_pattern do
       response => TerminalShop::Models::EmailCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
   end
 end

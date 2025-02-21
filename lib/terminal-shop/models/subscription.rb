@@ -2,17 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # subscription_api => {
-    #   id: String,
-    #   address_id: String,
-    #   card_id: String,
-    #   frequency: TerminalShop::Models::SubscriptionAPI::Frequency,
-    #   product_variant_id: String,
-    #   **_
-    # }
-    # ```
     class SubscriptionAPI < TerminalShop::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
@@ -138,12 +127,6 @@ module TerminalShop
 
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Weekly }
 
-        # @example
-        # ```ruby
-        # fixed => {
-        #   type: :fixed
-        # }
-        # ```
         class Fixed < TerminalShop::BaseModel
           # @!attribute type
           #
@@ -158,13 +141,6 @@ module TerminalShop
           # def initialize: (Hash | TerminalShop::BaseModel) -> void
         end
 
-        # @example
-        # ```ruby
-        # weekly => {
-        #   interval: Integer,
-        #   type: :weekly
-        # }
-        # ```
         class Weekly < TerminalShop::BaseModel
           # @!attribute interval
           #

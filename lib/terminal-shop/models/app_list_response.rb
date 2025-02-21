@@ -2,12 +2,6 @@
 
 module TerminalShop
   module Models
-    # @example
-    # ```ruby
-    # app_list_response => {
-    #   data: -> { TerminalShop::ArrayOf[TerminalShop::Models::AppAPI] === _1 }
-    # }
-    # ```
     class AppListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of apps.
