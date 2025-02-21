@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.homepage = "https://gemdocs.org/gems/terminal-shop/latest"
   s.metadata["homepage_uri"] = s.homepage
   s.metadata["source_code_uri"] = "https://github.com/terminaldotshop/terminal-sdk-ruby"
-  s.metadata["rubygems_mfa_required"] = "true"
+  s.metadata["rubygems_mfa_required"] = "false"
 end
