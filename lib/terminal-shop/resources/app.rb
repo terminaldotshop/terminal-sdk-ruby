@@ -13,6 +13,8 @@ module TerminalShop
       #
       #   @option params [String] :redirect_uri Redirect URI of the app.
       #
+      #   @option params [String] :secret OAuth 2.0 client secret of the app (obfuscated).
+      #
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::AppCreateResponse]

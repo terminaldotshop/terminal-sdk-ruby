@@ -27,11 +27,19 @@ module TerminalShop
       def redirect_uri=(_)
       end
 
-      sig { params(id: String, name: String, redirect_uri: String).void }
-      def initialize(id:, name:, redirect_uri:)
+      sig { returns(String) }
+      def secret
       end
 
-      sig { override.returns({id: String, name: String, redirect_uri: String}) }
+      sig { params(_: String).returns(String) }
+      def secret=(_)
+      end
+
+      sig { params(id: String, name: String, redirect_uri: String, secret: String).void }
+      def initialize(id:, name:, redirect_uri:, secret:)
+      end
+
+      sig { override.returns({id: String, name: String, redirect_uri: String, secret: String}) }
       def to_hash
       end
     end
