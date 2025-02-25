@@ -8,11 +8,12 @@ module TerminalShop
           id: String,
           name: String,
           redirect_uri: String,
+          secret: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(TerminalShop::Models::AppCreateResponse)
       end
-      def create(id:, name:, redirect_uri:, request_options: {})
+      def create(id:, name:, redirect_uri:, secret:, request_options: {})
       end
 
       sig do
