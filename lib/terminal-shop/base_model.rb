@@ -369,7 +369,6 @@ module TerminalShop
   # @abstract
   #
   class Union
-    extend TerminalShop::Extern
     extend TerminalShop::Converter
 
     # @private
@@ -842,7 +841,6 @@ module TerminalShop
   # @abstract
   #
   class BaseModel
-    extend TerminalShop::Extern
     extend TerminalShop::Converter
 
     # @private
