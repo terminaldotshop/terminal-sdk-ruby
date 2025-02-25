@@ -14,7 +14,8 @@ class TerminalShop::Test::Resources::AppTest < Minitest::Test
     response = @terminal.app.create(
       id: "cli_XXXXXXXXXXXXXXXXXXXXXXXXX",
       name: "Example App",
-      redirect_uri: "https://example.com/callback"
+      redirect_uri: "https://example.com/callback",
+      secret: "sec_******XXXX"
     )
 
     assert_pattern do

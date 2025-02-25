@@ -1,6 +1,7 @@
 module TerminalShop
   module Models
-    type app_api = { id: String, name: String, redirect_uri: String }
+    type app_api =
+      { id: String, name: String, redirect_uri: String, secret: String }
 
     class AppAPI < TerminalShop::BaseModel
       attr_accessor id: String
@@ -9,8 +10,10 @@ module TerminalShop
 
       attr_accessor redirect_uri: String
 
+      attr_accessor secret: String
+
       def initialize:
-        (id: String, name: String, redirect_uri: String) -> void
+        (id: String, name: String, redirect_uri: String, secret: String) -> void
         | (
           ?TerminalShop::Models::app_api | TerminalShop::BaseModel data
         ) -> void
