@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-02-25)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Features
+
+* **api:** manual updates ([#59](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/59)) ([2e7197c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2e7197c4ff1652250aebd967aae68a0c7494e75f))
+* make `build_request` overridable ([#54](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/54)) ([0623b3d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0623b3db9741c44f6ca43d32234bc899aff0cbe5))
+
+
+### Chores
+
+* add type annotations for requester ([#55](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/55)) ([fcb9d1f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/fcb9d1f18bfead4875676753fe9146b8b40af415))
+* bump lockfile ([#49](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/49)) ([1ef3656](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1ef365688a564dc8dae6fc575269c5c2aa977591))
+* clean up client tests ([#47](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/47)) ([03b21b2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/03b21b28440e333acb3e7616deb5ae5a4f8b8a84))
+* **internal:** formatting ([#48](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/48)) ([8d69160](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8d69160b37565da87edd86f6e6e90f45733006e5))
+* **internal:** prune unused `extern` references ([#58](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/58)) ([52c342c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/52c342c2abcdf00de0950c3624c24bfa5eb04736))
+* **internal:** refactor request stack ([#53](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/53)) ([2e145b2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2e145b22f3db5bce87c12f9e9ebc721befad7a9a))
+* **internal:** version bump ([#45](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/45)) ([ff808f6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ff808f61389178fc08608315d749a7a96b7c6bc8))
+* make MFA optional depending on token ([#51](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/51)) ([6f73715](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6f737155ac13bef546d32f6a9ce3f1df3d37af9c))
+* move basemodel examples into tests ([#52](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/52)) ([cfbaf1b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cfbaf1b92fcb5ef30e6ead3e6f3a4670ab97968e))
+* rename internal type aliases ([#50](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/50)) ([f2c0e6d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f2c0e6d3bddeded96fc513a05ca759982baa04ce))
+* reorganize import ordering ([#56](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/56)) ([b8c3b9b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b8c3b9b2827ddd2b5e963a66a183913a175b8db6))
+* sort imports via topological dependency & file path ([#57](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/57)) ([27cf276](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/27cf276ad07658914c2f537aee9d8d9ceafdea28))
+
 ## 0.1.0-alpha.10 (2025-02-18)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
