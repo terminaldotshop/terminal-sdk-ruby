@@ -153,7 +153,6 @@ module TerminalShop
   class Union
     abstract!
 
-    extend TerminalShop::Extern
     extend TerminalShop::Converter
 
     sig { returns(T::Array[[T.nilable(Symbol), Proc]]) }
@@ -331,7 +330,6 @@ module TerminalShop
   class BaseModel
     abstract!
 
-    extend TerminalShop::Extern
     extend TerminalShop::Converter
 
     KnownFieldShape = T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean} }
