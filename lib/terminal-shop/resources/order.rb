@@ -3,6 +3,31 @@
 module TerminalShop
   module Resources
     class Order
+      # Create an order without a cart. The order will be placed immediately.
+      #
+      # @param params [TerminalShop::Models::OrderCreateParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [String] :address_id Shipping address ID.
+      #
+      #   @option params [String] :card_id Card ID.
+      #
+      #   @option params [Hash{Symbol=>Integer}] :variants Product variants to include in the order, along with their quantities.
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::OrderCreateResponse]
+      #
+      def create(params)
+        parsed, options = TerminalShop::Models::OrderCreateParams.dump_request(params)
+        @client.request(
+          method: :post,
+          path: "order",
+          body: parsed,
+          model: TerminalShop::Models::OrderCreateResponse,
+          options: options
+        )
+      end
+
       # List the orders associated with the current user.
       #
       # @param params [TerminalShop::Models::OrderListParams, Hash{Symbol=>Object}] .

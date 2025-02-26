@@ -1,6 +1,17 @@
 module TerminalShop
   module Resources
     class Order
+      def create:
+        (
+          TerminalShop::Models::OrderCreateParams | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::OrderCreateResponse
+        | (
+          address_id: String,
+          card_id: String,
+          variants: ::Hash[Symbol, Integer],
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::OrderCreateResponse
+
       def list:
         (
           ?TerminalShop::Models::OrderListParams | ::Hash[Symbol, top] params
