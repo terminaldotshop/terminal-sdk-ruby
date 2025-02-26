@@ -24,7 +24,6 @@ module TerminalShop
         url: URI::Generic,
         headers: T::Hash[String, String],
         body: T.anything,
-        streaming: T::Boolean,
         max_retries: Integer,
         timeout: Float
       }
