@@ -19,38 +19,20 @@ module TerminalShop
       def token=(_)
       end
 
-      sig { returns(TerminalShop::Models::TokenAPI::Time) }
-      def time
+      sig { returns(String) }
+      def created
       end
 
-      sig { params(_: TerminalShop::Models::TokenAPI::Time).returns(TerminalShop::Models::TokenAPI::Time) }
-      def time=(_)
+      sig { params(_: String).returns(String) }
+      def created=(_)
       end
 
-      sig { params(id: String, token: String, time: TerminalShop::Models::TokenAPI::Time).void }
-      def initialize(id:, token:, time:)
+      sig { params(id: String, token: String, created: String).void }
+      def initialize(id:, token:, created:)
       end
 
-      sig { override.returns({id: String, token: String, time: TerminalShop::Models::TokenAPI::Time}) }
+      sig { override.returns({id: String, token: String, created: String}) }
       def to_hash
-      end
-
-      class Time < TerminalShop::BaseModel
-        sig { returns(String) }
-        def created
-        end
-
-        sig { params(_: String).returns(String) }
-        def created=(_)
-        end
-
-        sig { params(created: String).void }
-        def initialize(created:)
-        end
-
-        sig { override.returns({created: String}) }
-        def to_hash
-        end
       end
     end
   end

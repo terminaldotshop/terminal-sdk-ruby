@@ -15,11 +15,11 @@ module TerminalShop
       #   @return [String]
       required :token, String
 
-      # @!attribute time
-      #   Relevant timestamps for the token.
+      # @!attribute created
+      #   The created time for the token.
       #
-      #   @return [TerminalShop::Models::TokenAPI::Time]
-      required :time, -> { TerminalShop::Models::TokenAPI::Time }
+      #   @return [String]
+      required :created, String
 
       # @!parse
       #   # A personal access token used to access the Terminal API. If you leak this,
@@ -27,28 +27,11 @@ module TerminalShop
       #   #
       #   # @param id [String]
       #   # @param token [String]
-      #   # @param time [TerminalShop::Models::TokenAPI::Time]
+      #   # @param created [String]
       #   #
-      #   def initialize(id:, token:, time:, **) = super
+      #   def initialize(id:, token:, created:, **) = super
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
-
-      class Time < TerminalShop::BaseModel
-        # @!attribute created
-        #   The created time for the token.
-        #
-        #   @return [String]
-        required :created, String
-
-        # @!parse
-        #   # Relevant timestamps for the token.
-        #   #
-        #   # @param created [String]
-        #   #
-        #   def initialize(created:, **) = super
-
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
-      end
     end
   end
 end
