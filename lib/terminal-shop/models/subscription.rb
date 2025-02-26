@@ -21,12 +21,6 @@ module TerminalShop
       #   @return [String]
       required :card_id, String, api_name: :cardID
 
-      # @!attribute frequency
-      #   Frequency of the subscription.
-      #
-      #   @return [Symbol, TerminalShop::Models::SubscriptionAPI::Frequency]
-      required :frequency, enum: -> { TerminalShop::Models::SubscriptionAPI::Frequency }
-
       # @!attribute product_variant_id
       #   ID of the product variant being subscribed to.
       #
@@ -65,49 +59,14 @@ module TerminalShop
       #   # @param id [String]
       #   # @param address_id [String]
       #   # @param card_id [String]
-      #   # @param frequency [Symbol, TerminalShop::Models::SubscriptionAPI::Frequency]
       #   # @param product_variant_id [String]
       #   # @param quantity [Integer]
       #   # @param next_ [String]
       #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       #   #
-      #   def initialize(id:, address_id:, card_id:, frequency:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
+      #   def initialize(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
-
-      # @abstract
-      #
-      # Frequency of the subscription.
-      #
-      # @example
-      # ```ruby
-      # case frequency
-      # in :fixed
-      #   # ...
-      # in :daily
-      #   # ...
-      # in :weekly
-      #   # ...
-      # in :monthly
-      #   # ...
-      # in :yearly
-      #   # ...
-      # end
-      # ```
-      class Frequency < TerminalShop::Enum
-        FIXED = :fixed
-        DAILY = :daily
-        WEEKLY = :weekly
-        MONTHLY = :monthly
-        YEARLY = :yearly
-
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
-      end
 
       # @abstract
       #

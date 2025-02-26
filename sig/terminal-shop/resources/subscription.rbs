@@ -10,7 +10,6 @@ module TerminalShop
           id: String,
           address_id: String,
           card_id: String,
-          frequency: TerminalShop::Models::SubscriptionAPI::frequency,
           product_variant_id: String,
           quantity: Integer,
           next_: String,

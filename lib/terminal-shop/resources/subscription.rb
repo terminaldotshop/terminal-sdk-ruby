@@ -13,8 +13,6 @@ module TerminalShop
       #
       #   @option params [String] :card_id ID of the card used for the subscription.
       #
-      #   @option params [Symbol, TerminalShop::Models::SubscriptionAPI::Frequency] :frequency Frequency of the subscription.
-      #
       #   @option params [String] :product_variant_id ID of the product variant being subscribed to.
       #
       #   @option params [Integer] :quantity Quantity of the subscription.
