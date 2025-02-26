@@ -19,7 +19,6 @@ module TerminalShop
     ENVIRONMENTS = {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"}
     # rubocop:enable Style/MutableConstant
 
-    # Client option
     # @return [String]
     attr_reader :bearer_token
 
