@@ -15,7 +15,6 @@ class TerminalShop::Test::Resources::SubscriptionTest < Minitest::Test
       id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
       address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
       card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      frequency: :fixed,
       product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
       quantity: 1
     )
