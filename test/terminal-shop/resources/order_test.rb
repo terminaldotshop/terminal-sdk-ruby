@@ -10,6 +10,24 @@ class TerminalShop::Test::Resources::OrderTest < Minitest::Test
     )
   end
 
+  def test_create_required_params
+    response = @terminal.order.create(
+      address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
+      card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
+      variants: {var_XXXXXXXXXXXXXXXXXXXXXXXXX: 1}
+    )
+
+    assert_pattern do
+      response => TerminalShop::Models::OrderCreateResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: String
+      }
+    end
+  end
+
   def test_list
     response = @terminal.order.list
 
