@@ -26,6 +26,8 @@ module TerminalShop
 
     MAX_REDIRECTS: 20
 
+    PLATFORM_HEADERS: ::Hash[String, String]
+
     def self.validate!: (
       TerminalShop::BaseClient::request_components req
     ) -> void
