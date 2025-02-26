@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module TerminalShop
-  VERSION = "0.1.0-alpha.12"
+  VERSION = "0.1.0-alpha.13"
 end
