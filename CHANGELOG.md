@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-02-26)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* add deprecation notice to enum members and resources ([#62](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/62)) ([44fb858](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/44fb858b7719af4474ef2fb0a1deeb13f71f181f))
+* **api:** manual updates ([#65](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/65)) ([d884227](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d884227b937a56969ca04b20fcd98ceff30db492))
+* isolate platform headers ([#63](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/63)) ([f0a7ff3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f0a7ff3c6afe49d13790eff5e50dfbdb019dfc1d))
+
+
+### Chores
+
+* **internal:** version bump ([#60](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/60)) ([79f9f6f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/79f9f6f8f19f88edbec2ad8abd6333c7a413e94c))
+* **refactor:** improve requester internals ([#64](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/64)) ([fec6edb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/fec6edb201e6c205af3417ab9b172096680d7a51))
+
 ## 0.1.0-alpha.11 (2025-02-25)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
