@@ -35,8 +35,7 @@ module TerminalShop
       #
       def calibrate_socket_timeout(conn, deadline)
         timeout = deadline - TerminalShop::Util.monotonic_secs
-        (conn.open_timeout = timeout) unless conn.started?
-        conn.read_timeout = conn.write_timeout = conn.continue_timeout = timeout
+        conn.open_timeout = conn.read_timeout = conn.write_timeout = conn.continue_timeout = timeout
       end
 
       # @private
@@ -134,9 +133,10 @@ module TerminalShop
       eof = false
       enum = Enumerator.new do |y|
         with_pool(url) do |conn|
-          conn.start unless conn.started?
           self.class.calibrate_socket_timeout(conn, deadline)
+          conn.start unless conn.started?
 
+          self.class.calibrate_socket_timeout(conn, deadline)
           conn.request(req) do |rsp|
             y << [conn, rsp]
             rsp.read_body do |bytes|
