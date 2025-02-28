@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-02-28)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Features
+
+* **api:** manual updates ([#73](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/73)) ([f75262e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f75262e1ba765dda01cf857325ac0e9e2ebfcbdc))
+* **api:** manual updates ([#74](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/74)) ([f4fcbe5](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f4fcbe5f5b20afff9629c7d5d9fa31ccacf859cc))
+
+
+### Chores
+
+* **internal:** group related utils together ([#71](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/71)) ([7c5be22](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7c5be22c20d1c922390cabe8c03210460267b43d))
+* **internal:** version bump ([#69](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/69)) ([75a1e34](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/75a1e34eb14d99453106cf61d467cb223d7f79f2))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#72](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/72)) ([b2c45db](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b2c45db567996cf070d74c5efb2a0379a5e141d2))
+
 ## 0.1.0-alpha.13 (2025-02-26)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
