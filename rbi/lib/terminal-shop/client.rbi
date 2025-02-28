@@ -20,7 +20,7 @@ module TerminalShop
     end
 
     sig { returns(T.nilable(String)) }
-    def app
+    def app_id
     end
 
     sig { returns(TerminalShop::Resources::Product) }
@@ -76,7 +76,7 @@ module TerminalShop
         environment: NilClass,
         base_url: T.nilable(String),
         bearer_token: T.nilable(String),
-        app: T.nilable(String),
+        app_id: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
         initial_retry_delay: Float,
@@ -88,7 +88,7 @@ module TerminalShop
       environment: nil,
       base_url: nil,
       bearer_token: ENV["TERMINAL_BEARER_TOKEN"],
-      app: nil,
+      app_id: nil,
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
