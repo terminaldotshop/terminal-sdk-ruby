@@ -23,7 +23,7 @@ module TerminalShop
     attr_reader :bearer_token
 
     # @return [String, nil]
-    attr_reader :app
+    attr_reader :app_id
 
     # @return [TerminalShop::Resources::Product]
     attr_reader :product
@@ -81,7 +81,7 @@ module TerminalShop
     #
     # @param bearer_token [String, nil] Defaults to `ENV["TERMINAL_BEARER_TOKEN"]`
     #
-    # @param app [String, nil]
+    # @param app_id [String, nil]
     #
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     #
@@ -95,7 +95,7 @@ module TerminalShop
       environment: nil,
       base_url: nil,
       bearer_token: ENV["TERMINAL_BEARER_TOKEN"],
-      app: nil,
+      app_id: nil,
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
@@ -117,7 +117,7 @@ module TerminalShop
       end
 
       headers = {
-        "x-terminal-app" => (@app = app&.to_s)
+        "x-terminal-app-id" => (@app_id = app_id&.to_s)
       }
 
       @bearer_token = bearer_token.to_s
