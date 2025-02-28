@@ -15,6 +15,8 @@ module TerminalShop
 
     attr_reader bearer_token: String
 
+    attr_reader app: String?
+
     attr_reader product: TerminalShop::Resources::Product
 
     attr_reader profile: TerminalShop::Resources::Profile
@@ -43,6 +45,7 @@ module TerminalShop
       environment: :production | :dev | nil,
       base_url: String?,
       bearer_token: String?,
+      app: String?,
       max_retries: Integer,
       timeout: Float,
       initial_retry_delay: Float,
