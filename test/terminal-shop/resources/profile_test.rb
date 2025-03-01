@@ -2,14 +2,7 @@
 
 require_relative "../test_helper"
 
-class TerminalShop::Test::Resources::ProfileTest < Minitest::Test
-  def before_all
-    @terminal = TerminalShop::Client.new(
-      base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
-      bearer_token: "My Bearer Token"
-    )
-  end
-
+class TerminalShop::Test::Resources::ProfileTest < TerminalShop::Test::ResourceTest
   def test_update
     response = @terminal.profile.update
 
