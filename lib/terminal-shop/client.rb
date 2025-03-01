@@ -65,7 +65,7 @@ module TerminalShop
     private def auth_headers
       return {} if @bearer_token.nil?
 
-      {"Authorization" => "Bearer #{@bearer_token}"}
+      {"authorization" => "Bearer #{@bearer_token}"}
     end
 
     # Creates and returns a new client for interacting with the API.
