@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2025-03-01)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Features
+
+* **internal:** modified tests for thread and fiber safety ([#76](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/76)) ([522ac91](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/522ac918ad5ddb5ddf9de87a265caf7fe633b79c))
+
+
+### Bug Fixes
+
+* better support header parameters ([#78](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/78)) ([ea50350](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ea503505415a5481f04ed809f8cf9df883e34d51))
+
+
+### Chores
+
+* **internal:** version bump ([#75](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/75)) ([4e2ef50](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4e2ef507ca756908b6fa2813cdaffee5432b4804))
+
 ## 0.1.0-alpha.14 (2025-02-28)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
