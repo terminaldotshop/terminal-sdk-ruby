@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-03-05)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Chores
+
+* be consistent and use lower case headers everywhere ([#79](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/79)) ([87e532b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/87e532b283970a5ebc5f8a8c44a1932270750072))
+* **internal:** add utils methods for parsing SSE ([#81](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/81)) ([6ed2804](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6ed2804522b065285c3252240149384370901e79))
+
 ## 0.1.0-alpha.15 (2025-03-01)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
