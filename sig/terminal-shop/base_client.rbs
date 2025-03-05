@@ -11,6 +11,7 @@ module TerminalShop
         body: top?,
         unwrap: Symbol?,
         page: Class?,
+        stream: Class?,
         model: TerminalShop::Converter::input?,
         options: TerminalShop::request_opts?
       }
@@ -78,13 +79,7 @@ module TerminalShop
       redirect_count: Integer,
       retry_count: Integer,
       send_retry_header: bool
-    ) -> [top, Enumerable[String]]
-
-    private def parse_response: (
-      TerminalShop::BaseClient::request_components req,
-      headers: ::Hash[String, String],
-      stream: Enumerable[String]
-    ) -> top
+    ) -> [Integer, top, Enumerable[String]]
 
     def request:
       (
@@ -97,6 +92,7 @@ module TerminalShop
         body: top?,
         unwrap: Symbol?,
         page: Class?,
+        stream: Class?,
         model: TerminalShop::Converter::input?,
         options: TerminalShop::request_opts?
       ) -> top
