@@ -839,6 +839,15 @@ module TerminalShop
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # # `product_api` is a `TerminalShop::Models::ProductAPI`
+  # product_api => {
+  #   id: id,
+  #   description: description,
+  #   filters: filters
+  # }
+  # ```
   class BaseModel
     extend TerminalShop::Converter
 
