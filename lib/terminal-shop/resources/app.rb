@@ -7,13 +7,9 @@ module TerminalShop
       #
       # @param params [TerminalShop::Models::AppCreateParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [String] :id Unique object identifier. The format and length of IDs may change over time.
+      #   @option params [String] :name
       #
-      #   @option params [String] :name Name of the app.
-      #
-      #   @option params [String] :redirect_uri Redirect URI of the app.
-      #
-      #   @option params [String] :secret OAuth 2.0 client secret of the app (obfuscated).
+      #   @option params [String] :redirect_uri
       #
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #

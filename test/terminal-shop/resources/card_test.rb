@@ -58,4 +58,18 @@ class TerminalShop::Test::Resources::CardTest < TerminalShop::Test::ResourceTest
       }
     end
   end
+
+  def test_get
+    response = @terminal.card.get("crd_XXXXXXXXXXXXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => TerminalShop::Models::CardGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::CardAPI
+      }
+    end
+  end
 end

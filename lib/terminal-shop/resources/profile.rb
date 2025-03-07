@@ -7,15 +7,15 @@ module TerminalShop
       #
       # @param params [TerminalShop::Models::ProfileUpdateParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [String, nil] :email Email address of the user.
+      #   @option params [String] :email
       #
-      #   @option params [String, nil] :name Name of the user.
+      #   @option params [String] :name
       #
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ProfileUpdateResponse]
       #
-      def update(params = {})
+      def update(params)
         parsed, options = TerminalShop::Models::ProfileUpdateParams.dump_request(params)
         @client.request(
           method: :put,

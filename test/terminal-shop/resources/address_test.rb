@@ -50,4 +50,18 @@ class TerminalShop::Test::Resources::AddressTest < TerminalShop::Test::ResourceT
       }
     end
   end
+
+  def test_get
+    response = @terminal.address.get("shp_XXXXXXXXXXXXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => TerminalShop::Models::AddressGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::AddressAPI
+      }
+    end
+  end
 end

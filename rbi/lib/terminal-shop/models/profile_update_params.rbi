@@ -6,39 +6,34 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
-      sig { returns(T.nilable(String)) }
+      sig { returns(String) }
       def email
       end
 
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      sig { params(_: String).returns(String) }
       def email=(_)
       end
 
-      sig { returns(T.nilable(String)) }
+      sig { returns(String) }
       def name
       end
 
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      sig { params(_: String).returns(String) }
       def name=(_)
       end
 
       sig do
         params(
-          email: T.nilable(String),
-          name: T.nilable(String),
+          email: String,
+          name: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .void
       end
-      def initialize(email: nil, name: nil, request_options: {})
+      def initialize(email:, name:, request_options: {})
       end
 
-      sig do
-        override
-          .returns(
-            {email: T.nilable(String), name: T.nilable(String), request_options: TerminalShop::RequestOptions}
-          )
-      end
+      sig { override.returns({email: String, name: String, request_options: TerminalShop::RequestOptions}) }
       def to_hash
       end
     end

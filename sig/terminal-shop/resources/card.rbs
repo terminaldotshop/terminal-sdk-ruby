@@ -36,6 +36,16 @@ module TerminalShop
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardCollectResponse
 
+      def get:
+        (
+          String id,
+          ?TerminalShop::Models::CardGetParams | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CardGetResponse
+        | (
+          String id,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CardGetResponse
+
       def initialize: (client: TerminalShop::Client) -> void
     end
   end

@@ -845,7 +845,7 @@ module TerminalShop
   # product_api => {
   #   id: id,
   #   description: description,
-  #   filters: filters
+  #   name: name
   # }
   # ```
   class BaseModel
