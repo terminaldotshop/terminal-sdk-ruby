@@ -50,4 +50,18 @@ class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::Reso
       }
     end
   end
+
+  def test_get
+    response = @terminal.subscription.get("sub_XXXXXXXXXXXXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => TerminalShop::Models::SubscriptionGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::SubscriptionAPI
+      }
+    end
+  end
 end

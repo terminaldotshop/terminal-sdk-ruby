@@ -74,6 +74,25 @@ module TerminalShop
         )
       end
 
+      # Get the shipping address with the given ID.
+      #
+      # @param id [String] ID of the shipping address to get.
+      #
+      # @param params [TerminalShop::Models::AddressGetParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::AddressGetResponse]
+      #
+      def get(id, params = {})
+        @client.request(
+          method: :get,
+          path: ["address/%0s", id],
+          model: TerminalShop::Models::AddressGetResponse,
+          options: params[:request_options]
+        )
+      end
+
       # @param client [TerminalShop::Client]
       #
       def initialize(client:)

@@ -15,11 +15,6 @@ module TerminalShop
       #   @return [String]
       required :description, String
 
-      # @!attribute filters
-      #
-      #   @return [Array<Symbol, TerminalShop::Models::ProductAPI::Filter>]
-      required :filters, -> { TerminalShop::ArrayOf[enum: TerminalShop::Models::ProductAPI::Filter] }
-
       # @!attribute name
       #   Name of the product.
       #
@@ -55,11 +50,11 @@ module TerminalShop
       # @!attribute [r] tags
       #   Tags for the product.
       #
-      #   @return [Hash{Symbol=>String}, nil]
-      optional :tags, TerminalShop::HashOf[String]
+      #   @return [TerminalShop::Models::ProductAPI::Tags, nil]
+      optional :tags, -> { TerminalShop::Models::ProductAPI::Tags }
 
       # @!parse
-      #   # @return [Hash{Symbol=>String}]
+      #   # @return [TerminalShop::Models::ProductAPI::Tags]
       #   attr_writer :tags
 
       # @!parse
@@ -67,30 +62,15 @@ module TerminalShop
       #   #
       #   # @param id [String]
       #   # @param description [String]
-      #   # @param filters [Array<Symbol, TerminalShop::Models::ProductAPI::Filter>]
       #   # @param name [String]
       #   # @param variants [Array<TerminalShop::Models::ProductVariant>]
       #   # @param order [Integer]
       #   # @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription]
-      #   # @param tags [Hash{Symbol=>String}]
+      #   # @param tags [TerminalShop::Models::ProductAPI::Tags]
       #   #
-      #   def initialize(id:, description:, filters:, name:, variants:, order: nil, subscription: nil, tags: nil, **) = super
+      #   def initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
-
-      # @abstract
-      #
-      class Filter < TerminalShop::Enum
-        EU = :eu
-        NA = :na
-
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
-      end
 
       # @abstract
       #
@@ -105,6 +85,66 @@ module TerminalShop
         #   # @return [Array<Symbol>]
         #   #
         #   def self.values; end
+      end
+
+      class Tags < TerminalShop::BaseModel
+        # @!attribute [r] app
+        #
+        #   @return [String, nil]
+        optional :app, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :app
+
+        # @!attribute [r] color
+        #
+        #   @return [String, nil]
+        optional :color, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :color
+
+        # @!attribute [r] featured
+        #
+        #   @return [Boolean, nil]
+        optional :featured, TerminalShop::BooleanModel
+
+        # @!parse
+        #   # @return [Boolean]
+        #   attr_writer :featured
+
+        # @!attribute [r] market_eu
+        #
+        #   @return [Boolean, nil]
+        optional :market_eu, TerminalShop::BooleanModel
+
+        # @!parse
+        #   # @return [Boolean]
+        #   attr_writer :market_eu
+
+        # @!attribute [r] market_na
+        #
+        #   @return [Boolean, nil]
+        optional :market_na, TerminalShop::BooleanModel
+
+        # @!parse
+        #   # @return [Boolean]
+        #   attr_writer :market_na
+
+        # @!parse
+        #   # Tags for the product.
+        #   #
+        #   # @param app [String]
+        #   # @param color [String]
+        #   # @param featured [Boolean]
+        #   # @param market_eu [Boolean]
+        #   # @param market_na [Boolean]
+        #   #
+        #   def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, **) = super
+
+        # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
     end
   end

@@ -1,0 +1,19 @@
+module TerminalShop
+  module Models
+    type product_get_params = {  } & TerminalShop::request_parameters
+
+    class ProductGetParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      def initialize:
+        (request_options: TerminalShop::request_opts) -> void
+        | (
+          ?TerminalShop::Models::product_get_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::product_get_params
+    end
+  end
+end

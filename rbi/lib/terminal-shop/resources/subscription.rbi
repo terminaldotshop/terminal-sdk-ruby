@@ -48,6 +48,16 @@ module TerminalShop
       def delete(id, request_options: {})
       end
 
+      sig do
+        params(
+          id: String,
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+        )
+          .returns(TerminalShop::Models::SubscriptionGetResponse)
+      end
+      def get(id, request_options: {})
+      end
+
       sig { params(client: TerminalShop::Client).void }
       def initialize(client:)
       end

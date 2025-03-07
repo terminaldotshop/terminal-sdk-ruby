@@ -16,4 +16,18 @@ class TerminalShop::Test::Resources::ProductTest < TerminalShop::Test::ResourceT
       }
     end
   end
+
+  def test_get
+    response = @terminal.product.get("prd_XXXXXXXXXXXXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => TerminalShop::Models::ProductGetResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: TerminalShop::Models::ProductAPI
+      }
+    end
+  end
 end

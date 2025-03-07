@@ -2,27 +2,15 @@
 
 module TerminalShop
   module Models
-    class ProfileUpdateParams < TerminalShop::BaseModel
+    class ProductGetParams < TerminalShop::BaseModel
       # @!parse
       #   extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
-      # @!attribute email
-      #
-      #   @return [String]
-      required :email, String
-
-      # @!attribute name
-      #
-      #   @return [String]
-      required :name, String
-
       # @!parse
-      #   # @param email [String]
-      #   # @param name [String]
       #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(email:, name:, request_options: {}, **) = super
+      #   def initialize(request_options: {}, **) = super
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
     end
