@@ -9,6 +9,16 @@ module TerminalShop
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::ProductListResponse
 
+      def get:
+        (
+          String id,
+          ?TerminalShop::Models::ProductGetParams | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::ProductGetResponse
+        | (
+          String id,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::ProductGetResponse
+
       def initialize: (client: TerminalShop::Client) -> void
     end
   end

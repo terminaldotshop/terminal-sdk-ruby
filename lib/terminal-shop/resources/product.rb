@@ -20,6 +20,25 @@ module TerminalShop
         )
       end
 
+      # Get a product by ID from the Terminal shop.
+      #
+      # @param id [String] ID of the product to get.
+      #
+      # @param params [TerminalShop::Models::ProductGetParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::ProductGetResponse]
+      #
+      def get(id, params = {})
+        @client.request(
+          method: :get,
+          path: ["product/%0s", id],
+          model: TerminalShop::Models::ProductGetResponse,
+          options: params[:request_options]
+        )
+      end
+
       # @param client [TerminalShop::Client]
       #
       def initialize(client:)

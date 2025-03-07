@@ -4,12 +4,7 @@ require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::AppTest < TerminalShop::Test::ResourceTest
   def test_create_required_params
-    response = @terminal.app.create(
-      id: "cli_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      name: "Example App",
-      redirect_uri: "https://example.com/callback",
-      secret: "sec_******XXXX"
-    )
+    response = @terminal.app.create(name: "Example App", redirect_uri: "https://example.com/callback")
 
     assert_pattern do
       response => TerminalShop::Models::AppCreateResponse

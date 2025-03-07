@@ -6,10 +6,8 @@ module TerminalShop
           TerminalShop::Models::AppCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppCreateResponse
         | (
-          id: String,
           name: String,
           redirect_uri: String,
-          secret: String,
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AppCreateResponse
 

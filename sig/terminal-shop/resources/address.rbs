@@ -36,6 +36,16 @@ module TerminalShop
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AddressDeleteResponse
 
+      def get:
+        (
+          String id,
+          ?TerminalShop::Models::AddressGetParams | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::AddressGetResponse
+        | (
+          String id,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::AddressGetResponse
+
       def initialize: (client: TerminalShop::Client) -> void
     end
   end
