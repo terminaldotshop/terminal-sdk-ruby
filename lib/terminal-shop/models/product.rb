@@ -80,15 +80,6 @@ module TerminalShop
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case filter
-      # in :eu
-      #   # ...
-      # in :na
-      #   # ...
-      # end
-      # ```
       class Filter < TerminalShop::Enum
         EU = :eu
         NA = :na
@@ -104,16 +95,6 @@ module TerminalShop
       # @abstract
       #
       # Whether the product must be or can be subscribed to.
-      #
-      # @example
-      # ```ruby
-      # case subscription
-      # in :allowed
-      #   # ...
-      # in :required
-      #   # ...
-      # end
-      # ```
       class Subscription < TerminalShop::Enum
         ALLOWED = :allowed
         REQUIRED = :required

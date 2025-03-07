@@ -71,16 +71,6 @@ module TerminalShop
       # @abstract
       #
       # Schedule of the subscription.
-      #
-      # @example
-      # ```ruby
-      # case schedule
-      # in TerminalShop::Models::SubscriptionAPI::Schedule::Fixed
-      #   # ...
-      # in TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-      #   # ...
-      # end
-      # ```
       class Schedule < TerminalShop::Union
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Fixed }
 
