@@ -19,14 +19,6 @@ module TerminalShop
       def description=(_)
       end
 
-      sig { returns(T::Array[Symbol]) }
-      def filters
-      end
-
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
-      def filters=(_)
-      end
-
       sig { returns(String) }
       def name
       end
@@ -62,11 +54,11 @@ module TerminalShop
       def subscription=(_)
       end
 
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
       def tags
       end
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      sig { params(_: TerminalShop::Models::ProductAPI::Tags).returns(TerminalShop::Models::ProductAPI::Tags) }
       def tags=(_)
       end
 
@@ -74,16 +66,15 @@ module TerminalShop
         params(
           id: String,
           description: String,
-          filters: T::Array[Symbol],
           name: String,
           variants: T::Array[TerminalShop::Models::ProductVariant],
           order: Integer,
           subscription: Symbol,
-          tags: T::Hash[Symbol, String]
+          tags: TerminalShop::Models::ProductAPI::Tags
         )
           .void
       end
-      def initialize(id:, description:, filters:, name:, variants:, order: nil, subscription: nil, tags: nil)
+      def initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
       end
 
       sig do
@@ -92,27 +83,15 @@ module TerminalShop
             {
               id: String,
               description: String,
-              filters: T::Array[Symbol],
               name: String,
               variants: T::Array[TerminalShop::Models::ProductVariant],
               order: Integer,
               subscription: Symbol,
-              tags: T::Hash[Symbol, String]
+              tags: TerminalShop::Models::ProductAPI::Tags
             }
           )
       end
       def to_hash
-      end
-
-      class Filter < TerminalShop::Enum
-        abstract!
-
-        EU = :eu
-        NA = :na
-
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
-        end
       end
 
       class Subscription < TerminalShop::Enum
@@ -123,6 +102,73 @@ module TerminalShop
 
         sig { override.returns(T::Array[Symbol]) }
         def self.values
+        end
+      end
+
+      class Tags < TerminalShop::BaseModel
+        sig { returns(T.nilable(String)) }
+        def app
+        end
+
+        sig { params(_: String).returns(String) }
+        def app=(_)
+        end
+
+        sig { returns(T.nilable(String)) }
+        def color
+        end
+
+        sig { params(_: String).returns(String) }
+        def color=(_)
+        end
+
+        sig { returns(T.nilable(T::Boolean)) }
+        def featured
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def featured=(_)
+        end
+
+        sig { returns(T.nilable(T::Boolean)) }
+        def market_eu
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def market_eu=(_)
+        end
+
+        sig { returns(T.nilable(T::Boolean)) }
+        def market_na
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def market_na=(_)
+        end
+
+        sig do
+          params(
+            app: String,
+            color: String,
+            featured: T::Boolean,
+            market_eu: T::Boolean,
+            market_na: T::Boolean
+          ).void
+        end
+        def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
+        end
+
+        sig do
+          override
+            .returns({
+                       app: String,
+                       color: String,
+                       featured: T::Boolean,
+                       market_eu: T::Boolean,
+                       market_na: T::Boolean
+                     })
+        end
+        def to_hash
         end
       end
     end

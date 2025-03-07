@@ -3,12 +3,11 @@ module TerminalShop
     class Profile
       def update:
         (
-          ?TerminalShop::Models::ProfileUpdateParams
-          | ::Hash[Symbol, top] params
+          TerminalShop::Models::ProfileUpdateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::ProfileUpdateResponse
         | (
-          email: String?,
-          name: String?,
+          email: String,
+          name: String,
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::ProfileUpdateResponse
 

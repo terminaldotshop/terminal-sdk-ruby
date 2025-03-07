@@ -79,6 +79,25 @@ module TerminalShop
         )
       end
 
+      # Get a credit card by ID associated with the current user.
+      #
+      # @param id [String] ID of the card to get.
+      #
+      # @param params [TerminalShop::Models::CardGetParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::CardGetResponse]
+      #
+      def get(id, params = {})
+        @client.request(
+          method: :get,
+          path: ["card/%0s", id],
+          model: TerminalShop::Models::CardGetResponse,
+          options: params[:request_options]
+        )
+      end
+
       # @param client [TerminalShop::Client]
       #
       def initialize(client:)

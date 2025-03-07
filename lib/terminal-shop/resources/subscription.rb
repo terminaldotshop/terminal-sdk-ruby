@@ -72,6 +72,25 @@ module TerminalShop
         )
       end
 
+      # Get the subscription with the given ID.
+      #
+      # @param id [String] ID of the subscription to get.
+      #
+      # @param params [TerminalShop::Models::SubscriptionGetParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::SubscriptionGetResponse]
+      #
+      def get(id, params = {})
+        @client.request(
+          method: :get,
+          path: ["subscription/%0s", id],
+          model: TerminalShop::Models::SubscriptionGetResponse,
+          options: params[:request_options]
+        )
+      end
+
       # @param client [TerminalShop::Client]
       #
       def initialize(client:)

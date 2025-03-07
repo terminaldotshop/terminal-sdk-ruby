@@ -5,13 +5,13 @@ module TerminalShop
     class Profile
       sig do
         params(
-          email: T.nilable(String),
-          name: T.nilable(String),
+          email: String,
+          name: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(TerminalShop::Models::ProfileUpdateResponse)
       end
-      def update(email: nil, name: nil, request_options: {})
+      def update(email:, name:, request_options: {})
       end
 
       sig do

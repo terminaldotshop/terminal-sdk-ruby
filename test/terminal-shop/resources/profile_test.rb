@@ -3,8 +3,8 @@
 require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::ProfileTest < TerminalShop::Test::ResourceTest
-  def test_update
-    response = @terminal.profile.update
+  def test_update_required_params
+    response = @terminal.profile.update(email: "john@example.com", name: "John Doe")
 
     assert_pattern do
       response => TerminalShop::Models::ProfileUpdateResponse
