@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.0.0 (2025-03-07)
+
+Full Changelog: [v0.1.0-alpha.15...v1.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.15...v1.0.0)
+
+### Features
+
+* add jsonl support ([#86](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/86)) ([c72b9e9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c72b9e946c80f0ec415610d13cd24e95d24a05d3))
+* **api:** manual updates ([#88](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/88)) ([3726df5](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3726df529e42b9c5599e3cdd2e1c535ddb43adfc))
+
+
+### Chores
+
+* be consistent and use lower case headers everywhere ([#79](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/79)) ([87e532b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/87e532b283970a5ebc5f8a8c44a1932270750072))
+* bump lockfile ([#83](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/83)) ([a228b5e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a228b5e01128e9be547c9bcac6ac6a3fd09c47c4))
+* **internal:** add utils methods for parsing SSE ([#81](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/81)) ([6ed2804](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6ed2804522b065285c3252240149384370901e79))
+* move examples into tests ([#85](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/85)) ([f0ce74d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f0ce74d17eab8833d0292955e3491aac194c2964))
+* rename misleading variable ([#84](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/84)) ([df6c7ba](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/df6c7ba799b0d248494120251611c004023a20ba))
+* support different EOLs in streaming ([#87](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/87)) ([299b3f3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/299b3f3f60a412208f0806f3710c2fd3f86f395d))
+* update custom timeout header name ([#82](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/82)) ([e479529](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e479529d33a31da99ec8ddba4d2692878bf91610))
+
 ## 0.1.0-alpha.15 (2025-03-01)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
