@@ -82,9 +82,9 @@ module TerminalShop
         initial_retry_delay: Float,
         max_retry_delay: Float
       )
-        .void
+        .returns(T.attached_class)
     end
-    def initialize(
+    def self.new(
       environment: nil,
       base_url: nil,
       bearer_token: ENV["TERMINAL_BEARER_TOKEN"],

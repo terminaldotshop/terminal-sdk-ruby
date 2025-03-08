@@ -82,19 +82,9 @@ module TerminalShop
           street2: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        city:,
-        country:,
-        name:,
-        street1:,
-        zip:,
-        phone: nil,
-        province: nil,
-        street2: nil,
-        request_options: {}
-      )
+      def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
       end
 
       sig do

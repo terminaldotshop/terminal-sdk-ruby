@@ -72,9 +72,9 @@ module TerminalShop
           subscription: Symbol,
           tags: TerminalShop::Models::ProductAPI::Tags
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
+      def self.new(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
       end
 
       sig do
@@ -100,8 +100,10 @@ module TerminalShop
         ALLOWED = :allowed
         REQUIRED = :required
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -153,9 +155,10 @@ module TerminalShop
             featured: T::Boolean,
             market_eu: T::Boolean,
             market_na: T::Boolean
-          ).void
+          )
+            .returns(T.attached_class)
         end
-        def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
+        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
         end
 
         sig do

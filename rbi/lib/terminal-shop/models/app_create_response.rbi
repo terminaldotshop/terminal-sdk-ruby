@@ -14,8 +14,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::AppCreateResponse::Data).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::AppCreateResponse::Data).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::AppCreateResponse::Data}) }
@@ -39,8 +39,8 @@ module TerminalShop
         def secret=(_)
         end
 
-        sig { params(id: String, secret: String).void }
-        def initialize(id:, secret:)
+        sig { params(id: String, secret: String).returns(T.attached_class) }
+        def self.new(id:, secret:)
         end
 
         sig { override.returns({id: String, secret: String}) }

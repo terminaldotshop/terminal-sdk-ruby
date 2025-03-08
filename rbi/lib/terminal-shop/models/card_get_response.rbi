@@ -11,8 +11,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::CardAPI).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::CardAPI).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::CardAPI}) }

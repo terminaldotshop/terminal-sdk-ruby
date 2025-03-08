@@ -11,8 +11,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: T::Array[TerminalShop::Models::ProductAPI]).void }
-      def initialize(data:)
+      sig { params(data: T::Array[TerminalShop::Models::ProductAPI]).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: T::Array[TerminalShop::Models::ProductAPI]}) }

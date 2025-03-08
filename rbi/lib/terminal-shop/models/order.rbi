@@ -63,9 +63,9 @@ module TerminalShop
           tracking: TerminalShop::Models::OrderAPI::Tracking,
           index: Integer
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, amount:, items:, shipping:, tracking:, index: nil)
+      def self.new(id:, amount:, items:, shipping:, tracking:, index: nil)
       end
 
       sig do
@@ -101,8 +101,8 @@ module TerminalShop
         def subtotal=(_)
         end
 
-        sig { params(shipping: Integer, subtotal: Integer).void }
-        def initialize(shipping:, subtotal:)
+        sig { params(shipping: Integer, subtotal: Integer).returns(T.attached_class) }
+        def self.new(shipping:, subtotal:)
         end
 
         sig { override.returns({shipping: Integer, subtotal: Integer}) }
@@ -159,9 +159,9 @@ module TerminalShop
             description: String,
             product_variant_id: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil)
+        def self.new(id:, amount:, quantity:, description: nil, product_variant_id: nil)
         end
 
         sig do
@@ -254,9 +254,9 @@ module TerminalShop
             province: String,
             street2: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
+        def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
         end
 
         sig do
@@ -303,8 +303,8 @@ module TerminalShop
         def url=(_)
         end
 
-        sig { params(number: String, service: String, url: String).void }
-        def initialize(number: nil, service: nil, url: nil)
+        sig { params(number: String, service: String, url: String).returns(T.attached_class) }
+        def self.new(number: nil, service: nil, url: nil)
         end
 
         sig { override.returns({number: String, service: String, url: String}) }

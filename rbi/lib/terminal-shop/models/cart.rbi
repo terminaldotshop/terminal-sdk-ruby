@@ -63,9 +63,9 @@ module TerminalShop
           card_id: String,
           shipping: TerminalShop::Models::CartAPI::Shipping
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
+      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
       end
 
       sig do
@@ -101,8 +101,8 @@ module TerminalShop
         def shipping=(_)
         end
 
-        sig { params(subtotal: Integer, shipping: Integer).void }
-        def initialize(subtotal:, shipping: nil)
+        sig { params(subtotal: Integer, shipping: Integer).returns(T.attached_class) }
+        def self.new(subtotal:, shipping: nil)
         end
 
         sig { override.returns({subtotal: Integer, shipping: Integer}) }
@@ -143,8 +143,11 @@ module TerminalShop
         def subtotal=(_)
         end
 
-        sig { params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer).void }
-        def initialize(id:, product_variant_id:, quantity:, subtotal:)
+        sig do
+          params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer)
+            .returns(T.attached_class)
+        end
+        def self.new(id:, product_variant_id:, quantity:, subtotal:)
         end
 
         sig do
@@ -171,8 +174,8 @@ module TerminalShop
         def timeframe=(_)
         end
 
-        sig { params(service: String, timeframe: String).void }
-        def initialize(service: nil, timeframe: nil)
+        sig { params(service: String, timeframe: String).returns(T.attached_class) }
+        def self.new(service: nil, timeframe: nil)
         end
 
         sig { override.returns({service: String, timeframe: String}) }

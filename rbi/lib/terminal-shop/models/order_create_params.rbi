@@ -37,9 +37,9 @@ module TerminalShop
           variants: T::Hash[Symbol, Integer],
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(address_id:, card_id:, variants:, request_options: {})
+      def self.new(address_id:, card_id:, variants:, request_options: {})
       end
 
       sig do

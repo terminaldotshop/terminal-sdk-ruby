@@ -28,9 +28,9 @@ module TerminalShop
           redirect_uri: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(name:, redirect_uri:, request_options: {})
+      def self.new(name:, redirect_uri:, request_options: {})
       end
 
       sig do

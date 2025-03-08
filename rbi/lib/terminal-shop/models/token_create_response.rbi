@@ -14,8 +14,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::TokenCreateResponse::Data).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::TokenCreateResponse::Data).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::TokenCreateResponse::Data}) }
@@ -39,8 +39,8 @@ module TerminalShop
         def token=(_)
         end
 
-        sig { params(id: String, token: String).void }
-        def initialize(id:, token:)
+        sig { params(id: String, token: String).returns(T.attached_class) }
+        def self.new(id:, token:)
         end
 
         sig { override.returns({id: String, token: String}) }

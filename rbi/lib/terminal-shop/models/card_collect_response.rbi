@@ -14,8 +14,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::CardCollectResponse::Data).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::CardCollectResponse::Data).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::CardCollectResponse::Data}) }
@@ -31,8 +31,8 @@ module TerminalShop
         def url=(_)
         end
 
-        sig { params(url: String).void }
-        def initialize(url:)
+        sig { params(url: String).returns(T.attached_class) }
+        def self.new(url:)
         end
 
         sig { override.returns({url: String}) }

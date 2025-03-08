@@ -21,8 +21,8 @@ module TerminalShop
       def me(request_options: {})
       end
 
-      sig { params(client: TerminalShop::Client).void }
-      def initialize(client:)
+      sig { params(client: TerminalShop::Client).returns(T.attached_class) }
+      def self.new(client:)
       end
     end
   end

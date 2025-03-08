@@ -19,9 +19,9 @@ module TerminalShop
           address_id: String,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(address_id:, request_options: {})
+      def self.new(address_id:, request_options: {})
       end
 
       sig { override.returns({address_id: String, request_options: TerminalShop::RequestOptions}) }

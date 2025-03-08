@@ -14,8 +14,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::ViewInitResponse::Data).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::ViewInitResponse::Data).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::ViewInitResponse::Data}) }
@@ -110,19 +110,9 @@ module TerminalShop
             subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: T::Array[TerminalShop::Models::TokenAPI]
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          addresses:,
-          apps:,
-          cards:,
-          cart:,
-          orders:,
-          products:,
-          profile:,
-          subscriptions:,
-          tokens:
-        )
+        def self.new(addresses:, apps:, cards:, cart:, orders:, products:, profile:, subscriptions:, tokens:)
         end
 
         sig do

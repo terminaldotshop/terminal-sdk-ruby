@@ -11,8 +11,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::ProfileAPI).void }
-      def initialize(data:)
+      sig { params(data: TerminalShop::Models::ProfileAPI).returns(T.attached_class) }
+      def self.new(data:)
       end
 
       sig { override.returns({data: TerminalShop::Models::ProfileAPI}) }
