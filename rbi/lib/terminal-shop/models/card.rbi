@@ -37,9 +37,9 @@ module TerminalShop
 
       sig do
         params(id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String)
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, brand:, expiration:, last4:)
+      def self.new(id:, brand:, expiration:, last4:)
       end
 
       sig do
@@ -66,8 +66,8 @@ module TerminalShop
         def year=(_)
         end
 
-        sig { params(month: Integer, year: Integer).void }
-        def initialize(month:, year:)
+        sig { params(month: Integer, year: Integer).returns(T.attached_class) }
+        def self.new(month:, year:)
         end
 
         sig { override.returns({month: Integer, year: Integer}) }
