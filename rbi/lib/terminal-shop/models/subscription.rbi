@@ -166,13 +166,15 @@ module TerminalShop
           end
         end
 
-        sig do
-          override
-            .returns(
-              [[NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
-            )
-        end
-        private_class_method def self.variants
+        class << self
+          sig do
+            override
+              .returns(
+                [[NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
+              )
+          end
+          private def variants
+          end
         end
       end
     end
