@@ -27,8 +27,8 @@ module TerminalShop
       def created=(_)
       end
 
-      sig { params(id: String, token: String, created: String).void }
-      def initialize(id:, token:, created:)
+      sig { params(id: String, token: String, created: String).returns(T.attached_class) }
+      def self.new(id:, token:, created:)
       end
 
       sig { override.returns({id: String, token: String, created: String}) }

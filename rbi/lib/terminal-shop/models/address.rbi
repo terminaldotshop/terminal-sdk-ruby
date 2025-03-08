@@ -87,9 +87,9 @@ module TerminalShop
           province: String,
           street2: String
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
+      def self.new(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
       end
 
       sig do

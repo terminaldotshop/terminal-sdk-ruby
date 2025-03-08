@@ -11,8 +11,8 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: Symbol).void }
-      def initialize(data: :ok)
+      sig { params(data: Symbol).returns(T.attached_class) }
+      def self.new(data: :ok)
       end
 
       sig { override.returns({data: Symbol}) }
