@@ -11,8 +11,8 @@ module TerminalShop
       def user=(_)
       end
 
-      sig { params(user: TerminalShop::Models::ProfileAPI::User).void }
-      def initialize(user:)
+      sig { params(user: TerminalShop::Models::ProfileAPI::User).returns(T.attached_class) }
+      def self.new(user:)
       end
 
       sig { override.returns({user: TerminalShop::Models::ProfileAPI::User}) }
@@ -68,9 +68,9 @@ module TerminalShop
             name: T.nilable(String),
             stripe_customer_id: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(id:, email:, fingerprint:, name:, stripe_customer_id:)
+        def self.new(id:, email:, fingerprint:, name:, stripe_customer_id:)
         end
 
         sig do

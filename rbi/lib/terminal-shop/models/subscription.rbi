@@ -94,9 +94,9 @@ module TerminalShop
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil)
+      def self.new(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil)
       end
 
       sig do
@@ -131,8 +131,8 @@ module TerminalShop
           def type=(_)
           end
 
-          sig { params(type: Symbol).void }
-          def initialize(type: :fixed)
+          sig { params(type: Symbol).returns(T.attached_class) }
+          def self.new(type: :fixed)
           end
 
           sig { override.returns({type: Symbol}) }
@@ -157,8 +157,8 @@ module TerminalShop
           def type=(_)
           end
 
-          sig { params(interval: Integer, type: Symbol).void }
-          def initialize(interval:, type: :weekly)
+          sig { params(interval: Integer, type: Symbol).returns(T.attached_class) }
+          def self.new(interval:, type: :weekly)
           end
 
           sig { override.returns({interval: Integer, type: Symbol}) }

@@ -27,8 +27,8 @@ module TerminalShop
       def price=(_)
       end
 
-      sig { params(id: String, name: String, price: Integer).void }
-      def initialize(id:, name:, price:)
+      sig { params(id: String, name: String, price: Integer).returns(T.attached_class) }
+      def self.new(id:, name:, price:)
       end
 
       sig { override.returns({id: String, name: String, price: Integer}) }
