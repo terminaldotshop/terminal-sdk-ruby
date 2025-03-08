@@ -35,8 +35,8 @@ module TerminalShop
       def secret=(_)
       end
 
-      sig { params(id: String, name: String, redirect_uri: String, secret: String).void }
-      def initialize(id:, name:, redirect_uri:, secret:)
+      sig { params(id: String, name: String, redirect_uri: String, secret: String).returns(T.attached_class) }
+      def self.new(id:, name:, redirect_uri:, secret:)
       end
 
       sig { override.returns({id: String, name: String, redirect_uri: String, secret: String}) }

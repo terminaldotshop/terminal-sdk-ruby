@@ -28,9 +28,9 @@ module TerminalShop
           quantity: Integer,
           request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(product_variant_id:, quantity:, request_options: {})
+      def self.new(product_variant_id:, quantity:, request_options: {})
       end
 
       sig do
