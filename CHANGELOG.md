@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 (2025-03-08)
+
+Full Changelog: [v1.0.0...v1.0.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.0.0...v1.0.1)
+
+### Chores
+
+* generate better supported rbi signatures ([#91](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/91)) ([6b8a1a2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6b8a1a22fe62cdb6c3c59512e5ef9143153c9f45))
+* **internal:** version bump ([#89](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/89)) ([ae6d3c4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ae6d3c41bb105be0fd048a5b3e61a438d90d67cd))
+* modify sorbet initializers to better support auto-completion ([#92](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/92)) ([a7fae52](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a7fae529cc9dcb61dc2c90538a789e53d6647d76))
+
 ## 1.0.0 (2025-03-07)
 
 Full Changelog: [v0.1.0-alpha.15...v1.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.15...v1.0.0)
