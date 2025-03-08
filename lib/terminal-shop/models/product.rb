@@ -80,11 +80,6 @@ module TerminalShop
         REQUIRED = :required
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class Tags < TerminalShop::BaseModel
