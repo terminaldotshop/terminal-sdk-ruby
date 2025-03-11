@@ -1,0 +1,47 @@
+module TerminalShop
+  module Models
+    type cart_redeem_gift_card_response =
+      { data: TerminalShop::Models::CartRedeemGiftCardResponse::Data }
+
+    class CartRedeemGiftCardResponse < TerminalShop::BaseModel
+      attr_accessor data: TerminalShop::Models::CartRedeemGiftCardResponse::Data
+
+      def initialize:
+        (data: TerminalShop::Models::CartRedeemGiftCardResponse::Data) -> void
+        | (
+          ?TerminalShop::Models::cart_redeem_gift_card_response
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_redeem_gift_card_response
+
+      type data =
+        {
+          applied_amount: Integer,
+          gift_card_id: String,
+          remaining_balance: Integer
+        }
+
+      class Data < TerminalShop::BaseModel
+        attr_accessor applied_amount: Integer
+
+        attr_accessor gift_card_id: String
+
+        attr_accessor remaining_balance: Integer
+
+        def initialize:
+          (
+            applied_amount: Integer,
+            gift_card_id: String,
+            remaining_balance: Integer
+          ) -> void
+          | (
+            ?TerminalShop::Models::CartRedeemGiftCardResponse::data
+            | TerminalShop::BaseModel data
+          ) -> void
+
+        def to_hash: -> TerminalShop::Models::CartRedeemGiftCardResponse::data
+      end
+    end
+  end
+end
