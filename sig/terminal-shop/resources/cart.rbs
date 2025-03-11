@@ -6,6 +6,7 @@ module TerminalShop
           ?TerminalShop::Models::CartConvertParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartConvertResponse
         | (
+          recipient_email: String,
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartConvertResponse
 
@@ -16,6 +17,25 @@ module TerminalShop
         | (
           request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartGetResponse
+
+      def redeem_gift_card:
+        (
+          TerminalShop::Models::CartRedeemGiftCardParams
+          | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartRedeemGiftCardResponse
+        | (
+          gift_card_id: String,
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartRedeemGiftCardResponse
+
+      def remove_gift_card:
+        (
+          ?TerminalShop::Models::CartRemoveGiftCardParams
+          | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartRemoveGiftCardResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartRemoveGiftCardResponse
 
       def set_address:
         (

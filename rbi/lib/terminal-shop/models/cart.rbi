@@ -46,6 +46,14 @@ module TerminalShop
       def card_id=(_)
       end
 
+      sig { returns(T.nilable(String)) }
+      def gift_card_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def gift_card_id=(_)
+      end
+
       sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
       def shipping
       end
@@ -61,11 +69,12 @@ module TerminalShop
           subtotal: Integer,
           address_id: String,
           card_id: String,
+          gift_card_id: String,
           shipping: TerminalShop::Models::CartAPI::Shipping
         )
           .returns(T.attached_class)
       end
-      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
+      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, gift_card_id: nil, shipping: nil)
       end
 
       sig do
@@ -77,6 +86,7 @@ module TerminalShop
               subtotal: Integer,
               address_id: String,
               card_id: String,
+              gift_card_id: String,
               shipping: TerminalShop::Models::CartAPI::Shipping
             }
           )
@@ -94,6 +104,14 @@ module TerminalShop
         end
 
         sig { returns(T.nilable(Integer)) }
+        def gift_card
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def gift_card=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
         def shipping
         end
 
@@ -101,11 +119,26 @@ module TerminalShop
         def shipping=(_)
         end
 
-        sig { params(subtotal: Integer, shipping: Integer).returns(T.attached_class) }
-        def self.new(subtotal:, shipping: nil)
+        sig { returns(T.nilable(Integer)) }
+        def total
         end
 
-        sig { override.returns({subtotal: Integer, shipping: Integer}) }
+        sig { params(_: Integer).returns(Integer) }
+        def total=(_)
+        end
+
+        sig do
+          params(
+            subtotal: Integer,
+            gift_card: Integer,
+            shipping: Integer,
+            total: Integer
+          ).returns(T.attached_class)
+        end
+        def self.new(subtotal:, gift_card: nil, shipping: nil, total: nil)
+        end
+
+        sig { override.returns({subtotal: Integer, gift_card: Integer, shipping: Integer, total: Integer}) }
         def to_hash
         end
       end

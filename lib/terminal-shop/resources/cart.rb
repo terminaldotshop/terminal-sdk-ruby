@@ -7,16 +7,20 @@ module TerminalShop
       #
       # @param params [TerminalShop::Models::CartConvertParams, Hash{Symbol=>Object}] .
       #
+      #   @option params [String] :recipient_email
+      #
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartConvertResponse]
       #
       def convert(params = {})
+        parsed, options = TerminalShop::Models::CartConvertParams.dump_request(params)
         @client.request(
           method: :post,
           path: "cart/convert",
+          body: parsed,
           model: TerminalShop::Models::CartConvertResponse,
-          options: params[:request_options]
+          options: options
         )
       end
 
@@ -33,6 +37,44 @@ module TerminalShop
           method: :get,
           path: "cart",
           model: TerminalShop::Models::CartGetResponse,
+          options: params[:request_options]
+        )
+      end
+
+      # Apply a gift card to the current user's cart.
+      #
+      # @param params [TerminalShop::Models::CartRedeemGiftCardParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [String] :gift_card_id
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::CartRedeemGiftCardResponse]
+      #
+      def redeem_gift_card(params)
+        parsed, options = TerminalShop::Models::CartRedeemGiftCardParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: "cart/gift-card",
+          body: parsed,
+          model: TerminalShop::Models::CartRedeemGiftCardResponse,
+          options: options
+        )
+      end
+
+      # Remove the gift card from the current user's cart.
+      #
+      # @param params [TerminalShop::Models::CartRemoveGiftCardParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::CartRemoveGiftCardResponse]
+      #
+      def remove_gift_card(params = {})
+        @client.request(
+          method: :delete,
+          path: "cart/gift-card",
+          model: TerminalShop::Models::CartRemoveGiftCardResponse,
           options: params[:request_options]
         )
       end
