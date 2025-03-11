@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.1.0 (2025-03-11)
+
+Full Changelog: [v1.0.0...v1.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.0.0...v1.1.0)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#93](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/93)) ([622cbae](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/622cbae3433fe7d06a796d417c9b4219ede428d5))
+* **api:** gift cards ([#98](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/98)) ([de7eb77](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/de7eb7746ebf2f11f937e4e5248ed09c159d1c77))
+* support client level methods ([#96](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/96)) ([be72482](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/be7248213ee8f1f48dc5e7da39f8097843f75397))
+
+
+### Bug Fixes
+
+* rectify a mistake where wrong lines were chosen during rebase ([#97](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/97)) ([00cac56](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/00cac5655787d579a5a7c1a6a8cebe5210ef99b3))
+
+
+### Chores
+
+* add `sorbet` section to README ([#94](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/94)) ([4e1e7c5](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4e1e7c537ed8100a14017a9082ae18fe25a4c105))
+* add more examples to README.md ([#95](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/95)) ([17d5b05](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/17d5b05a334483dd2b30613343a3ab0e9cea7d38))
+* generate better supported rbi signatures ([#91](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/91)) ([6b8a1a2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6b8a1a22fe62cdb6c3c59512e5ef9143153c9f45))
+* **internal:** version bump ([#89](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/89)) ([ae6d3c4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ae6d3c41bb105be0fd048a5b3e61a438d90d67cd))
+* modify sorbet initializers to better support auto-completion ([#92](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/92)) ([a7fae52](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a7fae529cc9dcb61dc2c90538a789e53d6647d76))
+
 ## 1.0.0 (2025-03-07)
 
 Full Changelog: [v0.1.0-alpha.15...v1.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v0.1.0-alpha.15...v1.0.0)
