@@ -1,13 +1,21 @@
 module TerminalShop
   module Models
-    type cart_convert_params = {  } & TerminalShop::request_parameters
+    type cart_convert_params =
+      { recipient_email: String } & TerminalShop::request_parameters
 
     class CartConvertParams < TerminalShop::BaseModel
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      attr_reader recipient_email: String?
+
+      def recipient_email=: (String) -> String
+
       def initialize:
-        (request_options: TerminalShop::request_opts) -> void
+        (
+          recipient_email: String,
+          request_options: TerminalShop::request_opts
+        ) -> void
         | (
           ?TerminalShop::Models::cart_convert_params
           | TerminalShop::BaseModel data

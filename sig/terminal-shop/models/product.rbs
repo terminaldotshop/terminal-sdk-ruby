@@ -67,7 +67,8 @@ module TerminalShop
           color: String,
           featured: bool,
           market_eu: bool,
-          market_na: bool
+          market_na: bool,
+          type: String
         }
 
       class Tags < TerminalShop::BaseModel
@@ -91,13 +92,18 @@ module TerminalShop
 
         def market_na=: (bool) -> bool
 
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
         def initialize:
           (
             app: String,
             color: String,
             featured: bool,
             market_eu: bool,
-            market_na: bool
+            market_na: bool,
+            type: String
           ) -> void
           | (
             ?TerminalShop::Models::ProductAPI::tags

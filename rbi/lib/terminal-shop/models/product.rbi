@@ -148,28 +148,40 @@ module TerminalShop
         def market_na=(_)
         end
 
+        sig { returns(T.nilable(String)) }
+        def type
+        end
+
+        sig { params(_: String).returns(String) }
+        def type=(_)
+        end
+
         sig do
           params(
             app: String,
             color: String,
             featured: T::Boolean,
             market_eu: T::Boolean,
-            market_na: T::Boolean
+            market_na: T::Boolean,
+            type: String
           )
             .returns(T.attached_class)
         end
-        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
+        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, type: nil)
         end
 
         sig do
           override
-            .returns({
-                       app: String,
-                       color: String,
-                       featured: T::Boolean,
-                       market_eu: T::Boolean,
-                       market_na: T::Boolean
-                     })
+            .returns(
+              {
+                app: String,
+                color: String,
+                featured: T::Boolean,
+                market_eu: T::Boolean,
+                market_na: T::Boolean,
+                type: String
+              }
+            )
         end
         def to_hash
         end

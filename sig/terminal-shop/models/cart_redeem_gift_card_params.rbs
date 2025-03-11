@@ -1,0 +1,25 @@
+module TerminalShop
+  module Models
+    type cart_redeem_gift_card_params =
+      { gift_card_id: String } & TerminalShop::request_parameters
+
+    class CartRedeemGiftCardParams < TerminalShop::BaseModel
+      extend TerminalShop::RequestParameters::Converter
+      include TerminalShop::RequestParameters
+
+      attr_accessor gift_card_id: String
+
+      def initialize:
+        (
+          gift_card_id: String,
+          request_options: TerminalShop::request_opts
+        ) -> void
+        | (
+          ?TerminalShop::Models::cart_redeem_gift_card_params
+          | TerminalShop::BaseModel data
+        ) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_redeem_gift_card_params
+    end
+  end
+end
