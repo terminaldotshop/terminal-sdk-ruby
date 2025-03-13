@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.0 (2025-03-13)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* support streaming uploads ([#103](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/103)) ([a81d62b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a81d62bf44896ebb273ff0a13bb9fab9752d8b5b))
+
+
+### Bug Fixes
+
+* enums should only coerce matching symbols into strings ([#104](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/104)) ([f80f85c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f80f85c3b366c12ad6039bdeaa84338fc7eb231e))
+
+
+### Chores
+
+* fused enum should use faster internal iteration by default ([#101](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/101)) ([babe138](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/babe13815a934019e32cdd2bd48045f4964c5404))
+* improve documentation ([#102](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/102)) ([f68e99c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f68e99c46325718dbe5fba01183700d589064a6c))
+* **internal:** version bump ([#99](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/99)) ([1c4846c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1c4846c00e68ea4a6b4e824e2b53af231e7ae19a))
+
 ## 1.1.0 (2025-03-11)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.0.0...v1.1.0)
