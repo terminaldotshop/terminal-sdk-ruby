@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7.0 (2025-03-13)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **api:** region model ([#119](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/119)) ([3158513](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/315851302cb4f286b0f5bd59f352498123b81277))
+
+
+### Chores
+
+* **internal:** version bump ([#117](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/117)) ([c948af2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c948af21709e14e7cb4347ae5abf2ad3e76227c4))
+
 ## 1.6.0 (2025-03-13)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.5.0...v1.6.0)
