@@ -312,6 +312,31 @@ module TerminalShop
   #
   #   We can therefore convert string values to Symbols, but can't convert other
   #   values safely.
+  #
+  # @example
+  # ```ruby
+  # # `region` is a `TerminalShop::Models::Region`
+  # case region
+  # when TerminalShop::Models::Region::EU
+  #   # ...
+  # when TerminalShop::Models::Region::NA
+  #   # ...
+  # else
+  #   # ...
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # case region
+  # in :eu
+  #   # ...
+  # in :na
+  #   # ...
+  # else
+  #   # ...
+  # end
+  # ```
   class Enum
     extend TerminalShop::Converter
 
