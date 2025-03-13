@@ -3,6 +3,23 @@
 module TerminalShop
   module Resources
     class Cart
+      # Clear the current user's cart.
+      #
+      # @param params [TerminalShop::Models::CartClearParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      #
+      # @return [TerminalShop::Models::CartClearResponse]
+      #
+      def clear(params = {})
+        @client.request(
+          method: :delete,
+          path: "cart",
+          model: TerminalShop::Models::CartClearResponse,
+          options: params[:request_options]
+        )
+      end
+
       # Convert the current user's cart to an order.
       #
       # @param params [TerminalShop::Models::CartConvertParams, Hash{Symbol=>Object}] .

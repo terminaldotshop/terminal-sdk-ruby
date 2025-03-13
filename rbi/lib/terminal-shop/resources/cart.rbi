@@ -4,6 +4,13 @@ module TerminalShop
   module Resources
     class Cart
       sig do
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+          .returns(TerminalShop::Models::CartClearResponse)
+      end
+      def clear(request_options: {})
+      end
+
+      sig do
         params(
           recipient_email: String,
           request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
