@@ -1,6 +1,14 @@
 module TerminalShop
   module Resources
     class Cart
+      def clear:
+        (
+          ?TerminalShop::Models::CartClearParams | ::Hash[Symbol, top] params
+        ) -> TerminalShop::Models::CartClearResponse
+        | (
+          request_options: TerminalShop::request_opts
+        ) -> TerminalShop::Models::CartClearResponse
+
       def convert:
         (
           ?TerminalShop::Models::CartConvertParams | ::Hash[Symbol, top] params
