@@ -70,11 +70,11 @@ module TerminalShop
 
         def to_hash: -> TerminalShop::Models::ViewInitResponse::data
 
-        type region = :na | :eu
+        type region = :eu | :na
 
         class Region < TerminalShop::Enum
-          NA: :na
           EU: :eu
+          NA: :na
 
           def self.values: -> ::Array[TerminalShop::Models::ViewInitResponse::Data::region]
         end
