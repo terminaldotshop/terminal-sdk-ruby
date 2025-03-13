@@ -24,6 +24,7 @@ module TerminalShop
           orders: ::Array[TerminalShop::Models::OrderAPI],
           products: ::Array[TerminalShop::Models::ProductAPI],
           profile: TerminalShop::Models::ProfileAPI,
+          region: TerminalShop::Models::ViewInitResponse::Data::region,
           subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
           tokens: ::Array[TerminalShop::Models::TokenAPI]
         }
@@ -43,6 +44,8 @@ module TerminalShop
 
         attr_accessor profile: TerminalShop::Models::ProfileAPI
 
+        attr_accessor region: TerminalShop::Models::ViewInitResponse::Data::region
+
         attr_accessor subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI]
 
         attr_accessor tokens: ::Array[TerminalShop::Models::TokenAPI]
@@ -56,6 +59,7 @@ module TerminalShop
             orders: ::Array[TerminalShop::Models::OrderAPI],
             products: ::Array[TerminalShop::Models::ProductAPI],
             profile: TerminalShop::Models::ProfileAPI,
+            region: TerminalShop::Models::ViewInitResponse::Data::region,
             subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: ::Array[TerminalShop::Models::TokenAPI]
           ) -> void
@@ -65,6 +69,15 @@ module TerminalShop
           ) -> void
 
         def to_hash: -> TerminalShop::Models::ViewInitResponse::data
+
+        type region = :na | :eu
+
+        class Region < TerminalShop::Enum
+          NA: :na
+          EU: :eu
+
+          def self.values: -> ::Array[TerminalShop::Models::ViewInitResponse::Data::region]
+        end
       end
     end
   end
