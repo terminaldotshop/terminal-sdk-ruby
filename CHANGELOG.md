@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0 (2025-03-13)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **api:** clear cart api ([#107](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/107)) ([71a105c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/71a105c4af7600d20003f737d8ee41adc123983a))
+
+
+### Chores
+
+* remove stale thread local checks ([#105](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/105)) ([66ffe05](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/66ffe050fe56c2e86e2db4303d0a34388ac2fd67))
+
 ## 1.2.0 (2025-03-13)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.1.0...v1.2.0)
