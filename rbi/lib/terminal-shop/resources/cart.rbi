@@ -11,13 +11,10 @@ module TerminalShop
       end
 
       sig do
-        params(
-          recipient_email: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        )
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::CartConvertResponse)
       end
-      def convert(recipient_email: nil, request_options: {})
+      def convert(request_options: {})
       end
 
       sig do
@@ -25,23 +22,6 @@ module TerminalShop
           .returns(TerminalShop::Models::CartGetResponse)
       end
       def get(request_options: {})
-      end
-
-      sig do
-        params(
-          gift_card_id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        )
-          .returns(TerminalShop::Models::CartRedeemGiftCardResponse)
-      end
-      def redeem_gift_card(gift_card_id:, request_options: {})
-      end
-
-      sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
-          .returns(TerminalShop::Models::CartRemoveGiftCardResponse)
-      end
-      def remove_gift_card(request_options: {})
       end
 
       sig do
