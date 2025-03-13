@@ -5,6 +5,26 @@ module TerminalShop
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # if page.has_next?
+  #   page = page.next_page
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # page.auto_paging_each do |product|
+  #   puts(product)
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # products = page.to_enum.take(2)
+  #
+  # products => Array
+  # ```
   module BasePage
     # @return [Boolean]
     #
