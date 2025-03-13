@@ -457,8 +457,10 @@ module TerminalShop
     # @return [String]
     #
     def inspect
+      # rubocop:disable Layout/LineLength
       base_url = TerminalShop::Util.unparse_uri(@base_url)
       "#<#{self.class.name}:0x#{object_id.to_s(16)} base_url=#{base_url} max_retries=#{@max_retries} timeout=#{@timeout}>"
+      # rubocop:enable Layout/LineLength
     end
   end
 end
