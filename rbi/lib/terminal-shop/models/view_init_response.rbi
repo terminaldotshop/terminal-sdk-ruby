@@ -79,6 +79,14 @@ module TerminalShop
         def profile=(_)
         end
 
+        sig { returns(Symbol) }
+        def region
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def region=(_)
+        end
+
         sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
         def subscriptions
         end
@@ -107,12 +115,13 @@ module TerminalShop
             orders: T::Array[TerminalShop::Models::OrderAPI],
             products: T::Array[TerminalShop::Models::ProductAPI],
             profile: TerminalShop::Models::ProfileAPI,
+            region: Symbol,
             subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: T::Array[TerminalShop::Models::TokenAPI]
           )
             .returns(T.attached_class)
         end
-        def self.new(addresses:, apps:, cards:, cart:, orders:, products:, profile:, subscriptions:, tokens:)
+        def self.new(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:)
         end
 
         sig do
@@ -126,12 +135,26 @@ module TerminalShop
                 orders: T::Array[TerminalShop::Models::OrderAPI],
                 products: T::Array[TerminalShop::Models::ProductAPI],
                 profile: TerminalShop::Models::ProfileAPI,
+                region: Symbol,
                 subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
                 tokens: T::Array[TerminalShop::Models::TokenAPI]
               }
             )
         end
         def to_hash
+        end
+
+        class Region < TerminalShop::Enum
+          abstract!
+
+          NA = :na
+          EU = :eu
+
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
+          end
         end
       end
     end
