@@ -7,7 +7,6 @@ module TerminalShop
         subtotal: Integer,
         address_id: String,
         card_id: String,
-        gift_card_id: String,
         shipping: TerminalShop::Models::CartAPI::Shipping
       }
 
@@ -26,10 +25,6 @@ module TerminalShop
 
       def card_id=: (String) -> String
 
-      attr_reader gift_card_id: String?
-
-      def gift_card_id=: (String) -> String
-
       attr_reader shipping: TerminalShop::Models::CartAPI::Shipping?
 
       def shipping=: (
@@ -43,7 +38,6 @@ module TerminalShop
           subtotal: Integer,
           address_id: String,
           card_id: String,
-          gift_card_id: String,
           shipping: TerminalShop::Models::CartAPI::Shipping
         ) -> void
         | (
@@ -52,20 +46,10 @@ module TerminalShop
 
       def to_hash: -> TerminalShop::Models::cart_api
 
-      type amount =
-        {
-          subtotal: Integer,
-          gift_card: Integer,
-          shipping: Integer,
-          total: Integer
-        }
+      type amount = { subtotal: Integer, shipping: Integer, total: Integer }
 
       class Amount < TerminalShop::BaseModel
         attr_accessor subtotal: Integer
-
-        attr_reader gift_card: Integer?
-
-        def gift_card=: (Integer) -> Integer
 
         attr_reader shipping: Integer?
 
@@ -76,12 +60,7 @@ module TerminalShop
         def total=: (Integer) -> Integer
 
         def initialize:
-          (
-            subtotal: Integer,
-            gift_card: Integer,
-            shipping: Integer,
-            total: Integer
-          ) -> void
+          (subtotal: Integer, shipping: Integer, total: Integer) -> void
           | (
             ?TerminalShop::Models::CartAPI::amount
             | TerminalShop::BaseModel data
