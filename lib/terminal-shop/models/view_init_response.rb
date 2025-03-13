@@ -57,8 +57,8 @@ module TerminalShop
         # @!attribute region
         #   A Terminal shop user's region.
         #
-        #   @return [Symbol, TerminalShop::Models::ViewInitResponse::Data::Region]
-        required :region, enum: -> { TerminalShop::Models::ViewInitResponse::Data::Region }
+        #   @return [Symbol, TerminalShop::Models::Region]
+        required :region, enum: -> { TerminalShop::Models::Region }
 
         # @!attribute subscriptions
         #
@@ -80,23 +80,13 @@ module TerminalShop
         #   # @param orders [Array<TerminalShop::Models::OrderAPI>]
         #   # @param products [Array<TerminalShop::Models::ProductAPI>]
         #   # @param profile [TerminalShop::Models::ProfileAPI]
-        #   # @param region [Symbol, TerminalShop::Models::ViewInitResponse::Data::Region]
+        #   # @param region [Symbol, TerminalShop::Models::Region]
         #   # @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
         #   # @param tokens [Array<TerminalShop::Models::TokenAPI>]
         #   #
         #   def initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:, **) = super
 
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
-
-        # @abstract
-        #
-        # A Terminal shop user's region.
-        class Region < TerminalShop::Enum
-          EU = :eu
-          NA = :na
-
-          finalize!
-        end
       end
     end
   end
