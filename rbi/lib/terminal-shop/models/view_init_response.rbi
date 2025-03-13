@@ -147,8 +147,8 @@ module TerminalShop
         class Region < TerminalShop::Enum
           abstract!
 
-          NA = :na
           EU = :eu
+          NA = :na
 
           class << self
             sig { override.returns(T::Array[Symbol]) }

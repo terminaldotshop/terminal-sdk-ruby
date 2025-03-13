@@ -55,6 +55,7 @@ module TerminalShop
         required :profile, -> { TerminalShop::Models::ProfileAPI }
 
         # @!attribute region
+        #   A Terminal shop user's region.
         #
         #   @return [Symbol, TerminalShop::Models::ViewInitResponse::Data::Region]
         required :region, enum: -> { TerminalShop::Models::ViewInitResponse::Data::Region }
@@ -89,9 +90,10 @@ module TerminalShop
 
         # @abstract
         #
+        # A Terminal shop user's region.
         class Region < TerminalShop::Enum
-          NA = :na
           EU = :eu
+          NA = :na
 
           finalize!
         end
