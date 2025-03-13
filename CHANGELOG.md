@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.0 (2025-03-13)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **api:** remove gift cards ([#110](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/110)) ([8b16fee](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8b16fee738e2c5f6cfc99c2e99d538fd93608697))
+
+
+### Chores
+
+* **internal:** version bump ([#108](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/108)) ([d9dde0c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d9dde0c1ae8806052865ac0e1805f20bbe4d07fe))
+
 ## 1.3.0 (2025-03-13)
 
 Full Changelog: [v1.2.0...v1.3.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.2.0...v1.3.0)
