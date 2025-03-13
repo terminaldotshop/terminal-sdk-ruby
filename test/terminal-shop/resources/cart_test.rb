@@ -3,6 +3,20 @@
 require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::CartTest < TerminalShop::Test::ResourceTest
+  def test_clear
+    response = @terminal.cart.clear
+
+    assert_pattern do
+      response => TerminalShop::Models::CartClearResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: Symbol
+      }
+    end
+  end
+
   def test_convert
     response = @terminal.cart.convert
 
