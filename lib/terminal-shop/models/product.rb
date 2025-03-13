@@ -128,15 +128,6 @@ module TerminalShop
         #   # @return [Boolean]
         #   attr_writer :market_na
 
-        # @!attribute [r] type
-        #
-        #   @return [String, nil]
-        optional :type, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :type
-
         # @!parse
         #   # Tags for the product.
         #   #
@@ -145,9 +136,8 @@ module TerminalShop
         #   # @param featured [Boolean]
         #   # @param market_eu [Boolean]
         #   # @param market_na [Boolean]
-        #   # @param type [String]
         #   #
-        #   def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, type: nil, **) = super
+        #   def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, **) = super
 
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
