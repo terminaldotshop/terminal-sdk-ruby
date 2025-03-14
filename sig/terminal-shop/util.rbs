@@ -124,13 +124,13 @@ module TerminalShop
       (Enumerator::Yielder arg0) -> void
     } -> void
 
-    type sse_message =
+    type server_sent_event =
       { event: String?, data: String?, id: String?, retry: Integer? }
 
     def self?.decode_lines: (Enumerable[String] enum) -> Enumerable[String]
 
     def self?.decode_sse: (
       Enumerable[String] lines
-    ) -> TerminalShop::Util::sse_message
+    ) -> TerminalShop::Util::server_sent_event
   end
 end
