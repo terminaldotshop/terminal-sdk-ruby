@@ -176,14 +176,13 @@ module TerminalShop
         end
 
         class << self
-          # @api private
           sig do
             override
               .returns(
-                [[NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [NilClass, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
+                [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
               )
           end
-          private def variants
+          def variants
           end
         end
       end
