@@ -304,7 +304,7 @@ module TerminalShop
   # when TerminalShop::Models::Region::NA
   #   # ...
   # else
-  #   # ...
+  #   puts(region)
   # end
   # ```
   #
@@ -316,7 +316,7 @@ module TerminalShop
   # in :na
   #   # ...
   # else
-  #   # ...
+  #   puts(region)
   # end
   # ```
   class Enum
