@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CartConvertResponse < TerminalShop::BaseModel
+      # An order from the Terminal shop.
       sig { returns(TerminalShop::Models::OrderAPI) }
       def data
       end

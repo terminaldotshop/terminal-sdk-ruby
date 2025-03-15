@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class OrderCreateResponse < TerminalShop::BaseModel
+      # Order ID.
       sig { returns(String) }
       def data
       end

@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CardGetResponse < TerminalShop::BaseModel
+      # Credit card used for payments in the Terminal shop.
       sig { returns(TerminalShop::Models::CardAPI) }
       def data
       end

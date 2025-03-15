@@ -6,6 +6,8 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # Stripe card token. Learn how to
+      #   [create one here](https://docs.stripe.com/api/tokens/create_card).
       sig { returns(String) }
       def token
       end

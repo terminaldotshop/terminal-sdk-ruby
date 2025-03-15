@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CardAPI < TerminalShop::BaseModel
+      # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       def id
       end
@@ -11,6 +12,7 @@ module TerminalShop
       def id=(_)
       end
 
+      # Brand of the card.
       sig { returns(String) }
       def brand
       end
@@ -19,6 +21,7 @@ module TerminalShop
       def brand=(_)
       end
 
+      # Expiration of the card.
       sig { returns(TerminalShop::Models::CardAPI::Expiration) }
       def expiration
       end
@@ -27,6 +30,7 @@ module TerminalShop
       def expiration=(_)
       end
 
+      # Last four digits of the card.
       sig { returns(String) }
       def last4
       end
@@ -35,6 +39,7 @@ module TerminalShop
       def last4=(_)
       end
 
+      # Credit card used for payments in the Terminal shop.
       sig do
         params(id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String)
           .returns(T.attached_class)
@@ -50,6 +55,7 @@ module TerminalShop
       end
 
       class Expiration < TerminalShop::BaseModel
+        # Expiration month of the card.
         sig { returns(Integer) }
         def month
         end
@@ -58,6 +64,7 @@ module TerminalShop
         def month=(_)
         end
 
+        # Expiration year of the card.
         sig { returns(Integer) }
         def year
         end
@@ -66,6 +73,7 @@ module TerminalShop
         def year=(_)
         end
 
+        # Expiration of the card.
         sig { params(month: Integer, year: Integer).returns(T.attached_class) }
         def self.new(month:, year:)
         end

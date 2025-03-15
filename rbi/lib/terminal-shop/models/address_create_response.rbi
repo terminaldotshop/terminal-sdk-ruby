@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class AddressCreateResponse < TerminalShop::BaseModel
+      # Shipping address ID.
       sig { returns(String) }
       def data
       end

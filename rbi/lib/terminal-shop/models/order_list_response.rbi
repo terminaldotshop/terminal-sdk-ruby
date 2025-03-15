@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class OrderListResponse < TerminalShop::BaseModel
+      # List of orders.
       sig { returns(T::Array[TerminalShop::Models::OrderAPI]) }
       def data
       end
