@@ -11,7 +11,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::EmailCreateResponse)
       end
-      def create(email:, request_options: {})
+      def create(
+        # Email address to subscribe to Terminal updates with.
+        email:,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }

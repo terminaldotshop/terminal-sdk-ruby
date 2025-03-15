@@ -31,7 +31,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppDeleteResponse)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # ID of the app to delete.
+        id,
+        request_options: {}
+      )
       end
 
       # Get the app with the given ID.
@@ -42,7 +46,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the app to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
