@@ -11,7 +11,12 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CardCreateResponse)
       end
-      def create(token:, request_options: {})
+      def create(
+        # Stripe card token. Learn how to
+        #   [create one here](https://docs.stripe.com/api/tokens/create_card).
+        token:,
+        request_options: {}
+      )
       end
 
       # List the credit cards associated with the current user.
@@ -30,7 +35,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CardDeleteResponse)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # ID of the card to delete.
+        id,
+        request_options: {}
+      )
       end
 
       # Create a temporary URL for collecting credit card information for the current
@@ -50,7 +59,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CardGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the card to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }

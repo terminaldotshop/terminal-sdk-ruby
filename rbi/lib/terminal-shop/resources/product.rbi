@@ -19,7 +19,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::ProductGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the product to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
