@@ -21,12 +21,19 @@ module TerminalShop
           .returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
       def create(
+        # Unique object identifier. The format and length of IDs may change over time.
         id:,
+        # ID of the shipping address used for the subscription.
         address_id:,
+        # ID of the card used for the subscription.
         card_id:,
+        # ID of the product variant being subscribed to.
         product_variant_id:,
+        # Quantity of the subscription.
         quantity:,
+        # Next shipment and billing date for the subscription.
         next_: nil,
+        # Schedule of the subscription.
         schedule: nil,
         request_options: {}
       )
@@ -48,7 +55,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # ID of the subscription to cancel.
+        id,
+        request_options: {}
+      )
       end
 
       # Get the subscription with the given ID.
@@ -59,7 +70,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::SubscriptionGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the subscription to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }

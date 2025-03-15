@@ -13,7 +13,15 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::OrderCreateResponse)
       end
-      def create(address_id:, card_id:, variants:, request_options: {})
+      def create(
+        # Shipping address ID.
+        address_id:,
+        # Card ID.
+        card_id:,
+        # Product variants to include in the order, along with their quantities.
+        variants:,
+        request_options: {}
+      )
       end
 
       # List the orders associated with the current user.
@@ -32,7 +40,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::OrderGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the order to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
