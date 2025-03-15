@@ -3,6 +3,8 @@
 module TerminalShop
   module Resources
     class View
+      # Get initial app data, including user, products, cart, addresses, cards,
+      #   subscriptions, and orders.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::ViewInitResponse)

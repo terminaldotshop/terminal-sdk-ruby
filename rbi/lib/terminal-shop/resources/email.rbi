@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Email
+      # Subscribe to email updates from Terminal.
       sig do
         params(
           email: String,

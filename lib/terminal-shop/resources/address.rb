@@ -26,7 +26,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::AddressCreateResponse]
-      #
       def create(params)
         parsed, options = TerminalShop::Models::AddressCreateParams.dump_request(params)
         @client.request(
@@ -45,7 +44,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::AddressListResponse]
-      #
       def list(params = {})
         @client.request(
           method: :get,
@@ -64,7 +62,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::AddressDeleteResponse]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -83,7 +80,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::AddressGetResponse]
-      #
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -94,7 +90,6 @@ module TerminalShop
       end
 
       # @param client [TerminalShop::Client]
-      #
       def initialize(client:)
         @client = client
       end

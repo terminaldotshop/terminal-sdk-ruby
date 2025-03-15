@@ -13,7 +13,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CardCreateResponse]
-      #
       def create(params)
         parsed, options = TerminalShop::Models::CardCreateParams.dump_request(params)
         @client.request(
@@ -32,7 +31,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CardListResponse]
-      #
       def list(params = {})
         @client.request(
           method: :get,
@@ -51,7 +49,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CardDeleteResponse]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -69,7 +66,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CardCollectResponse]
-      #
       def collect(params = {})
         @client.request(
           method: :post,
@@ -88,7 +84,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CardGetResponse]
-      #
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -99,7 +94,6 @@ module TerminalShop
       end
 
       # @param client [TerminalShop::Client]
-      #
       def initialize(client:)
         @client = client
       end

@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class AppListResponse < TerminalShop::BaseModel
+      # List of apps.
       sig { returns(T::Array[TerminalShop::Models::AppAPI]) }
       def data
       end

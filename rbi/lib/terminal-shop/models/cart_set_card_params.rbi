@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # ID of the credit card to set for the current user's cart.
       sig { returns(String) }
       def card_id
       end

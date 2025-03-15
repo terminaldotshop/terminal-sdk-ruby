@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Cart
+      # Clear the current user's cart.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::CartClearResponse)
@@ -10,6 +11,7 @@ module TerminalShop
       def clear(request_options: {})
       end
 
+      # Convert the current user's cart to an order.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::CartConvertResponse)
@@ -17,6 +19,7 @@ module TerminalShop
       def convert(request_options: {})
       end
 
+      # Get the current user's cart.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::CartGetResponse)
@@ -24,6 +27,7 @@ module TerminalShop
       def get(request_options: {})
       end
 
+      # Set the shipping address for the current user's cart.
       sig do
         params(
           address_id: String,
@@ -34,6 +38,7 @@ module TerminalShop
       def set_address(address_id:, request_options: {})
       end
 
+      # Set the credit card for the current user's cart.
       sig do
         params(
           card_id: String,
@@ -44,6 +49,7 @@ module TerminalShop
       def set_card(card_id:, request_options: {})
       end
 
+      # Add an item to the current user's cart.
       sig do
         params(
           product_variant_id: String,

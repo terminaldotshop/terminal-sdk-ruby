@@ -58,10 +58,9 @@ module TerminalShop
     # @return [TerminalShop::Resources::View]
     attr_reader :view
 
-    # @private
+    # @api private
     #
     # @return [Hash{String=>String}]
-    #
     private def auth_headers
       return {} if @bearer_token.nil?
 
@@ -90,7 +89,6 @@ module TerminalShop
     # @param initial_retry_delay [Float]
     #
     # @param max_retry_delay [Float]
-    #
     def initialize(
       environment: nil,
       base_url: nil,
