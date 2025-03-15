@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class SubscriptionListResponse < TerminalShop::BaseModel
+      # List of subscriptions.
       sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
       def data
       end

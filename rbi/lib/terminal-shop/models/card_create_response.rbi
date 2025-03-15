@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CardCreateResponse < TerminalShop::BaseModel
+      # ID of the card.
       sig { returns(String) }
       def data
       end

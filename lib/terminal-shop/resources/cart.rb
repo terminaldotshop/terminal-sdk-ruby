@@ -10,7 +10,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartClearResponse]
-      #
       def clear(params = {})
         @client.request(
           method: :delete,
@@ -27,7 +26,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartConvertResponse]
-      #
       def convert(params = {})
         @client.request(
           method: :post,
@@ -44,7 +42,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartGetResponse]
-      #
       def get(params = {})
         @client.request(
           method: :get,
@@ -63,7 +60,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetAddressResponse]
-      #
       def set_address(params)
         parsed, options = TerminalShop::Models::CartSetAddressParams.dump_request(params)
         @client.request(
@@ -84,7 +80,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetCardResponse]
-      #
       def set_card(params)
         parsed, options = TerminalShop::Models::CartSetCardParams.dump_request(params)
         @client.request(
@@ -107,7 +102,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetItemResponse]
-      #
       def set_item(params)
         parsed, options = TerminalShop::Models::CartSetItemParams.dump_request(params)
         @client.request(
@@ -120,7 +114,6 @@ module TerminalShop
       end
 
       # @param client [TerminalShop::Client]
-      #
       def initialize(client:)
         @client = client
       end

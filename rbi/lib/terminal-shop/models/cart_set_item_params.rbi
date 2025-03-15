@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # ID of the product variant to add to the cart.
       sig { returns(String) }
       def product_variant_id
       end
@@ -14,6 +15,7 @@ module TerminalShop
       def product_variant_id=(_)
       end
 
+      # Quantity of the item to add to the cart.
       sig { returns(Integer) }
       def quantity
       end

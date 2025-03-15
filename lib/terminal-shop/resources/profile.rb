@@ -14,7 +14,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ProfileUpdateResponse]
-      #
       def update(params)
         parsed, options = TerminalShop::Models::ProfileUpdateParams.dump_request(params)
         @client.request(
@@ -33,7 +32,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ProfileMeResponse]
-      #
       def me(params = {})
         @client.request(
           method: :get,
@@ -44,7 +42,6 @@ module TerminalShop
       end
 
       # @param client [TerminalShop::Client]
-      #
       def initialize(client:)
         @client = client
       end

@@ -23,6 +23,7 @@ module TerminalShop
       end
 
       class Data < TerminalShop::BaseModel
+        # Personal token ID.
         sig { returns(String) }
         def id
         end
@@ -31,6 +32,8 @@ module TerminalShop
         def id=(_)
         end
 
+        # Personal access token. Include this in the Authorization header
+        #   (`Bearer <token>`) when accessing the Terminal API.
         sig { returns(String) }
         def token
         end

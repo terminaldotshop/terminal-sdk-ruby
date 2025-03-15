@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CardCollectResponse < TerminalShop::BaseModel
+      # URL for collecting card information.
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
       def data
       end
@@ -23,6 +24,8 @@ module TerminalShop
       end
 
       class Data < TerminalShop::BaseModel
+        # Temporary URL that allows a user to enter credit card details over https at
+        #   terminal.shop.
         sig { returns(String) }
         def url
         end
@@ -31,6 +34,7 @@ module TerminalShop
         def url=(_)
         end
 
+        # URL for collecting card information.
         sig { params(url: String).returns(T.attached_class) }
         def self.new(url:)
         end

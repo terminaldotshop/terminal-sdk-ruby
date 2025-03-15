@@ -67,10 +67,12 @@ module TerminalShop
     def view
     end
 
+    # @api private
     sig { override.returns(T::Hash[String, String]) }
     private def auth_headers
     end
 
+    # Creates and returns a new client for interacting with the API.
     sig do
       params(
         environment: NilClass,
@@ -85,10 +87,19 @@ module TerminalShop
         .returns(T.attached_class)
     end
     def self.new(
+      # Specifies the environment to use for the API.
+      #
+      #   Each environment maps to a different base URL:
+      #
+      #   - `production` corresponds to `https://api.terminal.shop/`
+      #   - `dev` corresponds to `https://api.dev.terminal.shop/`
       environment: nil,
+      # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
       base_url: nil,
+      # Defaults to `ENV["TERMINAL_BEARER_TOKEN"]`
       bearer_token: ENV["TERMINAL_BEARER_TOKEN"],
       app_id: nil,
+      # Max number of retries to attempt after a failed retryable request.
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,

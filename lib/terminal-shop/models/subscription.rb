@@ -109,6 +109,12 @@ module TerminalShop
 
           # def initialize: (Hash | TerminalShop::BaseModel) -> void
         end
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
+        #     def variants; end
+        #   end
       end
     end
   end

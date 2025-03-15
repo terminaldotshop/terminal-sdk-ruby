@@ -11,7 +11,6 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ViewInitResponse]
-      #
       def init(params = {})
         @client.request(
           method: :get,
@@ -22,7 +21,6 @@ module TerminalShop
       end
 
       # @param client [TerminalShop::Client]
-      #
       def initialize(client:)
         @client = client
       end

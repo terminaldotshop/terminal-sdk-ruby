@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class TokenListResponse < TerminalShop::BaseModel
+      # List of personal access tokens.
       sig { returns(T::Array[TerminalShop::Models::TokenAPI]) }
       def data
       end

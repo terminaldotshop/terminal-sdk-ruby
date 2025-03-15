@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class App
+      # Create an app.
       sig do
         params(
           name: String,
@@ -14,6 +15,7 @@ module TerminalShop
       def create(name:, redirect_uri:, request_options: {})
       end
 
+      # List the current user's registered apps.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::AppListResponse)
@@ -21,6 +23,7 @@ module TerminalShop
       def list(request_options: {})
       end
 
+      # Delete the app with the given ID.
       sig do
         params(
           id: String,
@@ -28,9 +31,14 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppDeleteResponse)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # ID of the app to delete.
+        id,
+        request_options: {}
+      )
       end
 
+      # Get the app with the given ID.
       sig do
         params(
           id: String,
@@ -38,7 +46,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the app to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }

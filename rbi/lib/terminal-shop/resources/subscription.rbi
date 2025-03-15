@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Subscription
+      # Create a subscription for the current user.
       sig do
         params(
           id: String,
@@ -20,17 +21,25 @@ module TerminalShop
           .returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
       def create(
+        # Unique object identifier. The format and length of IDs may change over time.
         id:,
+        # ID of the shipping address used for the subscription.
         address_id:,
+        # ID of the card used for the subscription.
         card_id:,
+        # ID of the product variant being subscribed to.
         product_variant_id:,
+        # Quantity of the subscription.
         quantity:,
+        # Next shipment and billing date for the subscription.
         next_: nil,
+        # Schedule of the subscription.
         schedule: nil,
         request_options: {}
       )
       end
 
+      # List the subscriptions associated with the current user.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::SubscriptionListResponse)
@@ -38,6 +47,7 @@ module TerminalShop
       def list(request_options: {})
       end
 
+      # Cancel a subscription for the current user.
       sig do
         params(
           id: String,
@@ -45,9 +55,14 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # ID of the subscription to cancel.
+        id,
+        request_options: {}
+      )
       end
 
+      # Get the subscription with the given ID.
       sig do
         params(
           id: String,
@@ -55,7 +70,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::SubscriptionGetResponse)
       end
-      def get(id, request_options: {})
+      def get(
+        # ID of the subscription to get.
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }

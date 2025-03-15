@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # City of the address.
       sig { returns(String) }
       def city
       end
@@ -14,6 +15,7 @@ module TerminalShop
       def city=(_)
       end
 
+      # ISO 3166-1 alpha-2 country code of the address.
       sig { returns(String) }
       def country
       end
@@ -22,6 +24,7 @@ module TerminalShop
       def country=(_)
       end
 
+      # The recipient's name.
       sig { returns(String) }
       def name
       end
@@ -30,6 +33,7 @@ module TerminalShop
       def name=(_)
       end
 
+      # Street of the address.
       sig { returns(String) }
       def street1
       end
@@ -38,6 +42,7 @@ module TerminalShop
       def street1=(_)
       end
 
+      # Zip code of the address.
       sig { returns(String) }
       def zip
       end
@@ -46,6 +51,7 @@ module TerminalShop
       def zip=(_)
       end
 
+      # Phone number of the recipient.
       sig { returns(T.nilable(String)) }
       def phone
       end
@@ -54,6 +60,7 @@ module TerminalShop
       def phone=(_)
       end
 
+      # Province or state of the address.
       sig { returns(T.nilable(String)) }
       def province
       end
@@ -62,6 +69,7 @@ module TerminalShop
       def province=(_)
       end
 
+      # Apartment, suite, etc. of the address.
       sig { returns(T.nilable(String)) }
       def street2
       end

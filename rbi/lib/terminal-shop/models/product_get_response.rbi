@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class ProductGetResponse < TerminalShop::BaseModel
+      # Product sold in the Terminal shop.
       sig { returns(TerminalShop::Models::ProductAPI) }
       def data
       end

@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class AddressGetResponse < TerminalShop::BaseModel
+      # Physical address associated with a Terminal shop user.
       sig { returns(TerminalShop::Models::AddressAPI) }
       def data
       end

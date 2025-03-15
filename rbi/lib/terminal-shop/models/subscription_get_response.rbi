@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class SubscriptionGetResponse < TerminalShop::BaseModel
+      # Subscription to a Terminal shop product.
       sig { returns(TerminalShop::Models::SubscriptionAPI) }
       def data
       end

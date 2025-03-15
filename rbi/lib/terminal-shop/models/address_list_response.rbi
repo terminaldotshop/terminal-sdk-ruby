@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class AddressListResponse < TerminalShop::BaseModel
+      # Shipping addresses.
       sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
       def data
       end

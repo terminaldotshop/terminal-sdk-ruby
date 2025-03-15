@@ -23,6 +23,7 @@ module TerminalShop
       end
 
       class Data < TerminalShop::BaseModel
+        # OAuth 2.0 client ID.
         sig { returns(String) }
         def id
         end
@@ -31,6 +32,7 @@ module TerminalShop
         def id=(_)
         end
 
+        # OAuth 2.0 client secret.
         sig { returns(String) }
         def secret
         end

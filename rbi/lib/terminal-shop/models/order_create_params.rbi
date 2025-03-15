@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # Shipping address ID.
       sig { returns(String) }
       def address_id
       end
@@ -14,6 +15,7 @@ module TerminalShop
       def address_id=(_)
       end
 
+      # Card ID.
       sig { returns(String) }
       def card_id
       end
@@ -22,6 +24,7 @@ module TerminalShop
       def card_id=(_)
       end
 
+      # Product variants to include in the order, along with their quantities.
       sig { returns(T::Hash[Symbol, Integer]) }
       def variants
       end

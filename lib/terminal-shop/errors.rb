@@ -4,7 +4,7 @@ module TerminalShop
   class Error < StandardError
     # @!parse
     #   # @return [StandardError, nil]
-    #   attr_reader :cause
+    #   attr_accessor :cause
   end
 
   class ConversionError < TerminalShop::Error
@@ -12,15 +12,15 @@ module TerminalShop
 
   class APIError < TerminalShop::Error
     # @return [URI::Generic]
-    attr_reader :url
+    attr_accessor :url
 
     # @return [Integer, nil]
-    attr_reader :status
+    attr_accessor :status
 
     # @return [Object, nil]
-    attr_reader :body
+    attr_accessor :body
 
-    # @private
+    # @api private
     #
     # @param url [URI::Generic]
     # @param status [Integer, nil]
@@ -28,7 +28,6 @@ module TerminalShop
     # @param request [nil]
     # @param response [nil]
     # @param message [String, nil]
-    #
     def initialize(url:, status: nil, body: nil, request: nil, response: nil, message: nil)
       @url = url
       @status = status
@@ -42,13 +41,13 @@ module TerminalShop
   class APIConnectionError < TerminalShop::APIError
     # @!parse
     #   # @return [nil]
-    #   attr_reader :status
+    #   attr_accessor :status
 
     # @!parse
     #   # @return [nil]
-    #   attr_reader :body
+    #   attr_accessor :body
 
-    # @private
+    # @api private
     #
     # @param url [URI::Generic]
     # @param status [nil]
@@ -56,7 +55,6 @@ module TerminalShop
     # @param request [nil]
     # @param response [nil]
     # @param message [String, nil]
-    #
     def initialize(
       url:,
       status: nil,
@@ -70,7 +68,7 @@ module TerminalShop
   end
 
   class APITimeoutError < TerminalShop::APIConnectionError
-    # @private
+    # @api private
     #
     # @param url [URI::Generic]
     # @param status [nil]
@@ -78,7 +76,6 @@ module TerminalShop
     # @param request [nil]
     # @param response [nil]
     # @param message [String, nil]
-    #
     def initialize(
       url:,
       status: nil,
@@ -92,7 +89,7 @@ module TerminalShop
   end
 
   class APIStatusError < TerminalShop::APIError
-    # @private
+    # @api private
     #
     # @param url [URI::Generic]
     # @param status [Integer]
@@ -102,7 +99,6 @@ module TerminalShop
     # @param message [String, nil]
     #
     # @return [TerminalShop::APIStatusError]
-    #
     def self.for(url:, status:, body:, request:, response:, message: nil)
       kwargs = {url: url, status: status, body: body, request: request, response: response, message: message}
 
@@ -130,9 +126,9 @@ module TerminalShop
 
     # @!parse
     #   # @return [Integer]
-    #   attr_reader :status
+    #   attr_accessor :status
 
-    # @private
+    # @api private
     #
     # @param url [URI::Generic]
     # @param status [Integer]
@@ -140,7 +136,6 @@ module TerminalShop
     # @param request [nil]
     # @param response [nil]
     # @param message [String, nil]
-    #
     def initialize(url:, status:, body:, request:, response:, message: nil)
       message ||= {url: url.to_s, status: status, body: body}
       super(

@@ -45,7 +45,7 @@ module TerminalShop
       response_headers: ::Hash[String, String]
     ) -> TerminalShop::BaseClient::request_input
 
-    # @private
+    # @api private
     attr_accessor requester: top
 
     def initialize: (

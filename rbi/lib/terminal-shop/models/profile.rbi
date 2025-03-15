@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class ProfileAPI < TerminalShop::BaseModel
+      # A Terminal shop user. (We have users, btw.)
       sig { returns(TerminalShop::Models::ProfileAPI::User) }
       def user
       end
@@ -11,6 +12,7 @@ module TerminalShop
       def user=(_)
       end
 
+      # A Terminal shop user's profile. (We have users, btw.)
       sig { params(user: TerminalShop::Models::ProfileAPI::User).returns(T.attached_class) }
       def self.new(user:)
       end
@@ -20,6 +22,7 @@ module TerminalShop
       end
 
       class User < TerminalShop::BaseModel
+        # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         def id
         end
@@ -28,6 +31,7 @@ module TerminalShop
         def id=(_)
         end
 
+        # Email address of the user.
         sig { returns(T.nilable(String)) }
         def email
         end
@@ -36,6 +40,7 @@ module TerminalShop
         def email=(_)
         end
 
+        # The user's fingerprint, derived from their public SSH key.
         sig { returns(T.nilable(String)) }
         def fingerprint
         end
@@ -44,6 +49,7 @@ module TerminalShop
         def fingerprint=(_)
         end
 
+        # Name of the user.
         sig { returns(T.nilable(String)) }
         def name
         end
@@ -52,6 +58,7 @@ module TerminalShop
         def name=(_)
         end
 
+        # Stripe customer ID of the user.
         sig { returns(String) }
         def stripe_customer_id
         end
@@ -60,6 +67,7 @@ module TerminalShop
         def stripe_customer_id=(_)
         end
 
+        # A Terminal shop user. (We have users, btw.)
         sig do
           params(
             id: String,

@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class ProductAPI < TerminalShop::BaseModel
+      # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       def id
       end
@@ -11,6 +12,7 @@ module TerminalShop
       def id=(_)
       end
 
+      # Description of the product.
       sig { returns(String) }
       def description
       end
@@ -19,6 +21,7 @@ module TerminalShop
       def description=(_)
       end
 
+      # Name of the product.
       sig { returns(String) }
       def name
       end
@@ -27,6 +30,7 @@ module TerminalShop
       def name=(_)
       end
 
+      # List of variants of the product.
       sig { returns(T::Array[TerminalShop::Models::ProductVariant]) }
       def variants
       end
@@ -38,6 +42,7 @@ module TerminalShop
       def variants=(_)
       end
 
+      # Order of the product used when displaying a sorted list of products.
       sig { returns(T.nilable(Integer)) }
       def order
       end
@@ -46,6 +51,7 @@ module TerminalShop
       def order=(_)
       end
 
+      # Whether the product must be or can be subscribed to.
       sig { returns(T.nilable(Symbol)) }
       def subscription
       end
@@ -54,6 +60,7 @@ module TerminalShop
       def subscription=(_)
       end
 
+      # Tags for the product.
       sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
       def tags
       end
@@ -62,6 +69,7 @@ module TerminalShop
       def tags=(_)
       end
 
+      # Product sold in the Terminal shop.
       sig do
         params(
           id: String,
@@ -94,6 +102,7 @@ module TerminalShop
       def to_hash
       end
 
+      # Whether the product must be or can be subscribed to.
       class Subscription < TerminalShop::Enum
         abstract!
 
@@ -148,6 +157,7 @@ module TerminalShop
         def market_na=(_)
         end
 
+        # Tags for the product.
         sig do
           params(
             app: String,
