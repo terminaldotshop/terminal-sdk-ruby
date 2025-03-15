@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Profile
+      # Update the current user's profile.
       sig do
         params(
           email: String,
@@ -14,6 +15,7 @@ module TerminalShop
       def update(email:, name:, request_options: {})
       end
 
+      # Get the current user's profile.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::ProfileMeResponse)

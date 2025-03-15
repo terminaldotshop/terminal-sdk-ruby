@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class CardListResponse < TerminalShop::BaseModel
+      # List of cards associated with the user.
       sig { returns(T::Array[TerminalShop::Models::CardAPI]) }
       def data
       end

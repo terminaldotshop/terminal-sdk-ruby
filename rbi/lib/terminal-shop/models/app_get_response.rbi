@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class AppGetResponse < TerminalShop::BaseModel
+      # A Terminal App used for configuring an OAuth 2.0 client.
       sig { returns(TerminalShop::Models::AppAPI) }
       def data
       end
