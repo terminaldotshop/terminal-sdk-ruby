@@ -85,7 +85,7 @@ module TerminalShop
           def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::weekly
         end
 
-        private def self.variants: -> [[nil, TerminalShop::Models::SubscriptionAPI::Schedule::Fixed], [nil, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]]
+        def self.variants: -> [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       end
     end
   end
