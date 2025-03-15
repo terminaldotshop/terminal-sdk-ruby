@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # A Terminal shop user's region.
     class Region < TerminalShop::Enum
       abstract!
 

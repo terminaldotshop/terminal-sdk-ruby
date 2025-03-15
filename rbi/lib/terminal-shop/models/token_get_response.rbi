@@ -3,6 +3,8 @@
 module TerminalShop
   module Models
     class TokenGetResponse < TerminalShop::BaseModel
+      # A personal access token used to access the Terminal API. If you leak this,
+      #   expect large sums of coffee to be ordered on your credit card.
       sig { returns(TerminalShop::Models::TokenAPI) }
       def data
       end

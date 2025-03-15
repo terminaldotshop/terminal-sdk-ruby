@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Product
+      # List all products for sale in the Terminal shop.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::ProductListResponse)
@@ -10,6 +11,7 @@ module TerminalShop
       def list(request_options: {})
       end
 
+      # Get a product by ID from the Terminal shop.
       sig do
         params(
           id: String,

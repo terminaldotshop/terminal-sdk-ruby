@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class ViewInitResponse < TerminalShop::BaseModel
+      # Initial app data.
       sig { returns(TerminalShop::Models::ViewInitResponse::Data) }
       def data
       end
@@ -47,6 +48,7 @@ module TerminalShop
         def cards=(_)
         end
 
+        # The current Terminal shop user's cart.
         sig { returns(TerminalShop::Models::CartAPI) }
         def cart
         end
@@ -71,6 +73,7 @@ module TerminalShop
         def products=(_)
         end
 
+        # A Terminal shop user's profile. (We have users, btw.)
         sig { returns(TerminalShop::Models::ProfileAPI) }
         def profile
         end
@@ -79,6 +82,7 @@ module TerminalShop
         def profile=(_)
         end
 
+        # A Terminal shop user's region.
         sig { returns(Symbol) }
         def region
         end
@@ -106,6 +110,7 @@ module TerminalShop
         def tokens=(_)
         end
 
+        # Initial app data.
         sig do
           params(
             addresses: T::Array[TerminalShop::Models::AddressAPI],

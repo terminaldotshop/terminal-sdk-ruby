@@ -1,41 +1,37 @@
 # frozen_string_literal: true
 
 module TerminalShop
-  # @private
+  # @api private
   #
   # @abstract
-  #
   module Converter
     # rubocop:disable Lint/UnusedMethodArgument
 
-    # @private
+    # @api private
     #
     # @param value [Object]
     #
     # @return [Object]
-    #
     def coerce(value) = value
 
-    # @private
+    # @api private
     #
     # @param value [Object]
     #
     # @return [Object]
-    #
     def dump(value) = value
 
-    # @private
+    # @api private
     #
     # @param value [Object]
     #
     # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    #
     def try_strict_coerce(value) = (raise NotImplementedError)
 
     # rubocop:enable Lint/UnusedMethodArgument
 
     class << self
-      # @private
+      # @api private
       #
       # @param spec [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class] .
       #
@@ -48,7 +44,6 @@ module TerminalShop
       #   @option spec [Boolean] :"nil?"
       #
       # @return [Proc]
-      #
       def type_info(spec)
         case spec
         in Hash
@@ -64,7 +59,7 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # Based on `target`, transform `value` into `target`, to the extent possible:
       #
@@ -77,7 +72,6 @@ module TerminalShop
       # @param value [Object]
       #
       # @return [Object]
-      #
       def coerce(target, value)
         case target
         in TerminalShop::Converter
@@ -111,13 +105,12 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # @param target [TerminalShop::Converter, Class]
       # @param value [Object]
       #
       # @return [Object]
-      #
       def dump(target, value)
         case target
         in TerminalShop::Converter
@@ -127,7 +120,7 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # The underlying algorithm for computing maximal compatibility is subject to
       #   future improvements.
@@ -142,7 +135,6 @@ module TerminalShop
       # @param value [Object]
       #
       # @return [Object]
-      #
       def try_strict_coerce(target, value)
         case target
         in TerminalShop::Converter
@@ -182,7 +174,7 @@ module TerminalShop
     end
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -197,40 +189,35 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.===(other) = true
 
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.==(other) = other.is_a?(Class) && other <= TerminalShop::Unknown
 
     class << self
       # @!parse
-      #   # @private
+      #   # @api private
       #   #
       #   # @param value [Object]
       #   #
       #   # @return [Object]
-      #   #
       #   def coerce(value) = super
 
       # @!parse
-      #   # @private
+      #   # @api private
       #   #
       #   # @param value [Object]
       #   #
       #   # @return [Object]
-      #   #
       #   def dump(value) = super
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      #
       def try_strict_coerce(value)
         # prevent unknown variant from being chosen during the first coercion pass
         [false, true, 0]
@@ -240,7 +227,7 @@ module TerminalShop
     # rubocop:enable Lint/UnusedMethodArgument
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -253,40 +240,35 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.===(other) = other == true || other == false
 
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.==(other) = other.is_a?(Class) && other <= TerminalShop::BooleanModel
 
     class << self
       # @!parse
-      #   # @private
+      #   # @api private
       #   #
       #   # @param value [Boolean, Object]
       #   #
       #   # @return [Boolean, Object]
-      #   #
       #   def coerce(value) = super
 
       # @!parse
-      #   # @private
+      #   # @api private
       #   #
       #   # @param value [Boolean, Object]
       #   #
       #   # @return [Boolean, Object]
-      #   #
       #   def dump(value) = super
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      #
       def try_strict_coerce(value)
         case value
         in true | false
@@ -298,7 +280,7 @@ module TerminalShop
     end
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -344,13 +326,11 @@ module TerminalShop
       # All of the valid Symbol values for this enum.
       #
       # @return [Array<NilClass, Boolean, Integer, Float, Symbol>]
-      #
       def values = (@values ||= constants.map { const_get(_1) })
 
-      # @private
+      # @api private
       #
       # Guard against thread safety issues by instantiating `@values`.
-      #
       private def finalize! = values
     end
 
@@ -359,24 +339,21 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.===(other) = values.include?(other)
 
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.==(other)
       other.is_a?(Class) && other <= TerminalShop::Enum && other.values.to_set == values.to_set
     end
 
     class << self
-      # @private
+      # @api private
       #
       # @param value [String, Symbol, Object]
       #
       # @return [Symbol, Object]
-      #
       def coerce(value)
         case value
         in Symbol | String if values.include?(val = value.to_sym)
@@ -387,20 +364,18 @@ module TerminalShop
       end
 
       # @!parse
-      #   # @private
+      #   # @api private
       #   #
       #   # @param value [Symbol, Object]
       #   #
       #   # @return [Symbol, Object]
-      #   #
       #   def dump(value) = super
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      #
       def try_strict_coerce(value)
         return [true, value, 1] if values.include?(value)
 
@@ -419,36 +394,32 @@ module TerminalShop
     end
   end
 
-  # @private
+  # @api private
   #
   # @abstract
-  #
   class Union
     extend TerminalShop::Converter
 
     class << self
-      # @private
+      # @api private
       #
       # All of the specified variant info for this union.
       #
       # @return [Array<Array(Symbol, Proc)>]
-      #
       private def known_variants = (@known_variants ||= [])
 
-      # @private
+      # @api private
       #
       # All of the specified variants for this union.
       #
       # @return [Array<Array(Symbol, Object)>]
-      #
       protected def variants
         @known_variants.map { |key, variant_fn| [key, variant_fn.call] }
       end
 
-      # @private
+      # @api private
       #
       # @param property [Symbol]
-      #
       private def discriminator(property)
         case property
         in Symbol
@@ -456,7 +427,7 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # @param key [Symbol, Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
       #
@@ -469,7 +440,6 @@ module TerminalShop
       #   @option spec [Proc] :union
       #
       #   @option spec [Boolean] :"nil?"
-      #
       private def variant(key, spec = nil)
         variant_info =
           case key
@@ -482,12 +452,11 @@ module TerminalShop
         known_variants << variant_info
       end
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [TerminalShop::Converter, Class, nil]
-      #
       private def resolve_variant(value)
         case [@discriminator, value]
         in [_, TerminalShop::BaseModel]
@@ -517,7 +486,6 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.===(other)
       known_variants.any? do |_, variant_fn|
         variant_fn.call === other
@@ -527,18 +495,16 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def self.==(other)
       other.is_a?(Class) && other <= TerminalShop::Union && other.variants == variants
     end
 
     class << self
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Object]
-      #
       def coerce(value)
         if (variant = resolve_variant(value))
           return TerminalShop::Converter.coerce(variant, value)
@@ -563,12 +529,11 @@ module TerminalShop
         variant.nil? ? value : TerminalShop::Converter.coerce(variant, value)
       end
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Object]
-      #
       def dump(value)
         if (variant = resolve_variant(value))
           return TerminalShop::Converter.dump(variant, value)
@@ -583,12 +548,11 @@ module TerminalShop
         value
       end
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      #
       def try_strict_coerce(value)
         # TODO(ruby) this will result in super linear decoding behaviour for nested unions
         # follow up with a decoding context that captures current strictness levels
@@ -621,7 +585,7 @@ module TerminalShop
     # rubocop:enable Style/HashEachMethods
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -636,7 +600,6 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def ===(other)
       type = item_type
       case other
@@ -652,15 +615,13 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def ==(other) = other.is_a?(TerminalShop::ArrayOf) && other.item_type == item_type
 
-    # @private
+    # @api private
     #
     # @param value [Enumerable, Object]
     #
     # @return [Array<Object>, Object]
-    #
     def coerce(value)
       type = item_type
       case value
@@ -671,12 +632,11 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @param value [Enumerable, Object]
     #
     # @return [Array<Object>, Object]
-    #
     def dump(value)
       type = item_type
       case value
@@ -687,12 +647,11 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @param value [Object]
     #
     # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    #
     def try_strict_coerce(value)
       case value
       in Array
@@ -726,13 +685,12 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @return [TerminalShop::Converter, Class]
-    #
     protected def item_type = @item_type_fn.call
 
-    # @private
+    # @api private
     #
     # @param type_info [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
     #
@@ -745,13 +703,12 @@ module TerminalShop
     #   @option spec [Proc] :union
     #
     #   @option spec [Boolean] :"nil?"
-    #
     def initialize(type_info, spec = {})
       @item_type_fn = TerminalShop::Converter.type_info(type_info || spec)
     end
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -766,7 +723,6 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def ===(other)
       type = item_type
       case other
@@ -787,15 +743,13 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def ==(other) = other.is_a?(TerminalShop::HashOf) && other.item_type == item_type
 
-    # @private
+    # @api private
     #
     # @param value [Hash{Object=>Object}, Object]
     #
     # @return [Hash{Symbol=>Object}, Object]
-    #
     def coerce(value)
       type = item_type
       case value
@@ -809,12 +763,11 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @param value [Hash{Object=>Object}, Object]
     #
     # @return [Hash{Symbol=>Object}, Object]
-    #
     def dump(value)
       type = item_type
       case value
@@ -827,12 +780,11 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @param value [Object]
     #
     # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    #
     def try_strict_coerce(value)
       case value
       in Hash
@@ -866,13 +818,12 @@ module TerminalShop
       end
     end
 
-    # @private
+    # @api private
     #
     # @return [TerminalShop::Converter, Class]
-    #
     protected def item_type = @item_type_fn.call
 
-    # @private
+    # @api private
     #
     # @param type_info [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
     #
@@ -885,13 +836,12 @@ module TerminalShop
     #   @option spec [Proc] :union
     #
     #   @option spec [Boolean] :"nil?"
-    #
     def initialize(type_info, spec = {})
       @item_type_fn = TerminalShop::Converter.type_info(type_info || spec)
     end
   end
 
-  # @private
+  # @api private
   #
   # @abstract
   #
@@ -908,32 +858,29 @@ module TerminalShop
     extend TerminalShop::Converter
 
     class << self
-      # @private
+      # @api private
       #
       # Assumes superclass fields are totally defined before fields are accessed /
       #   defined on subclasses.
       #
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
-      #
       def known_fields
         @known_fields ||= (self < TerminalShop::BaseModel ? superclass.known_fields.dup : {})
       end
 
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
-      #
       def fields
         known_fields.transform_values do |field|
           {**field.except(:type_fn), type: field.fetch(:type_fn).call}
         end
       end
 
-      # @private
+      # @api private
       #
       # @return [Hash{Symbol=>Proc}]
-      #
       def defaults = (@defaults ||= {})
 
-      # @private
+      # @api private
       #
       # @param name_sym [Symbol]
       #
@@ -950,7 +897,6 @@ module TerminalShop
       #   @option spec [Proc] :union
       #
       #   @option spec [Boolean] :"nil?"
-      #
       private def add_field(name_sym, required:, type_info:, spec:)
         type_fn, info =
           case type_info
@@ -989,7 +935,7 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # @param name_sym [Symbol]
       #
@@ -1004,12 +950,11 @@ module TerminalShop
       #   @option spec [Proc] :union
       #
       #   @option spec [Boolean] :"nil?"
-      #
       def required(name_sym, type_info, spec = {})
         add_field(name_sym, required: true, type_info: type_info, spec: spec)
       end
 
-      # @private
+      # @api private
       #
       # @param name_sym [Symbol]
       #
@@ -1024,18 +969,16 @@ module TerminalShop
       #   @option spec [Proc] :union
       #
       #   @option spec [Boolean] :"nil?"
-      #
       def optional(name_sym, type_info, spec = {})
         add_field(name_sym, required: false, type_info: type_info, spec: spec)
       end
 
-      # @private
+      # @api private
       #
       # `request_only` attributes not excluded from `.#coerce` when receiving responses
       #   even if well behaved servers should not send them
       #
       # @param blk [Proc]
-      #
       private def request_only(&blk)
         @mode = :dump
         blk.call
@@ -1043,12 +986,11 @@ module TerminalShop
         @mode = nil
       end
 
-      # @private
+      # @api private
       #
       # `response_only` attributes are omitted from `.#dump` when making requests
       #
       # @param blk [Proc]
-      #
       private def response_only(&blk)
         @mode = :coerce
         blk.call
@@ -1060,7 +1002,6 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    #
     def ==(other)
       case other
       in TerminalShop::BaseModel
@@ -1071,12 +1012,11 @@ module TerminalShop
     end
 
     class << self
-      # @private
+      # @api private
       #
       # @param value [TerminalShop::BaseModel, Hash{Object=>Object}, Object]
       #
       # @return [TerminalShop::BaseModel, Object]
-      #
       def coerce(value)
         case TerminalShop::Util.coerce_hash(value)
         in Hash => coerced
@@ -1086,12 +1026,11 @@ module TerminalShop
         end
       end
 
-      # @private
+      # @api private
       #
       # @param value [TerminalShop::BaseModel, Object]
       #
       # @return [Hash{Object=>Object}, Object]
-      #
       def dump(value)
         unless (coerced = TerminalShop::Util.coerce_hash(value)).is_a?(Hash)
           return value
@@ -1123,12 +1062,11 @@ module TerminalShop
         values
       end
 
-      # @private
+      # @api private
       #
       # @param value [Object]
       #
       # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      #
       def try_strict_coerce(value)
         case value
         in Hash | TerminalShop::BaseModel
@@ -1186,7 +1124,6 @@ module TerminalShop
     # @param key [Symbol]
     #
     # @return [Object, nil]
-    #
     def [](key)
       unless key.instance_of?(Symbol)
         raise ArgumentError.new("Expected symbol key for lookup, got #{key.inspect}")
@@ -1205,7 +1142,6 @@ module TerminalShop
     #   should not be mutated.
     #
     # @return [Hash{Symbol=>Object}]
-    #
     def to_h = @data
 
     alias_method :to_hash, :to_h
@@ -1213,7 +1149,6 @@ module TerminalShop
     # @param keys [Array<Symbol>, nil]
     #
     # @return [Hash{Symbol=>Object}]
-    #
     def deconstruct_keys(keys)
       (keys || self.class.known_fields.keys).filter_map do |k|
         unless self.class.known_fields.key?(k)
@@ -1228,7 +1163,6 @@ module TerminalShop
     # Create a new instance of a model.
     #
     # @param data [Hash{Symbol=>Object}, TerminalShop::BaseModel]
-    #
     def initialize(data = {})
       case TerminalShop::Util.coerce_hash(data)
       in Hash => coerced
@@ -1239,11 +1173,9 @@ module TerminalShop
     end
 
     # @return [String]
-    #
     def to_s = @data.to_s
 
     # @return [String]
-    #
     def inspect
       "#<#{self.class.name}:0x#{object_id.to_s(16)} #{deconstruct_keys(nil).map do |k, v|
         "#{k}=#{v.inspect}"

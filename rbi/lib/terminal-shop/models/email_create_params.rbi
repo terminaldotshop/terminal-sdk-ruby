@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # Email address to subscribe to Terminal updates with.
       sig { returns(String) }
       def email
       end

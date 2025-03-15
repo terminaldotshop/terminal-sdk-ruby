@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class ProfileMeResponse < TerminalShop::BaseModel
+      # A Terminal shop user's profile. (We have users, btw.)
       sig { returns(TerminalShop::Models::ProfileAPI) }
       def data
       end

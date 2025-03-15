@@ -3,6 +3,7 @@
 module TerminalShop
   module Models
     class SubscriptionAPI < TerminalShop::BaseModel
+      # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       def id
       end
@@ -11,6 +12,7 @@ module TerminalShop
       def id=(_)
       end
 
+      # ID of the shipping address used for the subscription.
       sig { returns(String) }
       def address_id
       end
@@ -19,6 +21,7 @@ module TerminalShop
       def address_id=(_)
       end
 
+      # ID of the card used for the subscription.
       sig { returns(String) }
       def card_id
       end
@@ -27,6 +30,7 @@ module TerminalShop
       def card_id=(_)
       end
 
+      # ID of the product variant being subscribed to.
       sig { returns(String) }
       def product_variant_id
       end
@@ -35,6 +39,7 @@ module TerminalShop
       def product_variant_id=(_)
       end
 
+      # Quantity of the subscription.
       sig { returns(Integer) }
       def quantity
       end
@@ -43,6 +48,7 @@ module TerminalShop
       def quantity=(_)
       end
 
+      # Next shipment and billing date for the subscription.
       sig { returns(T.nilable(String)) }
       def next_
       end
@@ -51,6 +57,7 @@ module TerminalShop
       def next_=(_)
       end
 
+      # Schedule of the subscription.
       sig do
         returns(
           T.nilable(
@@ -81,6 +88,7 @@ module TerminalShop
       def schedule=(_)
       end
 
+      # Subscription to a Terminal shop product.
       sig do
         params(
           id: String,
@@ -119,6 +127,7 @@ module TerminalShop
       def to_hash
       end
 
+      # Schedule of the subscription.
       class Schedule < TerminalShop::Union
         abstract!
 
@@ -167,6 +176,7 @@ module TerminalShop
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(

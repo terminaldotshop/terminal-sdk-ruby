@@ -3,6 +3,7 @@
 module TerminalShop
   module Resources
     class Subscription
+      # Create a subscription for the current user.
       sig do
         params(
           id: String,
@@ -31,6 +32,7 @@ module TerminalShop
       )
       end
 
+      # List the subscriptions associated with the current user.
       sig do
         params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
           .returns(TerminalShop::Models::SubscriptionListResponse)
@@ -38,6 +40,7 @@ module TerminalShop
       def list(request_options: {})
       end
 
+      # Cancel a subscription for the current user.
       sig do
         params(
           id: String,
@@ -48,6 +51,7 @@ module TerminalShop
       def delete(id, request_options: {})
       end
 
+      # Get the subscription with the given ID.
       sig do
         params(
           id: String,

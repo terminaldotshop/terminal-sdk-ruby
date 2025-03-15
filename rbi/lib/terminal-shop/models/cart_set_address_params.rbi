@@ -6,6 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
+      # ID of the shipping address to set for the current user's cart.
       sig { returns(String) }
       def address_id
       end
