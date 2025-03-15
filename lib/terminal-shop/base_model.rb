@@ -841,8 +841,6 @@ module TerminalShop
     end
   end
 
-  # @api private
-  #
   # @abstract
   #
   # @example
@@ -868,6 +866,8 @@ module TerminalShop
         @known_fields ||= (self < TerminalShop::BaseModel ? superclass.known_fields.dup : {})
       end
 
+      # @api private
+      #
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
       def fields
         known_fields.transform_values do |field|

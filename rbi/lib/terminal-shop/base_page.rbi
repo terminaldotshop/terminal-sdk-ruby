@@ -1,7 +1,6 @@
 # typed: strong
 
 module TerminalShop
-  # @api private
   module BasePage
     abstract!
 
