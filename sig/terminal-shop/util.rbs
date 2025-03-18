@@ -6,7 +6,7 @@ module TerminalShop
 
     def self?.os: -> String
 
-    def self?.primitive?: (top input) -> (bool | top)
+    def self?.primitive?: (top input) -> bool
 
     def self?.coerce_boolean: (top input) -> (bool | top)
 
@@ -122,7 +122,7 @@ module TerminalShop
       Enumerable[top]? enum
     ) {
       (Enumerator::Yielder arg0) -> void
-    } -> void
+    } -> Enumerable[top]
 
     type server_sent_event =
       { event: String?, data: String?, id: String?, retry: Integer? }

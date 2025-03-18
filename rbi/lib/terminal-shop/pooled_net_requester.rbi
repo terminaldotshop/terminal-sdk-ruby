@@ -1,6 +1,7 @@
 # typed: strong
 
 module TerminalShop
+  # @api private
   class PooledNetRequester
     RequestShape = T.type_alias do
       {method: Symbol, url: URI::Generic, headers: T::Hash[String, String], body: T.anything, deadline: Float}
@@ -27,14 +28,14 @@ module TerminalShop
     end
 
     # @api private
-    sig { params(url: URI::Generic, blk: T.proc.params(arg0: Net::HTTP).void).void }
-    private def with_pool(url, &blk)
+    sig { params(url: URI::Generic, deadline: Float, blk: T.proc.params(arg0: Net::HTTP).void).void }
+    private def with_pool(url, deadline:, &blk)
     end
 
     # @api private
     sig do
       params(request: TerminalShop::PooledNetRequester::RequestShape)
-        .returns([Net::HTTPResponse, T::Enumerable[String]])
+        .returns([Integer, Net::HTTPResponse, T::Enumerable[String]])
     end
     def execute(request)
     end

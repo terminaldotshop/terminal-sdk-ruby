@@ -131,6 +131,15 @@ module TerminalShop
       class Schedule < TerminalShop::Union
         abstract!
 
+        Variants = type_template(:out) do
+          {
+            fixed: T.any(
+              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
+            )
+          }
+        end
+
         class Fixed < TerminalShop::BaseModel
           sig { returns(Symbol) }
           def type
@@ -172,17 +181,6 @@ module TerminalShop
 
           sig { override.returns({interval: Integer, type: Symbol}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig do
-            override
-              .returns(
-                [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-              )
-          end
-          def variants
           end
         end
       end
