@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.8.0 (2025-03-18)
+
+Full Changelog: [v1.7.0...v1.8.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.7.0...v1.8.0)
+
+### Features
+
+* support jsonl uploads ([#125](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/125)) ([125a05a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/125a05a736d60e8cdff2add0d19de5dd4a979e7d))
+
+
+### Bug Fixes
+
+* bad documentation url for gemdocs.org ([#134](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/134)) ([7caebab](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7caebabab00c609946852992ef1af82d6ca90139))
+
+
+### Chores
+
+* add most doc strings to rbi type definitions ([#126](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/126)) ([5289149](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/528914936d6dcab5d85f2d06ddf24adbf7f43295))
+* document union variants in yard doc ([#130](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/130)) ([8662cfd](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8662cfd577ca857854cf6692767686f83347f2db))
+* ensure doc strings for rbi method arguments ([#127](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/127)) ([e6b0cd7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e6b0cd749e7dd7192d1d35decbfca7c4f69a8eeb))
+* error fields are now mutable in keeping with rest of SDK ([#129](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/129)) ([9762727](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/9762727ce18d3a96242698acd06a960a52ee9fe4))
+* **internal:** codegen related update ([#133](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/133)) ([ee97948](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ee97948fd2e86e5eb68119e3ca403ce2bb1f72cb))
+* **internal:** remove extra empty newlines ([#123](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/123)) ([4bfa89f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4bfa89f7054dfa887ba5396399a7c35c24d4f8c0))
+* **internal:** version bump ([#120](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/120)) ([54e8ed6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/54e8ed6ad3c8079b9b50ffa046a3f0ea9946d56b))
+* mark non-inheritable SDK internal classes as final ([#132](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/132)) ([39109d9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/39109d97ab906855d2c0ac88cef0f657aeed3027))
+* refactor BasePage to have initializer ([#122](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/122)) ([f40aebb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f40aebb582ea1918f36fd9d36d2da7d99369b8a4))
+* sdk internal updates ([#124](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/124)) ([a395876](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a395876eb60ac10370cfc470f37010e7dc1fb006))
+* slightly more consistent type definition layout ([#131](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/131)) ([392c6bd](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/392c6bdaacabf0e2e8afcf52bcad2bbfb20a6376))
+* touch up sdk usage examples ([#128](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/128)) ([d4cd993](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d4cd993f1b0a78dcb5a47353903a998587610306))
+
 ## 1.7.0 (2025-03-13)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.6.0...v1.7.0)
