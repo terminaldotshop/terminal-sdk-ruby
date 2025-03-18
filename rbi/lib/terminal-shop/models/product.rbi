@@ -106,14 +106,10 @@ module TerminalShop
       class Subscription < TerminalShop::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ALLOWED = :allowed
         REQUIRED = :required
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class Tags < TerminalShop::BaseModel
