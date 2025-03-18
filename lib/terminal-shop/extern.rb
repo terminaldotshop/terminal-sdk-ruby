@@ -2,8 +2,6 @@
 
 module TerminalShop
   # @api private
-  #
-  # @abstract
   module Extern
   end
 end

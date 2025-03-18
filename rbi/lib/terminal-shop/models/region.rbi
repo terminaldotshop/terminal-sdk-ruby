@@ -6,14 +6,10 @@ module TerminalShop
     class Region < TerminalShop::Enum
       abstract!
 
+      Value = type_template(:out) { {fixed: Symbol} }
+
       EU = :eu
       NA = :na
-
-      class << self
-        sig { override.returns(T::Array[Symbol]) }
-        def values
-        end
-      end
     end
   end
 end

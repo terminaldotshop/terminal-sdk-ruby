@@ -45,6 +45,11 @@ module TerminalShop
       response_headers: ::Hash[String, String]
     ) -> TerminalShop::BaseClient::request_input
 
+    def self.reap_connection!: (
+      Integer | TerminalShop::APIConnectionError status,
+      stream: Enumerable[String]?
+    ) -> void
+
     # @api private
     attr_accessor requester: top
 
