@@ -85,7 +85,7 @@ module TerminalShop
   class Union
     extend TerminalShop::Converter
 
-    private def self.known_variants: -> ::Array[[Symbol?, Proc]]
+    private def self.known_variants: -> ::Array[[Symbol?, (^-> TerminalShop::Converter::input)]]
 
     def self.derefed_variants: -> ::Array[[Symbol?, top]]
 
@@ -120,7 +120,7 @@ module TerminalShop
     ) -> ([true, top, nil] | [false, bool, Integer])
   end
 
-  class ArrayOf
+  class ArrayOf[Elem]
     include TerminalShop::Converter
 
     def ===: (top other) -> bool
@@ -135,7 +135,7 @@ module TerminalShop
       top value
     ) -> ([true, top, nil] | [false, bool, Integer])
 
-    def item_type: -> TerminalShop::Converter::input
+    def item_type: -> Elem
 
     def initialize: (
       ::Hash[Symbol, top]
@@ -145,7 +145,7 @@ module TerminalShop
     ) -> void
   end
 
-  class HashOf
+  class HashOf[Elem]
     include TerminalShop::Converter
 
     def ===: (top other) -> bool
@@ -160,7 +160,7 @@ module TerminalShop
       top value
     ) -> ([true, top, nil] | [false, bool, Integer])
 
-    def item_type: -> TerminalShop::Converter::input
+    def item_type: -> Elem
 
     def initialize: (
       ::Hash[Symbol, top]

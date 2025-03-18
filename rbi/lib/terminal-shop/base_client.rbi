@@ -1,6 +1,7 @@
 # typed: strong
 
 module TerminalShop
+  # @api private
   class BaseClient
     abstract!
 
@@ -66,6 +67,17 @@ module TerminalShop
           .returns(TerminalShop::BaseClient::RequestInputShape)
       end
       def follow_redirect(request, status:, response_headers:)
+      end
+
+      # @api private
+      sig do
+        params(
+          status: T.any(Integer, TerminalShop::APIConnectionError),
+          stream: T.nilable(T::Enumerable[String])
+        )
+          .void
+      end
+      def reap_connection!(status, stream:)
       end
     end
 
