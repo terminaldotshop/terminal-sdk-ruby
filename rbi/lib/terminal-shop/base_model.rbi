@@ -310,6 +310,20 @@ module TerminalShop
 
     Elem = type_member(:out)
 
+    sig(:final) do
+      params(
+        type_info: T.any(
+          T::Hash[Symbol, T.anything],
+          T.proc.returns(TerminalShop::Converter::Input),
+          TerminalShop::Converter::Input
+        ),
+        spec: T::Hash[Symbol, T.anything]
+      )
+        .returns(T.attached_class)
+    end
+    def self.[](type_info, spec = {})
+    end
+
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
     end
@@ -360,9 +374,9 @@ module TerminalShop
         ),
         spec: T::Hash[Symbol, T.anything]
       )
-        .returns(T.attached_class)
+        .void
     end
-    def self.new(type_info, spec = {})
+    def initialize(type_info, spec = {})
     end
   end
 
@@ -377,6 +391,20 @@ module TerminalShop
 
     Elem = type_member(:out)
 
+    sig(:final) do
+      params(
+        type_info: T.any(
+          T::Hash[Symbol, T.anything],
+          T.proc.returns(TerminalShop::Converter::Input),
+          TerminalShop::Converter::Input
+        ),
+        spec: T::Hash[Symbol, T.anything]
+      )
+        .returns(T.attached_class)
+    end
+    def self.[](type_info, spec = {})
+    end
+
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
     end
@@ -427,9 +455,9 @@ module TerminalShop
         ),
         spec: T::Hash[Symbol, T.anything]
       )
-        .returns(T.attached_class)
+        .void
     end
-    def self.new(type_info, spec = {})
+    def initialize(type_info, spec = {})
     end
   end
 
