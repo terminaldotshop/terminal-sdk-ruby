@@ -28,6 +28,8 @@ module TerminalShop
   # products => Array
   # ```
   module BasePage
+    # rubocop:disable Lint/UnusedMethodArgument
+
     # @return [Boolean]
     def next_page? = (raise NotImplementedError)
 
@@ -56,5 +58,7 @@ module TerminalShop
       @req = req
       super()
     end
+
+    # rubocop:enable Lint/UnusedMethodArgument
   end
 end
