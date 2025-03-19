@@ -178,6 +178,8 @@ module TerminalShop
     def self.known_fields: -> ::Hash[Symbol, (TerminalShop::BaseModel::known_field
     & { type_fn: (^-> TerminalShop::Converter::input) })]
 
+    def self.reverse_map: -> ::Hash[Symbol, Symbol]
+
     def self.fields: -> ::Hash[Symbol, (TerminalShop::BaseModel::known_field
     & { type: TerminalShop::Converter::input })]
 
