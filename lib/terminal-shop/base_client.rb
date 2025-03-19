@@ -9,14 +9,15 @@ module TerminalShop
     MAX_REDIRECTS = 20
 
     # rubocop:disable Style/MutableConstant
-    PLATFORM_HEADERS = {
-      "x-stainless-arch" => TerminalShop::Util.arch,
-      "x-stainless-lang" => "ruby",
-      "x-stainless-os" => TerminalShop::Util.os,
-      "x-stainless-package-version" => TerminalShop::VERSION,
-      "x-stainless-runtime" => ::RUBY_ENGINE,
-      "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
-    }
+    PLATFORM_HEADERS =
+      {
+        "x-stainless-arch" => TerminalShop::Util.arch,
+        "x-stainless-lang" => "ruby",
+        "x-stainless-os" => TerminalShop::Util.os,
+        "x-stainless-package-version" => TerminalShop::VERSION,
+        "x-stainless-runtime" => ::RUBY_ENGINE,
+        "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
+      }
     # rubocop:enable Style/MutableConstant
 
     class << self
