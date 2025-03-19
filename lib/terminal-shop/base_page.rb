@@ -17,7 +17,8 @@ module TerminalShop
   #
   # @example
   # ```ruby
-  # products = page
+  # products =
+  #   page
   #   .to_enum
   #   .lazy
   #   .select { _1.object_id.even? }

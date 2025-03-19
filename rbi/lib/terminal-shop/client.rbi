@@ -10,10 +10,11 @@ module TerminalShop
 
     DEFAULT_MAX_RETRY_DELAY = T.let(8.0, Float)
 
-    ENVIRONMENTS = T.let(
-      {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"},
-      T::Hash[Symbol, String]
-    )
+    ENVIRONMENTS =
+      T.let(
+        {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"},
+        T::Hash[Symbol, String]
+      )
 
     sig { returns(String) }
     def bearer_token

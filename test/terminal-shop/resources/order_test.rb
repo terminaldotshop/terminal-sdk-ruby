@@ -4,11 +4,12 @@ require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::OrderTest < TerminalShop::Test::ResourceTest
   def test_create_required_params
-    response = @terminal.order.create(
-      address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      variants: {var_XXXXXXXXXXXXXXXXXXXXXXXXX: 1}
-    )
+    response =
+      @terminal.order.create(
+        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        variants: {var_XXXXXXXXXXXXXXXXXXXXXXXXX: 1}
+      )
 
     assert_pattern do
       response => TerminalShop::Models::OrderCreateResponse
