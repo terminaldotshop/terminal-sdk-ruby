@@ -15,7 +15,7 @@ module TerminalShop
         (
           name: String,
           redirect_uri: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> void
         | (
           ?TerminalShop::Models::app_create_params

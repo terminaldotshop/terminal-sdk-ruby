@@ -6,7 +6,7 @@ module TerminalShop
           ?TerminalShop::Models::TokenCreateParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::TokenCreateResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::TokenCreateResponse
 
       def list:
@@ -14,7 +14,7 @@ module TerminalShop
           ?TerminalShop::Models::TokenListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::TokenListResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::TokenListResponse
 
       def delete:
@@ -24,7 +24,7 @@ module TerminalShop
         ) -> TerminalShop::Models::TokenDeleteResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::TokenDeleteResponse
 
       def get:
@@ -34,7 +34,7 @@ module TerminalShop
         ) -> TerminalShop::Models::TokenGetResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::TokenGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void

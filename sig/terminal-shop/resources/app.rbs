@@ -8,7 +8,7 @@ module TerminalShop
         | (
           name: String,
           redirect_uri: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AppCreateResponse
 
       def list:
@@ -16,7 +16,7 @@ module TerminalShop
           ?TerminalShop::Models::AppListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AppListResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AppListResponse
 
       def delete:
@@ -26,7 +26,7 @@ module TerminalShop
         ) -> TerminalShop::Models::AppDeleteResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AppDeleteResponse
 
       def get:
@@ -36,7 +36,7 @@ module TerminalShop
         ) -> TerminalShop::Models::AppGetResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AppGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void

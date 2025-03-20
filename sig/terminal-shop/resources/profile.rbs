@@ -8,7 +8,7 @@ module TerminalShop
         | (
           email: String,
           name: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::ProfileUpdateResponse
 
       def me:
@@ -16,7 +16,7 @@ module TerminalShop
           ?TerminalShop::Models::ProfileMeParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::ProfileMeResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::ProfileMeResponse
 
       def initialize: (client: TerminalShop::Client) -> void

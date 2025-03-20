@@ -16,7 +16,7 @@ module TerminalShop
         (
           product_variant_id: String,
           quantity: Integer,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> void
         | (
           ?TerminalShop::Models::cart_set_item_params

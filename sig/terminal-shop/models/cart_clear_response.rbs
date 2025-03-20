@@ -6,7 +6,7 @@ module TerminalShop
       attr_accessor data: :ok
 
       def initialize:
-        (data: :ok) -> void
+        (?data: :ok) -> void
         | (
           ?TerminalShop::Models::cart_clear_response
           | TerminalShop::BaseModel data

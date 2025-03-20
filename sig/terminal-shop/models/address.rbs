@@ -46,9 +46,9 @@ module TerminalShop
           name: String,
           street1: String,
           zip: String,
-          phone: String,
-          province: String,
-          street2: String
+          ?phone: String,
+          ?province: String,
+          ?street2: String
         ) -> void
         | (
           ?TerminalShop::Models::address_api | TerminalShop::BaseModel data

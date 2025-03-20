@@ -32,6 +32,6 @@ module TerminalShop
       TerminalShop::PooledNetRequester::request request
     ) -> [Integer, top, Enumerable[String]]
 
-    def initialize: (size: Integer) -> void
+    def initialize: (?size: Integer) -> void
   end
 end

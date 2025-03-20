@@ -7,7 +7,7 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       def initialize:
-        (request_options: TerminalShop::request_opts) -> void
+        (?request_options: TerminalShop::request_opts) -> void
         | (
           ?TerminalShop::Models::profile_me_params
           | TerminalShop::BaseModel data
