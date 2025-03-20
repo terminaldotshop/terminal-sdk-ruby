@@ -6,7 +6,7 @@ module TerminalShop
           ?TerminalShop::Models::CartClearParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartClearResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartClearResponse
 
       def convert:
@@ -14,7 +14,7 @@ module TerminalShop
           ?TerminalShop::Models::CartConvertParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartConvertResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartConvertResponse
 
       def get:
@@ -22,7 +22,7 @@ module TerminalShop
           ?TerminalShop::Models::CartGetParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CartGetResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartGetResponse
 
       def set_address:
@@ -32,7 +32,7 @@ module TerminalShop
         ) -> TerminalShop::Models::CartSetAddressResponse
         | (
           address_id: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartSetAddressResponse
 
       def set_card:
@@ -41,7 +41,7 @@ module TerminalShop
         ) -> TerminalShop::Models::CartSetCardResponse
         | (
           card_id: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartSetCardResponse
 
       def set_item:
@@ -51,7 +51,7 @@ module TerminalShop
         | (
           product_variant_id: String,
           quantity: Integer,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CartSetItemResponse
 
       def initialize: (client: TerminalShop::Client) -> void

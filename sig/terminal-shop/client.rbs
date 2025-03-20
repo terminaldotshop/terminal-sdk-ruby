@@ -42,14 +42,14 @@ module TerminalShop
     private def auth_headers: -> ::Hash[String, String]
 
     def initialize: (
-      environment: :production | :dev | nil,
-      base_url: String?,
-      bearer_token: String?,
-      app_id: String?,
-      max_retries: Integer,
-      timeout: Float,
-      initial_retry_delay: Float,
-      max_retry_delay: Float
+      ?environment: :production | :dev | nil,
+      ?base_url: String?,
+      ?bearer_token: String?,
+      ?app_id: String?,
+      ?max_retries: Integer,
+      ?timeout: Float,
+      ?initial_retry_delay: Float,
+      ?max_retry_delay: Float
     ) -> void
   end
 end

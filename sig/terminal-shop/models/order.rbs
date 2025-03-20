@@ -32,7 +32,7 @@ module TerminalShop
           items: ::Array[TerminalShop::Models::OrderAPI::Item],
           shipping: TerminalShop::Models::OrderAPI::Shipping,
           tracking: TerminalShop::Models::OrderAPI::Tracking,
-          index: Integer
+          ?index: Integer
         ) -> void
         | (
           ?TerminalShop::Models::order_api | TerminalShop::BaseModel data
@@ -86,8 +86,8 @@ module TerminalShop
             id: String,
             amount: Integer,
             quantity: Integer,
-            description: String,
-            product_variant_id: String
+            ?description: String,
+            ?product_variant_id: String
           ) -> void
           | (
             ?TerminalShop::Models::OrderAPI::item | TerminalShop::BaseModel data
@@ -138,9 +138,9 @@ module TerminalShop
             name: String,
             street1: String,
             zip: String,
-            phone: String,
-            province: String,
-            street2: String
+            ?phone: String,
+            ?province: String,
+            ?street2: String
           ) -> void
           | (
             ?TerminalShop::Models::OrderAPI::shipping
@@ -166,7 +166,7 @@ module TerminalShop
         def url=: (String) -> String
 
         def initialize:
-          (number: String, service: String, url: String) -> void
+          (?number: String, ?service: String, ?url: String) -> void
           | (
             ?TerminalShop::Models::OrderAPI::tracking
             | TerminalShop::BaseModel data

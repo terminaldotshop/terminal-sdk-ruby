@@ -36,9 +36,9 @@ module TerminalShop
           amount: TerminalShop::Models::CartAPI::Amount,
           items: ::Array[TerminalShop::Models::CartAPI::Item],
           subtotal: Integer,
-          address_id: String,
-          card_id: String,
-          shipping: TerminalShop::Models::CartAPI::Shipping
+          ?address_id: String,
+          ?card_id: String,
+          ?shipping: TerminalShop::Models::CartAPI::Shipping
         ) -> void
         | (
           ?TerminalShop::Models::cart_api | TerminalShop::BaseModel data
@@ -60,7 +60,7 @@ module TerminalShop
         def total=: (Integer) -> Integer
 
         def initialize:
-          (subtotal: Integer, shipping: Integer, total: Integer) -> void
+          (subtotal: Integer, ?shipping: Integer, ?total: Integer) -> void
           | (
             ?TerminalShop::Models::CartAPI::amount
             | TerminalShop::BaseModel data
@@ -112,7 +112,7 @@ module TerminalShop
         def timeframe=: (String) -> String
 
         def initialize:
-          (service: String, timeframe: String) -> void
+          (?service: String, ?timeframe: String) -> void
           | (
             ?TerminalShop::Models::CartAPI::shipping
             | TerminalShop::BaseModel data
