@@ -12,9 +12,9 @@ module TerminalShop
           card_id: String,
           product_variant_id: String,
           quantity: Integer,
-          next_: String,
-          schedule: TerminalShop::Models::SubscriptionAPI::schedule,
-          request_options: TerminalShop::request_opts
+          ?next_: String,
+          ?schedule: TerminalShop::Models::SubscriptionAPI::schedule,
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::SubscriptionCreateResponse
 
       def list:
@@ -23,7 +23,7 @@ module TerminalShop
           | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::SubscriptionListResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::SubscriptionListResponse
 
       def delete:
@@ -34,7 +34,7 @@ module TerminalShop
         ) -> TerminalShop::Models::SubscriptionDeleteResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::SubscriptionDeleteResponse
 
       def get:
@@ -45,7 +45,7 @@ module TerminalShop
         ) -> TerminalShop::Models::SubscriptionGetResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::SubscriptionGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void

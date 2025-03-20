@@ -15,7 +15,7 @@ module TerminalShop
         (
           email: String,
           name: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> void
         | (
           ?TerminalShop::Models::profile_update_params
