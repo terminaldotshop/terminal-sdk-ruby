@@ -5,12 +5,7 @@ module TerminalShop
     class EmailCreateResponse < TerminalShop::BaseModel
       attr_accessor data: :ok
 
-      def initialize:
-        (?data: :ok) -> void
-        | (
-          ?TerminalShop::Models::email_create_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?data: :ok) -> void
 
       def to_hash: -> TerminalShop::Models::email_create_response
     end

@@ -32,19 +32,15 @@ module TerminalShop
         TerminalShop::Models::SubscriptionAPI::schedule
       ) -> TerminalShop::Models::SubscriptionAPI::schedule
 
-      def initialize:
-        (
-          id: String,
-          address_id: String,
-          card_id: String,
-          product_variant_id: String,
-          quantity: Integer,
-          ?next_: String,
-          ?schedule: TerminalShop::Models::SubscriptionAPI::schedule
-        ) -> void
-        | (
-          ?TerminalShop::Models::subscription_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        address_id: String,
+        card_id: String,
+        product_variant_id: String,
+        quantity: Integer,
+        ?next_: String,
+        ?schedule: TerminalShop::Models::SubscriptionAPI::schedule
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::subscription_api
 
@@ -58,12 +54,7 @@ module TerminalShop
         class Fixed < TerminalShop::BaseModel
           attr_accessor type: :fixed
 
-          def initialize:
-            (?type: :fixed) -> void
-            | (
-              ?TerminalShop::Models::SubscriptionAPI::Schedule::fixed
-              | TerminalShop::BaseModel data
-            ) -> void
+          def initialize: (?type: :fixed) -> void
 
           def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::fixed
         end
@@ -75,12 +66,7 @@ module TerminalShop
 
           attr_accessor type: :weekly
 
-          def initialize:
-            (interval: Integer, ?type: :weekly) -> void
-            | (
-              ?TerminalShop::Models::SubscriptionAPI::Schedule::weekly
-              | TerminalShop::BaseModel data
-            ) -> void
+          def initialize: (interval: Integer, ?type: :weekly) -> void
 
           def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::weekly
         end

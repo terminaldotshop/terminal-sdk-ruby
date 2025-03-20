@@ -9,12 +9,10 @@ module TerminalShop
 
       attr_accessor card_id: String
 
-      def initialize:
-        (card_id: String, ?request_options: TerminalShop::request_opts) -> void
-        | (
-          ?TerminalShop::Models::cart_set_card_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        card_id: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::cart_set_card_params
     end

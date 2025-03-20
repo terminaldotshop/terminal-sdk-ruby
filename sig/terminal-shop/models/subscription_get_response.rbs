@@ -6,12 +6,7 @@ module TerminalShop
     class SubscriptionGetResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::SubscriptionAPI
 
-      def initialize:
-        (data: TerminalShop::Models::SubscriptionAPI) -> void
-        | (
-          ?TerminalShop::Models::subscription_get_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::SubscriptionAPI) -> void
 
       def to_hash: -> TerminalShop::Models::subscription_get_response
     end

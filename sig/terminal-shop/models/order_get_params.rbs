@@ -6,11 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
-      def initialize:
-        (?request_options: TerminalShop::request_opts) -> void
-        | (
-          ?TerminalShop::Models::order_get_params | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?request_options: TerminalShop::request_opts) -> void
 
       def to_hash: -> TerminalShop::Models::order_get_params
     end

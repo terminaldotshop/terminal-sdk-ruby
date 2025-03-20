@@ -6,12 +6,7 @@ module TerminalShop
       extend TerminalShop::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
-      def initialize:
-        (?request_options: TerminalShop::request_opts) -> void
-        | (
-          ?TerminalShop::Models::address_delete_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?request_options: TerminalShop::request_opts) -> void
 
       def to_hash: -> TerminalShop::Models::address_delete_params
     end

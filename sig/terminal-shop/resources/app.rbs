@@ -1,43 +1,25 @@
 module TerminalShop
   module Resources
     class App
-      def create:
-        (
-          TerminalShop::Models::AppCreateParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AppCreateResponse
-        | (
-          name: String,
-          redirect_uri: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AppCreateResponse
+      def create: (
+        name: String,
+        redirect_uri: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AppCreateResponse
 
-      def list:
-        (
-          ?TerminalShop::Models::AppListParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AppListResponse
-        | (
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AppListResponse
+      def list: (
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AppListResponse
 
-      def delete:
-        (
-          String id,
-          ?TerminalShop::Models::AppDeleteParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AppDeleteResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AppDeleteResponse
+      def delete: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AppDeleteResponse
 
-      def get:
-        (
-          String id,
-          ?TerminalShop::Models::AppGetParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AppGetResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AppGetResponse
+      def get: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AppGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void
     end

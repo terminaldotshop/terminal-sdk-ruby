@@ -1,23 +1,15 @@
 module TerminalShop
   module Resources
     class Profile
-      def update:
-        (
-          TerminalShop::Models::ProfileUpdateParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::ProfileUpdateResponse
-        | (
-          email: String,
-          name: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::ProfileUpdateResponse
+      def update: (
+        email: String,
+        name: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::ProfileUpdateResponse
 
-      def me:
-        (
-          ?TerminalShop::Models::ProfileMeParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::ProfileMeResponse
-        | (
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::ProfileMeResponse
+      def me: (
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::ProfileMeResponse
 
       def initialize: (client: TerminalShop::Client) -> void
     end
