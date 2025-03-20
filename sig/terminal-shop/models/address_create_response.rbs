@@ -5,12 +5,7 @@ module TerminalShop
     class AddressCreateResponse < TerminalShop::BaseModel
       attr_accessor data: String
 
-      def initialize:
-        (data: String) -> void
-        | (
-          ?TerminalShop::Models::address_create_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: String) -> void
 
       def to_hash: -> TerminalShop::Models::address_create_response
     end

@@ -11,16 +11,11 @@ module TerminalShop
 
       attr_accessor name: String
 
-      def initialize:
-        (
-          email: String,
-          name: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> void
-        | (
-          ?TerminalShop::Models::profile_update_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        email: String,
+        name: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::profile_update_params
     end

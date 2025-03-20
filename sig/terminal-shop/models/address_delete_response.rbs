@@ -5,12 +5,7 @@ module TerminalShop
     class AddressDeleteResponse < TerminalShop::BaseModel
       attr_accessor data: :ok
 
-      def initialize:
-        (?data: :ok) -> void
-        | (
-          ?TerminalShop::Models::address_delete_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?data: :ok) -> void
 
       def to_hash: -> TerminalShop::Models::address_delete_response
     end

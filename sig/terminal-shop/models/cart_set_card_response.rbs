@@ -5,12 +5,7 @@ module TerminalShop
     class CartSetCardResponse < TerminalShop::BaseModel
       attr_accessor data: :ok
 
-      def initialize:
-        (?data: :ok) -> void
-        | (
-          ?TerminalShop::Models::cart_set_card_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?data: :ok) -> void
 
       def to_hash: -> TerminalShop::Models::cart_set_card_response
     end

@@ -5,12 +5,7 @@ module TerminalShop
     class OrderListResponse < TerminalShop::BaseModel
       attr_accessor data: ::Array[TerminalShop::Models::OrderAPI]
 
-      def initialize:
-        (data: ::Array[TerminalShop::Models::OrderAPI]) -> void
-        | (
-          ?TerminalShop::Models::order_list_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: ::Array[TerminalShop::Models::OrderAPI]) -> void
 
       def to_hash: -> TerminalShop::Models::order_list_response
     end
