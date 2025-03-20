@@ -7,7 +7,7 @@ module TerminalShop
         ) -> TerminalShop::Models::EmailCreateResponse
         | (
           email: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::EmailCreateResponse
 
       def initialize: (client: TerminalShop::Client) -> void

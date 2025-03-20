@@ -7,7 +7,7 @@ module TerminalShop
         ) -> TerminalShop::Models::CardCreateResponse
         | (
           token: String,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardCreateResponse
 
       def list:
@@ -15,7 +15,7 @@ module TerminalShop
           ?TerminalShop::Models::CardListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardListResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardListResponse
 
       def delete:
@@ -25,7 +25,7 @@ module TerminalShop
         ) -> TerminalShop::Models::CardDeleteResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardDeleteResponse
 
       def collect:
@@ -33,7 +33,7 @@ module TerminalShop
           ?TerminalShop::Models::CardCollectParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::CardCollectResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardCollectResponse
 
       def get:
@@ -43,7 +43,7 @@ module TerminalShop
         ) -> TerminalShop::Models::CardGetResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::CardGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void

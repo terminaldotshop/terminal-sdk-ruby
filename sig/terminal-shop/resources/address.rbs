@@ -11,10 +11,10 @@ module TerminalShop
           name: String,
           street1: String,
           zip: String,
-          phone: String,
-          province: String,
-          street2: String,
-          request_options: TerminalShop::request_opts
+          ?phone: String,
+          ?province: String,
+          ?street2: String,
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AddressCreateResponse
 
       def list:
@@ -22,7 +22,7 @@ module TerminalShop
           ?TerminalShop::Models::AddressListParams | ::Hash[Symbol, top] params
         ) -> TerminalShop::Models::AddressListResponse
         | (
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AddressListResponse
 
       def delete:
@@ -33,7 +33,7 @@ module TerminalShop
         ) -> TerminalShop::Models::AddressDeleteResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AddressDeleteResponse
 
       def get:
@@ -43,7 +43,7 @@ module TerminalShop
         ) -> TerminalShop::Models::AddressGetResponse
         | (
           String id,
-          request_options: TerminalShop::request_opts
+          ?request_options: TerminalShop::request_opts
         ) -> TerminalShop::Models::AddressGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void
