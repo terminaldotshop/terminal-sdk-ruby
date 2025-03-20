@@ -38,21 +38,17 @@ module TerminalShop
 
       def street2=: (String) -> String
 
-      def initialize:
-        (
-          id: String,
-          city: String,
-          country: String,
-          name: String,
-          street1: String,
-          zip: String,
-          ?phone: String,
-          ?province: String,
-          ?street2: String
-        ) -> void
-        | (
-          ?TerminalShop::Models::address_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        city: String,
+        country: String,
+        name: String,
+        street1: String,
+        zip: String,
+        ?phone: String,
+        ?province: String,
+        ?street2: String
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::address_api
     end

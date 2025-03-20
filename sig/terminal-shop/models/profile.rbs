@@ -5,11 +5,7 @@ module TerminalShop
     class ProfileAPI < TerminalShop::BaseModel
       attr_accessor user: TerminalShop::Models::ProfileAPI::User
 
-      def initialize:
-        (user: TerminalShop::Models::ProfileAPI::User) -> void
-        | (
-          ?TerminalShop::Models::profile_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (user: TerminalShop::Models::ProfileAPI::User) -> void
 
       def to_hash: -> TerminalShop::Models::profile_api
 
@@ -33,18 +29,13 @@ module TerminalShop
 
         attr_accessor stripe_customer_id: String
 
-        def initialize:
-          (
-            id: String,
-            email: String?,
-            fingerprint: String?,
-            name: String?,
-            stripe_customer_id: String
-          ) -> void
-          | (
-            ?TerminalShop::Models::ProfileAPI::user
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          email: String?,
+          fingerprint: String?,
+          name: String?,
+          stripe_customer_id: String
+        ) -> void
 
         def to_hash: -> TerminalShop::Models::ProfileAPI::user
       end

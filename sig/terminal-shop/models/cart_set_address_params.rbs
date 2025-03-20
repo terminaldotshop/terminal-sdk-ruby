@@ -9,15 +9,10 @@ module TerminalShop
 
       attr_accessor address_id: String
 
-      def initialize:
-        (
-          address_id: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> void
-        | (
-          ?TerminalShop::Models::cart_set_address_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        address_id: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::cart_set_address_params
     end

@@ -1,50 +1,28 @@
 module TerminalShop
   module Resources
     class Card
-      def create:
-        (
-          TerminalShop::Models::CardCreateParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::CardCreateResponse
-        | (
-          token: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::CardCreateResponse
+      def create: (
+        token: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::CardCreateResponse
 
-      def list:
-        (
-          ?TerminalShop::Models::CardListParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::CardListResponse
-        | (
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::CardListResponse
+      def list: (
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::CardListResponse
 
-      def delete:
-        (
-          String id,
-          ?TerminalShop::Models::CardDeleteParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::CardDeleteResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::CardDeleteResponse
+      def delete: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::CardDeleteResponse
 
-      def collect:
-        (
-          ?TerminalShop::Models::CardCollectParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::CardCollectResponse
-        | (
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::CardCollectResponse
+      def collect: (
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::CardCollectResponse
 
-      def get:
-        (
-          String id,
-          ?TerminalShop::Models::CardGetParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::CardGetResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::CardGetResponse
+      def get: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::CardGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void
     end

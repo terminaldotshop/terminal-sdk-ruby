@@ -6,12 +6,9 @@ module TerminalShop
     class ViewInitResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::ViewInitResponse::Data
 
-      def initialize:
-        (data: TerminalShop::Models::ViewInitResponse::Data) -> void
-        | (
-          ?TerminalShop::Models::view_init_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        data: TerminalShop::Models::ViewInitResponse::Data
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::view_init_response
 
@@ -50,23 +47,18 @@ module TerminalShop
 
         attr_accessor tokens: ::Array[TerminalShop::Models::TokenAPI]
 
-        def initialize:
-          (
-            addresses: ::Array[TerminalShop::Models::AddressAPI],
-            apps: ::Array[TerminalShop::Models::AppAPI],
-            cards: ::Array[TerminalShop::Models::CardAPI],
-            cart: TerminalShop::Models::CartAPI,
-            orders: ::Array[TerminalShop::Models::OrderAPI],
-            products: ::Array[TerminalShop::Models::ProductAPI],
-            profile: TerminalShop::Models::ProfileAPI,
-            region: TerminalShop::Models::region,
-            subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
-            tokens: ::Array[TerminalShop::Models::TokenAPI]
-          ) -> void
-          | (
-            ?TerminalShop::Models::ViewInitResponse::data
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (
+          addresses: ::Array[TerminalShop::Models::AddressAPI],
+          apps: ::Array[TerminalShop::Models::AppAPI],
+          cards: ::Array[TerminalShop::Models::CardAPI],
+          cart: TerminalShop::Models::CartAPI,
+          orders: ::Array[TerminalShop::Models::OrderAPI],
+          products: ::Array[TerminalShop::Models::ProductAPI],
+          profile: TerminalShop::Models::ProfileAPI,
+          region: TerminalShop::Models::region,
+          subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
+          tokens: ::Array[TerminalShop::Models::TokenAPI]
+        ) -> void
 
         def to_hash: -> TerminalShop::Models::ViewInitResponse::data
       end

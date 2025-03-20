@@ -5,12 +5,7 @@ module TerminalShop
     class CartConvertResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::OrderAPI
 
-      def initialize:
-        (data: TerminalShop::Models::OrderAPI) -> void
-        | (
-          ?TerminalShop::Models::cart_convert_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::OrderAPI) -> void
 
       def to_hash: -> TerminalShop::Models::cart_convert_response
     end

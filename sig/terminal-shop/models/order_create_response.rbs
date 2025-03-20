@@ -5,12 +5,7 @@ module TerminalShop
     class OrderCreateResponse < TerminalShop::BaseModel
       attr_accessor data: String
 
-      def initialize:
-        (data: String) -> void
-        | (
-          ?TerminalShop::Models::order_create_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: String) -> void
 
       def to_hash: -> TerminalShop::Models::order_create_response
     end

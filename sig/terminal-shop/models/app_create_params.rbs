@@ -11,16 +11,11 @@ module TerminalShop
 
       attr_accessor redirect_uri: String
 
-      def initialize:
-        (
-          name: String,
-          redirect_uri: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> void
-        | (
-          ?TerminalShop::Models::app_create_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        name: String,
+        redirect_uri: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::app_create_params
     end

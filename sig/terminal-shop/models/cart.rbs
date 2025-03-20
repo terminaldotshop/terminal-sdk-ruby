@@ -31,18 +31,14 @@ module TerminalShop
         TerminalShop::Models::CartAPI::Shipping
       ) -> TerminalShop::Models::CartAPI::Shipping
 
-      def initialize:
-        (
-          amount: TerminalShop::Models::CartAPI::Amount,
-          items: ::Array[TerminalShop::Models::CartAPI::Item],
-          subtotal: Integer,
-          ?address_id: String,
-          ?card_id: String,
-          ?shipping: TerminalShop::Models::CartAPI::Shipping
-        ) -> void
-        | (
-          ?TerminalShop::Models::cart_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        amount: TerminalShop::Models::CartAPI::Amount,
+        items: ::Array[TerminalShop::Models::CartAPI::Item],
+        subtotal: Integer,
+        ?address_id: String,
+        ?card_id: String,
+        ?shipping: TerminalShop::Models::CartAPI::Shipping
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::cart_api
 
@@ -59,12 +55,11 @@ module TerminalShop
 
         def total=: (Integer) -> Integer
 
-        def initialize:
-          (subtotal: Integer, ?shipping: Integer, ?total: Integer) -> void
-          | (
-            ?TerminalShop::Models::CartAPI::amount
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (
+          subtotal: Integer,
+          ?shipping: Integer,
+          ?total: Integer
+        ) -> void
 
         def to_hash: -> TerminalShop::Models::CartAPI::amount
       end
@@ -86,16 +81,12 @@ module TerminalShop
 
         attr_accessor subtotal: Integer
 
-        def initialize:
-          (
-            id: String,
-            product_variant_id: String,
-            quantity: Integer,
-            subtotal: Integer
-          ) -> void
-          | (
-            ?TerminalShop::Models::CartAPI::item | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          product_variant_id: String,
+          quantity: Integer,
+          subtotal: Integer
+        ) -> void
 
         def to_hash: -> TerminalShop::Models::CartAPI::item
       end
@@ -111,12 +102,7 @@ module TerminalShop
 
         def timeframe=: (String) -> String
 
-        def initialize:
-          (?service: String, ?timeframe: String) -> void
-          | (
-            ?TerminalShop::Models::CartAPI::shipping
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (?service: String, ?timeframe: String) -> void
 
         def to_hash: -> TerminalShop::Models::CartAPI::shipping
       end
