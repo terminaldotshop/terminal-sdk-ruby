@@ -1,14 +1,10 @@
 module TerminalShop
   module Resources
     class Email
-      def create:
-        (
-          TerminalShop::Models::EmailCreateParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::EmailCreateResponse
-        | (
-          email: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::EmailCreateResponse
+      def create: (
+        email: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::EmailCreateResponse
 
       def initialize: (client: TerminalShop::Client) -> void
     end

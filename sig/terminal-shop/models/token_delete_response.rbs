@@ -5,12 +5,7 @@ module TerminalShop
     class TokenDeleteResponse < TerminalShop::BaseModel
       attr_accessor data: :ok
 
-      def initialize:
-        (?data: :ok) -> void
-        | (
-          ?TerminalShop::Models::token_delete_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (?data: :ok) -> void
 
       def to_hash: -> TerminalShop::Models::token_delete_response
     end

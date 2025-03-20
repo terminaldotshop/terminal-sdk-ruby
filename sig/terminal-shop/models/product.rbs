@@ -36,19 +36,15 @@ module TerminalShop
         TerminalShop::Models::ProductAPI::Tags
       ) -> TerminalShop::Models::ProductAPI::Tags
 
-      def initialize:
-        (
-          id: String,
-          description: String,
-          name: String,
-          variants: ::Array[TerminalShop::Models::ProductVariant],
-          ?order: Integer,
-          ?subscription: TerminalShop::Models::ProductAPI::subscription,
-          ?tags: TerminalShop::Models::ProductAPI::Tags
-        ) -> void
-        | (
-          ?TerminalShop::Models::product_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        description: String,
+        name: String,
+        variants: ::Array[TerminalShop::Models::ProductVariant],
+        ?order: Integer,
+        ?subscription: TerminalShop::Models::ProductAPI::subscription,
+        ?tags: TerminalShop::Models::ProductAPI::Tags
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::product_api
 
@@ -91,18 +87,13 @@ module TerminalShop
 
         def market_na=: (bool) -> bool
 
-        def initialize:
-          (
-            ?app: String,
-            ?color: String,
-            ?featured: bool,
-            ?market_eu: bool,
-            ?market_na: bool
-          ) -> void
-          | (
-            ?TerminalShop::Models::ProductAPI::tags
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (
+          ?app: String,
+          ?color: String,
+          ?featured: bool,
+          ?market_eu: bool,
+          ?market_na: bool
+        ) -> void
 
         def to_hash: -> TerminalShop::Models::ProductAPI::tags
       end

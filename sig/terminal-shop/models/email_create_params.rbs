@@ -9,12 +9,10 @@ module TerminalShop
 
       attr_accessor email: String
 
-      def initialize:
-        (email: String, ?request_options: TerminalShop::request_opts) -> void
-        | (
-          ?TerminalShop::Models::email_create_params
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        email: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::email_create_params
     end

@@ -9,11 +9,7 @@ module TerminalShop
 
       attr_accessor price: Integer
 
-      def initialize:
-        (id: String, name: String, price: Integer) -> void
-        | (
-          ?TerminalShop::Models::product_variant | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (id: String, name: String, price: Integer) -> void
 
       def to_hash: -> TerminalShop::Models::product_variant
     end

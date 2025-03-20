@@ -1,50 +1,31 @@
 module TerminalShop
   module Resources
     class Address
-      def create:
-        (
-          TerminalShop::Models::AddressCreateParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AddressCreateResponse
-        | (
-          city: String,
-          country: String,
-          name: String,
-          street1: String,
-          zip: String,
-          ?phone: String,
-          ?province: String,
-          ?street2: String,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AddressCreateResponse
+      def create: (
+        city: String,
+        country: String,
+        name: String,
+        street1: String,
+        zip: String,
+        ?phone: String,
+        ?province: String,
+        ?street2: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AddressCreateResponse
 
-      def list:
-        (
-          ?TerminalShop::Models::AddressListParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AddressListResponse
-        | (
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AddressListResponse
+      def list: (
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AddressListResponse
 
-      def delete:
-        (
-          String id,
-          ?TerminalShop::Models::AddressDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AddressDeleteResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AddressDeleteResponse
+      def delete: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AddressDeleteResponse
 
-      def get:
-        (
-          String id,
-          ?TerminalShop::Models::AddressGetParams | ::Hash[Symbol, top] params
-        ) -> TerminalShop::Models::AddressGetResponse
-        | (
-          String id,
-          ?request_options: TerminalShop::request_opts
-        ) -> TerminalShop::Models::AddressGetResponse
+      def get: (
+        String id,
+        ?request_options: TerminalShop::request_opts
+      ) -> TerminalShop::Models::AddressGetResponse
 
       def initialize: (client: TerminalShop::Client) -> void
     end

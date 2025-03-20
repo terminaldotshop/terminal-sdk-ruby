@@ -5,12 +5,7 @@ module TerminalShop
     class TokenGetResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::TokenAPI
 
-      def initialize:
-        (data: TerminalShop::Models::TokenAPI) -> void
-        | (
-          ?TerminalShop::Models::token_get_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::TokenAPI) -> void
 
       def to_hash: -> TerminalShop::Models::token_get_response
     end
