@@ -8,7 +8,10 @@ module TerminalShop
       def user
       end
 
-      sig { params(_: TerminalShop::Models::ProfileAPI::User).returns(TerminalShop::Models::ProfileAPI::User) }
+      sig do
+        params(_: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash))
+      end
       def user=(_)
       end
 
