@@ -184,6 +184,17 @@ module TerminalShop
           def to_hash
           end
         end
+
+        class << self
+          sig do
+            override
+              .returns(
+                [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+              )
+          end
+          def variants
+          end
+        end
       end
     end
   end

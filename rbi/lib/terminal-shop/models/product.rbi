@@ -117,6 +117,12 @@ module TerminalShop
 
         ALLOWED = T.let(:allowed, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
         REQUIRED = T.let(:required, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class Tags < TerminalShop::BaseModel
