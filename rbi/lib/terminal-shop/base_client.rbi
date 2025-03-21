@@ -26,7 +26,7 @@ module TerminalShop
           page: T.nilable(T::Class[TerminalShop::BasePage[TerminalShop::BaseModel]]),
           stream: T.nilable(T::Class[T.anything]),
           model: T.nilable(TerminalShop::Converter::Input),
-          options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         }
       end
 
@@ -130,7 +130,7 @@ module TerminalShop
     # @api private
     sig do
       overridable
-        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: TerminalShop::Util::AnyHash)
         .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
@@ -176,7 +176,7 @@ module TerminalShop
         page: T.nilable(T::Class[TerminalShop::BasePage[TerminalShop::BaseModel]]),
         stream: T.nilable(T::Class[T.anything]),
         model: T.nilable(TerminalShop::Converter::Input),
-        options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+        options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
       )
         .returns(T.anything)
     end

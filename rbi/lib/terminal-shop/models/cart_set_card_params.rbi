@@ -20,7 +20,7 @@ module TerminalShop
           card_id: String,
           request_options: T.any(
             TerminalShop::RequestOptions,
-            T::Hash[Symbol, T.anything]
+            TerminalShop::Util::AnyHash
           )
         )
           .returns(T.attached_class)

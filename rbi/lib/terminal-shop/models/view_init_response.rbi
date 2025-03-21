@@ -15,7 +15,10 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::ViewInitResponse::Data).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 
@@ -122,10 +125,10 @@ module TerminalShop
             addresses: T::Array[TerminalShop::Models::AddressAPI],
             apps: T::Array[TerminalShop::Models::AppAPI],
             cards: T::Array[TerminalShop::Models::CardAPI],
-            cart: TerminalShop::Models::CartAPI,
+            cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash),
             orders: T::Array[TerminalShop::Models::OrderAPI],
             products: T::Array[TerminalShop::Models::ProductAPI],
-            profile: TerminalShop::Models::ProfileAPI,
+            profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash),
             region: TerminalShop::Models::Region::TaggedSymbol,
             subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: T::Array[TerminalShop::Models::TokenAPI]

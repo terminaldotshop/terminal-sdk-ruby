@@ -26,7 +26,7 @@ module TerminalShop
         params(
           name: String,
           redirect_uri: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

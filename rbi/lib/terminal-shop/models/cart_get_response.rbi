@@ -15,7 +15,7 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::CartAPI).returns(T.attached_class) }
+      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)
       end
 

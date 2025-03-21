@@ -6,7 +6,7 @@ module TerminalShop
       # Get initial app data, including user, products, cart, addresses, cards,
       #   subscriptions, and orders.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
           .returns(TerminalShop::Models::ViewInitResponse)
       end
       def init(request_options: {})

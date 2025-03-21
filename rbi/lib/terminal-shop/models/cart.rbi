@@ -69,12 +69,12 @@ module TerminalShop
       # The current Terminal shop user's cart.
       sig do
         params(
-          amount: TerminalShop::Models::CartAPI::Amount,
+          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash),
           items: T::Array[TerminalShop::Models::CartAPI::Item],
           subtotal: Integer,
           address_id: String,
           card_id: String,
-          shipping: TerminalShop::Models::CartAPI::Shipping
+          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
