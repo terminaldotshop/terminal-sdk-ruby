@@ -288,29 +288,25 @@ module TerminalShop
   #   values safely.
   #
   # @example
-  # ```ruby
-  # # `region` is a `TerminalShop::Models::Region`
-  # case region
-  # when TerminalShop::Models::Region::EU
-  #   # ...
-  # when TerminalShop::Models::Region::NA
-  #   # ...
-  # else
-  #   puts(region)
-  # end
-  # ```
+  #   # `region` is a `TerminalShop::Models::Region`
+  #   case region
+  #   when TerminalShop::Models::Region::EU
+  #     # ...
+  #   when TerminalShop::Models::Region::NA
+  #     # ...
+  #   else
+  #     puts(region)
+  #   end
   #
   # @example
-  # ```ruby
-  # case region
-  # in :eu
-  #   # ...
-  # in :na
-  #   # ...
-  # else
-  #   puts(region)
-  # end
-  # ```
+  #   case region
+  #   in :eu
+  #     # ...
+  #   in :na
+  #     # ...
+  #   else
+  #     puts(region)
+  #   end
   module Enum
     include TerminalShop::Converter
 
@@ -845,14 +841,12 @@ module TerminalShop
   # @abstract
   #
   # @example
-  # ```ruby
-  # # `product_api` is a `TerminalShop::Models::ProductAPI`
-  # product_api => {
-  #   id: id,
-  #   description: description,
-  #   name: name
-  # }
-  # ```
+  #   # `product_api` is a `TerminalShop::Models::ProductAPI`
+  #   product_api => {
+  #     id: id,
+  #     description: description,
+  #     name: name
+  #   }
   class BaseModel
     extend TerminalShop::Converter
 
