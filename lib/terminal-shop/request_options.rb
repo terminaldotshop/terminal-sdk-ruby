@@ -83,7 +83,7 @@ module TerminalShop
     #   Extra data to send with the request. These are deep merged into any data
     #     generated as part of the normal request.
     #
-    #   @return [Hash{Symbol=>Object}, nil]
+    #   @return [Object, nil]
     optional :extra_body, TerminalShop::HashOf[TerminalShop::Unknown]
 
     # @!attribute max_retries
