@@ -15,7 +15,10 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::AddressAPI).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 

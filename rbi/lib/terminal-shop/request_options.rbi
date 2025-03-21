@@ -4,13 +4,13 @@ module TerminalShop
   # @api private
   module RequestParameters
     # Options to specify HTTP behaviour for this request.
-    sig { returns(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])) }
+    sig { returns(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)) }
     def request_options
     end
 
     sig do
-      params(_: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-        .returns(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+      params(_: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+        .returns(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
     end
     def request_options=(_)
     end
@@ -18,7 +18,7 @@ module TerminalShop
     # @api private
     module Converter
       # @api private
-      sig { params(params: T.anything).returns([T.anything, T::Hash[Symbol, T.anything]]) }
+      sig { params(params: T.anything).returns([T.anything, TerminalShop::Util::AnyHash]) }
       def dump_request(params)
       end
     end
@@ -100,7 +100,7 @@ module TerminalShop
     end
 
     # Returns a new instance of RequestOptions.
-    sig { params(values: T::Hash[Symbol, T.anything]).returns(T.attached_class) }
+    sig { params(values: TerminalShop::Util::AnyHash).returns(T.attached_class) }
     def self.new(values = {})
     end
   end

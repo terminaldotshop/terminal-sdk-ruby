@@ -73,10 +73,10 @@ module TerminalShop
       sig do
         params(
           id: String,
-          amount: TerminalShop::Models::OrderAPI::Amount,
+          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash),
           items: T::Array[TerminalShop::Models::OrderAPI::Item],
-          shipping: TerminalShop::Models::OrderAPI::Shipping,
-          tracking: TerminalShop::Models::OrderAPI::Tracking,
+          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash),
+          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash),
           index: Integer
         )
           .returns(T.attached_class)
