@@ -16,7 +16,10 @@ module TerminalShop
       end
 
       # A Terminal shop user's profile. (We have users, btw.)
-      sig { params(user: TerminalShop::Models::ProfileAPI::User).returns(T.attached_class) }
+      sig do
+        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(user:)
       end
 

@@ -44,7 +44,12 @@ module TerminalShop
 
       # Credit card used for payments in the Terminal shop.
       sig do
-        params(id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String)
+        params(
+          id: String,
+          brand: String,
+          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash),
+          last4: String
+        )
           .returns(T.attached_class)
       end
       def self.new(id:, brand:, expiration:, last4:)

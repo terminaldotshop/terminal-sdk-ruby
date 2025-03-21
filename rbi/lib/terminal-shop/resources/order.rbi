@@ -9,7 +9,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           variants: T::Hash[Symbol, Integer],
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::OrderCreateResponse)
       end
@@ -26,7 +26,7 @@ module TerminalShop
 
       # List the orders associated with the current user.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
           .returns(TerminalShop::Models::OrderListResponse)
       end
       def list(request_options: {})
@@ -36,7 +36,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::OrderGetResponse)
       end

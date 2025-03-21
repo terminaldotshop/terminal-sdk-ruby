@@ -88,7 +88,7 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

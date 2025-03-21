@@ -28,7 +28,7 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
