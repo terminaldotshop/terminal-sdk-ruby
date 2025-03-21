@@ -8,7 +8,10 @@ module TerminalShop
       def data
       end
 
-      sig { params(_: TerminalShop::Models::AppAPI).returns(TerminalShop::Models::AppAPI) }
+      sig do
+        params(_: T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash))
+      end
       def data=(_)
       end
 

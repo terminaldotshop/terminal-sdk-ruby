@@ -8,7 +8,10 @@ module TerminalShop
       def amount
       end
 
-      sig { params(_: TerminalShop::Models::CartAPI::Amount).returns(TerminalShop::Models::CartAPI::Amount) }
+      sig do
+        params(_: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash))
+      end
       def amount=(_)
       end
 
@@ -56,7 +59,10 @@ module TerminalShop
       def shipping
       end
 
-      sig { params(_: TerminalShop::Models::CartAPI::Shipping).returns(TerminalShop::Models::CartAPI::Shipping) }
+      sig do
+        params(_: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash))
+      end
       def shipping=(_)
       end
 

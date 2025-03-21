@@ -17,7 +17,10 @@ module TerminalShop
       def amount
       end
 
-      sig { params(_: TerminalShop::Models::OrderAPI::Amount).returns(TerminalShop::Models::OrderAPI::Amount) }
+      sig do
+        params(_: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash))
+      end
       def amount=(_)
       end
 
@@ -38,7 +41,10 @@ module TerminalShop
       def shipping
       end
 
-      sig { params(_: TerminalShop::Models::OrderAPI::Shipping).returns(TerminalShop::Models::OrderAPI::Shipping) }
+      sig do
+        params(_: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash))
+      end
       def shipping=(_)
       end
 
@@ -47,7 +53,10 @@ module TerminalShop
       def tracking
       end
 
-      sig { params(_: TerminalShop::Models::OrderAPI::Tracking).returns(TerminalShop::Models::OrderAPI::Tracking) }
+      sig do
+        params(_: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash))
+      end
       def tracking=(_)
       end
 

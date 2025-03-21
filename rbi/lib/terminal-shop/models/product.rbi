@@ -68,7 +68,10 @@ module TerminalShop
       def tags
       end
 
-      sig { params(_: TerminalShop::Models::ProductAPI::Tags).returns(TerminalShop::Models::ProductAPI::Tags) }
+      sig do
+        params(_: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash))
+      end
       def tags=(_)
       end
 

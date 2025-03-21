@@ -9,8 +9,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: TerminalShop::Models::ViewInitResponse::Data)
-          .returns(TerminalShop::Models::ViewInitResponse::Data)
+        params(_: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
       end
       def data=(_)
       end
@@ -53,7 +53,10 @@ module TerminalShop
         def cart
         end
 
-        sig { params(_: TerminalShop::Models::CartAPI).returns(TerminalShop::Models::CartAPI) }
+        sig do
+          params(_: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash))
+            .returns(T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash))
+        end
         def cart=(_)
         end
 
@@ -78,7 +81,10 @@ module TerminalShop
         def profile
         end
 
-        sig { params(_: TerminalShop::Models::ProfileAPI).returns(TerminalShop::Models::ProfileAPI) }
+        sig do
+          params(_: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
+            .returns(T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
+        end
         def profile=(_)
         end
 
