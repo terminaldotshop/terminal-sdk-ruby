@@ -26,7 +26,10 @@ module TerminalShop
       def expiration
       end
 
-      sig { params(_: TerminalShop::Models::CardAPI::Expiration).returns(TerminalShop::Models::CardAPI::Expiration) }
+      sig do
+        params(_: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash))
+          .returns(T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash))
+      end
       def expiration=(_)
       end
 
