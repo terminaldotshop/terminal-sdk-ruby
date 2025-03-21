@@ -84,7 +84,7 @@ module TerminalShop
           variants: T::Array[TerminalShop::Models::ProductVariant],
           order: Integer,
           subscription: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol,
-          tags: TerminalShop::Models::ProductAPI::Tags
+          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

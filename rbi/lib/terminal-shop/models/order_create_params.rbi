@@ -38,7 +38,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           variants: T::Hash[Symbol, Integer],
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

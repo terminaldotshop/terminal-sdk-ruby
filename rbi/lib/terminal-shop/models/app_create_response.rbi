@@ -14,7 +14,10 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: TerminalShop::Models::AppCreateResponse::Data).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 

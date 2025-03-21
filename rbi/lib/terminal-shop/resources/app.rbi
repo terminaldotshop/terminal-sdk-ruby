@@ -8,7 +8,7 @@ module TerminalShop
         params(
           name: String,
           redirect_uri: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::AppCreateResponse)
       end
@@ -17,7 +17,7 @@ module TerminalShop
 
       # List the current user's registered apps.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
           .returns(TerminalShop::Models::AppListResponse)
       end
       def list(request_options: {})
@@ -27,7 +27,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::AppDeleteResponse)
       end
@@ -42,7 +42,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::AppGetResponse)
       end
