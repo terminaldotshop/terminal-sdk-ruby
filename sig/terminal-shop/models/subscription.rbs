@@ -48,7 +48,9 @@ module TerminalShop
         TerminalShop::Models::SubscriptionAPI::Schedule::Fixed
         | TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
 
-      class Schedule < TerminalShop::Union
+      module Schedule
+        extend TerminalShop::Union
+
         type fixed = { type: :fixed }
 
         class Fixed < TerminalShop::BaseModel
