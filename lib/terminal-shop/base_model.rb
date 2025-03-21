@@ -48,7 +48,7 @@ module TerminalShop
           type_info(spec.slice(:const, :enum, :union).first&.last)
         in Proc
           spec
-        in TerminalShop::Converter | Class | Symbol
+        in TerminalShop::Converter | Module | Symbol
           -> { spec }
         in true | false
           -> { TerminalShop::BooleanModel }
@@ -81,7 +81,7 @@ module TerminalShop
           else
             value
           end
-        in Class
+        in Module
           case target
           in -> { _1 <= NilClass }
             nil
@@ -144,7 +144,7 @@ module TerminalShop
           else
             [false, false, 0]
           end
-        in Class
+        in Module
           case [target, value]
           in [-> { _1 <= NilClass }, _]
             [true, nil, value.nil? ? 1 : 0]
@@ -276,8 +276,6 @@ module TerminalShop
 
   # @api private
   #
-  # @abstract
-  #
   # A value from among a specified list of options. OpenAPI enum values map to Ruby
   #   values in the SDK as follows:
   #
@@ -313,165 +311,157 @@ module TerminalShop
   #   puts(region)
   # end
   # ```
-  class Enum
-    extend TerminalShop::Converter
+  module Enum
+    include TerminalShop::Converter
 
-    class << self
-      # All of the valid Symbol values for this enum.
-      #
-      # @return [Array<NilClass, Boolean, Integer, Float, Symbol>]
-      def values = (@values ||= constants.map { const_get(_1) })
+    # All of the valid Symbol values for this enum.
+    #
+    # @return [Array<NilClass, Boolean, Integer, Float, Symbol>]
+    def values = (@values ||= constants.map { const_get(_1) })
 
-      # @api private
-      #
-      # Guard against thread safety issues by instantiating `@values`.
-      private def finalize! = values
-    end
+    # @api private
+    #
+    # Guard against thread safety issues by instantiating `@values`.
+    private def finalize! = values
 
     # @param other [Object]
     #
     # @return [Boolean]
-    def self.===(other) = values.include?(other)
+    def ===(other) = values.include?(other)
 
     # @param other [Object]
     #
     # @return [Boolean]
-    def self.==(other)
-      other.is_a?(Class) && other <= TerminalShop::Enum && other.values.to_set == values.to_set
+    def ==(other)
+      other.is_a?(Module) && other.singleton_class.ancestors.include?(TerminalShop::Enum) && other.values.to_set == values.to_set
     end
 
-    class << self
-      # @api private
-      #
-      # @param value [String, Symbol, Object]
-      #
-      # @return [Symbol, Object]
-      def coerce(value)
-        case value
-        in Symbol | String if values.include?(val = value.to_sym)
-          val
-        else
-          value
-        end
+    # @api private
+    #
+    # @param value [String, Symbol, Object]
+    #
+    # @return [Symbol, Object]
+    def coerce(value)
+      case value
+      in Symbol | String if values.include?(val = value.to_sym)
+        val
+      else
+        value
       end
+    end
 
-      # @!parse
-      #   # @api private
-      #   #
-      #   # @param value [Symbol, Object]
-      #   #
-      #   # @return [Symbol, Object]
-      #   def dump(value) = super
+    # @!parse
+    #   # @api private
+    #   #
+    #   # @param value [Symbol, Object]
+    #   #
+    #   # @return [Symbol, Object]
+    #   def dump(value) = super
 
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      def try_strict_coerce(value)
-        return [true, value, 1] if values.include?(value)
+    # @api private
+    #
+    # @param value [Object]
+    #
+    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
+    def try_strict_coerce(value)
+      return [true, value, 1] if values.include?(value)
 
-        case value
-        in Symbol | String if values.include?(val = value.to_sym)
-          [true, val, 1]
+      case value
+      in Symbol | String if values.include?(val = value.to_sym)
+        [true, val, 1]
+      else
+        case [value, values.first]
+        in [true | false, true | false] | [Integer, Integer] | [Symbol | String, Symbol]
+          [false, true, 0]
         else
-          case [value, values.first]
-          in [true | false, true | false] | [Integer, Integer] | [Symbol | String, Symbol]
-            [false, true, 0]
-          else
-            [false, false, 0]
-          end
+          [false, false, 0]
         end
       end
     end
   end
 
   # @api private
-  #
-  # @abstract
-  class Union
-    extend TerminalShop::Converter
+  module Union
+    include TerminalShop::Converter
 
-    class << self
-      # @api private
-      #
-      # All of the specified variant info for this union.
-      #
-      # @return [Array<Array(Symbol, Proc)>]
-      private def known_variants = (@known_variants ||= [])
+    # @api private
+    #
+    # All of the specified variant info for this union.
+    #
+    # @return [Array<Array(Symbol, Proc)>]
+    private def known_variants = (@known_variants ||= [])
 
-      # @api private
-      #
-      # @return [Array<Array(Symbol, Object)>]
-      protected def derefed_variants
-        @known_variants.map { |key, variant_fn| [key, variant_fn.call] }
+    # @api private
+    #
+    # @return [Array<Array(Symbol, Object)>]
+    protected def derefed_variants
+      @known_variants.map { |key, variant_fn| [key, variant_fn.call] }
+    end
+
+    # All of the specified variants for this union.
+    #
+    # @return [Array<Object>]
+    def variants
+      derefed_variants.map(&:last)
+    end
+
+    # @api private
+    #
+    # @param property [Symbol]
+    private def discriminator(property)
+      case property
+      in Symbol
+        @discriminator = property
       end
+    end
 
-      # All of the specified variants for this union.
-      #
-      # @return [Array<Object>]
-      def variants
-        derefed_variants.map(&:last)
-      end
-
-      # @api private
-      #
-      # @param property [Symbol]
-      private def discriminator(property)
-        case property
+    # @api private
+    #
+    # @param key [Symbol, Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
+    #
+    # @param spec [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class] .
+    #
+    #   @option spec [NilClass, TrueClass, FalseClass, Integer, Float, Symbol] :const
+    #
+    #   @option spec [Proc] :enum
+    #
+    #   @option spec [Proc] :union
+    #
+    #   @option spec [Boolean] :"nil?"
+    private def variant(key, spec = nil)
+      variant_info =
+        case key
         in Symbol
-          @discriminator = property
+          [key, TerminalShop::Converter.type_info(spec)]
+        in Proc | TerminalShop::Converter | Module | Hash
+          [nil, TerminalShop::Converter.type_info(key)]
         end
-      end
 
-      # @api private
-      #
-      # @param key [Symbol, Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
-      #
-      # @param spec [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class] .
-      #
-      #   @option spec [NilClass, TrueClass, FalseClass, Integer, Float, Symbol] :const
-      #
-      #   @option spec [Proc] :enum
-      #
-      #   @option spec [Proc] :union
-      #
-      #   @option spec [Boolean] :"nil?"
-      private def variant(key, spec = nil)
-        variant_info =
-          case key
-          in Symbol
-            [key, TerminalShop::Converter.type_info(spec)]
-          in Proc | TerminalShop::Converter | Class | Hash
-            [nil, TerminalShop::Converter.type_info(key)]
+      known_variants << variant_info
+    end
+
+    # @api private
+    #
+    # @param value [Object]
+    #
+    # @return [TerminalShop::Converter, Class, nil]
+    private def resolve_variant(value)
+      case [@discriminator, value]
+      in [_, TerminalShop::BaseModel]
+        value.class
+      in [Symbol, Hash]
+        key =
+          if value.key?(@discriminator)
+            value.fetch(@discriminator)
+          elsif value.key?((discriminator = @discriminator.to_s))
+            value.fetch(discriminator)
           end
 
-        known_variants << variant_info
-      end
-
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [TerminalShop::Converter, Class, nil]
-      private def resolve_variant(value)
-        case [@discriminator, value]
-        in [_, TerminalShop::BaseModel]
-          value.class
-        in [Symbol, Hash]
-          key =
-            if value.key?(@discriminator)
-              value.fetch(@discriminator)
-            elsif value.key?((discriminator = @discriminator.to_s))
-              value.fetch(discriminator)
-            end
-
-          key = key.to_sym if key.is_a?(String)
-          _, resolved = known_variants.find { |k,| k == key }
-          resolved.nil? ? TerminalShop::Unknown : resolved.call
-        else
-          nil
-        end
+        key = key.to_sym if key.is_a?(String)
+        _, resolved = known_variants.find { |k,| k == key }
+        resolved.nil? ? TerminalShop::Unknown : resolved.call
+      else
+        nil
       end
     end
 
@@ -481,7 +471,7 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    def self.===(other)
+    def ===(other)
       known_variants.any? do |_, variant_fn|
         variant_fn.call === other
       end
@@ -490,90 +480,88 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    def self.==(other)
-      other.is_a?(Class) && other <= TerminalShop::Union && other.derefed_variants == derefed_variants
+    def ==(other)
+      other.is_a?(Module) && other.singleton_class.ancestors.include?(TerminalShop::Union) && other.derefed_variants == derefed_variants
     end
 
-    class << self
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Object]
-      def coerce(value)
-        if (variant = resolve_variant(value))
-          return TerminalShop::Converter.coerce(variant, value)
-        end
-
-        matches = []
-
-        known_variants.each do |_, variant_fn|
-          variant = variant_fn.call
-
-          case TerminalShop::Converter.try_strict_coerce(variant, value)
-          in [true, coerced, _]
-            return coerced
-          in [false, true, score]
-            matches << [score, variant]
-          in [false, false, _]
-            nil
-          end
-        end
-
-        _, variant = matches.sort! { _2.first <=> _1.first }.find { |score,| !score.zero? }
-        variant.nil? ? value : TerminalShop::Converter.coerce(variant, value)
+    # @api private
+    #
+    # @param value [Object]
+    #
+    # @return [Object]
+    def coerce(value)
+      if (variant = resolve_variant(value))
+        return TerminalShop::Converter.coerce(variant, value)
       end
 
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Object]
-      def dump(value)
-        if (variant = resolve_variant(value))
+      matches = []
+
+      known_variants.each do |_, variant_fn|
+        variant = variant_fn.call
+
+        case TerminalShop::Converter.try_strict_coerce(variant, value)
+        in [true, coerced, _]
+          return coerced
+        in [false, true, score]
+          matches << [score, variant]
+        in [false, false, _]
+          nil
+        end
+      end
+
+      _, variant = matches.sort! { _2.first <=> _1.first }.find { |score,| !score.zero? }
+      variant.nil? ? value : TerminalShop::Converter.coerce(variant, value)
+    end
+
+    # @api private
+    #
+    # @param value [Object]
+    #
+    # @return [Object]
+    def dump(value)
+      if (variant = resolve_variant(value))
+        return TerminalShop::Converter.dump(variant, value)
+      end
+
+      known_variants.each do |_, variant_fn|
+        variant = variant_fn.call
+        if variant === value
           return TerminalShop::Converter.dump(variant, value)
         end
+      end
+      value
+    end
 
-        known_variants.each do |_, variant_fn|
-          variant = variant_fn.call
-          if variant === value
-            return TerminalShop::Converter.dump(variant, value)
-          end
-        end
-        value
+    # @api private
+    #
+    # @param value [Object]
+    #
+    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
+    def try_strict_coerce(value)
+      # TODO(ruby) this will result in super linear decoding behaviour for nested unions
+      # follow up with a decoding context that captures current strictness levels
+      if (variant = resolve_variant(value))
+        return Converter.try_strict_coerce(variant, value)
       end
 
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      def try_strict_coerce(value)
-        # TODO(ruby) this will result in super linear decoding behaviour for nested unions
-        # follow up with a decoding context that captures current strictness levels
-        if (variant = resolve_variant(value))
-          return Converter.try_strict_coerce(variant, value)
+      coercible = false
+      max_score = 0
+
+      known_variants.each do |_, variant_fn|
+        variant = variant_fn.call
+
+        case TerminalShop::Converter.try_strict_coerce(variant, value)
+        in [true, coerced, score]
+          return [true, coerced, score]
+        in [false, true, score]
+          coercible = true
+          max_score = [max_score, score].max
+        in [false, false, _]
+          nil
         end
-
-        coercible = false
-        max_score = 0
-
-        known_variants.each do |_, variant_fn|
-          variant = variant_fn.call
-
-          case TerminalShop::Converter.try_strict_coerce(variant, value)
-          in [true, coerced, score]
-            return [true, coerced, score]
-          in [false, true, score]
-            coercible = true
-            max_score = [max_score, score].max
-          in [false, false, _]
-            nil
-          end
-        end
-
-        [false, coercible, max_score]
       end
+
+      [false, coercible, max_score]
     end
 
     # rubocop:enable Style/CaseEquality
@@ -920,7 +908,7 @@ module TerminalShop
       private def add_field(name_sym, required:, type_info:, spec:)
         type_fn, info =
           case type_info
-          in Proc | Class | TerminalShop::Converter
+          in Proc | Module | TerminalShop::Converter
             [TerminalShop::Converter.type_info({**spec, union: type_info}), spec]
           in Hash
             [TerminalShop::Converter.type_info(type_info), type_info]
@@ -1192,7 +1180,7 @@ module TerminalShop
           type = self.class.fields[mapped]&.fetch(:type)
           stored =
             case [type, value]
-            in [Class, Hash] if type <= TerminalShop::BaseModel
+            in [Module, Hash] if type <= TerminalShop::BaseModel
               type.new(value)
             in [TerminalShop::ArrayOf, Array] | [TerminalShop::HashOf, Hash]
               type.coerce(value)

@@ -128,8 +128,8 @@ module TerminalShop
       end
 
       # Schedule of the subscription.
-      class Schedule < TerminalShop::Union
-        abstract!
+      module Schedule
+        extend TerminalShop::Union
 
         Variants =
           type_template(:out) do
