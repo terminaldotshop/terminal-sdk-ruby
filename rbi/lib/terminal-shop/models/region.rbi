@@ -3,13 +3,14 @@
 module TerminalShop
   module Models
     # A Terminal shop user's region.
-    class Region < TerminalShop::Enum
-      abstract!
+    module Region
+      extend TerminalShop::Enum
 
-      Value = type_template(:out) { {fixed: Symbol} }
+      TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::Region) }
+      OrSymbol = T.type_alias { T.any(Symbol, TerminalShop::Models::Region::TaggedSymbol) }
 
-      EU = :eu
-      NA = :na
+      EU = T.let(:eu, TerminalShop::Models::Region::TaggedSymbol)
+      NA = T.let(:na, TerminalShop::Models::Region::TaggedSymbol)
     end
   end
 end

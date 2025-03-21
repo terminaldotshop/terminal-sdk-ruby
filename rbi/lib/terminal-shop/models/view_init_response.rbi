@@ -83,11 +83,11 @@ module TerminalShop
         end
 
         # A Terminal shop user's region.
-        sig { returns(Symbol) }
+        sig { returns(TerminalShop::Models::Region::TaggedSymbol) }
         def region
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig { params(_: TerminalShop::Models::Region::TaggedSymbol).returns(TerminalShop::Models::Region::TaggedSymbol) }
         def region=(_)
         end
 
@@ -120,7 +120,7 @@ module TerminalShop
             orders: T::Array[TerminalShop::Models::OrderAPI],
             products: T::Array[TerminalShop::Models::ProductAPI],
             profile: TerminalShop::Models::ProfileAPI,
-            region: Symbol,
+            region: TerminalShop::Models::Region::TaggedSymbol,
             subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
             tokens: T::Array[TerminalShop::Models::TokenAPI]
           )
@@ -140,7 +140,7 @@ module TerminalShop
                 orders: T::Array[TerminalShop::Models::OrderAPI],
                 products: T::Array[TerminalShop::Models::ProductAPI],
                 profile: TerminalShop::Models::ProfileAPI,
-                region: Symbol,
+                region: TerminalShop::Models::Region::TaggedSymbol,
                 subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
                 tokens: T::Array[TerminalShop::Models::TokenAPI]
               }

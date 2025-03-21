@@ -52,11 +52,14 @@ module TerminalShop
       end
 
       # Whether the product must be or can be subscribed to.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)) }
       def subscription
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+          .returns(TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+      end
       def subscription=(_)
       end
 
@@ -77,7 +80,7 @@ module TerminalShop
           name: String,
           variants: T::Array[TerminalShop::Models::ProductVariant],
           order: Integer,
-          subscription: Symbol,
+          subscription: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol,
           tags: TerminalShop::Models::ProductAPI::Tags
         )
           .returns(T.attached_class)
@@ -94,7 +97,7 @@ module TerminalShop
               name: String,
               variants: T::Array[TerminalShop::Models::ProductVariant],
               order: Integer,
-              subscription: Symbol,
+              subscription: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol,
               tags: TerminalShop::Models::ProductAPI::Tags
             }
           )
@@ -103,13 +106,14 @@ module TerminalShop
       end
 
       # Whether the product must be or can be subscribed to.
-      class Subscription < TerminalShop::Enum
-        abstract!
+      module Subscription
+        extend TerminalShop::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::ProductAPI::Subscription) }
+        OrSymbol = T.type_alias { T.any(Symbol, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol) }
 
-        ALLOWED = :allowed
-        REQUIRED = :required
+        ALLOWED = T.let(:allowed, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+        REQUIRED = T.let(:required, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
       end
 
       class Tags < TerminalShop::BaseModel

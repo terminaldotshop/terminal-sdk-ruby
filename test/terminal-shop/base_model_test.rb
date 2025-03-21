@@ -3,7 +3,9 @@
 require_relative "test_helper"
 
 class TerminalShop::Test::BaseModelTest < Minitest::Test
-  class E1 < TerminalShop::Enum
+  module E1
+    extend TerminalShop::Enum
+
     A = :a
     B = :b
   end
@@ -242,13 +244,17 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
     optional :b, E1, api_name: :renamed_again
   end
 
-  class U1 < TerminalShop::Union
+  module U1
+    extend TerminalShop::Union
+
     discriminator :type
     variant :a, M1
     variant :b, M3
   end
 
-  class U2 < TerminalShop::Union
+  module U2
+    extend TerminalShop::Union
+
     variant A1
     variant A3
   end
@@ -330,12 +336,16 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
     end
   end
 
-  class E2 < TerminalShop::Enum
+  module E2
+    extend TerminalShop::Enum
+
     A = :a
     B = :b
   end
 
-  class U3 < TerminalShop::Union
+  module U3
+    extend TerminalShop::Union
+
     discriminator :type
     variant :a, M1
     variant :b, M3
@@ -353,7 +363,9 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
     assert_equal(U1, U3)
   end
 
-  class U4 < TerminalShop::Union
+  module U4
+    extend TerminalShop::Union
+
     variant :a, const: :a
     variant :b, const: :b
   end
