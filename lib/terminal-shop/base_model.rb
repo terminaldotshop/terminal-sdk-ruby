@@ -182,8 +182,6 @@ module TerminalShop
 
     # rubocop:disable Lint/UnusedMethodArgument
 
-    private_class_method :new
-
     # @param other [Object]
     #
     # @return [Boolean]
@@ -232,8 +230,6 @@ module TerminalShop
   # Ruby has no Boolean class; this is something for models to refer to.
   class BooleanModel
     extend TerminalShop::Converter
-
-    private_class_method :new
 
     # @param other [Object]
     #
@@ -331,8 +327,6 @@ module TerminalShop
       # Guard against thread safety issues by instantiating `@values`.
       private def finalize! = values
     end
-
-    private_class_method :new
 
     # @param other [Object]
     #
@@ -484,8 +478,6 @@ module TerminalShop
     # rubocop:disable Style/HashEachMethods
     # rubocop:disable Style/CaseEquality
 
-    private_class_method :new
-
     # @param other [Object]
     #
     # @return [Boolean]
@@ -596,9 +588,18 @@ module TerminalShop
   class ArrayOf
     include TerminalShop::Converter
 
-    private_class_method :new
-
-    def self.[](...) = new(...)
+    # @param type_info [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
+    #
+    # @param spec [Hash{Symbol=>Object}] .
+    #
+    #   @option spec [NilClass, TrueClass, FalseClass, Integer, Float, Symbol] :const
+    #
+    #   @option spec [Proc] :enum
+    #
+    #   @option spec [Proc] :union
+    #
+    #   @option spec [Boolean] :"nil?"
+    def self.[](type_info, spec = {}) = new(type_info, spec)
 
     # @param other [Object]
     #
@@ -719,9 +720,18 @@ module TerminalShop
   class HashOf
     include TerminalShop::Converter
 
-    private_class_method :new
-
-    def self.[](...) = new(...)
+    # @param type_info [Hash{Symbol=>Object}, Proc, TerminalShop::Converter, Class]
+    #
+    # @param spec [Hash{Symbol=>Object}] .
+    #
+    #   @option spec [NilClass, TrueClass, FalseClass, Integer, Float, Symbol] :const
+    #
+    #   @option spec [Proc] :enum
+    #
+    #   @option spec [Proc] :union
+    #
+    #   @option spec [Boolean] :"nil?"
+    def self.[](type_info, spec = {}) = new(type_info, spec)
 
     # @param other [Object]
     #
