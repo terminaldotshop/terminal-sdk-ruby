@@ -72,10 +72,10 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @abstract
-      #
       # Whether the product must be or can be subscribed to.
-      class Subscription < TerminalShop::Enum
+      module Subscription
+        extend TerminalShop::Enum
+
         ALLOWED = :allowed
         REQUIRED = :required
 

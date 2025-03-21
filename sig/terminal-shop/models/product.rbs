@@ -50,7 +50,9 @@ module TerminalShop
 
       type subscription = :allowed | :required
 
-      class Subscription < TerminalShop::Enum
+      module Subscription
+        extend TerminalShop::Enum
+
         ALLOWED: :allowed
         REQUIRED: :required
 

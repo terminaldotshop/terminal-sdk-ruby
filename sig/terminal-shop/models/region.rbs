@@ -2,7 +2,9 @@ module TerminalShop
   module Models
     type region = :eu | :na
 
-    class Region < TerminalShop::Enum
+    module Region
+      extend TerminalShop::Enum
+
       EU: :eu
       NA: :na
 
