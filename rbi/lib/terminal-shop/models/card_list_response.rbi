@@ -12,7 +12,10 @@ module TerminalShop
       def data=(_)
       end
 
-      sig { params(data: T::Array[TerminalShop::Models::CardAPI]).returns(T.attached_class) }
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 
