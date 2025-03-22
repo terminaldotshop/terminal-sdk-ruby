@@ -99,16 +99,6 @@ module TerminalShop
       module Schedule
         extend TerminalShop::Union
 
-        Variants =
-          type_template(:out) do
-            {
-              fixed: T.any(
-                TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-                TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-              )
-            }
-          end
-
         class Fixed < TerminalShop::BaseModel
           sig { returns(Symbol) }
           attr_accessor :type
@@ -138,15 +128,13 @@ module TerminalShop
           end
         end
 
-        class << self
-          sig do
-            override
-              .returns(
-                [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-              )
-          end
-          def variants
-          end
+        sig do
+          override
+            .returns(
+              [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+            )
+        end
+        def self.variants
         end
       end
     end
