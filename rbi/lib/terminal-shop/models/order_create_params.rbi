@@ -8,30 +8,15 @@ module TerminalShop
 
       # Shipping address ID.
       sig { returns(String) }
-      def address_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def address_id=(_)
-      end
+      attr_accessor :address_id
 
       # Card ID.
       sig { returns(String) }
-      def card_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def card_id=(_)
-      end
+      attr_accessor :card_id
 
       # Product variants to include in the order, along with their quantities.
       sig { returns(T::Hash[Symbol, Integer]) }
-      def variants
-      end
-
-      sig { params(_: T::Hash[Symbol, Integer]).returns(T::Hash[Symbol, Integer]) }
-      def variants=(_)
-      end
+      attr_accessor :variants
 
       sig do
         params(

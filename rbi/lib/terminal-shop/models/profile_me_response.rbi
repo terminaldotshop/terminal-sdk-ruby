@@ -5,15 +5,10 @@ module TerminalShop
     class ProfileMeResponse < TerminalShop::BaseModel
       # A Terminal shop user's profile. (We have users, btw.)
       sig { returns(TerminalShop::Models::ProfileAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
         params(data: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))

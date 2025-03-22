@@ -8,12 +8,7 @@ module TerminalShop
 
       # ID of the credit card to set for the current user's cart.
       sig { returns(String) }
-      def card_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def card_id=(_)
-      end
+      attr_accessor :card_id
 
       sig do
         params(

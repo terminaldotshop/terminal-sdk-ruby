@@ -5,66 +5,39 @@ module TerminalShop
     class CartAPI < TerminalShop::BaseModel
       # The subtotal and shipping amounts for the current user's cart.
       sig { returns(TerminalShop::Models::CartAPI::Amount) }
-      def amount
-      end
+      attr_reader :amount
 
-      sig do
-        params(_: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash))
-      end
-      def amount=(_)
-      end
+      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash)).void }
+      attr_writer :amount
 
       # An array of items in the current user's cart.
       sig { returns(T::Array[TerminalShop::Models::CartAPI::Item]) }
-      def items
-      end
-
-      sig do
-        params(_: T::Array[TerminalShop::Models::CartAPI::Item])
-          .returns(T::Array[TerminalShop::Models::CartAPI::Item])
-      end
-      def items=(_)
-      end
+      attr_accessor :items
 
       # The subtotal of all items in the current user's cart, in cents (USD).
       sig { returns(Integer) }
-      def subtotal
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def subtotal=(_)
-      end
+      attr_accessor :subtotal
 
       # ID of the shipping address selected on the current user's cart.
       sig { returns(T.nilable(String)) }
-      def address_id
-      end
+      attr_reader :address_id
 
-      sig { params(_: String).returns(String) }
-      def address_id=(_)
-      end
+      sig { params(address_id: String).void }
+      attr_writer :address_id
 
       # ID of the card selected on the current user's cart.
       sig { returns(T.nilable(String)) }
-      def card_id
-      end
+      attr_reader :card_id
 
-      sig { params(_: String).returns(String) }
-      def card_id=(_)
-      end
+      sig { params(card_id: String).void }
+      attr_writer :card_id
 
       # Shipping information for the current user's cart.
       sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
-      def shipping
-      end
+      attr_reader :shipping
 
-      sig do
-        params(_: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash))
-      end
-      def shipping=(_)
-      end
+      sig { params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash)).void }
+      attr_writer :shipping
 
       # The current Terminal shop user's cart.
       sig do
@@ -100,30 +73,21 @@ module TerminalShop
       class Amount < TerminalShop::BaseModel
         # Subtotal of the current user's cart, in cents (USD).
         sig { returns(Integer) }
-        def subtotal
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def subtotal=(_)
-        end
+        attr_accessor :subtotal
 
         # Shipping amount of the current user's cart, in cents (USD).
         sig { returns(T.nilable(Integer)) }
-        def shipping
-        end
+        attr_reader :shipping
 
-        sig { params(_: Integer).returns(Integer) }
-        def shipping=(_)
-        end
+        sig { params(shipping: Integer).void }
+        attr_writer :shipping
 
         # Total amount after any discounts, in cents (USD).
         sig { returns(T.nilable(Integer)) }
-        def total
-        end
+        attr_reader :total
 
-        sig { params(_: Integer).returns(Integer) }
-        def total=(_)
-        end
+        sig { params(total: Integer).void }
+        attr_writer :total
 
         # The subtotal and shipping amounts for the current user's cart.
         sig { params(subtotal: Integer, shipping: Integer, total: Integer).returns(T.attached_class) }
@@ -138,39 +102,19 @@ module TerminalShop
       class Item < TerminalShop::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # ID of the product variant for this item in the current user's cart.
         sig { returns(String) }
-        def product_variant_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def product_variant_id=(_)
-        end
+        attr_accessor :product_variant_id
 
         # Quantity of the item in the current user's cart.
         sig { returns(Integer) }
-        def quantity
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def quantity=(_)
-        end
+        attr_accessor :quantity
 
         # Subtotal of the item in the current user's cart, in cents (USD).
         sig { returns(Integer) }
-        def subtotal
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def subtotal=(_)
-        end
+        attr_accessor :subtotal
 
         # An item in the current Terminal shop user's cart.
         sig do
@@ -190,21 +134,17 @@ module TerminalShop
       class Shipping < TerminalShop::BaseModel
         # Shipping service name.
         sig { returns(T.nilable(String)) }
-        def service
-        end
+        attr_reader :service
 
-        sig { params(_: String).returns(String) }
-        def service=(_)
-        end
+        sig { params(service: String).void }
+        attr_writer :service
 
         # Shipping timeframe provided by the shipping carrier.
         sig { returns(T.nilable(String)) }
-        def timeframe
-        end
+        attr_reader :timeframe
 
-        sig { params(_: String).returns(String) }
-        def timeframe=(_)
-        end
+        sig { params(timeframe: String).void }
+        attr_writer :timeframe
 
         # Shipping information for the current user's cart.
         sig { params(service: String, timeframe: String).returns(T.attached_class) }

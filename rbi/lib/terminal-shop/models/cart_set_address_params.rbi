@@ -8,12 +8,7 @@ module TerminalShop
 
       # ID of the shipping address to set for the current user's cart.
       sig { returns(String) }
-      def address_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def address_id=(_)
-      end
+      attr_accessor :address_id
 
       sig do
         params(

@@ -5,15 +5,10 @@ module TerminalShop
     class ProductGetResponse < TerminalShop::BaseModel
       # Product sold in the Terminal shop.
       sig { returns(TerminalShop::Models::ProductAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
         params(data: T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash))
