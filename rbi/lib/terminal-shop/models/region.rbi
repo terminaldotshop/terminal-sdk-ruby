@@ -12,10 +12,8 @@ module TerminalShop
       EU = T.let(:eu, TerminalShop::Models::Region::TaggedSymbol)
       NA = T.let(:na, TerminalShop::Models::Region::TaggedSymbol)
 
-      class << self
-        sig { override.returns(T::Array[TerminalShop::Models::Region::TaggedSymbol]) }
-        def values
-        end
+      sig { override.returns(T::Array[TerminalShop::Models::Region::TaggedSymbol]) }
+      def self.values
       end
     end
   end
