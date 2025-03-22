@@ -5,84 +5,48 @@ module TerminalShop
     class AddressAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # City of the address.
       sig { returns(String) }
-      def city
-      end
-
-      sig { params(_: String).returns(String) }
-      def city=(_)
-      end
+      attr_accessor :city
 
       # ISO 3166-1 alpha-2 country code of the address.
       sig { returns(String) }
-      def country
-      end
-
-      sig { params(_: String).returns(String) }
-      def country=(_)
-      end
+      attr_accessor :country
 
       # The recipient's name.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # Street of the address.
       sig { returns(String) }
-      def street1
-      end
-
-      sig { params(_: String).returns(String) }
-      def street1=(_)
-      end
+      attr_accessor :street1
 
       # Zip code of the address.
       sig { returns(String) }
-      def zip
-      end
-
-      sig { params(_: String).returns(String) }
-      def zip=(_)
-      end
+      attr_accessor :zip
 
       # Phone number of the recipient.
       sig { returns(T.nilable(String)) }
-      def phone
-      end
+      attr_reader :phone
 
-      sig { params(_: String).returns(String) }
-      def phone=(_)
-      end
+      sig { params(phone: String).void }
+      attr_writer :phone
 
       # Province or state of the address.
       sig { returns(T.nilable(String)) }
-      def province
-      end
+      attr_reader :province
 
-      sig { params(_: String).returns(String) }
-      def province=(_)
-      end
+      sig { params(province: String).void }
+      attr_writer :province
 
       # Apartment, suite, etc. of the address.
       sig { returns(T.nilable(String)) }
-      def street2
-      end
+      attr_reader :street2
 
-      sig { params(_: String).returns(String) }
-      def street2=(_)
-      end
+      sig { params(street2: String).void }
+      attr_writer :street2
 
       # Physical address associated with a Terminal shop user.
       sig do

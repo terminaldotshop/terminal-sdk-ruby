@@ -5,30 +5,15 @@ module TerminalShop
     class ProductVariant < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Name of the product variant.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # Price of the product variant in cents (USD).
       sig { returns(Integer) }
-      def price
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def price=(_)
-      end
+      attr_accessor :price
 
       # Variant of a product in the Terminal shop.
       sig { params(id: String, name: String, price: Integer).returns(T.attached_class) }

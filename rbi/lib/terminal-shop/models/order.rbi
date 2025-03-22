@@ -5,69 +5,39 @@ module TerminalShop
     class OrderAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The subtotal and shipping amounts of the order.
       sig { returns(TerminalShop::Models::OrderAPI::Amount) }
-      def amount
-      end
+      attr_reader :amount
 
-      sig do
-        params(_: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash))
-      end
-      def amount=(_)
-      end
+      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash)).void }
+      attr_writer :amount
 
       # Items in the order.
       sig { returns(T::Array[TerminalShop::Models::OrderAPI::Item]) }
-      def items
-      end
-
-      sig do
-        params(_: T::Array[TerminalShop::Models::OrderAPI::Item])
-          .returns(T::Array[TerminalShop::Models::OrderAPI::Item])
-      end
-      def items=(_)
-      end
+      attr_accessor :items
 
       # Shipping address of the order.
       sig { returns(TerminalShop::Models::OrderAPI::Shipping) }
-      def shipping
-      end
+      attr_reader :shipping
 
-      sig do
-        params(_: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash))
-      end
-      def shipping=(_)
-      end
+      sig { params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash)).void }
+      attr_writer :shipping
 
       # Tracking information of the order.
       sig { returns(TerminalShop::Models::OrderAPI::Tracking) }
-      def tracking
-      end
+      attr_reader :tracking
 
-      sig do
-        params(_: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash))
-      end
-      def tracking=(_)
-      end
+      sig { params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash)).void }
+      attr_writer :tracking
 
       # Zero-based index of the order for this user only.
       sig { returns(T.nilable(Integer)) }
-      def index
-      end
+      attr_reader :index
 
-      sig { params(_: Integer).returns(Integer) }
-      def index=(_)
-      end
+      sig { params(index: Integer).void }
+      attr_writer :index
 
       # An order from the Terminal shop.
       sig do
@@ -103,21 +73,11 @@ module TerminalShop
       class Amount < TerminalShop::BaseModel
         # Shipping amount of the order, in cents (USD).
         sig { returns(Integer) }
-        def shipping
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def shipping=(_)
-        end
+        attr_accessor :shipping
 
         # Subtotal amount of the order, in cents (USD).
         sig { returns(Integer) }
-        def subtotal
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def subtotal=(_)
-        end
+        attr_accessor :subtotal
 
         # The subtotal and shipping amounts of the order.
         sig { params(shipping: Integer, subtotal: Integer).returns(T.attached_class) }
@@ -132,48 +92,29 @@ module TerminalShop
       class Item < TerminalShop::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # Amount of the item in the order, in cents (USD).
         sig { returns(Integer) }
-        def amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def amount=(_)
-        end
+        attr_accessor :amount
 
         # Quantity of the item in the order.
         sig { returns(Integer) }
-        def quantity
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def quantity=(_)
-        end
+        attr_accessor :quantity
 
         # Description of the item in the order.
         sig { returns(T.nilable(String)) }
-        def description
-        end
+        attr_reader :description
 
-        sig { params(_: String).returns(String) }
-        def description=(_)
-        end
+        sig { params(description: String).void }
+        attr_writer :description
 
         # ID of the product variant of the item in the order.
         sig { returns(T.nilable(String)) }
-        def product_variant_id
-        end
+        attr_reader :product_variant_id
 
-        sig { params(_: String).returns(String) }
-        def product_variant_id=(_)
-        end
+        sig { params(product_variant_id: String).void }
+        attr_writer :product_variant_id
 
         sig do
           params(
@@ -205,75 +146,44 @@ module TerminalShop
       class Shipping < TerminalShop::BaseModel
         # City of the address.
         sig { returns(String) }
-        def city
-        end
-
-        sig { params(_: String).returns(String) }
-        def city=(_)
-        end
+        attr_accessor :city
 
         # ISO 3166-1 alpha-2 country code of the address.
         sig { returns(String) }
-        def country
-        end
-
-        sig { params(_: String).returns(String) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         # The recipient's name.
         sig { returns(String) }
-        def name
-        end
-
-        sig { params(_: String).returns(String) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         # Street of the address.
         sig { returns(String) }
-        def street1
-        end
-
-        sig { params(_: String).returns(String) }
-        def street1=(_)
-        end
+        attr_accessor :street1
 
         # Zip code of the address.
         sig { returns(String) }
-        def zip
-        end
-
-        sig { params(_: String).returns(String) }
-        def zip=(_)
-        end
+        attr_accessor :zip
 
         # Phone number of the recipient.
         sig { returns(T.nilable(String)) }
-        def phone
-        end
+        attr_reader :phone
 
-        sig { params(_: String).returns(String) }
-        def phone=(_)
-        end
+        sig { params(phone: String).void }
+        attr_writer :phone
 
         # Province or state of the address.
         sig { returns(T.nilable(String)) }
-        def province
-        end
+        attr_reader :province
 
-        sig { params(_: String).returns(String) }
-        def province=(_)
-        end
+        sig { params(province: String).void }
+        attr_writer :province
 
         # Apartment, suite, etc. of the address.
         sig { returns(T.nilable(String)) }
-        def street2
-        end
+        attr_reader :street2
 
-        sig { params(_: String).returns(String) }
-        def street2=(_)
-        end
+        sig { params(street2: String).void }
+        attr_writer :street2
 
         # Shipping address of the order.
         sig do
@@ -314,30 +224,24 @@ module TerminalShop
       class Tracking < TerminalShop::BaseModel
         # Tracking number of the order.
         sig { returns(T.nilable(String)) }
-        def number
-        end
+        attr_reader :number
 
-        sig { params(_: String).returns(String) }
-        def number=(_)
-        end
+        sig { params(number: String).void }
+        attr_writer :number
 
         # Shipping service of the order.
         sig { returns(T.nilable(String)) }
-        def service
-        end
+        attr_reader :service
 
-        sig { params(_: String).returns(String) }
-        def service=(_)
-        end
+        sig { params(service: String).void }
+        attr_writer :service
 
         # Tracking URL of the order.
         sig { returns(T.nilable(String)) }
-        def url
-        end
+        attr_reader :url
 
-        sig { params(_: String).returns(String) }
-        def url=(_)
-        end
+        sig { params(url: String).void }
+        attr_writer :url
 
         # Tracking information of the order.
         sig { params(number: String, service: String, url: String).returns(T.attached_class) }

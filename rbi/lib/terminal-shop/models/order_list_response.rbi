@@ -5,12 +5,7 @@ module TerminalShop
     class OrderListResponse < TerminalShop::BaseModel
       # List of orders.
       sig { returns(T::Array[TerminalShop::Models::OrderAPI]) }
-      def data
-      end
-
-      sig { params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI]) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig do
         params(data: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)])
