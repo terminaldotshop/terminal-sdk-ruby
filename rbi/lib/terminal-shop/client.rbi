@@ -17,56 +17,43 @@ module TerminalShop
       )
 
     sig { returns(String) }
-    def bearer_token
-    end
+    attr_reader :bearer_token
 
     sig { returns(T.nilable(String)) }
-    def app_id
-    end
+    attr_reader :app_id
 
     sig { returns(TerminalShop::Resources::Product) }
-    def product
-    end
+    attr_reader :product
 
     sig { returns(TerminalShop::Resources::Profile) }
-    def profile
-    end
+    attr_reader :profile
 
     sig { returns(TerminalShop::Resources::Address) }
-    def address
-    end
+    attr_reader :address
 
     sig { returns(TerminalShop::Resources::Card) }
-    def card
-    end
+    attr_reader :card
 
     sig { returns(TerminalShop::Resources::Cart) }
-    def cart
-    end
+    attr_reader :cart
 
     sig { returns(TerminalShop::Resources::Order) }
-    def order
-    end
+    attr_reader :order
 
     sig { returns(TerminalShop::Resources::Subscription) }
-    def subscription
-    end
+    attr_reader :subscription
 
     sig { returns(TerminalShop::Resources::Token) }
-    def token
-    end
+    attr_reader :token
 
     sig { returns(TerminalShop::Resources::App) }
-    def app
-    end
+    attr_reader :app
 
     sig { returns(TerminalShop::Resources::Email) }
-    def email
-    end
+    attr_reader :email
 
     sig { returns(TerminalShop::Resources::View) }
-    def view
-    end
+    attr_reader :view
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }

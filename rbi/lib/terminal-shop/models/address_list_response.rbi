@@ -5,12 +5,7 @@ module TerminalShop
     class AddressListResponse < TerminalShop::BaseModel
       # Shipping addresses.
       sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
-      def data
-      end
-
-      sig { params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI]) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig do
         params(data: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash)])

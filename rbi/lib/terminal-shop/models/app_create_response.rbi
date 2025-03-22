@@ -4,15 +4,10 @@ module TerminalShop
   module Models
     class AppCreateResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::AppCreateResponse::Data) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
         params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Util::AnyHash))
@@ -28,21 +23,11 @@ module TerminalShop
       class Data < TerminalShop::BaseModel
         # OAuth 2.0 client ID.
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # OAuth 2.0 client secret.
         sig { returns(String) }
-        def secret
-        end
-
-        sig { params(_: String).returns(String) }
-        def secret=(_)
-        end
+        attr_accessor :secret
 
         sig { params(id: String, secret: String).returns(T.attached_class) }
         def self.new(id:, secret:)

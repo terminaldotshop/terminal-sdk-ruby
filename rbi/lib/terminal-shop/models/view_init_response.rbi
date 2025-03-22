@@ -5,15 +5,10 @@ module TerminalShop
     class ViewInitResponse < TerminalShop::BaseModel
       # Initial app data.
       sig { returns(TerminalShop::Models::ViewInitResponse::Data) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
         params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
@@ -28,96 +23,43 @@ module TerminalShop
 
       class Data < TerminalShop::BaseModel
         sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
-        def addresses
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI]) }
-        def addresses=(_)
-        end
+        attr_accessor :addresses
 
         sig { returns(T::Array[TerminalShop::Models::AppAPI]) }
-        def apps
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::AppAPI]).returns(T::Array[TerminalShop::Models::AppAPI]) }
-        def apps=(_)
-        end
+        attr_accessor :apps
 
         sig { returns(T::Array[TerminalShop::Models::CardAPI]) }
-        def cards
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::CardAPI]).returns(T::Array[TerminalShop::Models::CardAPI]) }
-        def cards=(_)
-        end
+        attr_accessor :cards
 
         # The current Terminal shop user's cart.
         sig { returns(TerminalShop::Models::CartAPI) }
-        def cart
-        end
+        attr_reader :cart
 
-        sig do
-          params(_: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash))
-            .returns(T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash))
-        end
-        def cart=(_)
-        end
+        sig { params(cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).void }
+        attr_writer :cart
 
         sig { returns(T::Array[TerminalShop::Models::OrderAPI]) }
-        def orders
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::OrderAPI]).returns(T::Array[TerminalShop::Models::OrderAPI]) }
-        def orders=(_)
-        end
+        attr_accessor :orders
 
         sig { returns(T::Array[TerminalShop::Models::ProductAPI]) }
-        def products
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::ProductAPI]).returns(T::Array[TerminalShop::Models::ProductAPI]) }
-        def products=(_)
-        end
+        attr_accessor :products
 
         # A Terminal shop user's profile. (We have users, btw.)
         sig { returns(TerminalShop::Models::ProfileAPI) }
-        def profile
-        end
+        attr_reader :profile
 
-        sig do
-          params(_: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
-            .returns(T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash))
-        end
-        def profile=(_)
-        end
+        sig { params(profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash)).void }
+        attr_writer :profile
 
         # A Terminal shop user's region.
         sig { returns(TerminalShop::Models::Region::TaggedSymbol) }
-        def region
-        end
-
-        sig { params(_: TerminalShop::Models::Region::TaggedSymbol).returns(TerminalShop::Models::Region::TaggedSymbol) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
-        def subscriptions
-        end
-
-        sig do
-          params(_: T::Array[TerminalShop::Models::SubscriptionAPI])
-            .returns(T::Array[TerminalShop::Models::SubscriptionAPI])
-        end
-        def subscriptions=(_)
-        end
+        attr_accessor :subscriptions
 
         sig { returns(T::Array[TerminalShop::Models::TokenAPI]) }
-        def tokens
-        end
-
-        sig { params(_: T::Array[TerminalShop::Models::TokenAPI]).returns(T::Array[TerminalShop::Models::TokenAPI]) }
-        def tokens=(_)
-        end
+        attr_accessor :tokens
 
         # Initial app data.
         sig do

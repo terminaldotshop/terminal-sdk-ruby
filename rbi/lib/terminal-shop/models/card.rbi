@@ -5,42 +5,22 @@ module TerminalShop
     class CardAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Brand of the card.
       sig { returns(String) }
-      def brand
-      end
-
-      sig { params(_: String).returns(String) }
-      def brand=(_)
-      end
+      attr_accessor :brand
 
       # Expiration of the card.
       sig { returns(TerminalShop::Models::CardAPI::Expiration) }
-      def expiration
-      end
+      attr_reader :expiration
 
-      sig do
-        params(_: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash))
-      end
-      def expiration=(_)
-      end
+      sig { params(expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash)).void }
+      attr_writer :expiration
 
       # Last four digits of the card.
       sig { returns(String) }
-      def last4
-      end
-
-      sig { params(_: String).returns(String) }
-      def last4=(_)
-      end
+      attr_accessor :last4
 
       # Credit card used for payments in the Terminal shop.
       sig do
@@ -65,21 +45,11 @@ module TerminalShop
       class Expiration < TerminalShop::BaseModel
         # Expiration month of the card.
         sig { returns(Integer) }
-        def month
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def month=(_)
-        end
+        attr_accessor :month
 
         # Expiration year of the card.
         sig { returns(Integer) }
-        def year
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def year=(_)
-        end
+        attr_accessor :year
 
         # Expiration of the card.
         sig { params(month: Integer, year: Integer).returns(T.attached_class) }

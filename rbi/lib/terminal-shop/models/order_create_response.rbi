@@ -5,12 +5,7 @@ module TerminalShop
     class OrderCreateResponse < TerminalShop::BaseModel
       # Order ID.
       sig { returns(String) }
-      def data
-      end
-
-      sig { params(_: String).returns(String) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { params(data: String).returns(T.attached_class) }
       def self.new(data:)

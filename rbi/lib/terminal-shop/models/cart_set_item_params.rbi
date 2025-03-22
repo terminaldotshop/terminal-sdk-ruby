@@ -8,21 +8,11 @@ module TerminalShop
 
       # ID of the product variant to add to the cart.
       sig { returns(String) }
-      def product_variant_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def product_variant_id=(_)
-      end
+      attr_accessor :product_variant_id
 
       # Quantity of the item to add to the cart.
       sig { returns(Integer) }
-      def quantity
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def quantity=(_)
-      end
+      attr_accessor :quantity
 
       sig do
         params(

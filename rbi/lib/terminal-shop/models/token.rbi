@@ -5,30 +5,15 @@ module TerminalShop
     class TokenAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Personal access token (obfuscated).
       sig { returns(String) }
-      def token
-      end
-
-      sig { params(_: String).returns(String) }
-      def token=(_)
-      end
+      attr_accessor :token
 
       # The created time for the token.
       sig { returns(String) }
-      def created
-      end
-
-      sig { params(_: String).returns(String) }
-      def created=(_)
-      end
+      attr_accessor :created
 
       # A personal access token used to access the Terminal API. If you leak this,
       #   expect large sums of coffee to be ordered on your credit card.

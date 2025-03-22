@@ -5,15 +5,10 @@ module TerminalShop
     class CardGetResponse < TerminalShop::BaseModel
       # Credit card used for payments in the Terminal shop.
       sig { returns(TerminalShop::Models::CardAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig { params(data: T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)
