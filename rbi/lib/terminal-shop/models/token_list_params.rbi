@@ -7,7 +7,7 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig do
-        params(request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+        params(request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(request_options: {})

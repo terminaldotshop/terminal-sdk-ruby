@@ -5,12 +5,7 @@ module TerminalShop
     class TokenListResponse < TerminalShop::BaseModel
       attr_accessor data: ::Array[TerminalShop::Models::TokenAPI]
 
-      def initialize:
-        (data: ::Array[TerminalShop::Models::TokenAPI]) -> void
-        | (
-          ?TerminalShop::Models::token_list_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: ::Array[TerminalShop::Models::TokenAPI]) -> void
 
       def to_hash: -> TerminalShop::Models::token_list_response
     end

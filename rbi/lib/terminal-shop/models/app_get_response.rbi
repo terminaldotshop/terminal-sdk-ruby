@@ -5,14 +5,12 @@ module TerminalShop
     class AppGetResponse < TerminalShop::BaseModel
       # A Terminal App used for configuring an OAuth 2.0 client.
       sig { returns(TerminalShop::Models::AppAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig { params(_: TerminalShop::Models::AppAPI).returns(TerminalShop::Models::AppAPI) }
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
-      sig { params(data: TerminalShop::Models::AppAPI).returns(T.attached_class) }
+      sig { params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)
       end
 

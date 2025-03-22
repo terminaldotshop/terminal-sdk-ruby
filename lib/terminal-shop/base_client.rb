@@ -9,14 +9,15 @@ module TerminalShop
     MAX_REDIRECTS = 20
 
     # rubocop:disable Style/MutableConstant
-    PLATFORM_HEADERS = {
-      "x-stainless-arch" => TerminalShop::Util.arch,
-      "x-stainless-lang" => "ruby",
-      "x-stainless-os" => TerminalShop::Util.os,
-      "x-stainless-package-version" => TerminalShop::VERSION,
-      "x-stainless-runtime" => ::RUBY_ENGINE,
-      "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
-    }
+    PLATFORM_HEADERS =
+      {
+        "x-stainless-arch" => TerminalShop::Util.arch,
+        "x-stainless-lang" => "ruby",
+        "x-stainless-os" => TerminalShop::Util.os,
+        "x-stainless-package-version" => TerminalShop::VERSION,
+        "x-stainless-runtime" => ::RUBY_ENGINE,
+        "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
+      }
     # rubocop:enable Style/MutableConstant
 
     class << self
@@ -219,7 +220,7 @@ module TerminalShop
     #
     #   @option opts [Hash{String=>String, nil}, nil] :extra_headers
     #
-    #   @option opts [Hash{Symbol=>Object}, nil] :extra_body
+    #   @option opts [Object, nil] :extra_body
     #
     #   @option opts [Integer, nil] :max_retries
     #
@@ -436,7 +437,7 @@ module TerminalShop
       decoded = TerminalShop::Util.decode_content(response, stream: stream)
       case req
       in { stream: Class => st }
-        st.new(model: model, url: url, status: status, response: response, messages: decoded)
+        st.new(model: model, url: url, status: status, response: response, stream: decoded)
       in { page: Class => page }
         page.new(client: self, req: req, headers: response, page_data: decoded)
       else

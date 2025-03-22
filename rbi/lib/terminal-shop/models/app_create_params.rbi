@@ -7,26 +7,16 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(String) }
-      def redirect_uri
-      end
-
-      sig { params(_: String).returns(String) }
-      def redirect_uri=(_)
-      end
+      attr_accessor :redirect_uri
 
       sig do
         params(
           name: String,
           redirect_uri: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

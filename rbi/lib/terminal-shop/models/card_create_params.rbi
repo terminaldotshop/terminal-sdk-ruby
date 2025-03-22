@@ -9,19 +9,14 @@ module TerminalShop
       # Stripe card token. Learn how to
       #   [create one here](https://docs.stripe.com/api/tokens/create_card).
       sig { returns(String) }
-      def token
-      end
-
-      sig { params(_: String).returns(String) }
-      def token=(_)
-      end
+      attr_accessor :token
 
       sig do
         params(
           token: String,
           request_options: T.any(
             TerminalShop::RequestOptions,
-            T::Hash[Symbol, T.anything]
+            TerminalShop::Util::AnyHash
           )
         )
           .returns(T.attached_class)

@@ -6,12 +6,9 @@ module TerminalShop
     class TokenCreateResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::TokenCreateResponse::Data
 
-      def initialize:
-        (data: TerminalShop::Models::TokenCreateResponse::Data) -> void
-        | (
-          ?TerminalShop::Models::token_create_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        data: TerminalShop::Models::TokenCreateResponse::Data
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::token_create_response
 
@@ -22,12 +19,7 @@ module TerminalShop
 
         attr_accessor token: String
 
-        def initialize:
-          (id: String, token: String) -> void
-          | (
-            ?TerminalShop::Models::TokenCreateResponse::data
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (id: String, token: String) -> void
 
         def to_hash: -> TerminalShop::Models::TokenCreateResponse::data
       end

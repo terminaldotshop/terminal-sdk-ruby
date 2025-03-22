@@ -8,19 +8,14 @@ module TerminalShop
 
       # Email address to subscribe to Terminal updates with.
       sig { returns(String) }
-      def email
-      end
-
-      sig { params(_: String).returns(String) }
-      def email=(_)
-      end
+      attr_accessor :email
 
       sig do
         params(
           email: String,
           request_options: T.any(
             TerminalShop::RequestOptions,
-            T::Hash[Symbol, T.anything]
+            TerminalShop::Util::AnyHash
           )
         )
           .returns(T.attached_class)

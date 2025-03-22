@@ -5,15 +5,16 @@ module TerminalShop
     class ProfileAPI < TerminalShop::BaseModel
       # A Terminal shop user. (We have users, btw.)
       sig { returns(TerminalShop::Models::ProfileAPI::User) }
-      def user
-      end
+      attr_reader :user
 
-      sig { params(_: TerminalShop::Models::ProfileAPI::User).returns(TerminalShop::Models::ProfileAPI::User) }
-      def user=(_)
-      end
+      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash)).void }
+      attr_writer :user
 
       # A Terminal shop user's profile. (We have users, btw.)
-      sig { params(user: TerminalShop::Models::ProfileAPI::User).returns(T.attached_class) }
+      sig do
+        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(user:)
       end
 
@@ -24,48 +25,23 @@ module TerminalShop
       class User < TerminalShop::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # Email address of the user.
         sig { returns(T.nilable(String)) }
-        def email
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def email=(_)
-        end
+        attr_accessor :email
 
         # The user's fingerprint, derived from their public SSH key.
         sig { returns(T.nilable(String)) }
-        def fingerprint
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def fingerprint=(_)
-        end
+        attr_accessor :fingerprint
 
         # Name of the user.
         sig { returns(T.nilable(String)) }
-        def name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         # Stripe customer ID of the user.
         sig { returns(String) }
-        def stripe_customer_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def stripe_customer_id=(_)
-        end
+        attr_accessor :stripe_customer_id
 
         # A Terminal shop user. (We have users, btw.)
         sig do

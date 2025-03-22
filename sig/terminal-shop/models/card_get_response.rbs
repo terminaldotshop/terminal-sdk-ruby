@@ -5,12 +5,7 @@ module TerminalShop
     class CardGetResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::CardAPI
 
-      def initialize:
-        (data: TerminalShop::Models::CardAPI) -> void
-        | (
-          ?TerminalShop::Models::card_get_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::CardAPI) -> void
 
       def to_hash: -> TerminalShop::Models::card_get_response
     end

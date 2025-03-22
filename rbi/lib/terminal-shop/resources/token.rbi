@@ -5,7 +5,7 @@ module TerminalShop
     class Token
       # Create a personal access token.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
           .returns(TerminalShop::Models::TokenCreateResponse)
       end
       def create(request_options: {})
@@ -13,7 +13,7 @@ module TerminalShop
 
       # List the current user's personal access tokens.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])))
+        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
           .returns(TerminalShop::Models::TokenListResponse)
       end
       def list(request_options: {})
@@ -23,7 +23,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::TokenDeleteResponse)
       end
@@ -38,7 +38,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::TokenGetResponse)
       end

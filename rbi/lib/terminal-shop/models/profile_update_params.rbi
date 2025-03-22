@@ -7,26 +7,16 @@ module TerminalShop
       include TerminalShop::RequestParameters
 
       sig { returns(String) }
-      def email
-      end
-
-      sig { params(_: String).returns(String) }
-      def email=(_)
-      end
+      attr_accessor :email
 
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig do
         params(
           email: String,
           name: String,
-          request_options: T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

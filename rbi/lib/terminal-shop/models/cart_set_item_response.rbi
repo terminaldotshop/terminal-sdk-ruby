@@ -5,14 +5,12 @@ module TerminalShop
     class CartSetItemResponse < TerminalShop::BaseModel
       # The current Terminal shop user's cart.
       sig { returns(TerminalShop::Models::CartAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig { params(_: TerminalShop::Models::CartAPI).returns(TerminalShop::Models::CartAPI) }
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
-      sig { params(data: TerminalShop::Models::CartAPI).returns(T.attached_class) }
+      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)
       end
 

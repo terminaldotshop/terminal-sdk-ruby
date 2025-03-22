@@ -5,14 +5,12 @@ module TerminalShop
     class TokenListResponse < TerminalShop::BaseModel
       # List of personal access tokens.
       sig { returns(T::Array[TerminalShop::Models::TokenAPI]) }
-      def data
-      end
+      attr_accessor :data
 
-      sig { params(_: T::Array[TerminalShop::Models::TokenAPI]).returns(T::Array[TerminalShop::Models::TokenAPI]) }
-      def data=(_)
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-
-      sig { params(data: T::Array[TerminalShop::Models::TokenAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

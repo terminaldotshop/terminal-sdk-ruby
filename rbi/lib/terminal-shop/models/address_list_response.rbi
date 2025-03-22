@@ -5,14 +5,12 @@ module TerminalShop
     class AddressListResponse < TerminalShop::BaseModel
       # Shipping addresses.
       sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
-      def data
-      end
+      attr_accessor :data
 
-      sig { params(_: T::Array[TerminalShop::Models::AddressAPI]).returns(T::Array[TerminalShop::Models::AddressAPI]) }
-      def data=(_)
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-
-      sig { params(data: T::Array[TerminalShop::Models::AddressAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

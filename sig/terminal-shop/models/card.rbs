@@ -17,16 +17,12 @@ module TerminalShop
 
       attr_accessor last4: String
 
-      def initialize:
-        (
-          id: String,
-          brand: String,
-          expiration: TerminalShop::Models::CardAPI::Expiration,
-          last4: String
-        ) -> void
-        | (
-          ?TerminalShop::Models::card_api | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        brand: String,
+        expiration: TerminalShop::Models::CardAPI::Expiration,
+        last4: String
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::card_api
 
@@ -37,12 +33,7 @@ module TerminalShop
 
         attr_accessor year: Integer
 
-        def initialize:
-          (month: Integer, year: Integer) -> void
-          | (
-            ?TerminalShop::Models::CardAPI::expiration
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (month: Integer, year: Integer) -> void
 
         def to_hash: -> TerminalShop::Models::CardAPI::expiration
       end

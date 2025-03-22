@@ -7,7 +7,7 @@ module TerminalShop
       sig do
         params(
           email: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
         )
           .returns(TerminalShop::Models::EmailCreateResponse)
       end

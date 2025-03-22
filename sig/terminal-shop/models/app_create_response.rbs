@@ -6,12 +6,9 @@ module TerminalShop
     class AppCreateResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::AppCreateResponse::Data
 
-      def initialize:
-        (data: TerminalShop::Models::AppCreateResponse::Data) -> void
-        | (
-          ?TerminalShop::Models::app_create_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        data: TerminalShop::Models::AppCreateResponse::Data
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::app_create_response
 
@@ -22,12 +19,7 @@ module TerminalShop
 
         attr_accessor secret: String
 
-        def initialize:
-          (id: String, secret: String) -> void
-          | (
-            ?TerminalShop::Models::AppCreateResponse::data
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (id: String, secret: String) -> void
 
         def to_hash: -> TerminalShop::Models::AppCreateResponse::data
       end

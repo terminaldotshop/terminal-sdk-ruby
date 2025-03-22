@@ -5,12 +5,7 @@ module TerminalShop
     class ProductGetResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::ProductAPI
 
-      def initialize:
-        (data: TerminalShop::Models::ProductAPI) -> void
-        | (
-          ?TerminalShop::Models::product_get_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::ProductAPI) -> void
 
       def to_hash: -> TerminalShop::Models::product_get_response
     end

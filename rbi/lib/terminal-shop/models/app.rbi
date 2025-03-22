@@ -5,39 +5,19 @@ module TerminalShop
     class AppAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Name of the app.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # Redirect URI of the app.
       sig { returns(String) }
-      def redirect_uri
-      end
-
-      sig { params(_: String).returns(String) }
-      def redirect_uri=(_)
-      end
+      attr_accessor :redirect_uri
 
       # OAuth 2.0 client secret of the app (obfuscated).
       sig { returns(String) }
-      def secret
-      end
-
-      sig { params(_: String).returns(String) }
-      def secret=(_)
-      end
+      attr_accessor :secret
 
       # A Terminal App used for configuring an OAuth 2.0 client.
       sig { params(id: String, name: String, redirect_uri: String, secret: String).returns(T.attached_class) }

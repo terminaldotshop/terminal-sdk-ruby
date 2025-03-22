@@ -6,12 +6,9 @@ module TerminalShop
     class CardCollectResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::CardCollectResponse::Data
 
-      def initialize:
-        (data: TerminalShop::Models::CardCollectResponse::Data) -> void
-        | (
-          ?TerminalShop::Models::card_collect_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (
+        data: TerminalShop::Models::CardCollectResponse::Data
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::card_collect_response
 
@@ -20,12 +17,7 @@ module TerminalShop
       class Data < TerminalShop::BaseModel
         attr_accessor url: String
 
-        def initialize:
-          (url: String) -> void
-          | (
-            ?TerminalShop::Models::CardCollectResponse::data
-            | TerminalShop::BaseModel data
-          ) -> void
+        def initialize: (url: String) -> void
 
         def to_hash: -> TerminalShop::Models::CardCollectResponse::data
       end

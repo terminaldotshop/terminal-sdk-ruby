@@ -5,17 +5,15 @@ module TerminalShop
     class CardCollectResponse < TerminalShop::BaseModel
       # URL for collecting card information.
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
-      def data
-      end
+      attr_reader :data
+
+      sig { params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
-        params(_: TerminalShop::Models::CardCollectResponse::Data)
-          .returns(TerminalShop::Models::CardCollectResponse::Data)
+        params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
       end
-      def data=(_)
-      end
-
-      sig { params(data: TerminalShop::Models::CardCollectResponse::Data).returns(T.attached_class) }
       def self.new(data:)
       end
 
@@ -27,12 +25,7 @@ module TerminalShop
         # Temporary URL that allows a user to enter credit card details over https at
         #   terminal.shop.
         sig { returns(String) }
-        def url
-        end
-
-        sig { params(_: String).returns(String) }
-        def url=(_)
-        end
+        attr_accessor :url
 
         # URL for collecting card information.
         sig { params(url: String).returns(T.attached_class) }

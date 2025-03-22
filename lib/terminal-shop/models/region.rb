@@ -2,14 +2,18 @@
 
 module TerminalShop
   module Models
-    # @abstract
-    #
     # A Terminal shop user's region.
-    class Region < TerminalShop::Enum
+    module Region
+      extend TerminalShop::Enum
+
       EU = :eu
       NA = :na
 
       finalize!
+
+      # @!parse
+      #   # @return [Array<Symbol>]
+      #   def self.values; end
     end
   end
 end

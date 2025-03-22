@@ -5,17 +5,12 @@ module TerminalShop
     class SubscriptionListResponse < TerminalShop::BaseModel
       # List of subscriptions.
       sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
-      def data
-      end
+      attr_accessor :data
 
       sig do
-        params(_: T::Array[TerminalShop::Models::SubscriptionAPI])
-          .returns(T::Array[TerminalShop::Models::SubscriptionAPI])
+        params(data: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-      def data=(_)
-      end
-
-      sig { params(data: T::Array[TerminalShop::Models::SubscriptionAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

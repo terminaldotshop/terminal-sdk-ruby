@@ -4,13 +4,14 @@ require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::ResourceTest
   def test_create_required_params
-    response = @terminal.subscription.create(
-      id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
-      quantity: 1
-    )
+    response =
+      @terminal.subscription.create(
+        id: "sub_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
+        quantity: 1
+      )
 
     assert_pattern do
       response => TerminalShop::Models::SubscriptionCreateResponse

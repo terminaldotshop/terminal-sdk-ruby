@@ -5,14 +5,12 @@ module TerminalShop
     class AppListResponse < TerminalShop::BaseModel
       # List of apps.
       sig { returns(T::Array[TerminalShop::Models::AppAPI]) }
-      def data
-      end
+      attr_accessor :data
 
-      sig { params(_: T::Array[TerminalShop::Models::AppAPI]).returns(T::Array[TerminalShop::Models::AppAPI]) }
-      def data=(_)
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-
-      sig { params(data: T::Array[TerminalShop::Models::AppAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

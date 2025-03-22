@@ -5,12 +5,7 @@ module TerminalShop
     class ProfileMeResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::ProfileAPI
 
-      def initialize:
-        (data: TerminalShop::Models::ProfileAPI) -> void
-        | (
-          ?TerminalShop::Models::profile_me_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::ProfileAPI) -> void
 
       def to_hash: -> TerminalShop::Models::profile_me_response
     end

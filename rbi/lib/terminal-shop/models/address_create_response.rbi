@@ -5,12 +5,7 @@ module TerminalShop
     class AddressCreateResponse < TerminalShop::BaseModel
       # Shipping address ID.
       sig { returns(String) }
-      def data
-      end
-
-      sig { params(_: String).returns(String) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { params(data: String).returns(T.attached_class) }
       def self.new(data:)

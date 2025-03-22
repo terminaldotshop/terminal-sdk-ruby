@@ -170,132 +170,116 @@ module TerminalShop
   #
   #   We can therefore convert string values to Symbols, but can't convert other
   #   values safely.
-  class Enum
-    extend TerminalShop::Converter
+  module Enum
+    include TerminalShop::Converter
 
-    abstract!
+    # All of the valid Symbol values for this enum.
+    sig { overridable.returns(T::Array[T.any(NilClass, T::Boolean, Integer, Float, Symbol)]) }
+    def values
+    end
 
-    Value = type_template(:out)
-
-    class << self
-      # All of the valid Symbol values for this enum.
-      sig { overridable.returns(T::Array[Value]) }
-      def values
-      end
-
-      # @api private
-      #
-      # Guard against thread safety issues by instantiating `@values`.
-      sig { void }
-      private def finalize!
-      end
+    # @api private
+    #
+    # Guard against thread safety issues by instantiating `@values`.
+    sig { void }
+    private def finalize!
     end
 
     sig { params(other: T.anything).returns(T::Boolean) }
-    def self.===(other)
+    def ===(other)
     end
 
     sig { params(other: T.anything).returns(T::Boolean) }
-    def self.==(other)
+    def ==(other)
     end
 
-    class << self
-      # @api private
-      sig { override.params(value: T.any(String, Symbol, T.anything)).returns(T.any(Symbol, T.anything)) }
-      def coerce(value)
-      end
+    # @api private
+    sig { override.params(value: T.any(String, Symbol, T.anything)).returns(T.any(Symbol, T.anything)) }
+    def coerce(value)
+    end
 
-      # @api private
-      sig { override.params(value: T.any(Symbol, T.anything)).returns(T.any(Symbol, T.anything)) }
-      def dump(value)
-      end
+    # @api private
+    sig { override.params(value: T.any(Symbol, T.anything)).returns(T.any(Symbol, T.anything)) }
+    def dump(value)
+    end
 
-      # @api private
-      sig do
-        override
-          .params(value: T.anything)
-          .returns(T.any([T::Boolean, T.anything, NilClass], [T::Boolean, T::Boolean, Integer]))
-      end
-      def try_strict_coerce(value)
-      end
+    # @api private
+    sig do
+      override
+        .params(value: T.anything)
+        .returns(T.any([T::Boolean, T.anything, NilClass], [T::Boolean, T::Boolean, Integer]))
+    end
+    def try_strict_coerce(value)
     end
   end
 
   # @api private
-  class Union
-    extend TerminalShop::Converter
+  module Union
+    include TerminalShop::Converter
 
-    abstract!
+    # @api private
+    #
+    # All of the specified variant info for this union.
+    sig { returns(T::Array[[T.nilable(Symbol), T.proc.returns(TerminalShop::Converter::Input)]]) }
+    private def known_variants
+    end
 
-    Variants = type_template(:out)
+    # @api private
+    sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+    protected def derefed_variants
+    end
 
-    class << self
-      # @api private
-      #
-      # All of the specified variant info for this union.
-      sig { returns(T::Array[[T.nilable(Symbol), T.proc.returns(Variants)]]) }
-      private def known_variants
-      end
+    # All of the specified variants for this union.
+    sig { overridable.returns(T::Array[T.anything]) }
+    def variants
+    end
 
-      # @api private
-      sig { returns(T::Array[[T.nilable(Symbol), Variants]]) }
-      protected def derefed_variants
-      end
+    # @api private
+    sig { params(property: Symbol).void }
+    private def discriminator(property)
+    end
 
-      # All of the specified variants for this union.
-      sig { overridable.returns(T::Array[Variants]) }
-      def variants
-      end
+    # @api private
+    sig do
+      params(
+        key: T.any(Symbol, TerminalShop::Util::AnyHash, T.proc.returns(T.anything), T.anything),
+        spec: T.any(TerminalShop::Util::AnyHash, T.proc.returns(T.anything), T.anything)
+      )
+        .void
+    end
+    private def variant(key, spec = nil)
+    end
 
-      # @api private
-      sig { params(property: Symbol).void }
-      private def discriminator(property)
-      end
-
-      # @api private
-      sig do
-        params(
-          key: T.any(Symbol, T::Hash[Symbol, T.anything], T.proc.returns(Variants), Variants),
-          spec: T.any(T::Hash[Symbol, T.anything], T.proc.returns(Variants), Variants)
-        )
-          .void
-      end
-      private def variant(key, spec = nil)
-      end
-
-      # @api private
-      sig { params(value: T.anything).returns(T.nilable(Variants)) }
-      private def resolve_variant(value)
-      end
+    # @api private
+    sig { params(value: T.anything).returns(T.nilable(T.anything)) }
+    private def resolve_variant(value)
     end
 
     sig { params(other: T.anything).returns(T::Boolean) }
-    def self.===(other)
+    def ===(other)
     end
 
     sig { params(other: T.anything).returns(T::Boolean) }
-    def self.==(other)
+    def ==(other)
     end
 
-    class << self
-      # @api private
-      sig { override.params(value: T.anything).returns(T.anything) }
-      def coerce(value)
-      end
+    # @api private
+    sig { override.params(value: T.anything).returns(T.anything) }
+    def coerce(value)
+    end
 
-      # @api private
-      sig { override.params(value: T.anything).returns(T.anything) }
-      def dump(value)
-      end
+    # @api private
+    sig { override.params(value: T.anything).returns(T.anything) }
+    def dump(value)
+    end
 
-      # @api private
-      sig do
-        override
-          .params(value: T.anything)
-          .returns(T.any([T::Boolean, T.anything, NilClass], [T::Boolean, T::Boolean, Integer]))
-      end
-      def try_strict_coerce(value)
-      end
+    # @api private
+    sig do
+      override
+        .params(value: T.anything)
+        .returns(T.any([T::Boolean, T.anything, NilClass], [T::Boolean, T::Boolean, Integer]))
+    end
+    def try_strict_coerce(value)
     end
   end
 
@@ -308,7 +292,19 @@ module TerminalShop
     abstract!
     final!
 
-    Elem = type_member(:out)
+    sig(:final) do
+      params(
+        type_info: T.any(
+          TerminalShop::Util::AnyHash,
+          T.proc.returns(TerminalShop::Converter::Input),
+          TerminalShop::Converter::Input
+        ),
+        spec: TerminalShop::Util::AnyHash
+      )
+        .returns(T.attached_class)
+    end
+    def self.[](type_info, spec = {})
+    end
 
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -346,7 +342,7 @@ module TerminalShop
     end
 
     # @api private
-    sig(:final) { returns(Elem) }
+    sig(:final) { returns(T.anything) }
     protected def item_type
     end
 
@@ -354,15 +350,15 @@ module TerminalShop
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          TerminalShop::Util::AnyHash,
           T.proc.returns(TerminalShop::Converter::Input),
           TerminalShop::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: TerminalShop::Util::AnyHash
       )
-        .returns(T.attached_class)
+        .void
     end
-    def self.new(type_info, spec = {})
+    def initialize(type_info, spec = {})
     end
   end
 
@@ -375,7 +371,19 @@ module TerminalShop
     abstract!
     final!
 
-    Elem = type_member(:out)
+    sig(:final) do
+      params(
+        type_info: T.any(
+          TerminalShop::Util::AnyHash,
+          T.proc.returns(TerminalShop::Converter::Input),
+          TerminalShop::Converter::Input
+        ),
+        spec: TerminalShop::Util::AnyHash
+      )
+        .returns(T.attached_class)
+    end
+    def self.[](type_info, spec = {})
+    end
 
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -389,7 +397,7 @@ module TerminalShop
     sig(:final) do
       override
         .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-        .returns(T.any(T::Hash[Symbol, T.anything], T.anything))
+        .returns(T.any(TerminalShop::Util::AnyHash, T.anything))
     end
     def coerce(value)
     end
@@ -398,7 +406,7 @@ module TerminalShop
     sig(:final) do
       override
         .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-        .returns(T.any(T::Hash[Symbol, T.anything], T.anything))
+        .returns(T.any(TerminalShop::Util::AnyHash, T.anything))
     end
     def dump(value)
     end
@@ -413,7 +421,7 @@ module TerminalShop
     end
 
     # @api private
-    sig(:final) { returns(Elem) }
+    sig(:final) { returns(T.anything) }
     protected def item_type
     end
 
@@ -421,15 +429,15 @@ module TerminalShop
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          TerminalShop::Util::AnyHash,
           T.proc.returns(TerminalShop::Converter::Input),
           TerminalShop::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: TerminalShop::Util::AnyHash
       )
-        .returns(T.attached_class)
+        .void
     end
-    def self.new(type_info, spec = {})
+    def initialize(type_info, spec = {})
     end
   end
 
@@ -457,6 +465,11 @@ module TerminalShop
         )
       end
       def known_fields
+      end
+
+      # @api private
+      sig { returns(T::Hash[Symbol, Symbol]) }
+      def reverse_map
       end
 
       # @api private
@@ -490,7 +503,7 @@ module TerminalShop
             T.proc.returns(TerminalShop::Converter::Input),
             TerminalShop::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: TerminalShop::Util::AnyHash
         )
           .void
       end
@@ -502,11 +515,11 @@ module TerminalShop
         params(
           name_sym: Symbol,
           type_info: T.any(
-            T::Hash[Symbol, T.anything],
+            TerminalShop::Util::AnyHash,
             T.proc.returns(TerminalShop::Converter::Input),
             TerminalShop::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: TerminalShop::Util::AnyHash
         )
           .void
       end
@@ -518,11 +531,11 @@ module TerminalShop
         params(
           name_sym: Symbol,
           type_info: T.any(
-            T::Hash[Symbol, T.anything],
+            TerminalShop::Util::AnyHash,
             T.proc.returns(TerminalShop::Converter::Input),
             TerminalShop::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: TerminalShop::Util::AnyHash
         )
           .void
       end
@@ -596,13 +609,23 @@ module TerminalShop
     #
     #   This method is not recursive. The returned value is shared by the object, so it
     #   should not be mutated.
-    sig { overridable.returns(T::Hash[Symbol, T.anything]) }
+    sig { overridable.returns(TerminalShop::Util::AnyHash) }
     def to_h
     end
 
-    alias_method :to_hash, :to_h
+    # Returns a Hash of the data underlying this object. O(1)
+    #
+    #   Keys are Symbols and values are the raw values from the response. The return
+    #   value indicates which values were ever set on the object. i.e. there will be a
+    #   key in this hash if they ever were, even if the set value was nil.
+    #
+    #   This method is not recursive. The returned value is shared by the object, so it
+    #   should not be mutated.
+    sig { overridable.returns(TerminalShop::Util::AnyHash) }
+    def to_hash
+    end
 
-    sig { params(keys: T.nilable(T::Array[Symbol])).returns(T::Hash[Symbol, T.anything]) }
+    sig { params(keys: T.nilable(T::Array[Symbol])).returns(TerminalShop::Util::AnyHash) }
     def deconstruct_keys(keys)
     end
 

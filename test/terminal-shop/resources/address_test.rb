@@ -4,13 +4,14 @@ require_relative "../test_helper"
 
 class TerminalShop::Test::Resources::AddressTest < TerminalShop::Test::ResourceTest
   def test_create_required_params
-    response = @terminal.address.create(
-      city: "Anytown",
-      country: "US",
-      name: "John Doe",
-      street1: "123 Main St",
-      zip: "12345"
-    )
+    response =
+      @terminal.address.create(
+        city: "Anytown",
+        country: "US",
+        name: "John Doe",
+        street1: "123 Main St",
+        zip: "12345"
+      )
 
     assert_pattern do
       response => TerminalShop::Models::AddressCreateResponse

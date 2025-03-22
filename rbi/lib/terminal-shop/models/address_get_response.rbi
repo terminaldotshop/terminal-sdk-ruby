@@ -5,14 +5,15 @@ module TerminalShop
     class AddressGetResponse < TerminalShop::BaseModel
       # Physical address associated with a Terminal shop user.
       sig { returns(TerminalShop::Models::AddressAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig { params(_: TerminalShop::Models::AddressAPI).returns(TerminalShop::Models::AddressAPI) }
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
-      sig { params(data: TerminalShop::Models::AddressAPI).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 

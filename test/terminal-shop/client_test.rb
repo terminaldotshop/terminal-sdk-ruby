@@ -80,11 +80,12 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_given_request_default_retry_attempts
-    terminal = TerminalShop::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 3
-    )
+    terminal =
+      TerminalShop::Client.new(
+        base_url: "http://localhost:4010",
+        bearer_token: "My Bearer Token",
+        max_retries: 3
+      )
     requester = MockRequester.new(500, {}, {})
     terminal.requester = requester
 
@@ -108,11 +109,12 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_given_request_given_retry_attempts
-    terminal = TerminalShop::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 3
-    )
+    terminal =
+      TerminalShop::Client.new(
+        base_url: "http://localhost:4010",
+        bearer_token: "My Bearer Token",
+        max_retries: 3
+      )
     requester = MockRequester.new(500, {}, {})
     terminal.requester = requester
 
@@ -124,11 +126,12 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_retry_after_seconds
-    terminal = TerminalShop::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    terminal =
+      TerminalShop::Client.new(
+        base_url: "http://localhost:4010",
+        bearer_token: "My Bearer Token",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after" => "1.3"}, {})
     terminal.requester = requester
 
@@ -141,11 +144,12 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_retry_after_date
-    terminal = TerminalShop::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    terminal =
+      TerminalShop::Client.new(
+        base_url: "http://localhost:4010",
+        bearer_token: "My Bearer Token",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after" => (Time.now + 10).httpdate}, {})
     terminal.requester = requester
 
@@ -160,11 +164,12 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_retry_after_ms
-    terminal = TerminalShop::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    terminal =
+      TerminalShop::Client.new(
+        base_url: "http://localhost:4010",
+        bearer_token: "My Bearer Token",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after-ms" => "1300"}, {})
     terminal.requester = requester
 

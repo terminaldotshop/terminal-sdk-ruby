@@ -16,6 +16,7 @@ module TerminalShop
     DEFAULT_MAX_RETRY_DELAY = 8.0
 
     # rubocop:disable Style/MutableConstant
+    # @type [Hash{Symbol=>String}]
     ENVIRONMENTS = {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"}
     # rubocop:enable Style/MutableConstant
 

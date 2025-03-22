@@ -5,12 +5,7 @@ module TerminalShop
     class AddressGetResponse < TerminalShop::BaseModel
       attr_accessor data: TerminalShop::Models::AddressAPI
 
-      def initialize:
-        (data: TerminalShop::Models::AddressAPI) -> void
-        | (
-          ?TerminalShop::Models::address_get_response
-          | TerminalShop::BaseModel data
-        ) -> void
+      def initialize: (data: TerminalShop::Models::AddressAPI) -> void
 
       def to_hash: -> TerminalShop::Models::address_get_response
     end

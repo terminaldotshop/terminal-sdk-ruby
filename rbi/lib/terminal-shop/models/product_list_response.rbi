@@ -5,14 +5,12 @@ module TerminalShop
     class ProductListResponse < TerminalShop::BaseModel
       # A list of products.
       sig { returns(T::Array[TerminalShop::Models::ProductAPI]) }
-      def data
-      end
+      attr_accessor :data
 
-      sig { params(_: T::Array[TerminalShop::Models::ProductAPI]).returns(T::Array[TerminalShop::Models::ProductAPI]) }
-      def data=(_)
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-
-      sig { params(data: T::Array[TerminalShop::Models::ProductAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

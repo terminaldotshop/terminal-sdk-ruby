@@ -5,57 +5,30 @@ module TerminalShop
     class SubscriptionAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # ID of the shipping address used for the subscription.
       sig { returns(String) }
-      def address_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def address_id=(_)
-      end
+      attr_accessor :address_id
 
       # ID of the card used for the subscription.
       sig { returns(String) }
-      def card_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def card_id=(_)
-      end
+      attr_accessor :card_id
 
       # ID of the product variant being subscribed to.
       sig { returns(String) }
-      def product_variant_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def product_variant_id=(_)
-      end
+      attr_accessor :product_variant_id
 
       # Quantity of the subscription.
       sig { returns(Integer) }
-      def quantity
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def quantity=(_)
-      end
+      attr_accessor :quantity
 
       # Next shipment and billing date for the subscription.
       sig { returns(T.nilable(String)) }
-      def next_
-      end
+      attr_reader :next_
 
-      sig { params(_: String).returns(String) }
-      def next_=(_)
-      end
+      sig { params(next_: String).void }
+      attr_writer :next_
 
       # Schedule of the subscription.
       sig do
@@ -68,25 +41,19 @@ module TerminalShop
           )
         )
       end
-      def schedule
-      end
+      attr_reader :schedule
 
       sig do
         params(
-          _: T.any(
+          schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Util::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
-          .returns(
-            T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-            )
-          )
+          .void
       end
-      def schedule=(_)
-      end
+      attr_writer :schedule
 
       # Subscription to a Terminal shop product.
       sig do
@@ -99,6 +66,7 @@ module TerminalShop
           next_: String,
           schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Util::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
@@ -128,26 +96,12 @@ module TerminalShop
       end
 
       # Schedule of the subscription.
-      class Schedule < TerminalShop::Union
-        abstract!
-
-        Variants = type_template(:out) do
-          {
-            fixed: T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-            )
-          }
-        end
+      module Schedule
+        extend TerminalShop::Union
 
         class Fixed < TerminalShop::BaseModel
           sig { returns(Symbol) }
-          def type
-          end
-
-          sig { params(_: Symbol).returns(Symbol) }
-          def type=(_)
-          end
+          attr_accessor :type
 
           sig { params(type: Symbol).returns(T.attached_class) }
           def self.new(type: :fixed)
@@ -160,20 +114,10 @@ module TerminalShop
 
         class Weekly < TerminalShop::BaseModel
           sig { returns(Integer) }
-          def interval
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def interval=(_)
-          end
+          attr_accessor :interval
 
           sig { returns(Symbol) }
-          def type
-          end
-
-          sig { params(_: Symbol).returns(Symbol) }
-          def type=(_)
-          end
+          attr_accessor :type
 
           sig { params(interval: Integer, type: Symbol).returns(T.attached_class) }
           def self.new(interval:, type: :weekly)
@@ -182,6 +126,15 @@ module TerminalShop
           sig { override.returns({interval: Integer, type: Symbol}) }
           def to_hash
           end
+        end
+
+        sig do
+          override
+            .returns(
+              [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+            )
+        end
+        def self.variants
         end
       end
     end

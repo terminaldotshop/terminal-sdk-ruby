@@ -5,14 +5,12 @@ module TerminalShop
     class CardListResponse < TerminalShop::BaseModel
       # List of cards associated with the user.
       sig { returns(T::Array[TerminalShop::Models::CardAPI]) }
-      def data
-      end
+      attr_accessor :data
 
-      sig { params(_: T::Array[TerminalShop::Models::CardAPI]).returns(T::Array[TerminalShop::Models::CardAPI]) }
-      def data=(_)
+      sig do
+        params(data: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)])
+          .returns(T.attached_class)
       end
-
-      sig { params(data: T::Array[TerminalShop::Models::CardAPI]).returns(T.attached_class) }
       def self.new(data:)
       end
 

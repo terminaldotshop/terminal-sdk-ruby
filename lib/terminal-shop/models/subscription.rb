@@ -68,10 +68,10 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
-      # @abstract
-      #
       # Schedule of the subscription.
-      class Schedule < TerminalShop::Union
+      module Schedule
+        extend TerminalShop::Union
+
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Fixed }
 
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Weekly }
@@ -111,10 +111,8 @@ module TerminalShop
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
+        #   def self.variants; end
       end
     end
   end

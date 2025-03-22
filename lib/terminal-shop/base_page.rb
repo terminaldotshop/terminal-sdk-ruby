@@ -2,32 +2,29 @@
 
 module TerminalShop
   # @example
-  # ```ruby
-  # if page.has_next?
-  #   page = page.next_page
-  # end
-  # ```
+  #   if page.has_next?
+  #     page = page.next_page
+  #   end
   #
   # @example
-  # ```ruby
-  # page.auto_paging_each do |product|
-  #   puts(product)
-  # end
-  # ```
+  #   page.auto_paging_each do |product|
+  #     puts(product)
+  #   end
   #
   # @example
-  # ```ruby
-  # products = page
-  #   .to_enum
-  #   .lazy
-  #   .select { _1.object_id.even? }
-  #   .map(&:itself)
-  #   .take(2)
-  #   .to_a
+  #   products =
+  #     page
+  #     .to_enum
+  #     .lazy
+  #     .select { _1.object_id.even? }
+  #     .map(&:itself)
+  #     .take(2)
+  #     .to_a
   #
-  # products => Array
-  # ```
+  #   products => Array
   module BasePage
+    # rubocop:disable Lint/UnusedMethodArgument
+
     # @return [Boolean]
     def next_page? = (raise NotImplementedError)
 
@@ -56,5 +53,7 @@ module TerminalShop
       @req = req
       super()
     end
+
+    # rubocop:enable Lint/UnusedMethodArgument
   end
 end

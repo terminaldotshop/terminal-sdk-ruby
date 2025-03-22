@@ -5,41 +5,44 @@ module TerminalShop
   class BaseClient
     abstract!
 
-    RequestComponentsShape = T.type_alias do
-      {
-        method: Symbol,
-        path: T.any(String, T::Array[String]),
-        query: T.nilable(T::Hash[String, T.nilable(T.any(T::Array[String], String))]),
-        headers: T.nilable(
-          T::Hash[String,
-                  T.nilable(
-                    T.any(
-                      String,
-                      Integer,
-                      T::Array[T.nilable(T.any(String, Integer))]
-                    )
-                  )]
-        ),
-        body: T.nilable(T.anything),
-        unwrap: T.nilable(Symbol),
-        page: T.nilable(T::Class[TerminalShop::BasePage[TerminalShop::BaseModel]]),
-        stream: T.nilable(T::Class[T.anything]),
-        model: T.nilable(TerminalShop::Converter::Input),
-        options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
-      }
-    end
+    RequestComponentsShape =
+      T.type_alias do
+        {
+          method: Symbol,
+          path: T.any(String, T::Array[String]),
+          query: T.nilable(T::Hash[String, T.nilable(T.any(T::Array[String], String))]),
+          headers: T.nilable(
+            T::Hash[String,
+                    T.nilable(
+                      T.any(
+                        String,
+                        Integer,
+                        T::Array[T.nilable(T.any(String, Integer))]
+                      )
+                    )]
+          ),
+          body: T.nilable(T.anything),
+          unwrap: T.nilable(Symbol),
+          page: T.nilable(T::Class[TerminalShop::BasePage[TerminalShop::BaseModel]]),
+          stream: T.nilable(T::Class[T.anything]),
+          model: T.nilable(TerminalShop::Converter::Input),
+          options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+        }
+      end
 
-    RequestInputShape = T.type_alias do
-      {
-        method: Symbol,
-        url: URI::Generic,
-        headers: T::Hash[String, String],
-        body: T.anything,
-        max_retries: Integer,
-        timeout: Float
-      }
-    end
+    RequestInputShape =
+      T.type_alias do
+        {
+          method: Symbol,
+          url: URI::Generic,
+          headers: T::Hash[String, String],
+          body: T.anything,
+          max_retries: Integer,
+          timeout: Float
+        }
+      end
 
+    # from whatwg fetch spec
     MAX_REDIRECTS = 20
 
     PLATFORM_HEADERS = T::Hash[String, String]
@@ -81,13 +84,9 @@ module TerminalShop
       end
     end
 
+    # @api private
     sig { returns(T.anything) }
-    def requester
-    end
-
-    sig { params(_: T.anything).returns(T.anything) }
-    def requester=(_)
-    end
+    attr_accessor :requester
 
     # @api private
     sig do
@@ -127,7 +126,7 @@ module TerminalShop
     # @api private
     sig do
       overridable
-        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .params(req: TerminalShop::BaseClient::RequestComponentsShape, opts: TerminalShop::Util::AnyHash)
         .returns(TerminalShop::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
@@ -173,7 +172,7 @@ module TerminalShop
         page: T.nilable(T::Class[TerminalShop::BasePage[TerminalShop::BaseModel]]),
         stream: T.nilable(T::Class[T.anything]),
         model: T.nilable(TerminalShop::Converter::Input),
-        options: T.nilable(T.any(TerminalShop::RequestOptions, T::Hash[Symbol, T.anything]))
+        options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
       )
         .returns(T.anything)
     end

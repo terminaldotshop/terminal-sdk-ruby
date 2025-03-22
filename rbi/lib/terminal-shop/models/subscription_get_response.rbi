@@ -5,14 +5,15 @@ module TerminalShop
     class SubscriptionGetResponse < TerminalShop::BaseModel
       # Subscription to a Terminal shop product.
       sig { returns(TerminalShop::Models::SubscriptionAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig { params(_: TerminalShop::Models::SubscriptionAPI).returns(TerminalShop::Models::SubscriptionAPI) }
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
-      sig { params(data: TerminalShop::Models::SubscriptionAPI).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 
