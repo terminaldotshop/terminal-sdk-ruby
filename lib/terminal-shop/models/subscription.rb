@@ -111,10 +111,8 @@ module TerminalShop
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
+        #   def self.variants; end
       end
     end
   end
