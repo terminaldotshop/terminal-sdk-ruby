@@ -4,15 +4,10 @@ module TerminalShop
   module Models
     class TokenCreateResponse < TerminalShop::BaseModel
       sig { returns(TerminalShop::Models::TokenCreateResponse::Data) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig do
         params(data: T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Util::AnyHash))
@@ -28,22 +23,12 @@ module TerminalShop
       class Data < TerminalShop::BaseModel
         # Personal token ID.
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # Personal access token. Include this in the Authorization header
         #   (`Bearer <token>`) when accessing the Terminal API.
         sig { returns(String) }
-        def token
-        end
-
-        sig { params(_: String).returns(String) }
-        def token=(_)
-        end
+        attr_accessor :token
 
         sig { params(id: String, token: String).returns(T.attached_class) }
         def self.new(id:, token:)

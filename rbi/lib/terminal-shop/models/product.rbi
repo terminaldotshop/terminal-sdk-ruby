@@ -5,75 +5,40 @@ module TerminalShop
     class ProductAPI < TerminalShop::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Description of the product.
       sig { returns(String) }
-      def description
-      end
-
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # Name of the product.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # List of variants of the product.
       sig { returns(T::Array[TerminalShop::Models::ProductVariant]) }
-      def variants
-      end
-
-      sig do
-        params(_: T::Array[TerminalShop::Models::ProductVariant])
-          .returns(T::Array[TerminalShop::Models::ProductVariant])
-      end
-      def variants=(_)
-      end
+      attr_accessor :variants
 
       # Order of the product used when displaying a sorted list of products.
       sig { returns(T.nilable(Integer)) }
-      def order
-      end
+      attr_reader :order
 
-      sig { params(_: Integer).returns(Integer) }
-      def order=(_)
-      end
+      sig { params(order: Integer).void }
+      attr_writer :order
 
       # Whether the product must be or can be subscribed to.
       sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)) }
-      def subscription
-      end
+      attr_reader :subscription
 
-      sig do
-        params(_: TerminalShop::Models::ProductAPI::Subscription::OrSymbol)
-          .returns(TerminalShop::Models::ProductAPI::Subscription::OrSymbol)
-      end
-      def subscription=(_)
-      end
+      sig { params(subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol).void }
+      attr_writer :subscription
 
       # Tags for the product.
       sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
-      def tags
-      end
+      attr_reader :tags
 
-      sig do
-        params(_: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash))
-      end
-      def tags=(_)
-      end
+      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash)).void }
+      attr_writer :tags
 
       # Product sold in the Terminal shop.
       sig do
@@ -127,44 +92,34 @@ module TerminalShop
 
       class Tags < TerminalShop::BaseModel
         sig { returns(T.nilable(String)) }
-        def app
-        end
+        attr_reader :app
 
-        sig { params(_: String).returns(String) }
-        def app=(_)
-        end
+        sig { params(app: String).void }
+        attr_writer :app
 
         sig { returns(T.nilable(String)) }
-        def color
-        end
+        attr_reader :color
 
-        sig { params(_: String).returns(String) }
-        def color=(_)
-        end
+        sig { params(color: String).void }
+        attr_writer :color
 
         sig { returns(T.nilable(T::Boolean)) }
-        def featured
-        end
+        attr_reader :featured
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def featured=(_)
-        end
+        sig { params(featured: T::Boolean).void }
+        attr_writer :featured
 
         sig { returns(T.nilable(T::Boolean)) }
-        def market_eu
-        end
+        attr_reader :market_eu
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def market_eu=(_)
-        end
+        sig { params(market_eu: T::Boolean).void }
+        attr_writer :market_eu
 
         sig { returns(T.nilable(T::Boolean)) }
-        def market_na
-        end
+        attr_reader :market_na
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def market_na=(_)
-        end
+        sig { params(market_na: T::Boolean).void }
+        attr_writer :market_na
 
         # Tags for the product.
         sig do

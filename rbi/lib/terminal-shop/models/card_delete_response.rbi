@@ -4,12 +4,7 @@ module TerminalShop
   module Models
     class CardDeleteResponse < TerminalShop::BaseModel
       sig { returns(Symbol) }
-      def data
-      end
-
-      sig { params(_: Symbol).returns(Symbol) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { params(data: Symbol).returns(T.attached_class) }
       def self.new(data: :ok)

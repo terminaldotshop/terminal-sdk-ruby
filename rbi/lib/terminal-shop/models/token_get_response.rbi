@@ -6,15 +6,10 @@ module TerminalShop
       # A personal access token used to access the Terminal API. If you leak this,
       #   expect large sums of coffee to be ordered on your credit card.
       sig { returns(TerminalShop::Models::TokenAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig { params(data: T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)

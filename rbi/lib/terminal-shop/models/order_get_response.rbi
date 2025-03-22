@@ -5,15 +5,10 @@ module TerminalShop
     class OrderGetResponse < TerminalShop::BaseModel
       # An order from the Terminal shop.
       sig { returns(TerminalShop::Models::OrderAPI) }
-      def data
-      end
+      attr_reader :data
 
-      sig do
-        params(_: T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash))
-          .returns(T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash))
-      end
-      def data=(_)
-      end
+      sig { params(data: T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)).void }
+      attr_writer :data
 
       sig { params(data: T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
       def self.new(data:)
