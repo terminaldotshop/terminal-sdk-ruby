@@ -74,7 +74,7 @@ module TerminalShop
         params(
           id: String,
           amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash),
-          items: T::Array[TerminalShop::Models::OrderAPI::Item],
+          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Util::AnyHash)],
           shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash),
           tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash),
           index: Integer

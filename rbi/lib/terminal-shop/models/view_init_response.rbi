@@ -122,16 +122,16 @@ module TerminalShop
         # Initial app data.
         sig do
           params(
-            addresses: T::Array[TerminalShop::Models::AddressAPI],
-            apps: T::Array[TerminalShop::Models::AppAPI],
-            cards: T::Array[TerminalShop::Models::CardAPI],
+            addresses: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash)],
+            apps: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)],
+            cards: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)],
             cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash),
-            orders: T::Array[TerminalShop::Models::OrderAPI],
-            products: T::Array[TerminalShop::Models::ProductAPI],
+            orders: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)],
+            products: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash)],
             profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash),
-            region: TerminalShop::Models::Region::TaggedSymbol,
-            subscriptions: T::Array[TerminalShop::Models::SubscriptionAPI],
-            tokens: T::Array[TerminalShop::Models::TokenAPI]
+            region: TerminalShop::Models::Region::OrSymbol,
+            subscriptions: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Util::AnyHash)],
+            tokens: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash)]
           )
             .returns(T.attached_class)
         end

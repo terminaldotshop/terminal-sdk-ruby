@@ -70,7 +70,7 @@ module TerminalShop
       sig do
         params(
           amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash),
-          items: T::Array[TerminalShop::Models::CartAPI::Item],
+          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Util::AnyHash)],
           subtotal: Integer,
           address_id: String,
           card_id: String,

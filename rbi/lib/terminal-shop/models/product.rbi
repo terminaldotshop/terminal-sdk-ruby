@@ -57,8 +57,8 @@ module TerminalShop
       end
 
       sig do
-        params(_: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
-          .returns(TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+        params(_: TerminalShop::Models::ProductAPI::Subscription::OrSymbol)
+          .returns(TerminalShop::Models::ProductAPI::Subscription::OrSymbol)
       end
       def subscription=(_)
       end
@@ -81,9 +81,9 @@ module TerminalShop
           id: String,
           description: String,
           name: String,
-          variants: T::Array[TerminalShop::Models::ProductVariant],
+          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Util::AnyHash)],
           order: Integer,
-          subscription: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol,
+          subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol,
           tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash)
         )
           .returns(T.attached_class)

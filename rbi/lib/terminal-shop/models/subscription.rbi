@@ -75,12 +75,14 @@ module TerminalShop
         params(
           _: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Util::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
           .returns(
             T.any(
               TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::Util::AnyHash,
               TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
             )
           )
@@ -99,6 +101,7 @@ module TerminalShop
           next_: String,
           schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
+            TerminalShop::Util::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
