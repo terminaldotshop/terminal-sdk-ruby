@@ -1,5 +1,50 @@
 # Changelog
 
+## 2.0.0 (2025-03-25)
+
+Full Changelog: [v1.8.0...v2.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.8.0...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* use tagged enums in sorbet type definitions ([#149](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/149))
+* support `for item in stream` style iteration on `Stream`s ([#147](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/147))
+* **model:** base model should recursively store coerced base models ([#137](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/137))
+
+### Features
+
+* consistently accept `AnyHash` types in parameter positions in sorbet ([#154](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/154)) ([6cefe4a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6cefe4ab706715474ac887aca67bafc143dcbb0a))
+* prevent tapioca from introspecting the gem internals ([#153](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/153)) ([5011827](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/501182798fa342ffeedb997d121b9697e5a37be5))
+* support `for item in stream` style iteration on `Stream`s ([#147](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/147)) ([a9a0637](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a9a0637c4d840e72fdc2a1372dd2d6bb25b8b253))
+* use tagged enums in sorbet type definitions ([#149](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/149)) ([4b05e5a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4b05e5aed976c377fc97fd3671daab735199f06b))
+
+
+### Bug Fixes
+
+* label optional keyword arguments in *.rbs type definitions ([#145](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/145)) ([70cf7ef](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/70cf7ef46f26ce882dc77bd9e0668d04a9cb130d))
+* **model:** base model should recursively store coerced base models ([#137](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/137)) ([8cad153](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8cad1530e9c7b24a7221d49e8931976a9b0ce7e2))
+* resolve tapioca derived sorbet errors ([#148](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/148)) ([66fe6fd](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/66fe6fd86709abc23cd21134751e1ec1a31a0175))
+* yard example tag formatting ([#151](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/151)) ([70a6222](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/70a6222b40e382a5a609f34a9fdcd3e0566b111f))
+
+
+### Chores
+
+* `BaseModel` fields that are `BaseModel` typed should also accept `Hash` ([#150](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/150)) ([cb1aac7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cb1aac74d07106befba8f0c2a4eea7858c51b921))
+* add `[@yieldparam](https://github.com/yieldparam)` to yard doc ([#141](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/141)) ([075f5c3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/075f5c35dfeee29cd9c7f5a8c16c441e0acbfc88))
+* add example directory ([#144](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/144)) ([1e59727](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1e59727ab6898afcc41d4156a872582f8fc0016b))
+* add type annotations for enum and union member listing methods ([#152](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/152)) ([7a7244f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7a7244f3355e1e90c8c23a662c15dc435f3f6e70))
+* disable dangerous rubocop auto correct rule ([#158](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/158)) ([27ae891](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/27ae891e623328a3841d303e4c8a3ed69ab6b576))
+* disable overloads in `*.rbs` definitions for readable LSP errors ([#146](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/146)) ([1949bd3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1949bd3649e5001a2e78c77db982f8874ce90534))
+* disable unnecessary linter rules for sorbet manifests ([#140](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/140)) ([6f03c74](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6f03c742d81019c0522cdd8327286822886851d8))
+* document Client's concurrency capability ([#139](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/139)) ([b82b7f1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b82b7f11ff2f4b7e93c0dfbb8dd6b4c42b9bc937))
+* ignore some spurious linter warnings and formatting changes ([#138](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/138)) ([51f528b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/51f528bd6be973ba96bf490ae0cab566c9d46e11))
+* **internal:** add sorbet config for SDK local development ([#143](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/143)) ([8a52423](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8a524237189bb26392c8fa3cc3485f20a8ea5aa4))
+* **internal:** codegen related update ([#135](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/135)) ([cb13df6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cb13df606e43c2688047741d95cf3a06bb5b44dc))
+* more readable output when tests fail ([#159](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/159)) ([1348893](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1348893157018206955031f89ce969a08221a0c4))
+* recursively accept `AnyHash` for `BaseModel`s in arrays and hashes ([#155](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/155)) ([10ce2b0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/10ce2b0f480180e8a836901b893660947a79e911))
+* reduce verbosity in type declarations ([#157](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/157)) ([98a858b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/98a858b21fa89b7053410c5520122f55942cc630))
+* switch to prettier looking sorbet annotations ([#156](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/156)) ([255d4bb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/255d4bb60cfbbe4a208e1d69ab2d0b352702a105))
+* use multi-line formatting style for really long lines ([#142](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/142)) ([819d330](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/819d330df867876f87cac3e8fd5af23b46e6e72d))
+
 ## 1.8.0 (2025-03-18)
 
 Full Changelog: [v1.7.0...v1.8.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.7.0...v1.8.0)
