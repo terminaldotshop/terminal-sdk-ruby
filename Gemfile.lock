@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    terminal-shop (1.8.0)
+    terminal-shop (2.0.0)
       connection_pool
 
 GEM
