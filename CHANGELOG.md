@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.1.0 (2025-03-29)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **internal:** converter interface should recurse without schema ([#164](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/164)) ([937b71d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/937b71d533293ffb72664cb6309bd7495ebc13b5))
+
+
+### Chores
+
+* **internal:** minor refactoring of utils ([#163](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/163)) ([b228505](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b228505336a27aa7dbfe4e57e2787689d4557c9f))
+* **internal:** version bump ([#160](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/160)) ([8415526](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8415526eea907cf13ef34bab332ae124de9dc8a0))
+* more aggressive tapioca detection logic for skipping compiler introspection ([#162](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/162)) ([6e33743](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6e33743e2aefe7d6fa17bed99d25a391ceea78c4))
+
 ## 2.0.0 (2025-03-25)
 
 Full Changelog: [v1.8.0...v2.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.8.0...v2.0.0)
