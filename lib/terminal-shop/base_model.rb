@@ -9,22 +9,34 @@ module TerminalShop
     #
     # @param value [Object]
     #
+    # @param state [Hash{Symbol=>Object}] .
+    #
+    #   @option state [Boolean, :strong] :strictness
+    #
+    #   @option state [Hash{Symbol=>Object}] :exactness
+    #
+    #   @option state [Integer] :branched
+    #
     # @return [Object]
-    def coerce(value) = value
+    def coerce(value, state:) = (raise NotImplementedError)
 
     # @api private
     #
     # @param value [Object]
     #
     # @return [Object]
-    def dump(value) = value
-
-    # @api private
-    #
-    # @param value [Object]
-    #
-    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    def try_strict_coerce(value) = (raise NotImplementedError)
+    def dump(value)
+      case value
+      in Array
+        value.map { TerminalShop::Unknown.dump(_1) }
+      in Hash
+        value.transform_values { TerminalShop::Unknown.dump(_1) }
+      in TerminalShop::BaseModel
+        value.class.dump(value)
+      else
+        value
+      end
+    end
 
     # rubocop:enable Lint/UnusedMethodArgument
 
@@ -44,14 +56,14 @@ module TerminalShop
       # @return [Proc]
       def type_info(spec)
         case spec
-        in Hash
-          type_info(spec.slice(:const, :enum, :union).first&.last)
         in Proc
           spec
-        in TerminalShop::Converter | Module | Symbol
-          -> { spec }
+        in Hash
+          type_info(spec.slice(:const, :enum, :union).first&.last)
         in true | false
           -> { TerminalShop::BooleanModel }
+        in TerminalShop::Converter | Class | Symbol
+          -> { spec }
         in NilClass | Integer | Float
           -> { spec.class }
         end
@@ -66,41 +78,117 @@ module TerminalShop
       #      converted value
       #   3. otherwise, the given `value` unaltered
       #
+      #   The coercion process is subject to improvement between minor release versions.
+      #   See https://docs.pydantic.dev/latest/concepts/unions/#smart-mode
+      #
       # @param target [TerminalShop::Converter, Class]
+      #
       # @param value [Object]
       #
+      # @param state [Hash{Symbol=>Object}] The `strictness` is one of `true`, `false`, or `:strong`. This informs the
+      #   coercion strategy when we have to decide between multiple possible conversion
+      #   targets:
+      #
+      #   - `true`: the conversion must be exact, with minimum coercion.
+      #   - `false`: the conversion can be approximate, with some coercion.
+      #   - `:strong`: the conversion must be exact, with no coercion, and raise an error
+      #     if not possible.
+      #
+      #   The `exactness` is `Hash` with keys being one of `yes`, `no`, or `maybe`. For
+      #   any given conversion attempt, the exactness will be updated based on how closely
+      #   the value recursively matches the target type:
+      #
+      #   - `yes`: the value can be converted to the target type with minimum coercion.
+      #   - `maybe`: the value can be converted to the target type with some reasonable
+      #     coercion.
+      #   - `no`: the value cannot be converted to the target type.
+      #
+      #   See implementation below for more details.
+      #
+      #   @option state [Boolean, :strong] :strictness
+      #
+      #   @option state [Hash{Symbol=>Object}] :exactness
+      #
+      #   @option state [Integer] :branched
+      #
       # @return [Object]
-      def coerce(target, value)
+      def coerce(target, value, state: {strictness: true, exactness: {yes: 0, no: 0, maybe: 0}, branched: 0})
+        strictness, exactness = state.fetch_values(:strictness, :exactness)
+
         case target
         in TerminalShop::Converter
-          target.coerce(value)
-        in Symbol
-          case value
-          in Symbol | String if (val = value.to_sym) == target
-            val
-          else
-            value
+          return target.coerce(value, state: state)
+        in Class
+          if value.is_a?(target)
+            exactness[:yes] += 1
+            return value
           end
-        in Module
+
           case target
           in -> { _1 <= NilClass }
-            nil
+            exactness[value.nil? ? :yes : :maybe] += 1
+            return nil
           in -> { _1 <= Integer }
-            value.is_a?(Numeric) ? Integer(value) : value
+            if value.is_a?(Integer)
+              exactness[:yes] += 1
+              return value
+            elsif strictness == :strong
+              message = "no implicit conversion of #{value.class} into #{target.inspect}"
+              raise TypeError.new(message)
+            else
+              Kernel.then do
+                return Integer(value).tap { exactness[:maybe] += 1 }
+              rescue ArgumentError, TypeError
+              end
+            end
           in -> { _1 <= Float }
-            value.is_a?(Numeric) ? Float(value) : value
-          in -> { _1 <= Symbol }
-            value.is_a?(String) ? value.to_sym : value
+            if value.is_a?(Numeric)
+              exactness[:yes] += 1
+              return Float(value)
+            elsif strictness == :strong
+              message = "no implicit conversion of #{value.class} into #{target.inspect}"
+              raise TypeError.new(message)
+            else
+              Kernel.then do
+                return Float(value).tap { exactness[:maybe] += 1 }
+              rescue ArgumentError, TypeError
+              end
+            end
           in -> { _1 <= String }
-            value.is_a?(Symbol) ? value.to_s : value
+            case value
+            in String | Symbol | Numeric
+              exactness[value.is_a?(Numeric) ? :maybe : :yes] += 1
+              return value.to_s
+            else
+              if strictness == :strong
+                message = "no implicit conversion of #{value.class} into #{target.inspect}"
+                raise TypeError.new(message)
+              end
+            end
           in -> { _1 <= Date || _1 <= Time }
-            value.is_a?(String) ? target.parse(value) : value
-          in -> { _1 <= IO }
-            value.is_a?(String) ? StringIO.new(value) : value
+            Kernel.then do
+              return target.parse(value).tap { exactness[:yes] += 1 }
+            rescue ArgumentError, TypeError => e
+              raise e if strictness == :strong
+            end
+          in -> { _1 <= IO } if value.is_a?(String)
+            exactness[:yes] += 1
+            return StringIO.new(value.b)
           else
-            value
           end
+        in Symbol
+          if (value.is_a?(Symbol) || value.is_a?(String)) && value.to_sym == target
+            exactness[:yes] += 1
+            return target
+          elsif strictness == :strong
+            message = "cannot convert non-matching #{value.class} into #{target.inspect}"
+            raise ArgumentError.new(message)
+          end
+        else
         end
+
+        exactness[:no] += 1
+        value
       end
 
       # @api private
@@ -110,64 +198,7 @@ module TerminalShop
       #
       # @return [Object]
       def dump(target, value)
-        case target
-        in TerminalShop::Converter
-          target.dump(value)
-        else
-          value
-        end
-      end
-
-      # @api private
-      #
-      # The underlying algorithm for computing maximal compatibility is subject to
-      #   future improvements.
-      #
-      #   Similar to `#.coerce`, used to determine the best union variant to decode into.
-      #
-      #   1. determine if strict-ish coercion is possible
-      #   2. return either result of successful coercion or if loose coercion is possible
-      #   3. return a score for recursively tallied count for fields that can be coerced
-      #
-      # @param target [TerminalShop::Converter, Class]
-      # @param value [Object]
-      #
-      # @return [Object]
-      def try_strict_coerce(target, value)
-        case target
-        in TerminalShop::Converter
-          target.try_strict_coerce(value)
-        in Symbol
-          case value
-          in Symbol | String if (val = value.to_sym) == target
-            [true, val, 1]
-          else
-            [false, false, 0]
-          end
-        in Module
-          case [target, value]
-          in [-> { _1 <= NilClass }, _]
-            [true, nil, value.nil? ? 1 : 0]
-          in [-> { _1 <= Integer }, Numeric]
-            [true, Integer(value), 1]
-          in [-> { _1 <= Float }, Numeric]
-            [true, Float(value), 1]
-          in [-> { _1 <= Symbol }, String]
-            [true, value.to_sym, 1]
-          in [-> { _1 <= String }, Symbol]
-            [true, value.to_s, 1]
-          in [-> { _1 <= Date || _1 <= Time }, String]
-            Kernel.then do
-              [true, target.parse(value), 1]
-            rescue ArgumentError
-              [false, false, 0]
-            end
-          in [_, ^target]
-            [true, value, 1]
-          else
-            [false, false, 0]
-          end
-        end
+        target.is_a?(TerminalShop::Converter) ? target.dump(value) : TerminalShop::Unknown.dump(value)
       end
     end
   end
@@ -193,13 +224,23 @@ module TerminalShop
     def self.==(other) = other.is_a?(Class) && other <= TerminalShop::Unknown
 
     class << self
-      # @!parse
-      #   # @api private
-      #   #
-      #   # @param value [Object]
-      #   #
-      #   # @return [Object]
-      #   def coerce(value) = super
+      # @api private
+      #
+      # @param value [Object]
+      #
+      # @param state [Hash{Symbol=>Object}] .
+      #
+      #   @option state [Boolean, :strong] :strictness
+      #
+      #   @option state [Hash{Symbol=>Object}] :exactness
+      #
+      #   @option state [Integer] :branched
+      #
+      # @return [Object]
+      def coerce(value, state:)
+        state.fetch(:exactness)[:yes] += 1
+        value
+      end
 
       # @!parse
       #   # @api private
@@ -208,16 +249,6 @@ module TerminalShop
       #   #
       #   # @return [Object]
       #   def dump(value) = super
-
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      def try_strict_coerce(value)
-        # prevent unknown variant from being chosen during the first coercion pass
-        [false, true, 0]
-      end
     end
 
     # rubocop:enable Lint/UnusedMethodArgument
@@ -242,13 +273,23 @@ module TerminalShop
     def self.==(other) = other.is_a?(Class) && other <= TerminalShop::BooleanModel
 
     class << self
-      # @!parse
-      #   # @api private
-      #   #
-      #   # @param value [Boolean, Object]
-      #   #
-      #   # @return [Boolean, Object]
-      #   def coerce(value) = super
+      # @api private
+      #
+      # @param value [Boolean, Object]
+      #
+      # @param state [Hash{Symbol=>Object}] .
+      #
+      #   @option state [Boolean, :strong] :strictness
+      #
+      #   @option state [Hash{Symbol=>Object}] :exactness
+      #
+      #   @option state [Integer] :branched
+      #
+      # @return [Boolean, Object]
+      def coerce(value, state:)
+        state.fetch(:exactness)[value == true || value == false ? :yes : :no] += 1
+        value
+      end
 
       # @!parse
       #   # @api private
@@ -257,20 +298,6 @@ module TerminalShop
       #   #
       #   # @return [Boolean, Object]
       #   def dump(value) = super
-
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      def try_strict_coerce(value)
-        case value
-        in true | false
-          [true, value, 1]
-        else
-          [false, false, 0]
-        end
-      end
     end
   end
 
@@ -329,19 +356,34 @@ module TerminalShop
     #
     # @return [Boolean]
     def ==(other)
-      other.is_a?(Module) && other.singleton_class.ancestors.include?(TerminalShop::Enum) && other.values.to_set == values.to_set
+      other.is_a?(Module) && other.singleton_class <= TerminalShop::Enum && other.values.to_set == values.to_set
     end
 
     # @api private
     #
+    # Unlike with primitives, `Enum` additionally validates that the value is a member
+    #   of the enum.
+    #
     # @param value [String, Symbol, Object]
     #
+    # @param state [Hash{Symbol=>Object}] .
+    #
+    #   @option state [Boolean, :strong] :strictness
+    #
+    #   @option state [Hash{Symbol=>Object}] :exactness
+    #
+    #   @option state [Integer] :branched
+    #
     # @return [Symbol, Object]
-    def coerce(value)
-      case value
-      in Symbol | String if values.include?(val = value.to_sym)
+    def coerce(value, state:)
+      exactness = state.fetch(:exactness)
+      val = value.is_a?(String) ? value.to_sym : value
+
+      if values.include?(val)
+        exactness[:yes] += 1
         val
       else
+        exactness[values.first&.class == val.class ? :maybe : :no] += 1
         value
       end
     end
@@ -353,27 +395,6 @@ module TerminalShop
     #   #
     #   # @return [Symbol, Object]
     #   def dump(value) = super
-
-    # @api private
-    #
-    # @param value [Object]
-    #
-    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    def try_strict_coerce(value)
-      return [true, value, 1] if values.include?(value)
-
-      case value
-      in Symbol | String if values.include?(val = value.to_sym)
-        [true, val, 1]
-      else
-        case [value, values.first]
-        in [true | false, true | false] | [Integer, Integer] | [Symbol | String, Symbol]
-          [false, true, 0]
-        else
-          [false, false, 0]
-        end
-      end
-    end
   end
 
   # @api private
@@ -397,9 +418,7 @@ module TerminalShop
     # All of the specified variants for this union.
     #
     # @return [Array<Object>]
-    def variants
-      derefed_variants.map(&:last)
-    end
+    def variants = derefed_variants.map(&:last)
 
     # @api private
     #
@@ -429,7 +448,7 @@ module TerminalShop
         case key
         in Symbol
           [key, TerminalShop::Converter.type_info(spec)]
-        in Proc | TerminalShop::Converter | Module | Hash
+        in Proc | TerminalShop::Converter | Class | Hash
           [nil, TerminalShop::Converter.type_info(key)]
         end
 
@@ -446,16 +465,14 @@ module TerminalShop
       in [_, TerminalShop::BaseModel]
         value.class
       in [Symbol, Hash]
-        key =
-          if value.key?(@discriminator)
-            value.fetch(@discriminator)
-          elsif value.key?((discriminator = @discriminator.to_s))
-            value.fetch(discriminator)
-          end
+        key = value.fetch(@discriminator) do
+          value.fetch(@discriminator.to_s, TerminalShop::Util::OMIT)
+        end
+
+        return nil if key == TerminalShop::Util::OMIT
 
         key = key.to_sym if key.is_a?(String)
-        _, resolved = known_variants.find { |k,| k == key }
-        resolved.nil? ? TerminalShop::Unknown : resolved.call
+        known_variants.find { |k,| k == key }&.last&.call
       else
         nil
       end
@@ -477,36 +494,63 @@ module TerminalShop
     #
     # @return [Boolean]
     def ==(other)
-      other.is_a?(Module) && other.singleton_class.ancestors.include?(TerminalShop::Union) && other.derefed_variants == derefed_variants
+      other.is_a?(Module) && other.singleton_class <= TerminalShop::Union && other.derefed_variants == derefed_variants
     end
 
     # @api private
     #
     # @param value [Object]
     #
+    # @param state [Hash{Symbol=>Object}] .
+    #
+    #   @option state [Boolean, :strong] :strictness
+    #
+    #   @option state [Hash{Symbol=>Object}] :exactness
+    #
+    #   @option state [Integer] :branched
+    #
     # @return [Object]
-    def coerce(value)
-      if (variant = resolve_variant(value))
-        return TerminalShop::Converter.coerce(variant, value)
+    def coerce(value, state:)
+      if (target = resolve_variant(value))
+        return TerminalShop::Converter.coerce(target, value, state: state)
       end
 
-      matches = []
+      strictness = state.fetch(:strictness)
+      exactness = state.fetch(:exactness)
+      state[:strictness] = strictness == :strong ? true : strictness
 
+      alternatives = []
       known_variants.each do |_, variant_fn|
-        variant = variant_fn.call
+        target = variant_fn.call
+        exact = state[:exactness] = {yes: 0, no: 0, maybe: 0}
+        state[:branched] += 1
 
-        case TerminalShop::Converter.try_strict_coerce(variant, value)
-        in [true, coerced, _]
+        coerced = TerminalShop::Converter.coerce(target, value, state: state)
+        yes, no, maybe = exact.values
+        if (no + maybe).zero? || (!strictness && yes.positive?)
+          exact.each { exactness[_1] += _2 }
+          state[:exactness] = exactness
           return coerced
-        in [false, true, score]
-          matches << [score, variant]
-        in [false, false, _]
-          nil
+        elsif maybe.positive?
+          alternatives << [[-yes, -maybe, no], exact, coerced]
         end
       end
 
-      _, variant = matches.sort! { _2.first <=> _1.first }.find { |score,| !score.zero? }
-      variant.nil? ? value : TerminalShop::Converter.coerce(variant, value)
+      case alternatives.sort_by(&:first)
+      in []
+        exactness[:no] += 1
+        if strictness == :strong
+          message = "no possible conversion of #{value.class} into a variant of #{target.inspect}"
+          raise ArgumentError.new(message)
+        end
+        value
+      in [[_, exact, coerced], *]
+        exact.each { exactness[_1] += _2 }
+        coerced
+      end
+        .tap { state[:exactness] = exactness }
+    ensure
+      state[:strictness] = strictness
     end
 
     # @api private
@@ -515,49 +559,16 @@ module TerminalShop
     #
     # @return [Object]
     def dump(value)
-      if (variant = resolve_variant(value))
-        return TerminalShop::Converter.dump(variant, value)
+      if (target = resolve_variant(value))
+        return TerminalShop::Converter.dump(target, value)
       end
 
-      known_variants.each do |_, variant_fn|
-        variant = variant_fn.call
-        if variant === value
-          return TerminalShop::Converter.dump(variant, value)
-        end
-      end
-      value
-    end
-
-    # @api private
-    #
-    # @param value [Object]
-    #
-    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    def try_strict_coerce(value)
-      # TODO(ruby) this will result in super linear decoding behaviour for nested unions
-      # follow up with a decoding context that captures current strictness levels
-      if (variant = resolve_variant(value))
-        return Converter.try_strict_coerce(variant, value)
+      known_variants.each do
+        target = _2.call
+        return TerminalShop::Converter.dump(target, value) if target === value
       end
 
-      coercible = false
-      max_score = 0
-
-      known_variants.each do |_, variant_fn|
-        variant = variant_fn.call
-
-        case TerminalShop::Converter.try_strict_coerce(variant, value)
-        in [true, coerced, score]
-          return [true, coerced, score]
-        in [false, true, score]
-          coercible = true
-          max_score = [max_score, score].max
-        in [false, false, _]
-          nil
-        end
-      end
-
-      [false, coercible, max_score]
+      super
     end
 
     # rubocop:enable Style/CaseEquality
@@ -588,36 +599,46 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    def ===(other)
-      type = item_type
-      case other
-      in Array
-        # rubocop:disable Style/CaseEquality
-        other.all? { type === _1 }
-        # rubocop:enable Style/CaseEquality
-      else
-        false
-      end
-    end
+    def ===(other) = other.is_a?(Array) && other.all?(item_type)
 
     # @param other [Object]
     #
     # @return [Boolean]
-    def ==(other) = other.is_a?(TerminalShop::ArrayOf) && other.item_type == item_type
+    def ==(other) = other.is_a?(TerminalShop::ArrayOf) && other.nilable? == nilable? && other.item_type == item_type
 
     # @api private
     #
     # @param value [Enumerable, Object]
     #
+    # @param state [Hash{Symbol=>Object}] .
+    #
+    #   @option state [Boolean, :strong] :strictness
+    #
+    #   @option state [Hash{Symbol=>Object}] :exactness
+    #
+    #   @option state [Integer] :branched
+    #
     # @return [Array<Object>, Object]
-    def coerce(value)
-      type = item_type
-      case value
-      in Enumerable unless value.is_a?(Hash)
-        value.map { TerminalShop::Converter.coerce(type, _1) }
-      else
-        value
+    def coerce(value, state:)
+      exactness = state.fetch(:exactness)
+
+      unless value.is_a?(Array)
+        exactness[:no] += 1
+        return value
       end
+
+      target = item_type
+      exactness[:yes] += 1
+      value
+        .map do |item|
+          case [nilable?, item]
+          in [true, nil]
+            exactness[:yes] += 1
+            nil
+          else
+            TerminalShop::Converter.coerce(target, item, state: state)
+          end
+        end
     end
 
     # @api private
@@ -626,57 +647,19 @@ module TerminalShop
     #
     # @return [Array<Object>, Object]
     def dump(value)
-      type = item_type
-      case value
-      in Enumerable unless value.is_a?(Hash)
-        value.map { TerminalShop::Converter.dump(type, _1) }.to_a
-      else
-        value
-      end
-    end
-
-    # @api private
-    #
-    # @param value [Object]
-    #
-    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    def try_strict_coerce(value)
-      case value
-      in Array
-        type = item_type
-        great_success = true
-        tally = 0
-
-        mapped =
-          value.map do |item|
-            case TerminalShop::Converter.try_strict_coerce(type, item)
-            in [true, coerced, score]
-              tally += score
-              coerced
-            in [false, true, score]
-              great_success = false
-              tally += score
-              item
-            in [false, false, _]
-              great_success &&= item.nil?
-              item
-            end
-          end
-
-        if great_success
-          [true, mapped, tally]
-        else
-          [false, true, tally]
-        end
-      else
-        [false, false, 0]
-      end
+      target = item_type
+      value.is_a?(Array) ? value.map { TerminalShop::Converter.dump(target, _1) } : super
     end
 
     # @api private
     #
     # @return [TerminalShop::Converter, Class]
     protected def item_type = @item_type_fn.call
+
+    # @api private
+    #
+    # @return [Boolean]
+    protected def nilable? = @nilable
 
     # @api private
     #
@@ -693,6 +676,7 @@ module TerminalShop
     #   @option spec [Boolean] :"nil?"
     def initialize(type_info, spec = {})
       @item_type_fn = TerminalShop::Converter.type_info(type_info || spec)
+      @nilable = spec[:nil?]
     end
   end
 
@@ -740,24 +724,46 @@ module TerminalShop
     # @param other [Object]
     #
     # @return [Boolean]
-    def ==(other) = other.is_a?(TerminalShop::HashOf) && other.item_type == item_type
+    def ==(other) = other.is_a?(TerminalShop::HashOf) && other.nilable? == nilable? && other.item_type == item_type
 
     # @api private
     #
     # @param value [Hash{Object=>Object}, Object]
     #
+    # @param state [Hash{Symbol=>Object}] .
+    #
+    #   @option state [Boolean, :strong] :strictness
+    #
+    #   @option state [Hash{Symbol=>Object}] :exactness
+    #
+    #   @option state [Integer] :branched
+    #
     # @return [Hash{Symbol=>Object}, Object]
-    def coerce(value)
-      type = item_type
-      case value
-      in Hash
-        value.to_h do |key, val|
-          coerced = TerminalShop::Converter.coerce(type, val)
-          [key.is_a?(String) ? key.to_sym : key, coerced]
-        end
-      else
-        value
+    def coerce(value, state:)
+      exactness = state.fetch(:exactness)
+
+      unless value.is_a?(Hash)
+        exactness[:no] += 1
+        return value
       end
+
+      target = item_type
+      exactness[:yes] += 1
+      value
+        .to_h do |key, val|
+          k = key.is_a?(String) ? key.to_sym : key
+          v =
+            case [nilable?, val]
+            in [true, nil]
+              exactness[:yes] += 1
+              nil
+            else
+              TerminalShop::Converter.coerce(target, val, state: state)
+            end
+
+          exactness[:no] += 1 unless k.is_a?(Symbol)
+          [k, v]
+        end
     end
 
     # @api private
@@ -766,59 +772,19 @@ module TerminalShop
     #
     # @return [Hash{Symbol=>Object}, Object]
     def dump(value)
-      type = item_type
-      case value
-      in Hash
-        value.transform_values do |val|
-          TerminalShop::Converter.dump(type, val)
-        end
-      else
-        value
-      end
-    end
-
-    # @api private
-    #
-    # @param value [Object]
-    #
-    # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-    def try_strict_coerce(value)
-      case value
-      in Hash
-        type = item_type
-        great_success = true
-        tally = 0
-
-        mapped =
-          value.transform_values do |val|
-            case TerminalShop::Converter.try_strict_coerce(type, val)
-            in [true, coerced, score]
-              tally += score
-              coerced
-            in [false, true, score]
-              great_success = false
-              tally += score
-              val
-            in [false, false, _]
-              great_success &&= val.nil?
-              val
-            end
-          end
-
-        if great_success
-          [true, mapped, tally]
-        else
-          [false, true, tally]
-        end
-      else
-        [false, false, 0]
-      end
+      target = item_type
+      value.is_a?(Hash) ? value.transform_values { TerminalShop::Converter.dump(target, _1) } : super
     end
 
     # @api private
     #
     # @return [TerminalShop::Converter, Class]
     protected def item_type = @item_type_fn.call
+
+    # @api private
+    #
+    # @return [Boolean]
+    protected def nilable? = @nilable
 
     # @api private
     #
@@ -835,6 +801,7 @@ module TerminalShop
     #   @option spec [Boolean] :"nil?"
     def initialize(type_info, spec = {})
       @item_type_fn = TerminalShop::Converter.type_info(type_info || spec)
+      @nilable = spec[:nil?]
     end
   end
 
@@ -863,24 +830,12 @@ module TerminalShop
 
       # @api private
       #
-      # @return [Hash{Symbol=>Symbol}]
-      def reverse_map
-        @reverse_map ||= (self < TerminalShop::BaseModel ? superclass.reverse_map.dup : {})
-      end
-
-      # @api private
-      #
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
       def fields
         known_fields.transform_values do |field|
           {**field.except(:type_fn), type: field.fetch(:type_fn).call}
         end
       end
-
-      # @api private
-      #
-      # @return [Hash{Symbol=>Proc}]
-      def defaults = (@defaults ||= {})
 
       # @api private
       #
@@ -902,38 +857,48 @@ module TerminalShop
       private def add_field(name_sym, required:, type_info:, spec:)
         type_fn, info =
           case type_info
-          in Proc | Module | TerminalShop::Converter
+          in Proc | TerminalShop::Converter | Class
             [TerminalShop::Converter.type_info({**spec, union: type_info}), spec]
           in Hash
             [TerminalShop::Converter.type_info(type_info), type_info]
           end
 
-        fallback = info[:const]
-        defaults[name_sym] = fallback if required && !info[:nil?] && info.key?(:const)
-
-        key = info[:api_name]&.tap { reverse_map[_1] = name_sym } || name_sym
         setter = "#{name_sym}="
+        api_name = info.fetch(:api_name, name_sym)
+        nilable = info[:nil?]
+        const = required && !nilable ? info.fetch(:const, TerminalShop::Util::OMIT) : TerminalShop::Util::OMIT
 
-        if known_fields.key?(name_sym)
-          [name_sym, setter].each { undef_method(_1) }
-        end
+        [name_sym, setter].each { undef_method(_1) } if known_fields.key?(name_sym)
 
-        known_fields[name_sym] = {mode: @mode, key: key, required: required, type_fn: type_fn}
+        known_fields[name_sym] =
+          {
+            mode: @mode,
+            api_name: api_name,
+            required: required,
+            nilable: nilable,
+            const: const,
+            type_fn: type_fn
+          }
 
-        define_method(setter) do |val|
-          @data[key] = val
-        end
+        define_method(setter) { @data.store(name_sym, _1) }
 
         define_method(name_sym) do
-          field_type = type_fn.call
-          value = @data.fetch(key) { self.class.defaults[key] }
-          TerminalShop::Converter.coerce(field_type, value)
+          target = type_fn.call
+          value = @data.fetch(name_sym) { const == TerminalShop::Util::OMIT ? nil : const }
+          state = {strictness: :strong, exactness: {yes: 0, no: 0, maybe: 0}, branched: 0}
+          if (nilable || !required) && value.nil?
+            nil
+          else
+            TerminalShop::Converter.coerce(
+              target,
+              value,
+              state: state
+            )
+          end
         rescue StandardError
-          name = self.class.name.split("::").last
-          raise TerminalShop::ConversionError.new(
-            "Failed to parse #{name}.#{name_sym} as #{field_type.inspect}. " \
-            "To get the unparsed API response, use #{name}[:#{key}]."
-          )
+          cls = self.class.name.split("::").last
+          message = "Failed to parse #{cls}.#{__method__} from #{value.class} to #{target.inspect}. To get the unparsed API response, use #{cls}[:#{__method__}]."
+          raise TerminalShop::ConversionError.new(message)
         end
       end
 
@@ -999,33 +964,86 @@ module TerminalShop
       ensure
         @mode = nil
       end
+
+      # @param other [Object]
+      #
+      # @return [Boolean]
+      def ==(other) = other.is_a?(Class) && other <= TerminalShop::BaseModel && other.fields == fields
     end
 
     # @param other [Object]
     #
     # @return [Boolean]
-    def ==(other)
-      case other
-      in TerminalShop::BaseModel
-        self.class.fields == other.class.fields && @data == other.to_h
-      else
-        false
-      end
-    end
+    def ==(other) = self.class == other.class && @data == other.to_h
 
     class << self
       # @api private
       #
       # @param value [TerminalShop::BaseModel, Hash{Object=>Object}, Object]
       #
+      # @param state [Hash{Symbol=>Object}] .
+      #
+      #   @option state [Boolean, :strong] :strictness
+      #
+      #   @option state [Hash{Symbol=>Object}] :exactness
+      #
+      #   @option state [Integer] :branched
+      #
       # @return [TerminalShop::BaseModel, Object]
-      def coerce(value)
-        case TerminalShop::Util.coerce_hash(value)
-        in Hash => coerced
-          new(coerced)
-        else
-          value
+      def coerce(value, state:)
+        exactness = state.fetch(:exactness)
+
+        if value.is_a?(self.class)
+          exactness[:yes] += 1
+          return value
         end
+
+        unless (val = TerminalShop::Util.coerce_hash(value)).is_a?(Hash)
+          exactness[:no] += 1
+          return value
+        end
+        exactness[:yes] += 1
+
+        keys = val.keys.to_set
+        instance = new
+        data = instance.to_h
+
+        fields.each do |name, field|
+          mode, required, target = field.fetch_values(:mode, :required, :type)
+          api_name, nilable, const = field.fetch_values(:api_name, :nilable, :const)
+
+          unless val.key?(api_name)
+            if const != TerminalShop::Util::OMIT
+              exactness[:yes] += 1
+            elsif required && mode != :dump
+              exactness[nilable ? :maybe : :no] += 1
+            else
+              exactness[:yes] += 1
+            end
+            next
+          end
+
+          item = val.fetch(api_name)
+          keys.delete(api_name)
+
+          converted =
+            if item.nil? && (nilable || !required)
+              exactness[nilable ? :yes : :maybe] += 1
+              nil
+            else
+              coerced = TerminalShop::Converter.coerce(target, item, state: state)
+              case target
+              in TerminalShop::Converter | Symbol
+                coerced
+              else
+                item
+              end
+            end
+          data.store(name, converted)
+        end
+
+        keys.each { data.store(_1, val.fetch(_1)) }
+        instance
       end
 
       # @api private
@@ -1035,84 +1053,35 @@ module TerminalShop
       # @return [Hash{Object=>Object}, Object]
       def dump(value)
         unless (coerced = TerminalShop::Util.coerce_hash(value)).is_a?(Hash)
-          return value
+          return super
         end
 
-        values = coerced.filter_map do |key, val|
-          name = key.to_sym
+        acc = {}
+
+        coerced.each do |key, val|
+          name = key.is_a?(String) ? key.to_sym : key
           case (field = known_fields[name])
           in nil
-            [name, val]
+            acc.store(name, super(val))
           else
-            mode, type_fn, api_name = field.fetch_values(:mode, :type_fn, :key)
+            mode, api_name, type_fn = field.fetch_values(:mode, :api_name, :type_fn)
             case mode
             in :coerce
               next
             else
               target = type_fn.call
-              [api_name, TerminalShop::Converter.dump(target, val)]
+              acc.store(api_name, TerminalShop::Converter.dump(target, val))
             end
           end
-        end.to_h
-
-        defaults.each do |key, val|
-          next if values.key?(key)
-
-          values[key] = val
         end
-
-        values
-      end
-
-      # @api private
-      #
-      # @param value [Object]
-      #
-      # @return [Array(true, Object, nil), Array(false, Boolean, Integer)]
-      def try_strict_coerce(value)
-        case value
-        in Hash | TerminalShop::BaseModel
-          value = value.to_h
-        else
-          return [false, false, 0]
-        end
-
-        keys = value.keys.to_set
-        great_success = true
-        tally = 0
-        acc = {}
 
         known_fields.each_value do |field|
-          mode, required, type_fn, api_name = field.fetch_values(:mode, :required, :type_fn, :key)
-          keys.delete(api_name)
-
-          case [required && mode != :dump, value.key?(api_name)]
-          in [_, true]
-            target = type_fn.call
-            item = value.fetch(api_name)
-            case TerminalShop::Converter.try_strict_coerce(target, item)
-            in [true, coerced, score]
-              tally += score
-              acc[api_name] = coerced
-            in [false, true, score]
-              great_success = false
-              tally += score
-              acc[api_name] = item
-            in [false, false, _]
-              great_success &&= item.nil?
-            end
-          in [true, false]
-            great_success = false
-          in [false, false]
-            nil
-          end
+          mode, api_name, const = field.fetch_values(:mode, :api_name, :const)
+          next if mode == :coerce || acc.key?(api_name) || const == TerminalShop::Util::OMIT
+          acc.store(api_name, const)
         end
 
-        keys.each do |key|
-          acc[key] = value.fetch(key)
-        end
-
-        great_success ? [true, new(acc), tally] : [false, true, tally]
+        acc
       end
     end
 
@@ -1152,14 +1121,15 @@ module TerminalShop
     #
     # @return [Hash{Symbol=>Object}]
     def deconstruct_keys(keys)
-      (keys || self.class.known_fields.keys).filter_map do |k|
-        unless self.class.known_fields.key?(k)
-          next
-        end
+      (keys || self.class.known_fields.keys)
+        .filter_map do |k|
+          unless self.class.known_fields.key?(k)
+            next
+          end
 
-        [k, method(k).call]
-      end
-      .to_h
+          [k, public_send(k)]
+        end
+        .to_h
     end
 
     # Create a new instance of a model.
@@ -1168,21 +1138,7 @@ module TerminalShop
     def initialize(data = {})
       case TerminalShop::Util.coerce_hash(data)
       in Hash => coerced
-        @data = coerced.to_h do |key, value|
-          name = key.to_sym
-          mapped = self.class.reverse_map.fetch(name, name)
-          type = self.class.fields[mapped]&.fetch(:type)
-          stored =
-            case [type, value]
-            in [Module, Hash] if type <= TerminalShop::BaseModel
-              type.new(value)
-            in [TerminalShop::ArrayOf, Array] | [TerminalShop::HashOf, Hash]
-              type.coerce(value)
-            else
-              value
-            end
-          [name, stored]
-        end
+        @data = coerced
       else
         raise ArgumentError.new("Expected a #{Hash} or #{TerminalShop::BaseModel}, got #{data.inspect}")
       end
@@ -1193,9 +1149,12 @@ module TerminalShop
 
     # @return [String]
     def inspect
-      "#<#{self.class.name}:0x#{object_id.to_s(16)} #{deconstruct_keys(nil).map do |k, v|
-        "#{k}=#{v.inspect}"
-      end.join(' ')}>"
+      rows = self.class.known_fields.keys.map do
+        "#{_1}=#{@data.key?(_1) ? public_send(_1) : ''}"
+      rescue TerminalShop::ConversionError
+        "#{_1}=#{@data.fetch(_1)}"
+      end
+      "#<#{self.class.name}:0x#{object_id.to_s(16)} #{rows.join(' ')}>"
     end
   end
 end
