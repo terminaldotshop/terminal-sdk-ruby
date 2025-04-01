@@ -3,7 +3,7 @@ module TerminalShop
     type product_list_params = {  } & TerminalShop::request_parameters
 
     class ProductListParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       def initialize: (?request_options: TerminalShop::request_opts) -> void

@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class SubscriptionDeleteParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       sig do
