@@ -36,7 +36,6 @@ require "connection_pool"
 # Package files.
 require_relative "terminal-shop/version"
 require_relative "terminal-shop/util"
-require_relative "terminal-shop/extern"
 require_relative "terminal-shop/base_model"
 require_relative "terminal-shop/base_page"
 require_relative "terminal-shop/request_options"

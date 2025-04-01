@@ -51,7 +51,7 @@ module TerminalShop
     ) -> void
 
     # @api private
-    attr_accessor requester: top
+    attr_accessor requester: TerminalShop::PooledNetRequester
 
     def initialize: (
       base_url: String,
