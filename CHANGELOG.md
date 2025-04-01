@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.1 (2025-04-01)
+
+Full Changelog: [v2.1.0...v2.1.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.0...v2.1.1)
+
+### Bug Fixes
+
+* remove trailing / for environments ([#172](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/172)) ([a5007f0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a5007f0e208c44ea7fb98681e8f08fa1b2c2dca2))
+
+
+### Chores
+
+* fix misc rubocop errors ([#170](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/170)) ([114405c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/114405cc2d5e4fde0a41d20c8c4787033b1b2973))
+
 ## 2.1.0 (2025-04-01)
 
 Full Changelog: [v2.0.0...v2.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.0.0...v2.1.0)
