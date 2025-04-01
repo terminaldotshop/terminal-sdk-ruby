@@ -15,7 +15,7 @@ The underlying REST API documentation can be found on [terminal.shop](https://te
 To use this gem, install via Bundler by adding the following to your application's `Gemfile`:
 
 ```ruby
-gem "terminal-shop", "~> 2.1.0"
+gem "terminal-shop", "~> 2.1.1"
 ```
 
 To fetch an initial copy of the gem:
