@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class EmailCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # Email address to subscribe to Terminal updates with.

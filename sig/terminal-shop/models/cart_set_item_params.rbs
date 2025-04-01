@@ -5,7 +5,7 @@ module TerminalShop
       & TerminalShop::request_parameters
 
     class CartSetItemParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor product_variant_id: String

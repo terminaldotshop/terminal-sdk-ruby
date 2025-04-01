@@ -3,7 +3,7 @@ module TerminalShop
     type subscription_create_params = {  } & TerminalShop::request_parameters
 
     class SubscriptionCreateParams < TerminalShop::Models::SubscriptionAPI
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       def initialize: (?request_options: TerminalShop::request_opts) -> void

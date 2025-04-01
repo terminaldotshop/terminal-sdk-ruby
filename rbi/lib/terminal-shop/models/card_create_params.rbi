@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class CardCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # Stripe card token. Learn how to

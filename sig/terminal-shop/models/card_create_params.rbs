@@ -4,7 +4,7 @@ module TerminalShop
       { token: String } & TerminalShop::request_parameters
 
     class CardCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor token: String

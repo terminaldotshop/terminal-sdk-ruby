@@ -4,7 +4,7 @@ module TerminalShop
       { name: String, redirect_uri: String } & TerminalShop::request_parameters
 
     class AppCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor name: String

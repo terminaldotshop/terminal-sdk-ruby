@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class SubscriptionCreateParams < TerminalShop::Models::SubscriptionAPI
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       sig do
