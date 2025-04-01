@@ -61,7 +61,17 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
+      def self.new(
+        city:,
+        country:,
+        name:,
+        street1:,
+        zip:,
+        phone: nil,
+        province: nil,
+        street2: nil,
+        request_options: {}
+      )
       end
 
       sig do
