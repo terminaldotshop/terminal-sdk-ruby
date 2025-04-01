@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.1.0 (2025-04-01)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **internal:** converter interface should recurse without schema ([#164](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/164)) ([937b71d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/937b71d533293ffb72664cb6309bd7495ebc13b5))
+
+
+### Bug Fixes
+
+* switch to github compatible markdown engine ([#169](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/169)) ([1b58af4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1b58af4068eaa9d7a7beed6b48a9039383cef79c))
+
+
+### Chores
+
+* **internal:** minor refactoring of utils ([#163](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/163)) ([b228505](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b228505336a27aa7dbfe4e57e2787689d4557c9f))
+* **internal:** version bump ([#160](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/160)) ([8415526](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8415526eea907cf13ef34bab332ae124de9dc8a0))
+* more accurate type annotations for SDK internals ([#167](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/167)) ([0e663cf](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0e663cf7cae118c79164f70b397e3098329623ff))
+* more aggressive tapioca detection logic for skipping compiler introspection ([#162](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/162)) ([6e33743](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6e33743e2aefe7d6fa17bed99d25a391ceea78c4))
+* relocate internal modules ([#166](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/166)) ([68d2d27](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/68d2d278b23713aee6d5db04f518327981c946d2))
+* remove unnecessary & confusing module ([#165](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/165)) ([d67ea4c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d67ea4c8816947e47abdfd9e2861bd13c8256eab))
+* update readme ([#168](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/168)) ([235bd2d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/235bd2d2836a745314ce2217993eb8624a39952d))
+
 ## 2.0.0 (2025-03-25)
 
 Full Changelog: [v1.8.0...v2.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v1.8.0...v2.0.0)
