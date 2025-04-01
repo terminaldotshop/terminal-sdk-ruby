@@ -9,8 +9,8 @@ module TerminalShop
     DEFAULT_MAX_RETRY_DELAY: Float
 
     ENVIRONMENTS: {
-      production: "https://api.terminal.shop/",
-      dev: "https://api.dev.terminal.shop/"
+      production: "https://api.terminal.shop",
+      dev: "https://api.dev.terminal.shop"
     }
 
     attr_reader bearer_token: String
