@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class AppCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       sig { returns(String) }

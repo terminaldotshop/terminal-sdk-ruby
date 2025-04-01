@@ -4,7 +4,7 @@ module TerminalShop
   module Models
     class CartSetCardParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::RequestParameters::Converter
+      #   extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # @!attribute card_id

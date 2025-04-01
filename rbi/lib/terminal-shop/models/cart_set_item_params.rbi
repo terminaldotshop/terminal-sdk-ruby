@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class CartSetItemParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # ID of the product variant to add to the cart.

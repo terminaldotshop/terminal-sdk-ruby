@@ -4,7 +4,7 @@ module TerminalShop
   module Models
     class OrderGetParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::RequestParameters::Converter
+      #   extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # @!parse

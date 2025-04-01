@@ -4,7 +4,7 @@ module TerminalShop
       { email: String, name: String } & TerminalShop::request_parameters
 
     class ProfileUpdateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor email: String
