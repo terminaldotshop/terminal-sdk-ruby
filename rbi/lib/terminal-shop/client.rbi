@@ -12,7 +12,7 @@ module TerminalShop
 
     ENVIRONMENTS =
       T.let(
-        {production: "https://api.terminal.shop/", dev: "https://api.dev.terminal.shop/"},
+        {production: "https://api.terminal.shop", dev: "https://api.dev.terminal.shop"},
         T::Hash[Symbol, String]
       )
 
@@ -79,8 +79,8 @@ module TerminalShop
       #
       #   Each environment maps to a different base URL:
       #
-      #   - `production` corresponds to `https://api.terminal.shop/`
-      #   - `dev` corresponds to `https://api.dev.terminal.shop/`
+      #   - `production` corresponds to `https://api.terminal.shop`
+      #   - `dev` corresponds to `https://api.dev.terminal.shop`
       environment: nil,
       # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
       base_url: nil,
