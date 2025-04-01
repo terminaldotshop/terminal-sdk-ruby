@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     class CartSetAddressParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       # ID of the shipping address to set for the current user's cart.

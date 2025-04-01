@@ -4,7 +4,7 @@ module TerminalShop
       { email: String } & TerminalShop::request_parameters
 
     class EmailCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor email: String

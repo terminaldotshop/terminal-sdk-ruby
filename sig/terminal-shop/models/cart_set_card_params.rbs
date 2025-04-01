@@ -4,7 +4,7 @@ module TerminalShop
       { card_id: String } & TerminalShop::request_parameters
 
     class CartSetCardParams < TerminalShop::BaseModel
-      extend TerminalShop::RequestParameters::Converter
+      extend TerminalShop::Type::RequestParameters::Converter
       include TerminalShop::RequestParameters
 
       attr_accessor card_id: String
