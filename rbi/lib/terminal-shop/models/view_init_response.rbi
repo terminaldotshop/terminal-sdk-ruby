@@ -77,7 +77,18 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:)
+        def self.new(
+          addresses:,
+          apps:,
+          cards:,
+          cart:,
+          orders:,
+          products:,
+          profile:,
+          region:,
+          subscriptions:,
+          tokens:
+        )
         end
 
         sig do
