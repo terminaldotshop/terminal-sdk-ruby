@@ -85,7 +85,7 @@ module TerminalShop
     end
 
     # @api private
-    sig { returns(T.anything) }
+    sig { returns(TerminalShop::PooledNetRequester) }
     attr_accessor :requester
 
     # @api private
