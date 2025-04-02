@@ -78,7 +78,8 @@ module TerminalShop
         extend TerminalShop::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::ProductAPI::Subscription) }
-        OrSymbol = T.type_alias { T.any(Symbol, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol) }
 
         ALLOWED = T.let(:allowed, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
         REQUIRED = T.let(:required, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
