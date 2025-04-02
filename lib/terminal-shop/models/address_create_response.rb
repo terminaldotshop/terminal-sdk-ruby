@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Address#create
     class AddressCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Shipping address ID.

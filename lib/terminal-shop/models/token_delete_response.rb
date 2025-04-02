@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Token#delete
     class TokenDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #

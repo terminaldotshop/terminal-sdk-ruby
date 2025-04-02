@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Profile#me
     class ProfileMeResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A Terminal shop user's profile. (We have users, btw.)

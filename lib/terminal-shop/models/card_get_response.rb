@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#get
     class CardGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Credit card used for payments in the Terminal shop.

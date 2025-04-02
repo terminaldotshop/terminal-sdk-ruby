@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::App#list
     class AppListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of apps.

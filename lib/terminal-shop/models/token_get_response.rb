@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Token#get
     class TokenGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A personal access token used to access the Terminal API. If you leak this,

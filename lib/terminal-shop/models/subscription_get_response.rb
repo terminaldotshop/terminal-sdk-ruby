@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Subscription#get
     class SubscriptionGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Subscription to a Terminal shop product.

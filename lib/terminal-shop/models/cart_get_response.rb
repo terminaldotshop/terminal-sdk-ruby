@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Cart#get
     class CartGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   The current Terminal shop user's cart.

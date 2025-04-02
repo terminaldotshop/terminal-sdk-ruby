@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#collect
     class CardCollectResponse < TerminalShop::BaseModel
       # @!attribute data
       #   URL for collecting card information.

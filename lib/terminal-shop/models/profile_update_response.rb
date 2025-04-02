@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Profile#update
     class ProfileUpdateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A Terminal shop user's profile. (We have users, btw.)
