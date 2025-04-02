@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.3 (2025-04-02)
+
+Full Changelog: [v2.1.2...v2.1.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.2...v2.1.3)
+
+### Bug Fixes
+
+* pluralize `list` response variables ([#179](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/179)) ([f2193c8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f2193c869bebc38979fef2c5ac52c9e9acd968ca))
+
+
+### Chores
+
+* **internal:** codegen related update ([#177](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/177)) ([ab6b63d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ab6b63d0b63613ce63b113c1e29a7293e2ef01fe))
+
 ## 2.1.2 (2025-04-02)
 
 Full Changelog: [v2.1.1...v2.1.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.1...v2.1.2)
