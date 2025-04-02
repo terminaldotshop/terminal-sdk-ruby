@@ -24,6 +24,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::SubscriptionCreateResponse]
+      #
+      # @see TerminalShop::Models::SubscriptionCreateParams
       def create(params)
         parsed, options = TerminalShop::Models::SubscriptionCreateParams.dump_request(params)
         @client.request(
@@ -42,6 +44,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::SubscriptionListResponse]
+      #
+      # @see TerminalShop::Models::SubscriptionListParams
       def list(params = {})
         @client.request(
           method: :get,
@@ -60,6 +64,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::SubscriptionDeleteResponse]
+      #
+      # @see TerminalShop::Models::SubscriptionDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -78,6 +84,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::SubscriptionGetResponse]
+      #
+      # @see TerminalShop::Models::SubscriptionGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -87,6 +95,8 @@ module TerminalShop
         )
       end
 
+      # @api private
+      #
       # @param client [TerminalShop::Client]
       def initialize(client:)
         @client = client

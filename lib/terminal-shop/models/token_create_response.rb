@@ -15,6 +15,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::TokenCreateResponse#data
       class Data < TerminalShop::BaseModel
         # @!attribute id
         #   Personal token ID.

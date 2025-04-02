@@ -12,6 +12,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::EmailCreateResponse]
+      #
+      # @see TerminalShop::Models::EmailCreateParams
       def create(params)
         parsed, options = TerminalShop::Models::EmailCreateParams.dump_request(params)
         @client.request(
@@ -23,6 +25,8 @@ module TerminalShop
         )
       end
 
+      # @api private
+      #
       # @param client [TerminalShop::Client]
       def initialize(client:)
         @client = client

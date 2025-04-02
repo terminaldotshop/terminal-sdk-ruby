@@ -65,6 +65,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::CartAPI#amount
       class Amount < TerminalShop::BaseModel
         # @!attribute subtotal
         #   Subtotal of the current user's cart, in cents (USD).
@@ -142,6 +143,7 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
+      # @see TerminalShop::Models::CartAPI#shipping
       class Shipping < TerminalShop::BaseModel
         # @!attribute [r] service
         #   Shipping service name.

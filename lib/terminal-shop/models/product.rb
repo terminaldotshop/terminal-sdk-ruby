@@ -73,6 +73,8 @@ module TerminalShop
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
       # Whether the product must be or can be subscribed to.
+      #
+      # @see TerminalShop::Models::ProductAPI#subscription
       module Subscription
         extend TerminalShop::Enum
 
@@ -86,6 +88,7 @@ module TerminalShop
         #   def self.values; end
       end
 
+      # @see TerminalShop::Models::ProductAPI#tags
       class Tags < TerminalShop::BaseModel
         # @!attribute [r] app
         #
