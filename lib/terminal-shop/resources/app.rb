@@ -5,13 +5,11 @@ module TerminalShop
     class App
       # Create an app.
       #
-      # @param params [TerminalShop::Models::AppCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(name:, redirect_uri:, request_options: {})
       #
-      #   @option params [String] :name
-      #
-      #   @option params [String] :redirect_uri
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param name [String]
+      # @param redirect_uri [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AppCreateResponse]
       #
@@ -29,9 +27,9 @@ module TerminalShop
 
       # List the current user's registered apps.
       #
-      # @param params [TerminalShop::Models::AppListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AppListResponse]
       #
@@ -47,11 +45,10 @@ module TerminalShop
 
       # Delete the app with the given ID.
       #
-      # @param id [String] ID of the app to delete.
+      # @overload delete(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::AppDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AppDeleteResponse]
       #
@@ -67,11 +64,10 @@ module TerminalShop
 
       # Get the app with the given ID.
       #
-      # @param id [String] ID of the app to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::AppGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AppGetResponse]
       #

@@ -5,25 +5,17 @@ module TerminalShop
     class Address
       # Create and add a shipping address to the current user.
       #
-      # @param params [TerminalShop::Models::AddressCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
       #
-      #   @option params [String] :city City of the address.
-      #
-      #   @option params [String] :country ISO 3166-1 alpha-2 country code of the address.
-      #
-      #   @option params [String] :name The recipient's name.
-      #
-      #   @option params [String] :street1 Street of the address.
-      #
-      #   @option params [String] :zip Zip code of the address.
-      #
-      #   @option params [String] :phone Phone number of the recipient.
-      #
-      #   @option params [String] :province Province or state of the address.
-      #
-      #   @option params [String] :street2 Apartment, suite, etc. of the address.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param city [String]
+      # @param country [String]
+      # @param name [String]
+      # @param street1 [String]
+      # @param zip [String]
+      # @param phone [String]
+      # @param province [String]
+      # @param street2 [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressCreateResponse]
       #
@@ -41,9 +33,9 @@ module TerminalShop
 
       # Get the shipping addresses associated with the current user.
       #
-      # @param params [TerminalShop::Models::AddressListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressListResponse]
       #
@@ -59,11 +51,10 @@ module TerminalShop
 
       # Delete a shipping address from the current user.
       #
-      # @param id [String] ID of the shipping address to delete.
+      # @overload delete(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::AddressDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressDeleteResponse]
       #
@@ -79,11 +70,10 @@ module TerminalShop
 
       # Get the shipping address with the given ID.
       #
-      # @param id [String] ID of the shipping address to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::AddressGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressGetResponse]
       #

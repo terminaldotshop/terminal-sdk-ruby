@@ -5,15 +5,12 @@ module TerminalShop
     class Order
       # Create an order without a cart. The order will be placed immediately.
       #
-      # @param params [TerminalShop::Models::OrderCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(address_id:, card_id:, variants:, request_options: {})
       #
-      #   @option params [String] :address_id Shipping address ID.
-      #
-      #   @option params [String] :card_id Card ID.
-      #
-      #   @option params [Hash{Symbol=>Integer}] :variants Product variants to include in the order, along with their quantities.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param address_id [String]
+      # @param card_id [String]
+      # @param variants [Hash{Symbol=>Integer}]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::OrderCreateResponse]
       #
@@ -31,9 +28,9 @@ module TerminalShop
 
       # List the orders associated with the current user.
       #
-      # @param params [TerminalShop::Models::OrderListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::OrderListResponse]
       #
@@ -49,11 +46,10 @@ module TerminalShop
 
       # Get the order with the given ID.
       #
-      # @param id [String] ID of the order to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::OrderGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::OrderGetResponse]
       #
