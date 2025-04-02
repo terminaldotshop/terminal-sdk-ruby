@@ -16,7 +16,7 @@ require "minitest/hooks/test"
 require "minitest/proveit"
 require "minitest/rg"
 
-require_relative "../../lib/terminal-shop"
+require_relative "../../lib/terminal_shop"
 require_relative "resource_namespaces"
 
 module Kernel
