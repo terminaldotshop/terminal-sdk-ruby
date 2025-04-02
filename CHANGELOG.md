@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.2 (2025-04-02)
+
+Full Changelog: [v2.1.1...v2.1.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.1...v2.1.2)
+
+### Bug Fixes
+
+* path interpolation template strings ([#176](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/176)) ([1710f55](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1710f5509a20c388fbc6a25cc73948ada016e49e))
+
+
+### Chores
+
+* **internal:** version bump ([#173](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/173)) ([6c173f0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6c173f043f24bc7d8df77e875d4460b796a4d7ae))
+* use fully qualified name in sorbet README example ([#175](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/175)) ([3563dd9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3563dd93a7d5f67c08ea533b89e12ee310831a1b))
+
 ## 2.1.1 (2025-04-01)
 
 Full Changelog: [v2.1.0...v2.1.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.0...v2.1.1)
