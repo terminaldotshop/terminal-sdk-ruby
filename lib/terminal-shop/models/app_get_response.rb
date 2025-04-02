@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::App#get
     class AppGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A Terminal App used for configuring an OAuth 2.0 client.

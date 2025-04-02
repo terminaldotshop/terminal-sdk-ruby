@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Email#create
     class EmailCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #

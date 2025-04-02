@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Address#list
     class AddressListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Shipping addresses.

@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Cart#convert
     class CartConvertResponse < TerminalShop::BaseModel
       # @!attribute data
       #   An order from the Terminal shop.

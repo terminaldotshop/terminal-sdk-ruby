@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Address#get
     class AddressGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Physical address associated with a Terminal shop user.

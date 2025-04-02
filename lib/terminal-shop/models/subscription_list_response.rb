@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Subscription#list
     class SubscriptionListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of subscriptions.

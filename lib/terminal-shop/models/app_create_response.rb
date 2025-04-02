@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::App#create
     class AppCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #
