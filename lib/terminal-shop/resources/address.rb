@@ -65,7 +65,7 @@ module TerminalShop
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["address/%0s", id],
+          path: ["address/%1$s", id],
           model: TerminalShop::Models::AddressDeleteResponse,
           options: params[:request_options]
         )
@@ -83,7 +83,7 @@ module TerminalShop
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["address/%0s", id],
+          path: ["address/%1$s", id],
           model: TerminalShop::Models::AddressGetResponse,
           options: params[:request_options]
         )

@@ -63,7 +63,7 @@ module TerminalShop
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["subscription/%0s", id],
+          path: ["subscription/%1$s", id],
           model: TerminalShop::Models::SubscriptionDeleteResponse,
           options: params[:request_options]
         )
@@ -81,7 +81,7 @@ module TerminalShop
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["subscription/%0s", id],
+          path: ["subscription/%1$s", id],
           model: TerminalShop::Models::SubscriptionGetResponse,
           options: params[:request_options]
         )
