@@ -63,10 +63,10 @@ module TerminalShop
     # Creates and returns a new client for interacting with the API.
     sig do
       params(
-        environment: NilClass,
-        base_url: T.nilable(String),
         bearer_token: T.nilable(String),
         app_id: T.nilable(String),
+        environment: NilClass,
+        base_url: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
         initial_retry_delay: Float,
@@ -75,6 +75,9 @@ module TerminalShop
         .returns(T.attached_class)
     end
     def self.new(
+      # Defaults to `ENV["TERMINAL_BEARER_TOKEN"]`
+      bearer_token: ENV["TERMINAL_BEARER_TOKEN"],
+      app_id: nil,
       # Specifies the environment to use for the API.
       #
       #   Each environment maps to a different base URL:
@@ -84,9 +87,6 @@ module TerminalShop
       environment: nil,
       # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
       base_url: nil,
-      # Defaults to `ENV["TERMINAL_BEARER_TOKEN"]`
-      bearer_token: ENV["TERMINAL_BEARER_TOKEN"],
-      app_id: nil,
       # Max number of retries to attempt after a failed retryable request.
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
