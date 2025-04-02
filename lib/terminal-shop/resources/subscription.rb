@@ -5,23 +5,16 @@ module TerminalShop
     class Subscription
       # Create a subscription for the current user.
       #
-      # @param params [TerminalShop::Models::SubscriptionCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil, request_options: {})
       #
-      #   @option params [String] :id Unique object identifier. The format and length of IDs may change over time.
-      #
-      #   @option params [String] :address_id ID of the shipping address used for the subscription.
-      #
-      #   @option params [String] :card_id ID of the card used for the subscription.
-      #
-      #   @option params [String] :product_variant_id ID of the product variant being subscribed to.
-      #
-      #   @option params [Integer] :quantity Quantity of the subscription.
-      #
-      #   @option params [String] :next_ Next shipment and billing date for the subscription.
-      #
-      #   @option params [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] :schedule Schedule of the subscription.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param address_id [String]
+      # @param card_id [String]
+      # @param product_variant_id [String]
+      # @param quantity [Integer]
+      # @param next_ [String]
+      # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::SubscriptionCreateResponse]
       #
@@ -39,9 +32,9 @@ module TerminalShop
 
       # List the subscriptions associated with the current user.
       #
-      # @param params [TerminalShop::Models::SubscriptionListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::SubscriptionListResponse]
       #
@@ -57,11 +50,10 @@ module TerminalShop
 
       # Cancel a subscription for the current user.
       #
-      # @param id [String] ID of the subscription to cancel.
+      # @overload delete(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::SubscriptionDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::SubscriptionDeleteResponse]
       #
@@ -77,11 +69,10 @@ module TerminalShop
 
       # Get the subscription with the given ID.
       #
-      # @param id [String] ID of the subscription to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::SubscriptionGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::SubscriptionGetResponse]
       #

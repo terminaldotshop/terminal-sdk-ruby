@@ -5,9 +5,9 @@ module TerminalShop
     class Product
       # List all products for sale in the Terminal shop.
       #
-      # @param params [TerminalShop::Models::ProductListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ProductListResponse]
       #
@@ -23,11 +23,10 @@ module TerminalShop
 
       # Get a product by ID from the Terminal shop.
       #
-      # @param id [String] ID of the product to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::ProductGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ProductGetResponse]
       #

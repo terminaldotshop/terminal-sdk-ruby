@@ -6,9 +6,9 @@ module TerminalShop
       # Get initial app data, including user, products, cart, addresses, cards,
       #   subscriptions, and orders.
       #
-      # @param params [TerminalShop::Models::ViewInitParams, Hash{Symbol=>Object}] .
+      # @overload init(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ViewInitResponse]
       #

@@ -5,13 +5,11 @@ module TerminalShop
     class Profile
       # Update the current user's profile.
       #
-      # @param params [TerminalShop::Models::ProfileUpdateParams, Hash{Symbol=>Object}] .
+      # @overload update(email:, name:, request_options: {})
       #
-      #   @option params [String] :email
-      #
-      #   @option params [String] :name
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param email [String]
+      # @param name [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ProfileUpdateResponse]
       #
@@ -29,9 +27,9 @@ module TerminalShop
 
       # Get the current user's profile.
       #
-      # @param params [TerminalShop::Models::ProfileMeParams, Hash{Symbol=>Object}] .
+      # @overload me(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ProfileMeResponse]
       #
