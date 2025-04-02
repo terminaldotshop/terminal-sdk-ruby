@@ -5,9 +5,9 @@ module TerminalShop
     class Token
       # Create a personal access token.
       #
-      # @param params [TerminalShop::Models::TokenCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::TokenCreateResponse]
       #
@@ -23,9 +23,9 @@ module TerminalShop
 
       # List the current user's personal access tokens.
       #
-      # @param params [TerminalShop::Models::TokenListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::TokenListResponse]
       #
@@ -41,11 +41,10 @@ module TerminalShop
 
       # Delete the personal access token with the given ID.
       #
-      # @param id [String] ID of the personal token to delete.
+      # @overload delete(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::TokenDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::TokenDeleteResponse]
       #
@@ -61,11 +60,10 @@ module TerminalShop
 
       # Get the personal access token with the given ID.
       #
-      # @param id [String] ID of the personal token to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::TokenGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::TokenGetResponse]
       #

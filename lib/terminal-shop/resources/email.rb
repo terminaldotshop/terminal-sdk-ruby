@@ -5,11 +5,10 @@ module TerminalShop
     class Email
       # Subscribe to email updates from Terminal.
       #
-      # @param params [TerminalShop::Models::EmailCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(email:, request_options: {})
       #
-      #   @option params [String] :email Email address to subscribe to Terminal updates with.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param email [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::EmailCreateResponse]
       #

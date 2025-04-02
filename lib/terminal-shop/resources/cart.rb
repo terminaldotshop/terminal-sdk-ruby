@@ -5,9 +5,9 @@ module TerminalShop
     class Cart
       # Clear the current user's cart.
       #
-      # @param params [TerminalShop::Models::CartClearParams, Hash{Symbol=>Object}] .
+      # @overload clear(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartClearResponse]
       #
@@ -23,9 +23,9 @@ module TerminalShop
 
       # Convert the current user's cart to an order.
       #
-      # @param params [TerminalShop::Models::CartConvertParams, Hash{Symbol=>Object}] .
+      # @overload convert(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartConvertResponse]
       #
@@ -41,9 +41,9 @@ module TerminalShop
 
       # Get the current user's cart.
       #
-      # @param params [TerminalShop::Models::CartGetParams, Hash{Symbol=>Object}] .
+      # @overload get(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartGetResponse]
       #
@@ -59,11 +59,10 @@ module TerminalShop
 
       # Set the shipping address for the current user's cart.
       #
-      # @param params [TerminalShop::Models::CartSetAddressParams, Hash{Symbol=>Object}] .
+      # @overload set_address(address_id:, request_options: {})
       #
-      #   @option params [String] :address_id ID of the shipping address to set for the current user's cart.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param address_id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetAddressResponse]
       #
@@ -81,11 +80,10 @@ module TerminalShop
 
       # Set the credit card for the current user's cart.
       #
-      # @param params [TerminalShop::Models::CartSetCardParams, Hash{Symbol=>Object}] .
+      # @overload set_card(card_id:, request_options: {})
       #
-      #   @option params [String] :card_id ID of the credit card to set for the current user's cart.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param card_id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetCardResponse]
       #
@@ -103,13 +101,11 @@ module TerminalShop
 
       # Add an item to the current user's cart.
       #
-      # @param params [TerminalShop::Models::CartSetItemParams, Hash{Symbol=>Object}] .
+      # @overload set_item(product_variant_id:, quantity:, request_options: {})
       #
-      #   @option params [String] :product_variant_id ID of the product variant to add to the cart.
-      #
-      #   @option params [Integer] :quantity Quantity of the item to add to the cart.
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param product_variant_id [String]
+      # @param quantity [Integer]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetItemResponse]
       #
