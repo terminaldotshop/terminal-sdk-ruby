@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Cart#set_address
     class CartSetAddressResponse < TerminalShop::BaseModel
       # @!attribute data
       #

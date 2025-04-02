@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#list
     class CardListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of cards associated with the user.

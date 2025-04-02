@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Product#list
     class ProductListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   A list of products.

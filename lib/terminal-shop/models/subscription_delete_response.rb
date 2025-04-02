@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Subscription#delete
     class SubscriptionDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #

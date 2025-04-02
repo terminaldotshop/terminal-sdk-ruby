@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::App#delete
     class AppDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #

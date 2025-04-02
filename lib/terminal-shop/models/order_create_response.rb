@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Order#create
     class OrderCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Order ID.

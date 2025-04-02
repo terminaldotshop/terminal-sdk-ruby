@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Address#delete
     class AddressDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #

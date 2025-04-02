@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Product#get
     class ProductGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Product sold in the Terminal shop.

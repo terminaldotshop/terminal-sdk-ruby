@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Order#get
     class OrderGetResponse < TerminalShop::BaseModel
       # @!attribute data
       #   An order from the Terminal shop.

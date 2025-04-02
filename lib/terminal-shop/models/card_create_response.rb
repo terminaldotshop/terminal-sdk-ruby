@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#create
     class CardCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #   ID of the card.

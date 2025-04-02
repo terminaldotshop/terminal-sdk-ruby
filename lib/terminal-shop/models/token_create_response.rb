@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Token#create
     class TokenCreateResponse < TerminalShop::BaseModel
       # @!attribute data
       #

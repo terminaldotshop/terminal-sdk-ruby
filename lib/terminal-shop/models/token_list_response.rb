@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Token#list
     class TokenListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of personal access tokens.
