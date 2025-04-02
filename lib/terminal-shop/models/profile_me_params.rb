@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Profile#me
     class ProfileMeParams < TerminalShop::BaseModel
       # @!parse
       #   extend TerminalShop::Type::RequestParameters::Converter

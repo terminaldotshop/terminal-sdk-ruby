@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Subscription#list
     class SubscriptionListParams < TerminalShop::BaseModel
       # @!parse
       #   extend TerminalShop::Type::RequestParameters::Converter

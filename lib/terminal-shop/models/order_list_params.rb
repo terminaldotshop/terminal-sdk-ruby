@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Order#list
     class OrderListParams < TerminalShop::BaseModel
       # @!parse
       #   extend TerminalShop::Type::RequestParameters::Converter

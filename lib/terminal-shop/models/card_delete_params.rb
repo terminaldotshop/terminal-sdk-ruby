@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#delete
     class CardDeleteParams < TerminalShop::BaseModel
       # @!parse
       #   extend TerminalShop::Type::RequestParameters::Converter

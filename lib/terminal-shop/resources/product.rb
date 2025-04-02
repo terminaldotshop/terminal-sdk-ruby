@@ -10,6 +10,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ProductListResponse]
+      #
+      # @see TerminalShop::Models::ProductListParams
       def list(params = {})
         @client.request(
           method: :get,
@@ -28,6 +30,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::ProductGetResponse]
+      #
+      # @see TerminalShop::Models::ProductGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -37,6 +41,8 @@ module TerminalShop
         )
       end
 
+      # @api private
+      #
       # @param client [TerminalShop::Client]
       def initialize(client:)
         @client = client

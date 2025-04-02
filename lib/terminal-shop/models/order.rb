@@ -57,6 +57,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::OrderAPI#amount
       class Amount < TerminalShop::BaseModel
         # @!attribute shipping
         #   Shipping amount of the order, in cents (USD).
@@ -132,6 +133,7 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
+      # @see TerminalShop::Models::OrderAPI#shipping
       class Shipping < TerminalShop::BaseModel
         # @!attribute city
         #   City of the address.
@@ -210,6 +212,7 @@ module TerminalShop
         # def initialize: (Hash | TerminalShop::BaseModel) -> void
       end
 
+      # @see TerminalShop::Models::OrderAPI#tracking
       class Tracking < TerminalShop::BaseModel
         # @!attribute [r] number
         #   Tracking number of the order.

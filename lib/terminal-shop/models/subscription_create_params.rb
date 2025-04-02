@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Subscription#create
     class SubscriptionCreateParams < TerminalShop::Models::SubscriptionAPI
       # @!parse
       #   extend TerminalShop::Type::RequestParameters::Converter

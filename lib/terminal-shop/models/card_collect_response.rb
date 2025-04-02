@@ -16,6 +16,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::CardCollectResponse#data
       class Data < TerminalShop::BaseModel
         # @!attribute url
         #   Temporary URL that allows a user to enter credit card details over https at

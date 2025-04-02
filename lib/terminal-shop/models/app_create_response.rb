@@ -15,6 +15,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::AppCreateResponse#data
       class Data < TerminalShop::BaseModel
         # @!attribute id
         #   OAuth 2.0 client ID.

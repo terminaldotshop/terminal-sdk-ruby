@@ -10,6 +10,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartClearResponse]
+      #
+      # @see TerminalShop::Models::CartClearParams
       def clear(params = {})
         @client.request(
           method: :delete,
@@ -26,6 +28,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartConvertResponse]
+      #
+      # @see TerminalShop::Models::CartConvertParams
       def convert(params = {})
         @client.request(
           method: :post,
@@ -42,6 +46,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartGetResponse]
+      #
+      # @see TerminalShop::Models::CartGetParams
       def get(params = {})
         @client.request(
           method: :get,
@@ -60,6 +66,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetAddressResponse]
+      #
+      # @see TerminalShop::Models::CartSetAddressParams
       def set_address(params)
         parsed, options = TerminalShop::Models::CartSetAddressParams.dump_request(params)
         @client.request(
@@ -80,6 +88,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetCardResponse]
+      #
+      # @see TerminalShop::Models::CartSetCardParams
       def set_card(params)
         parsed, options = TerminalShop::Models::CartSetCardParams.dump_request(params)
         @client.request(
@@ -102,6 +112,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::CartSetItemResponse]
+      #
+      # @see TerminalShop::Models::CartSetItemParams
       def set_item(params)
         parsed, options = TerminalShop::Models::CartSetItemParams.dump_request(params)
         @client.request(
@@ -113,6 +125,8 @@ module TerminalShop
         )
       end
 
+      # @api private
+      #
       # @param client [TerminalShop::Client]
       def initialize(client:)
         @client = client
