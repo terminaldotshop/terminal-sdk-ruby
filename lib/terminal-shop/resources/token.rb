@@ -47,7 +47,7 @@ module TerminalShop
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["token/%0s", id],
+          path: ["token/%1$s", id],
           model: TerminalShop::Models::TokenDeleteResponse,
           options: params[:request_options]
         )
@@ -65,7 +65,7 @@ module TerminalShop
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["token/%0s", id],
+          path: ["token/%1$s", id],
           model: TerminalShop::Models::TokenGetResponse,
           options: params[:request_options]
         )

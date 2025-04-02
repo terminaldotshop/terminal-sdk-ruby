@@ -52,7 +52,7 @@ module TerminalShop
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["card/%0s", id],
+          path: ["card/%1$s", id],
           model: TerminalShop::Models::CardDeleteResponse,
           options: params[:request_options]
         )
@@ -87,7 +87,7 @@ module TerminalShop
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["card/%0s", id],
+          path: ["card/%1$s", id],
           model: TerminalShop::Models::CardGetResponse,
           options: params[:request_options]
         )

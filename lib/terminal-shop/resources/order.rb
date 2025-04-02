@@ -55,7 +55,7 @@ module TerminalShop
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["order/%0s", id],
+          path: ["order/%1$s", id],
           model: TerminalShop::Models::OrderGetResponse,
           options: params[:request_options]
         )
