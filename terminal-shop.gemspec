@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/terminal-shop/version"
+require_relative "lib/terminal_shop/version"
 
 Gem::Specification.new do |s|
   s.name = "terminal-shop"
