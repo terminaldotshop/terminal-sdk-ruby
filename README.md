@@ -35,9 +35,9 @@ terminal = TerminalShop::Client.new(
   environment: "dev" # defaults to "production"
 )
 
-product = terminal.product.list
+products = terminal.product.list
 
-puts(product.data)
+puts(products.data)
 ```
 
 ### Errors
