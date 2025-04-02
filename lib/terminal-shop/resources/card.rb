@@ -5,12 +5,10 @@ module TerminalShop
     class Card
       # Attach a credit card (tokenized via Stripe) to the current user.
       #
-      # @param params [TerminalShop::Models::CardCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(token:, request_options: {})
       #
-      #   @option params [String] :token Stripe card token. Learn how to
-      #     [create one here](https://docs.stripe.com/api/tokens/create_card).
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param token [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardCreateResponse]
       #
@@ -28,9 +26,9 @@ module TerminalShop
 
       # List the credit cards associated with the current user.
       #
-      # @param params [TerminalShop::Models::CardListParams, Hash{Symbol=>Object}] .
+      # @overload list(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardListResponse]
       #
@@ -46,11 +44,10 @@ module TerminalShop
 
       # Delete a credit card associated with the current user.
       #
-      # @param id [String] ID of the card to delete.
+      # @overload delete(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::CardDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardDeleteResponse]
       #
@@ -67,9 +64,9 @@ module TerminalShop
       # Create a temporary URL for collecting credit card information for the current
       #   user.
       #
-      # @param params [TerminalShop::Models::CardCollectParams, Hash{Symbol=>Object}] .
+      # @overload collect(request_options: {})
       #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardCollectResponse]
       #
@@ -85,11 +82,10 @@ module TerminalShop
 
       # Get a credit card by ID associated with the current user.
       #
-      # @param id [String] ID of the card to get.
+      # @overload get(id, request_options: {})
       #
-      # @param params [TerminalShop::Models::CardGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardGetResponse]
       #
