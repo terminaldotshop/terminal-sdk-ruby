@@ -39,6 +39,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::CardAPI#expiration
       class Expiration < TerminalShop::BaseModel
         # @!attribute month
         #   Expiration month of the card.

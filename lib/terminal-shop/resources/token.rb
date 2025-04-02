@@ -10,6 +10,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::TokenCreateResponse]
+      #
+      # @see TerminalShop::Models::TokenCreateParams
       def create(params = {})
         @client.request(
           method: :post,
@@ -26,6 +28,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::TokenListResponse]
+      #
+      # @see TerminalShop::Models::TokenListParams
       def list(params = {})
         @client.request(
           method: :get,
@@ -44,6 +48,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::TokenDeleteResponse]
+      #
+      # @see TerminalShop::Models::TokenDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -62,6 +68,8 @@ module TerminalShop
       #   @option params [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [TerminalShop::Models::TokenGetResponse]
+      #
+      # @see TerminalShop::Models::TokenGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -71,6 +79,8 @@ module TerminalShop
         )
       end
 
+      # @api private
+      #
       # @param client [TerminalShop::Client]
       def initialize(client:)
         @client = client
