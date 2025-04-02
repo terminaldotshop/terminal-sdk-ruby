@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Order#list
     class OrderListResponse < TerminalShop::BaseModel
       # @!attribute data
       #   List of orders.

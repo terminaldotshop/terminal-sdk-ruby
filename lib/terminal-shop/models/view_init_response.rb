@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::View#init
     class ViewInitResponse < TerminalShop::BaseModel
       # @!attribute data
       #   Initial app data.

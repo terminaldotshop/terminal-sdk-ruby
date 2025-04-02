@@ -2,6 +2,7 @@
 
 module TerminalShop
   module Models
+    # @see TerminalShop::Resources::Card#delete
     class CardDeleteResponse < TerminalShop::BaseModel
       # @!attribute data
       #
