@@ -69,6 +69,8 @@ module TerminalShop
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
       # Schedule of the subscription.
+      #
+      # @see TerminalShop::Models::SubscriptionAPI#schedule
       module Schedule
         extend TerminalShop::Union
 

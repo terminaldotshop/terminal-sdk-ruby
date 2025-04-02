@@ -16,6 +16,7 @@ module TerminalShop
 
       # def initialize: (Hash | TerminalShop::BaseModel) -> void
 
+      # @see TerminalShop::Models::ViewInitResponse#data
       class Data < TerminalShop::BaseModel
         # @!attribute addresses
         #

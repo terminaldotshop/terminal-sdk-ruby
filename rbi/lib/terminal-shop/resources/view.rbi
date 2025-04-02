@@ -12,6 +12,7 @@ module TerminalShop
       def init(request_options: {})
       end
 
+      # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
       def self.new(client:)
       end
