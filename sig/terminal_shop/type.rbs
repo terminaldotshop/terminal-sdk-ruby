@@ -1,29 +1,21 @@
 module TerminalShop
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  Unknown: TerminalShop::Type::Unknown
+  class Unknown = TerminalShop::Type::Unknown
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  BooleanModel: TerminalShop::Type::BooleanModel
+  class BooleanModel = TerminalShop::Type::BooleanModel
 
-  # module 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  Enum: TerminalShop::Type::Enum
+  module Enum = TerminalShop::Type::Enum
 
-  # module 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  Union: TerminalShop::Type::Union
+  module Union = TerminalShop::Type::Union
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  ArrayOf: TerminalShop::Type::ArrayOf
+  class ArrayOf = TerminalShop::Type::ArrayOf
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  HashOf: TerminalShop::Type::HashOf
+  class HashOf = TerminalShop::Type::HashOf
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  BaseModel: TerminalShop::Type::BaseModel
+  class BaseModel = TerminalShop::Type::BaseModel
 
   type request_parameters = TerminalShop::Type::request_parameters
 
-  # module 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  RequestParameters: TerminalShop::Type::RequestParameters
+  module RequestParameters = TerminalShop::Type::RequestParameters
 
   module Type
   end
