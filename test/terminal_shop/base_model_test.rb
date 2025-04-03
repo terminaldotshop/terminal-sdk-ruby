@@ -390,7 +390,7 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
           tap do
             target.public_send(accessor)
             flunk
-          rescue TerminalShop::ConversionError => e
+          rescue TerminalShop::Errors::ConversionError => e
             assert_kind_of(expect, e.cause)
           end
         else

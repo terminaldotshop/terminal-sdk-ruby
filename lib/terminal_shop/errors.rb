@@ -1,183 +1,220 @@
 # frozen_string_literal: true
 
 module TerminalShop
-  class Error < StandardError
-    # @!parse
-    #   # @return [StandardError, nil]
-    #   attr_accessor :cause
-  end
-
-  class ConversionError < TerminalShop::Error
-  end
-
-  class APIError < TerminalShop::Error
-    # @return [URI::Generic]
-    attr_accessor :url
-
-    # @return [Integer, nil]
-    attr_accessor :status
-
-    # @return [Object, nil]
-    attr_accessor :body
-
-    # @api private
-    #
-    # @param url [URI::Generic]
-    # @param status [Integer, nil]
-    # @param body [Object, nil]
-    # @param request [nil]
-    # @param response [nil]
-    # @param message [String, nil]
-    def initialize(url:, status: nil, body: nil, request: nil, response: nil, message: nil)
-      @url = url
-      @status = status
-      @body = body
-      @request = request
-      @response = response
-      super(message)
+  module Errors
+    class Error < StandardError
+      # @!parse
+      #   # @return [StandardError, nil]
+      #   attr_accessor :cause
     end
-  end
 
-  class APIConnectionError < TerminalShop::APIError
-    # @!parse
-    #   # @return [nil]
-    #   attr_accessor :status
-
-    # @!parse
-    #   # @return [nil]
-    #   attr_accessor :body
-
-    # @api private
-    #
-    # @param url [URI::Generic]
-    # @param status [nil]
-    # @param body [nil]
-    # @param request [nil]
-    # @param response [nil]
-    # @param message [String, nil]
-    def initialize(
-      url:,
-      status: nil,
-      body: nil,
-      request: nil,
-      response: nil,
-      message: "Connection error."
-    )
-      super
+    class ConversionError < TerminalShop::Errors::Error
     end
-  end
 
-  class APITimeoutError < TerminalShop::APIConnectionError
-    # @api private
-    #
-    # @param url [URI::Generic]
-    # @param status [nil]
-    # @param body [nil]
-    # @param request [nil]
-    # @param response [nil]
-    # @param message [String, nil]
-    def initialize(
-      url:,
-      status: nil,
-      body: nil,
-      request: nil,
-      response: nil,
-      message: "Request timed out."
-    )
-      super
-    end
-  end
+    class APIError < TerminalShop::Errors::Error
+      # @return [URI::Generic]
+      attr_accessor :url
 
-  class APIStatusError < TerminalShop::APIError
-    # @api private
-    #
-    # @param url [URI::Generic]
-    # @param status [Integer]
-    # @param body [Object, nil]
-    # @param request [nil]
-    # @param response [nil]
-    # @param message [String, nil]
-    #
-    # @return [TerminalShop::APIStatusError]
-    def self.for(url:, status:, body:, request:, response:, message: nil)
-      kwargs = {url: url, status: status, body: body, request: request, response: response, message: message}
+      # @return [Integer, nil]
+      attr_accessor :status
 
-      case status
-      in 400
-        TerminalShop::BadRequestError.new(**kwargs)
-      in 401
-        TerminalShop::AuthenticationError.new(**kwargs)
-      in 403
-        TerminalShop::PermissionDeniedError.new(**kwargs)
-      in 404
-        TerminalShop::NotFoundError.new(**kwargs)
-      in 409
-        TerminalShop::ConflictError.new(**kwargs)
-      in 422
-        TerminalShop::UnprocessableEntityError.new(**kwargs)
-      in 429
-        TerminalShop::RateLimitError.new(**kwargs)
-      in (500..)
-        TerminalShop::InternalServerError.new(**kwargs)
-      else
-        TerminalShop::APIStatusError.new(**kwargs)
+      # @return [Object, nil]
+      attr_accessor :body
+
+      # @api private
+      #
+      # @param url [URI::Generic]
+      # @param status [Integer, nil]
+      # @param body [Object, nil]
+      # @param request [nil]
+      # @param response [nil]
+      # @param message [String, nil]
+      def initialize(url:, status: nil, body: nil, request: nil, response: nil, message: nil)
+        @url = url
+        @status = status
+        @body = body
+        @request = request
+        @response = response
+        super(message)
       end
     end
 
-    # @!parse
-    #   # @return [Integer]
-    #   attr_accessor :status
+    class APIConnectionError < TerminalShop::Errors::APIError
+      # @!parse
+      #   # @return [nil]
+      #   attr_accessor :status
 
-    # @api private
-    #
-    # @param url [URI::Generic]
-    # @param status [Integer]
-    # @param body [Object, nil]
-    # @param request [nil]
-    # @param response [nil]
-    # @param message [String, nil]
-    def initialize(url:, status:, body:, request:, response:, message: nil)
-      message ||= {url: url.to_s, status: status, body: body}
-      super(
-        url: url,
-        status: status,
-        body: body,
-        request: request,
-        response: response,
-        message: message&.to_s
+      # @!parse
+      #   # @return [nil]
+      #   attr_accessor :body
+
+      # @api private
+      #
+      # @param url [URI::Generic]
+      # @param status [nil]
+      # @param body [nil]
+      # @param request [nil]
+      # @param response [nil]
+      # @param message [String, nil]
+      def initialize(
+        url:,
+        status: nil,
+        body: nil,
+        request: nil,
+        response: nil,
+        message: "Connection error."
       )
+        super
+      end
+    end
+
+    class APITimeoutError < TerminalShop::Errors::APIConnectionError
+      # @api private
+      #
+      # @param url [URI::Generic]
+      # @param status [nil]
+      # @param body [nil]
+      # @param request [nil]
+      # @param response [nil]
+      # @param message [String, nil]
+      def initialize(
+        url:,
+        status: nil,
+        body: nil,
+        request: nil,
+        response: nil,
+        message: "Request timed out."
+      )
+        super
+      end
+    end
+
+    class APIStatusError < TerminalShop::Errors::APIError
+      # @api private
+      #
+      # @param url [URI::Generic]
+      # @param status [Integer]
+      # @param body [Object, nil]
+      # @param request [nil]
+      # @param response [nil]
+      # @param message [String, nil]
+      #
+      # @return [TerminalShop::Errors::APIStatusError]
+      def self.for(url:, status:, body:, request:, response:, message: nil)
+        kwargs = {
+          url: url,
+          status: status,
+          body: body,
+          request: request,
+          response: response,
+          message: message
+        }
+
+        case status
+        in 400
+          TerminalShop::Errors::BadRequestError.new(**kwargs)
+        in 401
+          TerminalShop::Errors::AuthenticationError.new(**kwargs)
+        in 403
+          TerminalShop::Errors::PermissionDeniedError.new(**kwargs)
+        in 404
+          TerminalShop::Errors::NotFoundError.new(**kwargs)
+        in 409
+          TerminalShop::Errors::ConflictError.new(**kwargs)
+        in 422
+          TerminalShop::Errors::UnprocessableEntityError.new(**kwargs)
+        in 429
+          TerminalShop::Errors::RateLimitError.new(**kwargs)
+        in (500..)
+          TerminalShop::Errors::InternalServerError.new(**kwargs)
+        else
+          TerminalShop::Errors::APIStatusError.new(**kwargs)
+        end
+      end
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_accessor :status
+
+      # @api private
+      #
+      # @param url [URI::Generic]
+      # @param status [Integer]
+      # @param body [Object, nil]
+      # @param request [nil]
+      # @param response [nil]
+      # @param message [String, nil]
+      def initialize(url:, status:, body:, request:, response:, message: nil)
+        message ||= {url: url.to_s, status: status, body: body}
+        super(
+          url: url,
+          status: status,
+          body: body,
+          request: request,
+          response: response,
+          message: message&.to_s
+        )
+      end
+    end
+
+    class BadRequestError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 400
+    end
+
+    class AuthenticationError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 401
+    end
+
+    class PermissionDeniedError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 403
+    end
+
+    class NotFoundError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 404
+    end
+
+    class ConflictError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 409
+    end
+
+    class UnprocessableEntityError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 422
+    end
+
+    class RateLimitError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = 429
+    end
+
+    class InternalServerError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS = (500..)
     end
   end
 
-  class BadRequestError < TerminalShop::APIStatusError
-    HTTP_STATUS = 400
-  end
+  Error = TerminalShop::Errors::Error
 
-  class AuthenticationError < TerminalShop::APIStatusError
-    HTTP_STATUS = 401
-  end
+  ConversionError = TerminalShop::Errors::ConversionError
 
-  class PermissionDeniedError < TerminalShop::APIStatusError
-    HTTP_STATUS = 403
-  end
+  APIError = TerminalShop::Errors::APIError
 
-  class NotFoundError < TerminalShop::APIStatusError
-    HTTP_STATUS = 404
-  end
+  APIStatusError = TerminalShop::Errors::APIStatusError
 
-  class ConflictError < TerminalShop::APIStatusError
-    HTTP_STATUS = 409
-  end
+  APIConnectionError = TerminalShop::Errors::APIConnectionError
 
-  class UnprocessableEntityError < TerminalShop::APIStatusError
-    HTTP_STATUS = 422
-  end
+  APITimeoutError = TerminalShop::Errors::APITimeoutError
 
-  class RateLimitError < TerminalShop::APIStatusError
-    HTTP_STATUS = 429
-  end
+  BadRequestError = TerminalShop::Errors::BadRequestError
 
-  class InternalServerError < TerminalShop::APIStatusError
-    HTTP_STATUS = (500..)
-  end
+  AuthenticationError = TerminalShop::Errors::AuthenticationError
+
+  PermissionDeniedError = TerminalShop::Errors::PermissionDeniedError
+
+  NotFoundError = TerminalShop::Errors::NotFoundError
+
+  ConflictError = TerminalShop::Errors::ConflictError
+
+  UnprocessableEntityError = TerminalShop::Errors::UnprocessableEntityError
+
+  RateLimitError = TerminalShop::Errors::RateLimitError
+
+  InternalServerError = TerminalShop::Errors::InternalServerError
 end

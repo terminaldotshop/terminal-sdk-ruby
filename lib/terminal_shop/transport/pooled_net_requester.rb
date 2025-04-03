@@ -153,7 +153,7 @@ module TerminalShop
             end
           end
         rescue Timeout::Error
-          raise TerminalShop::APITimeoutError
+          raise TerminalShop::Errors::APITimeoutError
         end
 
         conn, _, response = enum.next

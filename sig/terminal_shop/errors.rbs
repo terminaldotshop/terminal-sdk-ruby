@@ -1,99 +1,143 @@
 module TerminalShop
-  class Error < StandardError
-    attr_accessor cause: StandardError?
+  module Errors
+    class Error < StandardError
+      attr_accessor cause: StandardError?
+    end
+
+    class ConversionError < TerminalShop::Errors::Error
+    end
+
+    class APIError < TerminalShop::Errors::Error
+      attr_accessor url: URI::Generic
+
+      attr_accessor status: Integer?
+
+      attr_accessor body: top?
+
+      def initialize: (
+        url: URI::Generic,
+        ?status: Integer?,
+        ?body: Object?,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIConnectionError < TerminalShop::Errors::APIError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APITimeoutError < TerminalShop::Errors::APIConnectionError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIStatusError < TerminalShop::Errors::APIError
+      def self.for: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> instance
+
+      def initialize: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class BadRequestError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 400
+    end
+
+    class AuthenticationError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 401
+    end
+
+    class PermissionDeniedError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 403
+    end
+
+    class NotFoundError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 404
+    end
+
+    class ConflictError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 409
+    end
+
+    class UnprocessableEntityError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 422
+    end
+
+    class RateLimitError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: 429
+    end
+
+    class InternalServerError < TerminalShop::Errors::APIStatusError
+      HTTP_STATUS: Range[Integer]
+    end
   end
 
-  class ConversionError < TerminalShop::Error
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  Error: TerminalShop::Errors::Error
 
-  class APIError < TerminalShop::Error
-    attr_accessor url: URI::Generic
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  ConversionError: TerminalShop::Errors::ConversionError
 
-    attr_accessor status: Integer?
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  APIError: TerminalShop::Errors::APIError
 
-    attr_accessor body: top?
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  APIStatusError: TerminalShop::Errors::APIStatusError
 
-    def initialize: (
-      url: URI::Generic,
-      ?status: Integer?,
-      ?body: Object?,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  APIConnectionError: TerminalShop::Errors::APIConnectionError
 
-  class APIConnectionError < TerminalShop::APIError
-    def initialize: (
-      url: URI::Generic,
-      ?status: nil,
-      ?body: nil,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  APITimeoutError: TerminalShop::Errors::APITimeoutError
 
-  class APITimeoutError < TerminalShop::APIConnectionError
-    def initialize: (
-      url: URI::Generic,
-      ?status: nil,
-      ?body: nil,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  BadRequestError: TerminalShop::Errors::BadRequestError
 
-  class APIStatusError < TerminalShop::APIError
-    def self.for: (
-      url: URI::Generic,
-      status: Integer,
-      body: Object?,
-      request: nil,
-      response: nil,
-      ?message: String?
-    ) -> instance
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  AuthenticationError: TerminalShop::Errors::AuthenticationError
 
-    def initialize: (
-      url: URI::Generic,
-      status: Integer,
-      body: Object?,
-      request: nil,
-      response: nil,
-      ?message: String?
-    ) -> void
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  PermissionDeniedError: TerminalShop::Errors::PermissionDeniedError
 
-  class BadRequestError < TerminalShop::APIStatusError
-    HTTP_STATUS: 400
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  NotFoundError: TerminalShop::Errors::NotFoundError
 
-  class AuthenticationError < TerminalShop::APIStatusError
-    HTTP_STATUS: 401
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  ConflictError: TerminalShop::Errors::ConflictError
 
-  class PermissionDeniedError < TerminalShop::APIStatusError
-    HTTP_STATUS: 403
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  UnprocessableEntityError: TerminalShop::Errors::UnprocessableEntityError
 
-  class NotFoundError < TerminalShop::APIStatusError
-    HTTP_STATUS: 404
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  RateLimitError: TerminalShop::Errors::RateLimitError
 
-  class ConflictError < TerminalShop::APIStatusError
-    HTTP_STATUS: 409
-  end
-
-  class UnprocessableEntityError < TerminalShop::APIStatusError
-    HTTP_STATUS: 422
-  end
-
-  class RateLimitError < TerminalShop::APIStatusError
-    HTTP_STATUS: 429
-  end
-
-  class InternalServerError < TerminalShop::APIStatusError
-    HTTP_STATUS: Range[Integer]
-  end
+  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
+  InternalServerError: TerminalShop::Errors::InternalServerError
 end
