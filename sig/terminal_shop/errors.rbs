@@ -99,45 +99,31 @@ module TerminalShop
     end
   end
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  Error: TerminalShop::Errors::Error
+  class Error = TerminalShop::Errors::Error
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  ConversionError: TerminalShop::Errors::ConversionError
+  class ConversionError = TerminalShop::Errors::ConversionError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  APIError: TerminalShop::Errors::APIError
+  class APIError = TerminalShop::Errors::APIError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  APIStatusError: TerminalShop::Errors::APIStatusError
+  class APIStatusError = TerminalShop::Errors::APIStatusError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  APIConnectionError: TerminalShop::Errors::APIConnectionError
+  class APIConnectionError = TerminalShop::Errors::APIConnectionError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  APITimeoutError: TerminalShop::Errors::APITimeoutError
+  class APITimeoutError = TerminalShop::Errors::APITimeoutError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  BadRequestError: TerminalShop::Errors::BadRequestError
+  class BadRequestError = TerminalShop::Errors::BadRequestError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  AuthenticationError: TerminalShop::Errors::AuthenticationError
+  class AuthenticationError = TerminalShop::Errors::AuthenticationError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  PermissionDeniedError: TerminalShop::Errors::PermissionDeniedError
+  class PermissionDeniedError = TerminalShop::Errors::PermissionDeniedError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  NotFoundError: TerminalShop::Errors::NotFoundError
+  class NotFoundError = TerminalShop::Errors::NotFoundError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  ConflictError: TerminalShop::Errors::ConflictError
+  class ConflictError = TerminalShop::Errors::ConflictError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  UnprocessableEntityError: TerminalShop::Errors::UnprocessableEntityError
+  class UnprocessableEntityError = TerminalShop::Errors::UnprocessableEntityError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  RateLimitError: TerminalShop::Errors::RateLimitError
+  class RateLimitError = TerminalShop::Errors::RateLimitError
 
-  # class 4a75d9e8-99ee-4ee3-a7f7-3491c62a6f25
-  InternalServerError: TerminalShop::Errors::InternalServerError
+  class InternalServerError = TerminalShop::Errors::InternalServerError
 end
