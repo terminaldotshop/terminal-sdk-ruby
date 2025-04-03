@@ -29,7 +29,7 @@ module TerminalShop
       # @return [Boolean]
       def next_page? = (raise NotImplementedError)
 
-      # @raise [TerminalShop::APIError]
+      # @raise [TerminalShop::Errors::APIError]
       # @return [TerminalShop::Type::BasePage]
       def next_page = (raise NotImplementedError)
 

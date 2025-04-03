@@ -47,7 +47,7 @@ module TerminalShop
       ) -> TerminalShop::Transport::BaseClient::request_input
 
       def self.reap_connection!: (
-        Integer | TerminalShop::APIConnectionError status,
+        Integer | TerminalShop::Errors::APIConnectionError status,
         stream: Enumerable[String]?
       ) -> void
 

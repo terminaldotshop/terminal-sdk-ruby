@@ -82,7 +82,7 @@ module TerminalShop
         # @api private
         sig do
           params(
-            status: T.any(Integer, TerminalShop::APIConnectionError),
+            status: T.any(Integer, TerminalShop::Errors::APIConnectionError),
             stream: T.nilable(T::Enumerable[String])
           )
             .void
