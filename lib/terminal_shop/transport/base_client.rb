@@ -92,7 +92,7 @@ module TerminalShop
               URI.join(url, response_headers["location"])
             rescue ArgumentError
               message = "Server responded with status #{status} but no valid location header."
-              raise TerminalShop::APIConnectionError.new(url: url, message: message)
+              raise TerminalShop::Errors::APIConnectionError.new(url: url, message: message)
             end
 
           request = {**request, url: location}
@@ -100,7 +100,7 @@ module TerminalShop
           case [url.scheme, location.scheme]
           in ["https", "http"]
             message = "Tried to redirect to a insecure URL"
-            raise TerminalShop::APIConnectionError.new(url: url, message: message)
+            raise TerminalShop::Errors::APIConnectionError.new(url: url, message: message)
           else
             nil
           end
@@ -129,13 +129,13 @@ module TerminalShop
 
         # @api private
         #
-        # @param status [Integer, TerminalShop::APIConnectionError]
+        # @param status [Integer, TerminalShop::Errors::APIConnectionError]
         # @param stream [Enumerable, nil]
         def reap_connection!(status, stream:)
           case status
           in (..199) | (300..499)
             stream&.each { next }
-          in TerminalShop::APIConnectionError | (500..)
+          in TerminalShop::Errors::APIConnectionError | (500..)
             TerminalShop::Util.close_fused!(stream)
           else
           end
@@ -326,7 +326,7 @@ module TerminalShop
       #
       # @param send_retry_header [Boolean]
       #
-      # @raise [TerminalShop::APIError]
+      # @raise [TerminalShop::Errors::APIError]
       # @return [Array(Integer, Net::HTTPResponse, Enumerable)]
       private def send_request(request, redirect_count:, retry_count:, send_retry_header:)
         url, headers, max_retries, timeout = request.fetch_values(:url, :headers, :max_retries, :timeout)
@@ -349,7 +349,7 @@ module TerminalShop
           self.class.reap_connection!(status, stream: stream)
 
           message = "Failed to complete the request within #{self.class::MAX_REDIRECTS} redirects."
-          raise TerminalShop::APIConnectionError.new(url: url, message: message)
+          raise TerminalShop::Errors::APIConnectionError.new(url: url, message: message)
         in 300..399
           self.class.reap_connection!(status, stream: stream)
 
@@ -369,14 +369,14 @@ module TerminalShop
             self.class.reap_connection!(status, stream: stream)
           end
 
-          raise TerminalShop::APIStatusError.for(
+          raise TerminalShop::Errors::APIStatusError.for(
             url: url,
             status: status,
             body: decoded,
             request: nil,
             response: response
           )
-        in (400..) | TerminalShop::APIConnectionError
+        in (400..) | TerminalShop::Errors::APIConnectionError
           self.class.reap_connection!(status, stream: stream)
 
           delay = retry_delay(response, retry_count: retry_count)
@@ -416,7 +416,7 @@ module TerminalShop
       #
       #   @option req [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil] :options
       #
-      # @raise [TerminalShop::APIError]
+      # @raise [TerminalShop::Errors::APIError]
       # @return [Object]
       def request(req)
         self.class.validate!(req)

@@ -225,7 +225,7 @@ class TerminalShopTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     terminal.requester = requester
 
-    assert_raises(TerminalShop::APIConnectionError) do
+    assert_raises(TerminalShop::Errors::APIConnectionError) do
       terminal.product.list(request_options: {extra_headers: {}})
     end
 
@@ -243,7 +243,7 @@ class TerminalShopTest < Minitest::Test
     requester = MockRequester.new(303, {"location" => "/redirected"}, {})
     terminal.requester = requester
 
-    assert_raises(TerminalShop::APIConnectionError) do
+    assert_raises(TerminalShop::Errors::APIConnectionError) do
       terminal.product.list(request_options: {extra_headers: {}})
     end
 
@@ -258,7 +258,7 @@ class TerminalShopTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     terminal.requester = requester
 
-    assert_raises(TerminalShop::APIConnectionError) do
+    assert_raises(TerminalShop::Errors::APIConnectionError) do
       terminal.product.list(request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
@@ -273,7 +273,7 @@ class TerminalShopTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "https://example.com/redirected"}, {})
     terminal.requester = requester
 
-    assert_raises(TerminalShop::APIConnectionError) do
+    assert_raises(TerminalShop::Errors::APIConnectionError) do
       terminal.product.list(request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
