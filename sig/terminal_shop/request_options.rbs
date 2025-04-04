@@ -14,7 +14,7 @@ module TerminalShop
       timeout: Float?
     }
 
-  class RequestOptions < TerminalShop::BaseModel
+  class RequestOptions < TerminalShop::Internal::Type::BaseModel
     def self.validate!: (self | ::Hash[Symbol, top] opts) -> void
 
     attr_accessor idempotency_key: String?

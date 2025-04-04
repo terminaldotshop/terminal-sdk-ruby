@@ -2,13 +2,13 @@
 
 module TerminalShop
   module Models
-    class CardListResponse < TerminalShop::BaseModel
+    class CardListResponse < TerminalShop::Internal::Type::BaseModel
       # List of cards associated with the user.
       sig { returns(T::Array[TerminalShop::Models::CardAPI]) }
       attr_accessor :data
 
       sig do
-        params(data: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::Util::AnyHash)])
+        params(data: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
       def self.new(data:)

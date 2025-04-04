@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type address_delete_response = { data: :ok }
 
-    class AddressDeleteResponse < TerminalShop::BaseModel
+    class AddressDeleteResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void

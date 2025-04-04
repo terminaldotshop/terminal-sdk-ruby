@@ -3,26 +3,26 @@
 require_relative "../../test_helper"
 
 class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
-  A = TerminalShop::ArrayOf[-> { Integer }]
-  H = TerminalShop::HashOf[-> { Integer }, nil?: true]
+  A = TerminalShop::Internal::Type::ArrayOf[-> { Integer }]
+  H = TerminalShop::Internal::Type::HashOf[-> { Integer }, nil?: true]
 
   module E
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
   end
 
   module U
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
   end
 
-  class B < TerminalShop::BaseModel
+  class B < TerminalShop::Internal::Type::BaseModel
     optional :a, Integer
     optional :b, B
   end
 
   def test_typing
     converters = [
-      TerminalShop::Unknown,
-      TerminalShop::BooleanModel,
+      TerminalShop::Internal::Type::Unknown,
+      TerminalShop::Internal::Type::BooleanModel,
       A,
       H,
       E,
@@ -39,11 +39,11 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
 
   def test_coerce
     cases = {
-      [TerminalShop::Unknown, :a] => [{yes: 1}, :a],
+      [TerminalShop::Internal::Type::Unknown, :a] => [{yes: 1}, :a],
       [NilClass, :a] => [{maybe: 1}, nil],
       [NilClass, nil] => [{yes: 1}, nil],
-      [TerminalShop::BooleanModel, true] => [{yes: 1}, true],
-      [TerminalShop::BooleanModel, "true"] => [{no: 1}, "true"],
+      [TerminalShop::Internal::Type::BooleanModel, true] => [{yes: 1}, true],
+      [TerminalShop::Internal::Type::BooleanModel, "true"] => [{no: 1}, "true"],
       [Integer, 1] => [{yes: 1}, 1],
       [Integer, 1.0] => [{maybe: 1}, 1],
       [Integer, "1"] => [{maybe: 1}, 1],
@@ -76,7 +76,7 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
 
   def test_dump
     cases = {
-      [TerminalShop::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
+      [TerminalShop::Internal::Type::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [A, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [H, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [E, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
@@ -85,8 +85,8 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
       [String, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [:b, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [nil, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
-      [TerminalShop::BooleanModel, true] => true,
-      [TerminalShop::BooleanModel, "true"] => "true",
+      [TerminalShop::Internal::Type::BooleanModel, true] => true,
+      [TerminalShop::Internal::Type::BooleanModel, "true"] => "true",
       [Integer, "1"] => "1",
       [Float, 1] => 1,
       [String, "one"] => "one",
@@ -126,27 +126,27 @@ end
 
 class TerminalShop::Test::EnumModelTest < Minitest::Test
   module E1
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     TRUE = true
   end
 
   module E2
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     ONE = 1
     TWO = 2
   end
 
   module E3
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     ONE = 1.0
     TWO = 2.0
   end
 
   module E4
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     ONE = :one
     TWO = :two
@@ -216,14 +216,14 @@ class TerminalShop::Test::EnumModelTest < Minitest::Test
 end
 
 class TerminalShop::Test::CollectionModelTest < Minitest::Test
-  A1 = TerminalShop::ArrayOf[-> { Integer }]
-  H1 = TerminalShop::HashOf[Integer]
+  A1 = TerminalShop::Internal::Type::ArrayOf[-> { Integer }]
+  H1 = TerminalShop::Internal::Type::HashOf[Integer]
 
-  A2 = TerminalShop::ArrayOf[H1]
-  H2 = TerminalShop::HashOf[-> { A1 }]
+  A2 = TerminalShop::Internal::Type::ArrayOf[H1]
+  H2 = TerminalShop::Internal::Type::HashOf[-> { A1 }]
 
-  A3 = TerminalShop::ArrayOf[Integer, nil?: true]
-  H3 = TerminalShop::HashOf[Integer, nil?: true]
+  A3 = TerminalShop::Internal::Type::ArrayOf[Integer, nil?: true]
+  H3 = TerminalShop::Internal::Type::HashOf[Integer, nil?: true]
 
   def test_coerce
     cases = {
@@ -263,7 +263,7 @@ class TerminalShop::Test::CollectionModelTest < Minitest::Test
 end
 
 class TerminalShop::Test::BaseModelTest < Minitest::Test
-  class M1 < TerminalShop::BaseModel
+  class M1 < TerminalShop::Internal::Type::BaseModel
     required :a, Integer
   end
 
@@ -273,7 +273,7 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
     optional :c, String
   end
 
-  class M3 < TerminalShop::BaseModel
+  class M3 < TerminalShop::Internal::Type::BaseModel
     optional :c, const: :c
     required :d, const: :d
   end
@@ -290,7 +290,7 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
     end
   end
 
-  class M5 < TerminalShop::BaseModel
+  class M5 < TerminalShop::Internal::Type::BaseModel
     request_only do
       required :c, const: :c
     end
@@ -301,7 +301,7 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
   end
 
   class M6 < M1
-    required :a, TerminalShop::ArrayOf[M6]
+    required :a, TerminalShop::Internal::Type::ArrayOf[M6]
   end
 
   def test_coerce
@@ -337,7 +337,7 @@ class TerminalShop::Test::BaseModelTest < Minitest::Test
       assert_pattern do
         coerced = TerminalShop::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(TerminalShop::BaseModel)
+        if coerced.is_a?(TerminalShop::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -403,27 +403,27 @@ end
 
 class TerminalShop::Test::UnionTest < Minitest::Test
   module U0
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
   end
 
   module U1
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
     variant const: :a
     variant const: 2
   end
 
-  class M1 < TerminalShop::BaseModel
+  class M1 < TerminalShop::Internal::Type::BaseModel
     required :t, const: :a, api_name: :type
     optional :c, String
   end
 
-  class M2 < TerminalShop::BaseModel
+  class M2 < TerminalShop::Internal::Type::BaseModel
     required :type, const: :b
     optional :c, String
   end
 
   module U2
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -431,7 +431,7 @@ class TerminalShop::Test::UnionTest < Minitest::Test
   end
 
   module U3
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -439,37 +439,37 @@ class TerminalShop::Test::UnionTest < Minitest::Test
   end
 
   module U4
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
     discriminator :type
 
     variant String
     variant :a, M1
   end
 
-  class M3 < TerminalShop::BaseModel
+  class M3 < TerminalShop::Internal::Type::BaseModel
     optional :recur, -> { U5 }
     required :a, Integer
   end
 
-  class M4 < TerminalShop::BaseModel
+  class M4 < TerminalShop::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :a, TerminalShop::ArrayOf[-> { U5 }]
+    required :a, TerminalShop::Internal::Type::ArrayOf[-> { U5 }]
   end
 
-  class M5 < TerminalShop::BaseModel
+  class M5 < TerminalShop::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :b, TerminalShop::ArrayOf[-> { U5 }]
+    required :b, TerminalShop::Internal::Type::ArrayOf[-> { U5 }]
   end
 
   module U5
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M4 }
   end
 
   module U6
-    extend TerminalShop::Union
+    extend TerminalShop::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M5 }
@@ -480,7 +480,7 @@ class TerminalShop::Test::UnionTest < Minitest::Test
     tap do
       model.recur
       flunk
-    rescue TerminalShop::ConversionError => e
+    rescue TerminalShop::Errors::ConversionError => e
       assert_kind_of(ArgumentError, e.cause)
     end
   end
@@ -513,7 +513,7 @@ class TerminalShop::Test::UnionTest < Minitest::Test
       assert_pattern do
         coerced = TerminalShop::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(TerminalShop::BaseModel)
+        if coerced.is_a?(TerminalShop::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -527,29 +527,29 @@ end
 
 class TerminalShop::Test::BaseModelQoLTest < Minitest::Test
   module E1
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     A = 1
   end
 
   module E2
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     A = 1
   end
 
   module E3
-    extend TerminalShop::Enum
+    extend TerminalShop::Internal::Type::Enum
 
     A = 2
     B = 3
   end
 
-  class M1 < TerminalShop::BaseModel
+  class M1 < TerminalShop::Internal::Type::BaseModel
     required :a, Integer
   end
 
-  class M2 < TerminalShop::BaseModel
+  class M2 < TerminalShop::Internal::Type::BaseModel
     required :a, Integer, nil?: true
   end
 
@@ -559,9 +559,9 @@ class TerminalShop::Test::BaseModelQoLTest < Minitest::Test
 
   def test_equality
     cases = {
-      [TerminalShop::Unknown, TerminalShop::Unknown] => true,
-      [TerminalShop::BooleanModel, TerminalShop::BooleanModel] => true,
-      [TerminalShop::Unknown, TerminalShop::BooleanModel] => false,
+      [TerminalShop::Internal::Type::Unknown, TerminalShop::Internal::Type::Unknown] => true,
+      [TerminalShop::Internal::Type::BooleanModel, TerminalShop::Internal::Type::BooleanModel] => true,
+      [TerminalShop::Internal::Type::Unknown, TerminalShop::Internal::Type::BooleanModel] => false,
       [E1, E2] => true,
       [E1, E3] => false,
       [M1, M2] => false,

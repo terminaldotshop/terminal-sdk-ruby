@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class SubscriptionAPI < TerminalShop::BaseModel
+    class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -47,7 +47,7 @@ module TerminalShop
         params(
           schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Internal::Util::AnyHash,
+            TerminalShop::Internal::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
@@ -66,7 +66,7 @@ module TerminalShop
           next_: String,
           schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Internal::Util::AnyHash,
+            TerminalShop::Internal::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           )
         )
@@ -97,9 +97,9 @@ module TerminalShop
 
       # Schedule of the subscription.
       module Schedule
-        extend TerminalShop::Union
+        extend TerminalShop::Internal::Type::Union
 
-        class Fixed < TerminalShop::BaseModel
+        class Fixed < TerminalShop::Internal::Type::BaseModel
           sig { returns(Symbol) }
           attr_accessor :type
 
@@ -112,7 +112,7 @@ module TerminalShop
           end
         end
 
-        class Weekly < TerminalShop::BaseModel
+        class Weekly < TerminalShop::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :interval
 

@@ -189,32 +189,4 @@ module TerminalShop
       HTTP_STATUS = (500..)
     end
   end
-
-  Error = TerminalShop::Errors::Error
-
-  ConversionError = TerminalShop::Errors::ConversionError
-
-  APIError = TerminalShop::Errors::APIError
-
-  APIStatusError = TerminalShop::Errors::APIStatusError
-
-  APIConnectionError = TerminalShop::Errors::APIConnectionError
-
-  APITimeoutError = TerminalShop::Errors::APITimeoutError
-
-  BadRequestError = TerminalShop::Errors::BadRequestError
-
-  AuthenticationError = TerminalShop::Errors::AuthenticationError
-
-  PermissionDeniedError = TerminalShop::Errors::PermissionDeniedError
-
-  NotFoundError = TerminalShop::Errors::NotFoundError
-
-  ConflictError = TerminalShop::Errors::ConflictError
-
-  UnprocessableEntityError = TerminalShop::Errors::UnprocessableEntityError
-
-  RateLimitError = TerminalShop::Errors::RateLimitError
-
-  InternalServerError = TerminalShop::Errors::InternalServerError
 end

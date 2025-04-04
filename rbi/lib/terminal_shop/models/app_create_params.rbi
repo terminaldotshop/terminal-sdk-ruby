@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class AppCreateParams < TerminalShop::BaseModel
+    class AppCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module TerminalShop
         params(
           name: String,
           redirect_uri: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

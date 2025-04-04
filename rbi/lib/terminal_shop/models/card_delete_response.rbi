@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CardDeleteResponse < TerminalShop::BaseModel
+    class CardDeleteResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

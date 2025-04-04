@@ -13,7 +13,7 @@ module TerminalShop
       #   #
       #   def initialize(request_options: {}, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

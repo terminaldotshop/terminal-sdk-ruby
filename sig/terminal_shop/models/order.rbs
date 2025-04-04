@@ -10,7 +10,7 @@ module TerminalShop
         index: Integer
       }
 
-    class OrderAPI < TerminalShop::BaseModel
+    class OrderAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount: TerminalShop::Models::OrderAPI::Amount
@@ -38,7 +38,7 @@ module TerminalShop
 
       type amount = { shipping: Integer, subtotal: Integer }
 
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         attr_accessor shipping: Integer
 
         attr_accessor subtotal: Integer
@@ -57,7 +57,7 @@ module TerminalShop
           product_variant_id: String
         }
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor amount: Integer
@@ -95,7 +95,7 @@ module TerminalShop
           :street2 => String
         }
 
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         attr_accessor city: String
 
         attr_accessor country: String
@@ -134,7 +134,7 @@ module TerminalShop
 
       type tracking = { number: String, service: String, url: String }
 
-      class Tracking < TerminalShop::BaseModel
+      class Tracking < TerminalShop::Internal::Type::BaseModel
         attr_reader number: String?
 
         def number=: (String) -> String

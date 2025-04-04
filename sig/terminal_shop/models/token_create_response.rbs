@@ -3,7 +3,7 @@ module TerminalShop
     type token_create_response =
       { data: TerminalShop::Models::TokenCreateResponse::Data }
 
-    class TokenCreateResponse < TerminalShop::BaseModel
+    class TokenCreateResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::TokenCreateResponse::Data
 
       def initialize: (
@@ -14,7 +14,7 @@ module TerminalShop
 
       type data = { id: String, token: String }
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor token: String

@@ -22,7 +22,7 @@ module TerminalShop
               T::Hash[
               Symbol,
               T.all(
-                TerminalShop::BaseModel::KnownFieldShape,
+                TerminalShop::Internal::Type::BaseModel::KnownFieldShape,
                 {type_fn: T.proc.returns(TerminalShop::Internal::Type::Converter::Input)}
               )
               ]
@@ -37,7 +37,7 @@ module TerminalShop
               T::Hash[
               Symbol,
               T.all(
-                TerminalShop::BaseModel::KnownFieldShape,
+                TerminalShop::Internal::Type::BaseModel::KnownFieldShape,
                 {type: TerminalShop::Internal::Type::Converter::Input}
               )
               ]
@@ -62,7 +62,7 @@ module TerminalShop
                 T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
                 TerminalShop::Internal::Type::Converter::Input
               ),
-              spec: TerminalShop::Internal::Util::AnyHash
+              spec: TerminalShop::Internal::AnyHash
             )
               .void
           end
@@ -74,11 +74,11 @@ module TerminalShop
             params(
               name_sym: Symbol,
               type_info: T.any(
-                TerminalShop::Internal::Util::AnyHash,
+                TerminalShop::Internal::AnyHash,
                 T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
                 TerminalShop::Internal::Type::Converter::Input
               ),
-              spec: TerminalShop::Internal::Util::AnyHash
+              spec: TerminalShop::Internal::AnyHash
             )
               .void
           end
@@ -90,11 +90,11 @@ module TerminalShop
             params(
               name_sym: Symbol,
               type_info: T.any(
-                TerminalShop::Internal::Util::AnyHash,
+                TerminalShop::Internal::AnyHash,
                 T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
                 TerminalShop::Internal::Type::Converter::Input
               ),
-              spec: TerminalShop::Internal::Util::AnyHash
+              spec: TerminalShop::Internal::AnyHash
             )
               .void
           end
@@ -130,7 +130,11 @@ module TerminalShop
           sig do
             override
               .params(
-                value: T.any(TerminalShop::BaseModel, T::Hash[T.anything, T.anything], T.anything),
+                value: T.any(
+                  TerminalShop::Internal::Type::BaseModel,
+                  T::Hash[T.anything, T.anything],
+                  T.anything
+                ),
                 state: TerminalShop::Internal::Type::Converter::State
               )
               .returns(T.any(T.attached_class, T.anything))
@@ -166,7 +170,7 @@ module TerminalShop
         #
         #   This method is not recursive. The returned value is shared by the object, so it
         #   should not be mutated.
-        sig { overridable.returns(TerminalShop::Internal::Util::AnyHash) }
+        sig { overridable.returns(TerminalShop::Internal::AnyHash) }
         def to_h
         end
 
@@ -178,11 +182,11 @@ module TerminalShop
         #
         #   This method is not recursive. The returned value is shared by the object, so it
         #   should not be mutated.
-        sig { overridable.returns(TerminalShop::Internal::Util::AnyHash) }
+        sig { overridable.returns(TerminalShop::Internal::AnyHash) }
         def to_hash
         end
 
-        sig { params(keys: T.nilable(T::Array[Symbol])).returns(TerminalShop::Internal::Util::AnyHash) }
+        sig { params(keys: T.nilable(T::Array[Symbol])).returns(TerminalShop::Internal::AnyHash) }
         def deconstruct_keys(keys)
         end
 

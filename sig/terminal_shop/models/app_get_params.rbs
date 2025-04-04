@@ -3,7 +3,7 @@ module TerminalShop
     type app_get_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class AppGetParams < TerminalShop::BaseModel
+    class AppGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

@@ -98,32 +98,4 @@ module TerminalShop
       HTTP_STATUS: Range[Integer]
     end
   end
-
-  class Error = TerminalShop::Errors::Error
-
-  class ConversionError = TerminalShop::Errors::ConversionError
-
-  class APIError = TerminalShop::Errors::APIError
-
-  class APIStatusError = TerminalShop::Errors::APIStatusError
-
-  class APIConnectionError = TerminalShop::Errors::APIConnectionError
-
-  class APITimeoutError = TerminalShop::Errors::APITimeoutError
-
-  class BadRequestError = TerminalShop::Errors::BadRequestError
-
-  class AuthenticationError = TerminalShop::Errors::AuthenticationError
-
-  class PermissionDeniedError = TerminalShop::Errors::PermissionDeniedError
-
-  class NotFoundError = TerminalShop::Errors::NotFoundError
-
-  class ConflictError = TerminalShop::Errors::ConflictError
-
-  class UnprocessableEntityError = TerminalShop::Errors::UnprocessableEntityError
-
-  class RateLimitError = TerminalShop::Errors::RateLimitError
-
-  class InternalServerError = TerminalShop::Errors::InternalServerError
 end

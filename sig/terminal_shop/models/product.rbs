@@ -11,7 +11,7 @@ module TerminalShop
         tags: TerminalShop::Models::ProductAPI::Tags
       }
 
-    class ProductAPI < TerminalShop::BaseModel
+    class ProductAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor description: String
@@ -51,7 +51,7 @@ module TerminalShop
       type subscription = :allowed | :required
 
       module Subscription
-        extend TerminalShop::Enum
+        extend TerminalShop::Internal::Type::Enum
 
         ALLOWED: :allowed
         REQUIRED: :required
@@ -68,7 +68,7 @@ module TerminalShop
           market_na: bool
         }
 
-      class Tags < TerminalShop::BaseModel
+      class Tags < TerminalShop::Internal::Type::BaseModel
         attr_reader app: String?
 
         def app=: (String) -> String

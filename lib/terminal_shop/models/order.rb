@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class OrderAPI < TerminalShop::BaseModel
+    class OrderAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -19,7 +19,7 @@ module TerminalShop
       #   Items in the order.
       #
       #   @return [Array<TerminalShop::Models::OrderAPI::Item>]
-      required :items, -> { TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI::Item] }
+      required :items, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI::Item] }
 
       # @!attribute shipping
       #   Shipping address of the order.
@@ -55,10 +55,10 @@ module TerminalShop
       #   #
       #   def initialize(id:, amount:, items:, shipping:, tracking:, index: nil, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::OrderAPI#amount
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         # @!attribute shipping
         #   Shipping amount of the order, in cents (USD).
         #
@@ -79,10 +79,10 @@ module TerminalShop
         #   #
         #   def initialize(shipping:, subtotal:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
         #
@@ -130,11 +130,11 @@ module TerminalShop
         #   #
         #   def initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
 
       # @see TerminalShop::Models::OrderAPI#shipping
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         # @!attribute city
         #   City of the address.
         #
@@ -209,11 +209,11 @@ module TerminalShop
         #   #
         #   def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
 
       # @see TerminalShop::Models::OrderAPI#tracking
-      class Tracking < TerminalShop::BaseModel
+      class Tracking < TerminalShop::Internal::Type::BaseModel
         # @!attribute [r] number
         #   Tracking number of the order.
         #
@@ -253,7 +253,7 @@ module TerminalShop
         #   #
         #   def initialize(number: nil, service: nil, url: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

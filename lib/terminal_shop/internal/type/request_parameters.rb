@@ -12,7 +12,7 @@ module TerminalShop
 
         # @param mod [Module]
         def self.included(mod)
-          return unless mod <= TerminalShop::BaseModel
+          return unless mod <= TerminalShop::Internal::Type::BaseModel
 
           mod.extend(TerminalShop::Internal::Type::RequestParameters::Converter)
           mod.optional(:request_options, TerminalShop::RequestOptions)

@@ -2,12 +2,12 @@
 
 module TerminalShop
   module Models
-    class CartAPI < TerminalShop::BaseModel
+    class CartAPI < TerminalShop::Internal::Type::BaseModel
       # The subtotal and shipping amounts for the current user's cart.
       sig { returns(TerminalShop::Models::CartAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::Util::AnyHash)).void }
+      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::AnyHash)).void }
       attr_writer :amount
 
       # An array of items in the current user's cart.
@@ -36,21 +36,18 @@ module TerminalShop
       sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
       attr_reader :shipping
 
-      sig do
-        params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::AnyHash)).void }
       attr_writer :shipping
 
       # The current Terminal shop user's cart.
       sig do
         params(
-          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::Util::AnyHash),
-          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Internal::Util::AnyHash)],
+          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::AnyHash),
+          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Internal::AnyHash)],
           subtotal: Integer,
           address_id: String,
           card_id: String,
-          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::Util::AnyHash)
+          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -73,7 +70,7 @@ module TerminalShop
       def to_hash
       end
 
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         # Subtotal of the current user's cart, in cents (USD).
         sig { returns(Integer) }
         attr_accessor :subtotal
@@ -102,7 +99,7 @@ module TerminalShop
         end
       end
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id
@@ -134,7 +131,7 @@ module TerminalShop
         end
       end
 
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         # Shipping service name.
         sig { returns(T.nilable(String)) }
         attr_reader :service

@@ -17,11 +17,11 @@ module TerminalShop
         sig(:final) do
           params(
             type_info: T.any(
-              TerminalShop::Internal::Util::AnyHash,
+              TerminalShop::Internal::AnyHash,
               T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
               TerminalShop::Internal::Type::Converter::Input
             ),
-            spec: TerminalShop::Internal::Util::AnyHash
+            spec: TerminalShop::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -43,7 +43,7 @@ module TerminalShop
               value: T.any(T::Hash[T.anything, T.anything], T.anything),
               state: TerminalShop::Internal::Type::Converter::State
             )
-            .returns(T.any(TerminalShop::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(TerminalShop::Internal::AnyHash, T.anything))
         end
         def coerce(value, state:)
         end
@@ -52,7 +52,7 @@ module TerminalShop
         sig(:final) do
           override
             .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-            .returns(T.any(TerminalShop::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(TerminalShop::Internal::AnyHash, T.anything))
         end
         def dump(value)
         end
@@ -71,11 +71,11 @@ module TerminalShop
         sig(:final) do
           params(
             type_info: T.any(
-              TerminalShop::Internal::Util::AnyHash,
+              TerminalShop::Internal::AnyHash,
               T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
               TerminalShop::Internal::Type::Converter::Input
             ),
-            spec: TerminalShop::Internal::Util::AnyHash
+            spec: TerminalShop::Internal::AnyHash
           )
             .void
         end

@@ -3,7 +3,7 @@ module TerminalShop
     type app_delete_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class AppDeleteParams < TerminalShop::BaseModel
+    class AppDeleteParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

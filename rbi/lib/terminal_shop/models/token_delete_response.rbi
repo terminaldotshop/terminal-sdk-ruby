@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class TokenDeleteResponse < TerminalShop::BaseModel
+    class TokenDeleteResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

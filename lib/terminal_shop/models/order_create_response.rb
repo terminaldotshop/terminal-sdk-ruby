@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Order#create
-    class OrderCreateResponse < TerminalShop::BaseModel
+    class OrderCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Order ID.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

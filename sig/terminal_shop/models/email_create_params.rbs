@@ -3,7 +3,7 @@ module TerminalShop
     type email_create_params =
       { email: String } & TerminalShop::Internal::Type::request_parameters
 
-    class EmailCreateParams < TerminalShop::BaseModel
+    class EmailCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

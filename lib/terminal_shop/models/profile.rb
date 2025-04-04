@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class ProfileAPI < TerminalShop::BaseModel
+    class ProfileAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute user
       #   A Terminal shop user. (We have users, btw.)
       #
@@ -16,10 +16,10 @@ module TerminalShop
       #   #
       #   def initialize(user:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::ProfileAPI#user
-      class User < TerminalShop::BaseModel
+      class User < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
         #
@@ -61,7 +61,7 @@ module TerminalShop
         #   #
         #   def initialize(id:, email:, fingerprint:, name:, stripe_customer_id:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

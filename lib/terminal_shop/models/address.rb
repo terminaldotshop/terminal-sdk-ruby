@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class AddressAPI < TerminalShop::BaseModel
+    class AddressAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -84,7 +84,7 @@ module TerminalShop
       #   #
       #   def initialize(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

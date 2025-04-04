@@ -6,7 +6,7 @@ module TerminalShop
   #
   #   When making a request, you can pass an actual {RequestOptions} instance, or
   #   simply pass a Hash with symbol keys matching the attributes on this class.
-  class RequestOptions < TerminalShop::BaseModel
+  class RequestOptions < TerminalShop::Internal::Type::BaseModel
     # @api private
     #
     # @param opts [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
@@ -37,21 +37,21 @@ module TerminalShop
     #     `query` given at the client level.
     #
     #   @return [Hash{String=>Array<String>, String, nil}, nil]
-    optional :extra_query, TerminalShop::HashOf[TerminalShop::ArrayOf[String]]
+    optional :extra_query, TerminalShop::Internal::Type::HashOf[TerminalShop::Internal::Type::ArrayOf[String]]
 
     # @!attribute extra_headers
     #   Extra headers to send with the request. These are `.merged`’d into any
     #     `extra_headers` given at the client level.
     #
     #   @return [Hash{String=>String, nil}, nil]
-    optional :extra_headers, TerminalShop::HashOf[String, nil?: true]
+    optional :extra_headers, TerminalShop::Internal::Type::HashOf[String, nil?: true]
 
     # @!attribute extra_body
     #   Extra data to send with the request. These are deep merged into any data
     #     generated as part of the normal request.
     #
     #   @return [Object, nil]
-    optional :extra_body, TerminalShop::HashOf[TerminalShop::Unknown]
+    optional :extra_body, TerminalShop::Internal::Type::HashOf[TerminalShop::Internal::Type::Unknown]
 
     # @!attribute max_retries
     #   Maximum number of retries to attempt after a failed initial request.

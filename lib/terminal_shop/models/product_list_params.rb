@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Product#list
-    class ProductListParams < TerminalShop::BaseModel
+    class ProductListParams < TerminalShop::Internal::Type::BaseModel
       # @!parse
       #   extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module TerminalShop
       #   #
       #   def initialize(request_options: {}, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

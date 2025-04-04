@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Address#create
-    class AddressCreateParams < TerminalShop::BaseModel
+    class AddressCreateParams < TerminalShop::Internal::Type::BaseModel
       # @!parse
       #   extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
@@ -81,7 +81,7 @@ module TerminalShop
       #   #
       #   def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

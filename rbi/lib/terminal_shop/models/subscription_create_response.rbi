@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class SubscriptionCreateResponse < TerminalShop::BaseModel
+    class SubscriptionCreateResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

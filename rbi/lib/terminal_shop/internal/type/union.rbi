@@ -39,13 +39,8 @@ module TerminalShop
         # @api private
         sig do
           params(
-            key: T.any(
-              Symbol,
-              TerminalShop::Internal::Util::AnyHash,
-              T.proc.returns(T.anything),
-              T.anything
-            ),
-            spec: T.any(TerminalShop::Internal::Util::AnyHash, T.proc.returns(T.anything), T.anything)
+            key: T.any(Symbol, TerminalShop::Internal::AnyHash, T.proc.returns(T.anything), T.anything),
+            spec: T.any(TerminalShop::Internal::AnyHash, T.proc.returns(T.anything), T.anything)
           )
             .void
         end

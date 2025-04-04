@@ -31,7 +31,7 @@ class TerminalShop::Test::Resources::OrderTest < TerminalShop::Test::ResourceTes
 
     assert_pattern do
       response => {
-        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI])
+        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI])
       }
     end
   end

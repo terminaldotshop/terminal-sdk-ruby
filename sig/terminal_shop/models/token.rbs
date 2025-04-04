@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type token_api = { id: String, token: String, created: String }
 
-    class TokenAPI < TerminalShop::BaseModel
+    class TokenAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor token: String

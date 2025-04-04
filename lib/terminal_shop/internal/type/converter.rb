@@ -31,10 +31,10 @@ module TerminalShop
         def dump(value)
           case value
           in Array
-            value.map { TerminalShop::Unknown.dump(_1) }
+            value.map { TerminalShop::Internal::Type::Unknown.dump(_1) }
           in Hash
-            value.transform_values { TerminalShop::Unknown.dump(_1) }
-          in TerminalShop::BaseModel
+            value.transform_values { TerminalShop::Internal::Type::Unknown.dump(_1) }
+          in TerminalShop::Internal::Type::BaseModel
             value.class.dump(value)
           else
             value
@@ -64,7 +64,7 @@ module TerminalShop
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { TerminalShop::BooleanModel }
+              -> { TerminalShop::Internal::Type::BooleanModel }
             in TerminalShop::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float
@@ -209,7 +209,7 @@ module TerminalShop
           #
           # @return [Object]
           def dump(target, value)
-            target.is_a?(TerminalShop::Internal::Type::Converter) ? target.dump(value) : TerminalShop::Unknown.dump(value)
+            target.is_a?(TerminalShop::Internal::Type::Converter) ? target.dump(value) : TerminalShop::Internal::Type::Unknown.dump(value)
           end
         end
       end

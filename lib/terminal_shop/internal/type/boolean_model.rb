@@ -19,7 +19,7 @@ module TerminalShop
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= TerminalShop::BooleanModel
+        def self.==(other) = other.is_a?(Class) && other <= TerminalShop::Internal::Type::BooleanModel
 
         class << self
           # @api private
