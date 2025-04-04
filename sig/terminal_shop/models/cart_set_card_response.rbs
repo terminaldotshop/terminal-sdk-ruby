@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type cart_set_card_response = { data: :ok }
 
-    class CartSetCardResponse < TerminalShop::BaseModel
+    class CartSetCardResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void

@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CartAPI < TerminalShop::BaseModel
+    class CartAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute amount
       #   The subtotal and shipping amounts for the current user's cart.
       #
@@ -13,7 +13,7 @@ module TerminalShop
       #   An array of items in the current user's cart.
       #
       #   @return [Array<TerminalShop::Models::CartAPI::Item>]
-      required :items, -> { TerminalShop::ArrayOf[TerminalShop::Models::CartAPI::Item] }
+      required :items, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::CartAPI::Item] }
 
       # @!attribute subtotal
       #   The subtotal of all items in the current user's cart, in cents (USD).
@@ -63,10 +63,10 @@ module TerminalShop
       #   #
       #   def initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::CartAPI#amount
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         # @!attribute subtotal
         #   Subtotal of the current user's cart, in cents (USD).
         #
@@ -102,10 +102,10 @@ module TerminalShop
         #   #
         #   def initialize(subtotal:, shipping: nil, total: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
         #
@@ -140,11 +140,11 @@ module TerminalShop
         #   #
         #   def initialize(id:, product_variant_id:, quantity:, subtotal:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
 
       # @see TerminalShop::Models::CartAPI#shipping
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         # @!attribute [r] service
         #   Shipping service name.
         #
@@ -173,7 +173,7 @@ module TerminalShop
         #   #
         #   def initialize(service: nil, timeframe: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

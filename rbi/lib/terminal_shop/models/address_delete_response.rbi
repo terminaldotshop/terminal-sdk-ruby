@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class AddressDeleteResponse < TerminalShop::BaseModel
+    class AddressDeleteResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

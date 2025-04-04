@@ -4,7 +4,7 @@ module TerminalShop
   module Models
     # A Terminal shop user's region.
     module Region
-      extend TerminalShop::Enum
+      extend TerminalShop::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::Region) }
       OrSymbol = T.type_alias { T.any(Symbol, String, TerminalShop::Models::Region::TaggedSymbol) }

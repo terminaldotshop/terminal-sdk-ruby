@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CardAPI < TerminalShop::BaseModel
+    class CardAPI < TerminalShop::Internal::Type::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -15,12 +15,7 @@ module TerminalShop
       sig { returns(TerminalShop::Models::CardAPI::Expiration) }
       attr_reader :expiration
 
-      sig do
-        params(
-          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::Util::AnyHash)
-        )
-          .void
-      end
+      sig { params(expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::AnyHash)).void }
       attr_writer :expiration
 
       # Last four digits of the card.
@@ -32,7 +27,7 @@ module TerminalShop
         params(
           id: String,
           brand: String,
-          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::Util::AnyHash),
+          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::AnyHash),
           last4: String
         )
           .returns(T.attached_class)
@@ -47,7 +42,7 @@ module TerminalShop
       def to_hash
       end
 
-      class Expiration < TerminalShop::BaseModel
+      class Expiration < TerminalShop::Internal::Type::BaseModel
         # Expiration month of the card.
         sig { returns(Integer) }
         attr_accessor :month

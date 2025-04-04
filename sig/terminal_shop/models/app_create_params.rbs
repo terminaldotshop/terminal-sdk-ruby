@@ -4,7 +4,7 @@ module TerminalShop
       { name: String, redirect_uri: String }
       & TerminalShop::Internal::Type::request_parameters
 
-    class AppCreateParams < TerminalShop::BaseModel
+    class AppCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

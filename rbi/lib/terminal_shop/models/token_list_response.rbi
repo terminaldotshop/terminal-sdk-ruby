@@ -2,13 +2,13 @@
 
 module TerminalShop
   module Models
-    class TokenListResponse < TerminalShop::BaseModel
+    class TokenListResponse < TerminalShop::Internal::Type::BaseModel
       # List of personal access tokens.
       sig { returns(T::Array[TerminalShop::Models::TokenAPI]) }
       attr_accessor :data
 
       sig do
-        params(data: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::Util::AnyHash)])
+        params(data: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
       def self.new(data:)

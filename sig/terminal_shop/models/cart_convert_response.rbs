@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type cart_convert_response = { data: TerminalShop::Models::OrderAPI }
 
-    class CartConvertResponse < TerminalShop::BaseModel
+    class CartConvertResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::OrderAPI
 
       def initialize: (data: TerminalShop::Models::OrderAPI) -> void

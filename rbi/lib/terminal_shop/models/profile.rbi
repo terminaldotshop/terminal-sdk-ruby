@@ -2,17 +2,17 @@
 
 module TerminalShop
   module Models
-    class ProfileAPI < TerminalShop::BaseModel
+    class ProfileAPI < TerminalShop::Internal::Type::BaseModel
       # A Terminal shop user. (We have users, btw.)
       sig { returns(TerminalShop::Models::ProfileAPI::User) }
       attr_reader :user
 
-      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::Util::AnyHash)).void }
+      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::AnyHash)).void }
       attr_writer :user
 
       # A Terminal shop user's profile. (We have users, btw.)
       sig do
-        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::Util::AnyHash))
+        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(user:)
@@ -22,7 +22,7 @@ module TerminalShop
       def to_hash
       end
 
-      class User < TerminalShop::BaseModel
+      class User < TerminalShop::Internal::Type::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id

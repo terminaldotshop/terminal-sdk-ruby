@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type card_delete_response = { data: :ok }
 
-    class CardDeleteResponse < TerminalShop::BaseModel
+    class CardDeleteResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void

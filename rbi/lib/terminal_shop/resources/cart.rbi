@@ -9,7 +9,7 @@ module TerminalShop
           request_options: T.nilable(
             T.any(
               TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
+              TerminalShop::Internal::AnyHash
             )
           )
         )
@@ -24,7 +24,7 @@ module TerminalShop
           request_options: T.nilable(
             T.any(
               TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
+              TerminalShop::Internal::AnyHash
             )
           )
         )
@@ -39,7 +39,7 @@ module TerminalShop
           request_options: T.nilable(
             T.any(
               TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
+              TerminalShop::Internal::AnyHash
             )
           )
         )
@@ -52,12 +52,7 @@ module TerminalShop
       sig do
         params(
           address_id: String,
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::CartSetAddressResponse)
       end
@@ -72,12 +67,7 @@ module TerminalShop
       sig do
         params(
           card_id: String,
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::CartSetCardResponse)
       end
@@ -93,12 +83,7 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::CartSetItemResponse)
       end

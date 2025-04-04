@@ -3,7 +3,7 @@ module TerminalShop
     type card_collect_response =
       { data: TerminalShop::Models::CardCollectResponse::Data }
 
-    class CardCollectResponse < TerminalShop::BaseModel
+    class CardCollectResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::CardCollectResponse::Data
 
       def initialize: (
@@ -14,7 +14,7 @@ module TerminalShop
 
       type data = { url: String }
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         attr_accessor url: String
 
         def initialize: (url: String) -> void

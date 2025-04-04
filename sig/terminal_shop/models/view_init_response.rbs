@@ -3,7 +3,7 @@ module TerminalShop
     type view_init_response =
       { data: TerminalShop::Models::ViewInitResponse::Data }
 
-    class ViewInitResponse < TerminalShop::BaseModel
+    class ViewInitResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::ViewInitResponse::Data
 
       def initialize: (
@@ -26,7 +26,7 @@ module TerminalShop
           tokens: ::Array[TerminalShop::Models::TokenAPI]
         }
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         attr_accessor addresses: ::Array[TerminalShop::Models::AddressAPI]
 
         attr_accessor apps: ::Array[TerminalShop::Models::AppAPI]

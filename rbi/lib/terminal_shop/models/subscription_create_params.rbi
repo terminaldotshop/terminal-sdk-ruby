@@ -7,7 +7,7 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       sig do
-        params(request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash))
+        params(request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(request_options: {})

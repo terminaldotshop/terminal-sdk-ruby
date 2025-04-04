@@ -10,7 +10,7 @@ module TerminalShop
         shipping: TerminalShop::Models::CartAPI::Shipping
       }
 
-    class CartAPI < TerminalShop::BaseModel
+    class CartAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor amount: TerminalShop::Models::CartAPI::Amount
 
       attr_accessor items: ::Array[TerminalShop::Models::CartAPI::Item]
@@ -44,7 +44,7 @@ module TerminalShop
 
       type amount = { subtotal: Integer, shipping: Integer, total: Integer }
 
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         attr_accessor subtotal: Integer
 
         attr_reader shipping: Integer?
@@ -72,7 +72,7 @@ module TerminalShop
           subtotal: Integer
         }
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor product_variant_id: String
@@ -93,7 +93,7 @@ module TerminalShop
 
       type shipping = { service: String, timeframe: String }
 
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         attr_reader service: String?
 
         def service=: (String) -> String

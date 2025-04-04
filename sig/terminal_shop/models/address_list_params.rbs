@@ -3,7 +3,7 @@ module TerminalShop
     type address_list_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class AddressListParams < TerminalShop::BaseModel
+    class AddressListParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

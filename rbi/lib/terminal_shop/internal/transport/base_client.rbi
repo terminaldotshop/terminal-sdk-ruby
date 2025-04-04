@@ -25,10 +25,10 @@ module TerminalShop
               ),
               body: T.nilable(T.anything),
               unwrap: T.nilable(Symbol),
-              page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::BaseModel]]),
+              page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(TerminalShop::Internal::Type::Converter::Input),
-              options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash))
+              options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
             }
           end
 
@@ -136,7 +136,7 @@ module TerminalShop
           overridable
             .params(
               req: TerminalShop::Internal::Transport::BaseClient::RequestComponentsShape,
-              opts: TerminalShop::Internal::Util::AnyHash
+              opts: TerminalShop::Internal::AnyHash
             )
             .returns(TerminalShop::Internal::Transport::BaseClient::RequestInputShape)
         end
@@ -180,10 +180,10 @@ module TerminalShop
             ),
             body: T.nilable(T.anything),
             unwrap: T.nilable(Symbol),
-            page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::BaseModel]]),
+            page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(TerminalShop::Internal::Type::Converter::Input),
-            options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash))
+            options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
           )
             .returns(T.anything)
         end
@@ -196,7 +196,7 @@ module TerminalShop
           unwrap: nil,
           page: nil,
           stream: nil,
-          model: TerminalShop::Unknown,
+          model: TerminalShop::Internal::Type::Unknown,
           options: {}
         )
         end

@@ -3,7 +3,7 @@ module TerminalShop
     type address_list_response =
       { data: ::Array[TerminalShop::Models::AddressAPI] }
 
-    class AddressListResponse < TerminalShop::BaseModel
+    class AddressListResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: ::Array[TerminalShop::Models::AddressAPI]
 
       def initialize: (data: ::Array[TerminalShop::Models::AddressAPI]) -> void

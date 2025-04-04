@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::App#create
-    class AppCreateResponse < TerminalShop::BaseModel
+    class AppCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #
       #   @return [TerminalShop::Models::AppCreateResponse::Data]
@@ -14,10 +14,10 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::AppCreateResponse#data
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   OAuth 2.0 client ID.
         #
@@ -36,7 +36,7 @@ module TerminalShop
         #   #
         #   def initialize(id:, secret:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

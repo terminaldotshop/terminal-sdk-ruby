@@ -2,15 +2,13 @@
 
 module TerminalShop
   module Models
-    class SubscriptionListResponse < TerminalShop::BaseModel
+    class SubscriptionListResponse < TerminalShop::Internal::Type::BaseModel
       # List of subscriptions.
       sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
       attr_accessor :data
 
       sig do
-        params(
-          data: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::Util::AnyHash)]
-        )
+        params(data: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
       def self.new(data:)

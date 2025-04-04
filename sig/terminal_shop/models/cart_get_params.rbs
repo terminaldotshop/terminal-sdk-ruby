@@ -3,7 +3,7 @@ module TerminalShop
     type cart_get_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class CartGetParams < TerminalShop::BaseModel
+    class CartGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

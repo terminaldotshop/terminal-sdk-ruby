@@ -2,18 +2,15 @@
 
 module TerminalShop
   module Models
-    class AppCreateResponse < TerminalShop::BaseModel
+    class AppCreateResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(TerminalShop::Models::AppCreateResponse::Data) }
       attr_reader :data
 
-      sig do
-        params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::AnyHash)).void }
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::Util::AnyHash))
+        params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(data:)
@@ -23,7 +20,7 @@ module TerminalShop
       def to_hash
       end
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         # OAuth 2.0 client ID.
         sig { returns(String) }
         attr_accessor :id

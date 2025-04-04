@@ -3,7 +3,7 @@ module TerminalShop
     type token_create_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class TokenCreateParams < TerminalShop::BaseModel
+    class TokenCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
