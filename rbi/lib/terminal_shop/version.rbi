@@ -1,5 +1,5 @@
 # typed: strong
 
 module TerminalShop
-  VERSION = "2.1.3"
+  VERSION = T.let(T.unsafe(nil), String)
 end
