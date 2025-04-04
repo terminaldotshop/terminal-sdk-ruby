@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::App#list
     class AppListParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!parse
       #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]

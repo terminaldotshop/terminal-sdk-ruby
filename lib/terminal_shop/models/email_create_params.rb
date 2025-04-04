@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Email#create
     class EmailCreateParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute email
       #   Email address to subscribe to Terminal updates with.

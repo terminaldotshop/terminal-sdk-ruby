@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Cart#set_address
     class CartSetAddressParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute address_id
       #   ID of the shipping address to set for the current user's cart.

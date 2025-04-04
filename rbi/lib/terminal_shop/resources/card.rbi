@@ -7,7 +7,12 @@ module TerminalShop
       sig do
         params(
           token: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CardCreateResponse)
       end
@@ -21,7 +26,14 @@ module TerminalShop
 
       # List the credit cards associated with the current user.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::CardListResponse)
       end
       def list(request_options: {})
@@ -31,7 +43,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CardDeleteResponse)
       end
@@ -45,7 +62,14 @@ module TerminalShop
       # Create a temporary URL for collecting credit card information for the current
       #   user.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::CardCollectResponse)
       end
       def collect(request_options: {})
@@ -55,7 +79,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CardGetResponse)
       end

@@ -7,12 +7,12 @@ module TerminalShop
       sig { returns(TerminalShop::Models::ProfileAPI::User) }
       attr_reader :user
 
-      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash)).void }
+      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :user
 
       # A Terminal shop user's profile. (We have users, btw.)
       sig do
-        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Util::AnyHash))
+        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::Util::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(user:)

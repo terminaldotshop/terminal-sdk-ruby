@@ -7,10 +7,13 @@ module TerminalShop
       sig { returns(TerminalShop::Models::AppAPI) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)).void }
+      sig { params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :data
 
-      sig { params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 

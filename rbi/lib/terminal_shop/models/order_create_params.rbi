@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class OrderCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # Shipping address ID.
       sig { returns(String) }
@@ -23,7 +23,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           variants: T::Hash[Symbol, Integer],
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
