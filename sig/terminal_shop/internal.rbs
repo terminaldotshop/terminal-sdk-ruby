@@ -1,4 +1,5 @@
 module TerminalShop
   module Internal
+    OMIT: top
   end
 end
