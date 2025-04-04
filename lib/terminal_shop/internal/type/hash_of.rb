@@ -7,6 +7,8 @@ module TerminalShop
       #
       # @abstract
       #
+      # @generic Elem
+      #
       # Hash of items of a given type.
       class HashOf
         include TerminalShop::Internal::Type::Converter
@@ -111,7 +113,7 @@ module TerminalShop
 
         # @api private
         #
-        # @return [TerminalShop::Internal::Type::Converter, Class]
+        # @return [generic<Elem>]
         protected def item_type = @item_type_fn.call
 
         # @api private
