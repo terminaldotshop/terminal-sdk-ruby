@@ -8,7 +8,7 @@ module TerminalShop
       attr_accessor :data
 
       sig do
-        params(data: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)])
+        params(data: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::Util::AnyHash)])
           .returns(T.attached_class)
       end
       def self.new(data:)

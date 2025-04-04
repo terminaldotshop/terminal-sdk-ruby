@@ -1,11 +1,11 @@
 module TerminalShop
   module Models
     type card_create_params =
-      { token: String } & TerminalShop::request_parameters
+      { token: String } & TerminalShop::Internal::Type::request_parameters
 
     class CardCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor token: String
 

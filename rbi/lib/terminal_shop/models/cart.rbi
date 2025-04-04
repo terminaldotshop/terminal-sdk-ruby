@@ -7,7 +7,7 @@ module TerminalShop
       sig { returns(TerminalShop::Models::CartAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash)).void }
+      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :amount
 
       # An array of items in the current user's cart.
@@ -36,18 +36,21 @@ module TerminalShop
       sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
       attr_reader :shipping
 
-      sig { params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::Util::AnyHash))
+          .void
+      end
       attr_writer :shipping
 
       # The current Terminal shop user's cart.
       sig do
         params(
-          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Util::AnyHash),
-          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Util::AnyHash)],
+          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::Util::AnyHash),
+          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Internal::Util::AnyHash)],
           subtotal: Integer,
           address_id: String,
           card_id: String,
-          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Util::AnyHash)
+          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

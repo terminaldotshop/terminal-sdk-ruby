@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Cart#set_card
     class CartSetCardParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute card_id
       #   ID of the credit card to set for the current user's cart.

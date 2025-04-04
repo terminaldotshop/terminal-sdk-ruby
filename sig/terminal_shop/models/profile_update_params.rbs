@@ -1,11 +1,12 @@
 module TerminalShop
   module Models
     type profile_update_params =
-      { email: String, name: String } & TerminalShop::request_parameters
+      { email: String, name: String }
+      & TerminalShop::Internal::Type::request_parameters
 
     class ProfileUpdateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor email: String
 

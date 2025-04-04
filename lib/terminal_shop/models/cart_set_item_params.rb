@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Cart#set_item
     class CartSetItemParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute product_variant_id
       #   ID of the product variant to add to the cart.

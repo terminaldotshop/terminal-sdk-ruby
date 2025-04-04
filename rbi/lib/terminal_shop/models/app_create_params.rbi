@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class AppCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       sig { returns(String) }
       attr_accessor :name
@@ -16,7 +16,7 @@ module TerminalShop
         params(
           name: String,
           redirect_uri: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

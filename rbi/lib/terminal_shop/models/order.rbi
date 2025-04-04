@@ -11,7 +11,7 @@ module TerminalShop
       sig { returns(TerminalShop::Models::OrderAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash)).void }
+      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :amount
 
       # Items in the order.
@@ -22,14 +22,20 @@ module TerminalShop
       sig { returns(TerminalShop::Models::OrderAPI::Shipping) }
       attr_reader :shipping
 
-      sig { params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::Util::AnyHash))
+          .void
+      end
       attr_writer :shipping
 
       # Tracking information of the order.
       sig { returns(TerminalShop::Models::OrderAPI::Tracking) }
       attr_reader :tracking
 
-      sig { params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::Util::AnyHash))
+          .void
+      end
       attr_writer :tracking
 
       # Zero-based index of the order for this user only.
@@ -43,10 +49,10 @@ module TerminalShop
       sig do
         params(
           id: String,
-          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Util::AnyHash),
-          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Util::AnyHash)],
-          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Util::AnyHash),
-          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Util::AnyHash),
+          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::Util::AnyHash),
+          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Internal::Util::AnyHash)],
+          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::Util::AnyHash),
+          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::Util::AnyHash),
           index: Integer
         )
           .returns(T.attached_class)

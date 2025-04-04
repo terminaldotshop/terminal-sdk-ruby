@@ -7,11 +7,14 @@ module TerminalShop
       sig { returns(TerminalShop::Models::ViewInitResponse::Data) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::Util::AnyHash))
+          .void
+      end
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Util::AnyHash))
+        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::Util::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(data:)
@@ -35,7 +38,7 @@ module TerminalShop
         sig { returns(TerminalShop::Models::CartAPI) }
         attr_reader :cart
 
-        sig { params(cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).void }
+        sig { params(cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash)).void }
         attr_writer :cart
 
         sig { returns(T::Array[TerminalShop::Models::OrderAPI]) }
@@ -48,7 +51,7 @@ module TerminalShop
         sig { returns(TerminalShop::Models::ProfileAPI) }
         attr_reader :profile
 
-        sig { params(profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash)).void }
+        sig { params(profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::Util::AnyHash)).void }
         attr_writer :profile
 
         # A Terminal shop user's region.
@@ -64,16 +67,16 @@ module TerminalShop
         # Initial app data.
         sig do
           params(
-            addresses: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Util::AnyHash)],
-            apps: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Util::AnyHash)],
-            cards: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Util::AnyHash)],
-            cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash),
-            orders: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Util::AnyHash)],
-            products: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Util::AnyHash)],
-            profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Util::AnyHash),
+            addresses: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Internal::Util::AnyHash)],
+            apps: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::Util::AnyHash)],
+            cards: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::Util::AnyHash)],
+            cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash),
+            orders: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::Util::AnyHash)],
+            products: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::Util::AnyHash)],
+            profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::Util::AnyHash),
             region: TerminalShop::Models::Region::OrSymbol,
-            subscriptions: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Util::AnyHash)],
-            tokens: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Util::AnyHash)]
+            subscriptions: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::Util::AnyHash)],
+            tokens: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::Util::AnyHash)]
           )
             .returns(T.attached_class)
         end

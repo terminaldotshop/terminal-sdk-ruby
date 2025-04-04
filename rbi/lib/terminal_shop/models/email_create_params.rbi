@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class EmailCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # Email address to subscribe to Terminal updates with.
       sig { returns(String) }
@@ -13,10 +13,7 @@ module TerminalShop
       sig do
         params(
           email: String,
-          request_options: T.any(
-            TerminalShop::RequestOptions,
-            TerminalShop::Util::AnyHash
-          )
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

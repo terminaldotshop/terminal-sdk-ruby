@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Subscription#create
     class SubscriptionCreateParams < TerminalShop::Models::SubscriptionAPI
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!parse
       #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
