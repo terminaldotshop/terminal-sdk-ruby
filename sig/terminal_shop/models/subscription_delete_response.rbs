@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type subscription_delete_response = { data: :ok }
 
-    class SubscriptionDeleteResponse < TerminalShop::BaseModel
+    class SubscriptionDeleteResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void

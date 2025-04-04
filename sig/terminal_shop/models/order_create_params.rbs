@@ -4,7 +4,7 @@ module TerminalShop
       { address_id: String, card_id: String, variants: ::Hash[Symbol, Integer] }
       & TerminalShop::Internal::Type::request_parameters
 
-    class OrderCreateParams < TerminalShop::BaseModel
+    class OrderCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

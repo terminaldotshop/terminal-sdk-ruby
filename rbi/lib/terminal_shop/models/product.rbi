@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class ProductAPI < TerminalShop::BaseModel
+    class ProductAPI < TerminalShop::Internal::Type::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -37,7 +37,7 @@ module TerminalShop
       sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
       attr_reader :tags
 
-      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::Util::AnyHash)).void }
+      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::AnyHash)).void }
       attr_writer :tags
 
       # Product sold in the Terminal shop.
@@ -46,10 +46,10 @@ module TerminalShop
           id: String,
           description: String,
           name: String,
-          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Internal::Util::AnyHash)],
+          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Internal::AnyHash)],
           order: Integer,
           subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol,
-          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::Util::AnyHash)
+          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -75,7 +75,7 @@ module TerminalShop
 
       # Whether the product must be or can be subscribed to.
       module Subscription
-        extend TerminalShop::Enum
+        extend TerminalShop::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::ProductAPI::Subscription) }
         OrSymbol =
@@ -89,7 +89,7 @@ module TerminalShop
         end
       end
 
-      class Tags < TerminalShop::BaseModel
+      class Tags < TerminalShop::Internal::Type::BaseModel
         sig { returns(T.nilable(String)) }
         attr_reader :app
 

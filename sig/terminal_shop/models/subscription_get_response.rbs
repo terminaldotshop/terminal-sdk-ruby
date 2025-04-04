@@ -3,7 +3,7 @@ module TerminalShop
     type subscription_get_response =
       { data: TerminalShop::Models::SubscriptionAPI }
 
-    class SubscriptionGetResponse < TerminalShop::BaseModel
+    class SubscriptionGetResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::SubscriptionAPI
 
       def initialize: (data: TerminalShop::Models::SubscriptionAPI) -> void

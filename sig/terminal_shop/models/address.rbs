@@ -13,7 +13,7 @@ module TerminalShop
         :street2 => String
       }
 
-    class AddressAPI < TerminalShop::BaseModel
+    class AddressAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor city: String

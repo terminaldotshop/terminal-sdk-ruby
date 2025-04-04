@@ -2,19 +2,16 @@
 
 module TerminalShop
   module Models
-    class ViewInitResponse < TerminalShop::BaseModel
+    class ViewInitResponse < TerminalShop::Internal::Type::BaseModel
       # Initial app data.
       sig { returns(TerminalShop::Models::ViewInitResponse::Data) }
       attr_reader :data
 
-      sig do
-        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::AnyHash)).void }
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::Util::AnyHash))
+        params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(data:)
@@ -24,7 +21,7 @@ module TerminalShop
       def to_hash
       end
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
         attr_accessor :addresses
 
@@ -38,7 +35,7 @@ module TerminalShop
         sig { returns(TerminalShop::Models::CartAPI) }
         attr_reader :cart
 
-        sig { params(cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash)).void }
+        sig { params(cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::AnyHash)).void }
         attr_writer :cart
 
         sig { returns(T::Array[TerminalShop::Models::OrderAPI]) }
@@ -51,7 +48,7 @@ module TerminalShop
         sig { returns(TerminalShop::Models::ProfileAPI) }
         attr_reader :profile
 
-        sig { params(profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::Util::AnyHash)).void }
+        sig { params(profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::AnyHash)).void }
         attr_writer :profile
 
         # A Terminal shop user's region.
@@ -67,16 +64,16 @@ module TerminalShop
         # Initial app data.
         sig do
           params(
-            addresses: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Internal::Util::AnyHash)],
-            apps: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::Util::AnyHash)],
-            cards: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::Util::AnyHash)],
-            cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash),
-            orders: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::Util::AnyHash)],
-            products: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::Util::AnyHash)],
-            profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::Util::AnyHash),
+            addresses: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Internal::AnyHash)],
+            apps: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::AnyHash)],
+            cards: T::Array[T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::AnyHash)],
+            cart: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::AnyHash),
+            orders: T::Array[T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::AnyHash)],
+            products: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::AnyHash)],
+            profile: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::AnyHash),
             region: TerminalShop::Models::Region::OrSymbol,
-            subscriptions: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::Util::AnyHash)],
-            tokens: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::Util::AnyHash)]
+            subscriptions: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::AnyHash)],
+            tokens: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::AnyHash)]
           )
             .returns(T.attached_class)
         end

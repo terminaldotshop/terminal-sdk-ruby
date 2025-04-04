@@ -2,13 +2,13 @@
 
 module TerminalShop
   module Models
-    class ProductListResponse < TerminalShop::BaseModel
+    class ProductListResponse < TerminalShop::Internal::Type::BaseModel
       # A list of products.
       sig { returns(T::Array[TerminalShop::Models::ProductAPI]) }
       attr_accessor :data
 
       sig do
-        params(data: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::Util::AnyHash)])
+        params(data: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
       def self.new(data:)

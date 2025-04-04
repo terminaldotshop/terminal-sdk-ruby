@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CartClearResponse < TerminalShop::BaseModel
+    class CartClearResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

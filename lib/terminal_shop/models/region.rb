@@ -4,7 +4,7 @@ module TerminalShop
   module Models
     # A Terminal shop user's region.
     module Region
-      extend TerminalShop::Enum
+      extend TerminalShop::Internal::Type::Enum
 
       EU = :eu
       NA = :na

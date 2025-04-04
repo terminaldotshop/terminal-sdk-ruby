@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Order#create
-    class OrderCreateParams < TerminalShop::BaseModel
+    class OrderCreateParams < TerminalShop::Internal::Type::BaseModel
       # @!parse
       #   extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
@@ -24,7 +24,7 @@ module TerminalShop
       #   Product variants to include in the order, along with their quantities.
       #
       #   @return [Hash{Symbol=>Integer}]
-      required :variants, TerminalShop::HashOf[Integer]
+      required :variants, TerminalShop::Internal::Type::HashOf[Integer]
 
       # @!parse
       #   # @param address_id [String]
@@ -34,7 +34,7 @@ module TerminalShop
       #   #
       #   def initialize(address_id:, card_id:, variants:, request_options: {}, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

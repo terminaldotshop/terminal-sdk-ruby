@@ -3,7 +3,7 @@ module TerminalShop
     type profile_me_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class ProfileMeParams < TerminalShop::BaseModel
+    class ProfileMeParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

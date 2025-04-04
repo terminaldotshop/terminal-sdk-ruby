@@ -68,14 +68,14 @@ module TerminalShop
         # @return [TerminalShop::Internal::Type::Converter, Class, nil]
         private def resolve_variant(value)
           case [@discriminator, value]
-          in [_, TerminalShop::BaseModel]
+          in [_, TerminalShop::Internal::Type::BaseModel]
             value.class
           in [Symbol, Hash]
             key = value.fetch(@discriminator) do
-              value.fetch(@discriminator.to_s, TerminalShop::Internal::Util::OMIT)
+              value.fetch(@discriminator.to_s, TerminalShop::Internal::OMIT)
             end
 
-            return nil if key == TerminalShop::Internal::Util::OMIT
+            return nil if key == TerminalShop::Internal::OMIT
 
             key = key.to_sym if key.is_a?(String)
             known_variants.find { |k,| k == key }&.last&.call
@@ -101,7 +101,7 @@ module TerminalShop
         # @return [Boolean]
         def ==(other)
           # rubocop:disable Layout/LineLength
-          other.is_a?(Module) && other.singleton_class <= TerminalShop::Union && other.derefed_variants == derefed_variants
+          other.is_a?(Module) && other.singleton_class <= TerminalShop::Internal::Type::Union && other.derefed_variants == derefed_variants
           # rubocop:enable Layout/LineLength
         end
 

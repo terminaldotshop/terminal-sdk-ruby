@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class ProductAPI < TerminalShop::BaseModel
+    class ProductAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -25,7 +25,7 @@ module TerminalShop
       #   List of variants of the product.
       #
       #   @return [Array<TerminalShop::Models::ProductVariant>]
-      required :variants, -> { TerminalShop::ArrayOf[TerminalShop::Models::ProductVariant] }
+      required :variants, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductVariant] }
 
       # @!attribute [r] order
       #   Order of the product used when displaying a sorted list of products.
@@ -70,13 +70,13 @@ module TerminalShop
       #   #
       #   def initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # Whether the product must be or can be subscribed to.
       #
       # @see TerminalShop::Models::ProductAPI#subscription
       module Subscription
-        extend TerminalShop::Enum
+        extend TerminalShop::Internal::Type::Enum
 
         ALLOWED = :allowed
         REQUIRED = :required
@@ -89,7 +89,7 @@ module TerminalShop
       end
 
       # @see TerminalShop::Models::ProductAPI#tags
-      class Tags < TerminalShop::BaseModel
+      class Tags < TerminalShop::Internal::Type::BaseModel
         # @!attribute [r] app
         #
         #   @return [String, nil]
@@ -111,7 +111,7 @@ module TerminalShop
         # @!attribute [r] featured
         #
         #   @return [Boolean, nil]
-        optional :featured, TerminalShop::BooleanModel
+        optional :featured, TerminalShop::Internal::Type::BooleanModel
 
         # @!parse
         #   # @return [Boolean]
@@ -120,7 +120,7 @@ module TerminalShop
         # @!attribute [r] market_eu
         #
         #   @return [Boolean, nil]
-        optional :market_eu, TerminalShop::BooleanModel
+        optional :market_eu, TerminalShop::Internal::Type::BooleanModel
 
         # @!parse
         #   # @return [Boolean]
@@ -129,7 +129,7 @@ module TerminalShop
         # @!attribute [r] market_na
         #
         #   @return [Boolean, nil]
-        optional :market_na, TerminalShop::BooleanModel
+        optional :market_na, TerminalShop::Internal::Type::BooleanModel
 
         # @!parse
         #   # @return [Boolean]
@@ -146,7 +146,7 @@ module TerminalShop
         #   #
         #   def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

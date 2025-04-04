@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Cart#get
-    class CartGetResponse < TerminalShop::BaseModel
+    class CartGetResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   The current Terminal shop user's cart.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

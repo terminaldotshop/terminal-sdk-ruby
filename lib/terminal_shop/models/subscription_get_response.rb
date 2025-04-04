@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Subscription#get
-    class SubscriptionGetResponse < TerminalShop::BaseModel
+    class SubscriptionGetResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Subscription to a Terminal shop product.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

@@ -3,7 +3,7 @@ module TerminalShop
     type product_list_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class ProductListParams < TerminalShop::BaseModel
+    class ProductListParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

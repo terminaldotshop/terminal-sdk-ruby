@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class EmailCreateResponse < TerminalShop::BaseModel
+    class EmailCreateResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

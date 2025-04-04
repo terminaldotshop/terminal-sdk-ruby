@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class AppAPI < TerminalShop::BaseModel
+    class AppAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -37,7 +37,7 @@ module TerminalShop
       #   #
       #   def initialize(id:, name:, redirect_uri:, secret:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

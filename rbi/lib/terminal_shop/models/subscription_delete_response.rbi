@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class SubscriptionDeleteResponse < TerminalShop::BaseModel
+    class SubscriptionDeleteResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

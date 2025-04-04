@@ -26,7 +26,7 @@ class TerminalShop::Test::Resources::TokenTest < TerminalShop::Test::ResourceTes
 
     assert_pattern do
       response => {
-        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::TokenAPI])
+        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::TokenAPI])
       }
     end
   end

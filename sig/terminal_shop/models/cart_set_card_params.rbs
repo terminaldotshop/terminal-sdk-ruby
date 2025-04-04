@@ -3,7 +3,7 @@ module TerminalShop
     type cart_set_card_params =
       { card_id: String } & TerminalShop::Internal::Type::request_parameters
 
-    class CartSetCardParams < TerminalShop::BaseModel
+    class CartSetCardParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

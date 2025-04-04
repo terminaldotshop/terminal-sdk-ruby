@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Card#get
-    class CardGetResponse < TerminalShop::BaseModel
+    class CardGetResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Credit card used for payments in the Terminal shop.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

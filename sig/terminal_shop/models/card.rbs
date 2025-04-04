@@ -8,7 +8,7 @@ module TerminalShop
         :last4 => String
       }
 
-    class CardAPI < TerminalShop::BaseModel
+    class CardAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor brand: String
@@ -28,7 +28,7 @@ module TerminalShop
 
       type expiration = { month: Integer, year: Integer }
 
-      class Expiration < TerminalShop::BaseModel
+      class Expiration < TerminalShop::Internal::Type::BaseModel
         attr_accessor month: Integer
 
         attr_accessor year: Integer

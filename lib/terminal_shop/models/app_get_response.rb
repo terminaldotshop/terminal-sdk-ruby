@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::App#get
-    class AppGetResponse < TerminalShop::BaseModel
+    class AppGetResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   A Terminal App used for configuring an OAuth 2.0 client.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

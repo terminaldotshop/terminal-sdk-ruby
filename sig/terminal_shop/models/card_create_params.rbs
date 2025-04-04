@@ -3,7 +3,7 @@ module TerminalShop
     type card_create_params =
       { token: String } & TerminalShop::Internal::Type::request_parameters
 
-    class CardCreateParams < TerminalShop::BaseModel
+    class CardCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

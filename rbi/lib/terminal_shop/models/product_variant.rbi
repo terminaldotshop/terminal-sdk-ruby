@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class ProductVariant < TerminalShop::BaseModel
+    class ProductVariant < TerminalShop::Internal::Type::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id

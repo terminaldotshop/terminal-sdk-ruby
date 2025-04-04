@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CardAPI < TerminalShop::BaseModel
+    class CardAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -37,10 +37,10 @@ module TerminalShop
       #   #
       #   def initialize(id:, brand:, expiration:, last4:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::CardAPI#expiration
-      class Expiration < TerminalShop::BaseModel
+      class Expiration < TerminalShop::Internal::Type::BaseModel
         # @!attribute month
         #   Expiration month of the card.
         #
@@ -61,7 +61,7 @@ module TerminalShop
         #   #
         #   def initialize(month:, year:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

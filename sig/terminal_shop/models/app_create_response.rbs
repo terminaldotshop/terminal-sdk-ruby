@@ -3,7 +3,7 @@ module TerminalShop
     type app_create_response =
       { data: TerminalShop::Models::AppCreateResponse::Data }
 
-    class AppCreateResponse < TerminalShop::BaseModel
+    class AppCreateResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::AppCreateResponse::Data
 
       def initialize: (
@@ -14,7 +14,7 @@ module TerminalShop
 
       type data = { id: String, secret: String }
 
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor secret: String

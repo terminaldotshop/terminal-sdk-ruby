@@ -3,7 +3,7 @@ module TerminalShop
     type address_get_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class AddressGetParams < TerminalShop::BaseModel
+    class AddressGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

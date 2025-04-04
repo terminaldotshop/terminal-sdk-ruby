@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CardCreateResponse < TerminalShop::BaseModel
+    class CardCreateResponse < TerminalShop::Internal::Type::BaseModel
       # ID of the card.
       sig { returns(String) }
       attr_accessor :data

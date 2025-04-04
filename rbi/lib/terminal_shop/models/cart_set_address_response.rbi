@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CartSetAddressResponse < TerminalShop::BaseModel
+    class CartSetAddressResponse < TerminalShop::Internal::Type::BaseModel
       sig { returns(Symbol) }
       attr_accessor :data
 

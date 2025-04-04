@@ -13,7 +13,7 @@ module TerminalShop
       }
       & TerminalShop::Internal::Type::request_parameters
 
-    class AddressCreateParams < TerminalShop::BaseModel
+    class AddressCreateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

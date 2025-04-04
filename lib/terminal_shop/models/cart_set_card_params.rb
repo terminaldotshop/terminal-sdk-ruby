@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Cart#set_card
-    class CartSetCardParams < TerminalShop::BaseModel
+    class CartSetCardParams < TerminalShop::Internal::Type::BaseModel
       # @!parse
       #   extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
@@ -20,7 +20,7 @@ module TerminalShop
       #   #
       #   def initialize(card_id:, request_options: {}, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

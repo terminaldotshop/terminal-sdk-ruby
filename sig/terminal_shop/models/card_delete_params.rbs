@@ -3,7 +3,7 @@ module TerminalShop
     type card_delete_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class CardDeleteParams < TerminalShop::BaseModel
+    class CardDeleteParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

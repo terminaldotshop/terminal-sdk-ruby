@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type app_get_response = { data: TerminalShop::Models::AppAPI }
 
-    class AppGetResponse < TerminalShop::BaseModel
+    class AppGetResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::AppAPI
 
       def initialize: (data: TerminalShop::Models::AppAPI) -> void

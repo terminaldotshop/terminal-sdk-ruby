@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Subscription#create
-    class SubscriptionCreateResponse < TerminalShop::BaseModel
+    class SubscriptionCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #
       #   @return [Symbol, :ok]
@@ -14,7 +14,7 @@ module TerminalShop
       #   #
       #   def initialize(data: :ok, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

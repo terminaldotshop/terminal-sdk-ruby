@@ -3,7 +3,7 @@ module TerminalShop
     type app_api =
       { id: String, name: String, redirect_uri: String, secret: String }
 
-    class AppAPI < TerminalShop::BaseModel
+    class AppAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor name: String
