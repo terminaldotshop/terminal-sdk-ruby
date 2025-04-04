@@ -15,7 +15,12 @@ module TerminalShop
       sig { returns(TerminalShop::Models::CardAPI::Expiration) }
       attr_reader :expiration
 
-      sig { params(expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(
+          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::Util::AnyHash)
+        )
+          .void
+      end
       attr_writer :expiration
 
       # Last four digits of the card.
@@ -27,7 +32,7 @@ module TerminalShop
         params(
           id: String,
           brand: String,
-          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Util::AnyHash),
+          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::Util::AnyHash),
           last4: String
         )
           .returns(T.attached_class)

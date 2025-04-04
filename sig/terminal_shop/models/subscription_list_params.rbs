@@ -1,10 +1,11 @@
 module TerminalShop
   module Models
-    type subscription_list_params = {  } & TerminalShop::request_parameters
+    type subscription_list_params =
+      {  } & TerminalShop::Internal::Type::request_parameters
 
     class SubscriptionListParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       def initialize: (?request_options: TerminalShop::request_opts) -> void
 

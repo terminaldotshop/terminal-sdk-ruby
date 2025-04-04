@@ -11,11 +11,11 @@ module TerminalShop
         province: String,
         :street2 => String
       }
-      & TerminalShop::request_parameters
+      & TerminalShop::Internal::Type::request_parameters
 
     class AddressCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor city: String
 

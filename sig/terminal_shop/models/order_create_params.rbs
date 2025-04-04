@@ -2,11 +2,11 @@ module TerminalShop
   module Models
     type order_create_params =
       { address_id: String, card_id: String, variants: ::Hash[Symbol, Integer] }
-      & TerminalShop::request_parameters
+      & TerminalShop::Internal::Type::request_parameters
 
     class OrderCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor address_id: String
 

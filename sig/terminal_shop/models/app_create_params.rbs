@@ -1,11 +1,12 @@
 module TerminalShop
   module Models
     type app_create_params =
-      { name: String, redirect_uri: String } & TerminalShop::request_parameters
+      { name: String, redirect_uri: String }
+      & TerminalShop::Internal::Type::request_parameters
 
     class AppCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor name: String
 

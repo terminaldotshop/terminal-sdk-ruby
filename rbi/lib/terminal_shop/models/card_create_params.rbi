@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class CardCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # Stripe card token. Learn how to
       #   [create one here](https://docs.stripe.com/api/tokens/create_card).
@@ -14,10 +14,7 @@ module TerminalShop
       sig do
         params(
           token: String,
-          request_options: T.any(
-            TerminalShop::RequestOptions,
-            TerminalShop::Util::AnyHash
-          )
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

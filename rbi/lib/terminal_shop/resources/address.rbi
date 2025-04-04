@@ -14,7 +14,12 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::AddressCreateResponse)
       end
@@ -41,7 +46,14 @@ module TerminalShop
 
       # Get the shipping addresses associated with the current user.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::AddressListResponse)
       end
       def list(request_options: {})
@@ -51,7 +63,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::AddressDeleteResponse)
       end
@@ -66,7 +83,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::AddressGetResponse)
       end

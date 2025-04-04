@@ -1,0 +1,42 @@
+module TerminalShop
+  module Internal
+    module Type
+      module Union
+        include TerminalShop::Internal::Type::Converter
+
+        private def self.known_variants: -> ::Array[[Symbol?, (^-> TerminalShop::Internal::Type::Converter::input)]]
+
+        def self.derefed_variants: -> ::Array[[Symbol?, top]]
+
+        def self.variants: -> ::Array[top]
+
+        private def self.discriminator: (Symbol property) -> void
+
+        private def self.variant: (
+          Symbol
+          | ::Hash[Symbol, top]
+          | ^-> TerminalShop::Internal::Type::Converter::input
+          | TerminalShop::Internal::Type::Converter::input key,
+          ?::Hash[Symbol, top]
+          | ^-> TerminalShop::Internal::Type::Converter::input
+          | TerminalShop::Internal::Type::Converter::input spec
+        ) -> void
+
+        private def self.resolve_variant: (
+          top value
+        ) -> TerminalShop::Internal::Type::Converter::input?
+
+        def ===: (top other) -> bool
+
+        def ==: (top other) -> bool
+
+        def coerce: (
+          top value,
+          state: TerminalShop::Internal::Type::Converter::state
+        ) -> top
+
+        def dump: (top value) -> top
+      end
+    end
+  end
+end

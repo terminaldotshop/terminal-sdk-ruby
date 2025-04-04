@@ -7,10 +7,13 @@ module TerminalShop
       sig { returns(TerminalShop::Models::CartAPI) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).void }
+      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :data
 
-      sig { params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Util::AnyHash)).returns(T.attached_class) }
+      sig do
+        params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::Util::AnyHash))
+          .returns(T.attached_class)
+      end
       def self.new(data:)
       end
 

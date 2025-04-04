@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::Profile#update
     class ProfileUpdateParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute email
       #

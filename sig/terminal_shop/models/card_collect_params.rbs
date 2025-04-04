@@ -1,10 +1,11 @@
 module TerminalShop
   module Models
-    type card_collect_params = {  } & TerminalShop::request_parameters
+    type card_collect_params =
+      {  } & TerminalShop::Internal::Type::request_parameters
 
     class CardCollectParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       def initialize: (?request_options: TerminalShop::request_opts) -> void
 

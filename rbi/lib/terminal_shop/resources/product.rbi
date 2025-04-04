@@ -5,7 +5,14 @@ module TerminalShop
     class Product
       # List all products for sale in the Terminal shop.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::ProductListResponse)
       end
       def list(request_options: {})
@@ -15,7 +22,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::ProductGetResponse)
       end

@@ -37,7 +37,7 @@ module TerminalShop
       sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
       attr_reader :tags
 
-      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash)).void }
+      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::Util::AnyHash)).void }
       attr_writer :tags
 
       # Product sold in the Terminal shop.
@@ -46,10 +46,10 @@ module TerminalShop
           id: String,
           description: String,
           name: String,
-          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Util::AnyHash)],
+          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Internal::Util::AnyHash)],
           order: Integer,
           subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol,
-          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Util::AnyHash)
+          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
