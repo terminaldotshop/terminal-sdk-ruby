@@ -163,6 +163,8 @@ module TerminalShop
 
         # Execute the request specified by `req`. This is the method that all resource
         #   methods call into.
+        #
+        # @overload request(method, path, query: {}, headers: {}, body: nil, unwrap: nil, page: nil, stream: nil, model: TerminalShop::Internal::Type::Unknown, options: {})
         sig do
           params(
             method: Symbol,
