@@ -14,10 +14,15 @@ module TerminalShop
           next_: String,
           schedule: T.any(
             TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Util::AnyHash,
+            TerminalShop::Internal::Util::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           ),
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
@@ -42,7 +47,14 @@ module TerminalShop
 
       # List the subscriptions associated with the current user.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::SubscriptionListResponse)
       end
       def list(request_options: {})
@@ -52,7 +64,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
@@ -67,7 +84,12 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::SubscriptionGetResponse)
       end

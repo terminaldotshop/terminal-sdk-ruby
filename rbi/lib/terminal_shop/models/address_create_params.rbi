@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class AddressCreateParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # City of the address.
       sig { returns(String) }
@@ -57,7 +57,7 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

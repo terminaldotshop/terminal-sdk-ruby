@@ -7,11 +7,18 @@ module TerminalShop
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Util::AnyHash)).void }
+      sig do
+        params(
+          data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Internal::Util::AnyHash)
+        )
+          .void
+      end
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Util::AnyHash))
+        params(
+          data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Internal::Util::AnyHash)
+        )
           .returns(T.attached_class)
       end
       def self.new(data:)

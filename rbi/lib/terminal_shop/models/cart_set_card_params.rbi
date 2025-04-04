@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class CartSetCardParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # ID of the credit card to set for the current user's cart.
       sig { returns(String) }
@@ -13,10 +13,7 @@ module TerminalShop
       sig do
         params(
           card_id: String,
-          request_options: T.any(
-            TerminalShop::RequestOptions,
-            TerminalShop::Util::AnyHash
-          )
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

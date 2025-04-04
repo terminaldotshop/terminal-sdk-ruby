@@ -2,11 +2,11 @@ module TerminalShop
   module Models
     type cart_set_item_params =
       { product_variant_id: String, quantity: Integer }
-      & TerminalShop::request_parameters
+      & TerminalShop::Internal::Type::request_parameters
 
     class CartSetItemParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       attr_accessor product_variant_id: String
 

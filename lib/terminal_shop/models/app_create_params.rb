@@ -5,8 +5,8 @@ module TerminalShop
     # @see TerminalShop::Resources::App#create
     class AppCreateParams < TerminalShop::BaseModel
       # @!parse
-      #   extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute name
       #

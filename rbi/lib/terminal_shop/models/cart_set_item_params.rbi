@@ -3,8 +3,8 @@
 module TerminalShop
   module Models
     class CartSetItemParams < TerminalShop::BaseModel
-      extend TerminalShop::Type::RequestParameters::Converter
-      include TerminalShop::RequestParameters
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
 
       # ID of the product variant to add to the cart.
       sig { returns(String) }
@@ -18,7 +18,7 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -5,7 +5,14 @@ module TerminalShop
     class Cart
       # Clear the current user's cart.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::CartClearResponse)
       end
       def clear(request_options: {})
@@ -13,7 +20,14 @@ module TerminalShop
 
       # Convert the current user's cart to an order.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::CartConvertResponse)
       end
       def convert(request_options: {})
@@ -21,7 +35,14 @@ module TerminalShop
 
       # Get the current user's cart.
       sig do
-        params(request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash)))
+        params(
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
+        )
           .returns(TerminalShop::Models::CartGetResponse)
       end
       def get(request_options: {})
@@ -31,7 +52,12 @@ module TerminalShop
       sig do
         params(
           address_id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CartSetAddressResponse)
       end
@@ -46,7 +72,12 @@ module TerminalShop
       sig do
         params(
           card_id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CartSetCardResponse)
       end
@@ -62,7 +93,12 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              TerminalShop::RequestOptions,
+              TerminalShop::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(TerminalShop::Models::CartSetItemResponse)
       end
