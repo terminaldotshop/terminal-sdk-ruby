@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Token#create
-    class TokenCreateResponse < TerminalShop::BaseModel
+    class TokenCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #
       #   @return [TerminalShop::Models::TokenCreateResponse::Data]
@@ -14,10 +14,10 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::TokenCreateResponse#data
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   Personal token ID.
         #
@@ -37,7 +37,7 @@ module TerminalShop
         #   #
         #   def initialize(id:, token:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class OrderAPI < TerminalShop::BaseModel
+    class OrderAPI < TerminalShop::Internal::Type::BaseModel
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -11,7 +11,7 @@ module TerminalShop
       sig { returns(TerminalShop::Models::OrderAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::Util::AnyHash)).void }
+      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash)).void }
       attr_writer :amount
 
       # Items in the order.
@@ -22,20 +22,14 @@ module TerminalShop
       sig { returns(TerminalShop::Models::OrderAPI::Shipping) }
       attr_reader :shipping
 
-      sig do
-        params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::AnyHash)).void }
       attr_writer :shipping
 
       # Tracking information of the order.
       sig { returns(TerminalShop::Models::OrderAPI::Tracking) }
       attr_reader :tracking
 
-      sig do
-        params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::AnyHash)).void }
       attr_writer :tracking
 
       # Zero-based index of the order for this user only.
@@ -49,10 +43,10 @@ module TerminalShop
       sig do
         params(
           id: String,
-          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::Util::AnyHash),
-          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Internal::Util::AnyHash)],
-          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::Util::AnyHash),
-          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::Util::AnyHash),
+          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash),
+          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Internal::AnyHash)],
+          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::AnyHash),
+          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::AnyHash),
           index: Integer
         )
           .returns(T.attached_class)
@@ -76,7 +70,7 @@ module TerminalShop
       def to_hash
       end
 
-      class Amount < TerminalShop::BaseModel
+      class Amount < TerminalShop::Internal::Type::BaseModel
         # Shipping amount of the order, in cents (USD).
         sig { returns(Integer) }
         attr_accessor :shipping
@@ -95,7 +89,7 @@ module TerminalShop
         end
       end
 
-      class Item < TerminalShop::BaseModel
+      class Item < TerminalShop::Internal::Type::BaseModel
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id
@@ -149,7 +143,7 @@ module TerminalShop
         end
       end
 
-      class Shipping < TerminalShop::BaseModel
+      class Shipping < TerminalShop::Internal::Type::BaseModel
         # City of the address.
         sig { returns(String) }
         attr_accessor :city
@@ -227,7 +221,7 @@ module TerminalShop
         end
       end
 
-      class Tracking < TerminalShop::BaseModel
+      class Tracking < TerminalShop::Internal::Type::BaseModel
         # Tracking number of the order.
         sig { returns(T.nilable(String)) }
         attr_reader :number

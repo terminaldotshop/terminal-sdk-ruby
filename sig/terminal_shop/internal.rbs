@@ -1,0 +1,4 @@
+module TerminalShop
+  module Internal
+  end
+end

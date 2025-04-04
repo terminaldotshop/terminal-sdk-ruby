@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::View#init
-    class ViewInitResponse < TerminalShop::BaseModel
+    class ViewInitResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Initial app data.
       #
@@ -15,24 +15,24 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # @see TerminalShop::Models::ViewInitResponse#data
-      class Data < TerminalShop::BaseModel
+      class Data < TerminalShop::Internal::Type::BaseModel
         # @!attribute addresses
         #
         #   @return [Array<TerminalShop::Models::AddressAPI>]
-        required :addresses, -> { TerminalShop::ArrayOf[TerminalShop::Models::AddressAPI] }
+        required :addresses, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AddressAPI] }
 
         # @!attribute apps
         #
         #   @return [Array<TerminalShop::Models::AppAPI>]
-        required :apps, -> { TerminalShop::ArrayOf[TerminalShop::Models::AppAPI] }
+        required :apps, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AppAPI] }
 
         # @!attribute cards
         #
         #   @return [Array<TerminalShop::Models::CardAPI>]
-        required :cards, -> { TerminalShop::ArrayOf[TerminalShop::Models::CardAPI] }
+        required :cards, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::CardAPI] }
 
         # @!attribute cart
         #   The current Terminal shop user's cart.
@@ -43,12 +43,12 @@ module TerminalShop
         # @!attribute orders
         #
         #   @return [Array<TerminalShop::Models::OrderAPI>]
-        required :orders, -> { TerminalShop::ArrayOf[TerminalShop::Models::OrderAPI] }
+        required :orders, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI] }
 
         # @!attribute products
         #
         #   @return [Array<TerminalShop::Models::ProductAPI>]
-        required :products, -> { TerminalShop::ArrayOf[TerminalShop::Models::ProductAPI] }
+        required :products, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductAPI] }
 
         # @!attribute profile
         #   A Terminal shop user's profile. (We have users, btw.)
@@ -65,12 +65,13 @@ module TerminalShop
         # @!attribute subscriptions
         #
         #   @return [Array<TerminalShop::Models::SubscriptionAPI>]
-        required :subscriptions, -> { TerminalShop::ArrayOf[TerminalShop::Models::SubscriptionAPI] }
+        required :subscriptions,
+                 -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::SubscriptionAPI] }
 
         # @!attribute tokens
         #
         #   @return [Array<TerminalShop::Models::TokenAPI>]
-        required :tokens, -> { TerminalShop::ArrayOf[TerminalShop::Models::TokenAPI] }
+        required :tokens, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::TokenAPI] }
 
         # @!parse
         #   # Initial app data.
@@ -88,7 +89,7 @@ module TerminalShop
         #   #
         #   def initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:, **) = super
 
-        # def initialize: (Hash | TerminalShop::BaseModel) -> void
+        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
     end
   end

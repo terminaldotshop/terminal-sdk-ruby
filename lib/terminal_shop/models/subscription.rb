@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class SubscriptionAPI < TerminalShop::BaseModel
+    class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -66,19 +66,19 @@ module TerminalShop
       #   #
       #   def initialize(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
       # Schedule of the subscription.
       #
       # @see TerminalShop::Models::SubscriptionAPI#schedule
       module Schedule
-        extend TerminalShop::Union
+        extend TerminalShop::Internal::Type::Union
 
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Fixed }
 
         variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Weekly }
 
-        class Fixed < TerminalShop::BaseModel
+        class Fixed < TerminalShop::Internal::Type::BaseModel
           # @!attribute type
           #
           #   @return [Symbol, :fixed]
@@ -89,10 +89,10 @@ module TerminalShop
           #   #
           #   def initialize(type: :fixed, **) = super
 
-          # def initialize: (Hash | TerminalShop::BaseModel) -> void
+          # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
         end
 
-        class Weekly < TerminalShop::BaseModel
+        class Weekly < TerminalShop::Internal::Type::BaseModel
           # @!attribute interval
           #
           #   @return [Integer]
@@ -109,7 +109,7 @@ module TerminalShop
           #   #
           #   def initialize(interval:, type: :weekly, **) = super
 
-          # def initialize: (Hash | TerminalShop::BaseModel) -> void
+          # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
         end
 
         # @!parse

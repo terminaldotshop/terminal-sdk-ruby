@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Address#get
-    class AddressGetResponse < TerminalShop::BaseModel
+    class AddressGetResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Physical address associated with a Terminal shop user.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

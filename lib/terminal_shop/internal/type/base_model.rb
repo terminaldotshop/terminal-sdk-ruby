@@ -23,7 +23,7 @@ module TerminalShop
           #
           # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
           def known_fields
-            @known_fields ||= (self < TerminalShop::BaseModel ? superclass.known_fields.dup : {})
+            @known_fields ||= (self < TerminalShop::Internal::Type::BaseModel ? superclass.known_fields.dup : {})
           end
 
           # @api private
@@ -67,10 +67,10 @@ module TerminalShop
             const = if required && !nilable
               info.fetch(
                 :const,
-                TerminalShop::Internal::Util::OMIT
+                TerminalShop::Internal::OMIT
               )
             else
-              TerminalShop::Internal::Util::OMIT
+              TerminalShop::Internal::OMIT
             end
 
             [name_sym, setter].each { undef_method(_1) } if known_fields.key?(name_sym)
@@ -89,7 +89,7 @@ module TerminalShop
 
             define_method(name_sym) do
               target = type_fn.call
-              value = @data.fetch(name_sym) { const == TerminalShop::Internal::Util::OMIT ? nil : const }
+              value = @data.fetch(name_sym) { const == TerminalShop::Internal::OMIT ? nil : const }
               state = {strictness: :strong, exactness: {yes: 0, no: 0, maybe: 0}, branched: 0}
               if (nilable || !required) && value.nil?
                 nil
@@ -103,7 +103,7 @@ module TerminalShop
               # rubocop:disable Layout/LineLength
               message = "Failed to parse #{cls}.#{__method__} from #{value.class} to #{target.inspect}. To get the unparsed API response, use #{cls}[:#{__method__}]."
               # rubocop:enable Layout/LineLength
-              raise TerminalShop::ConversionError.new(message)
+              raise TerminalShop::Errors::ConversionError.new(message)
             end
           end
 
@@ -173,7 +173,7 @@ module TerminalShop
           # @param other [Object]
           #
           # @return [Boolean]
-          def ==(other) = other.is_a?(Class) && other <= TerminalShop::BaseModel && other.fields == fields
+          def ==(other) = other.is_a?(Class) && other <= TerminalShop::Internal::Type::BaseModel && other.fields == fields
         end
 
         # @param other [Object]
@@ -184,7 +184,7 @@ module TerminalShop
         class << self
           # @api private
           #
-          # @param value [TerminalShop::BaseModel, Hash{Object=>Object}, Object]
+          # @param value [TerminalShop::Internal::Type::BaseModel, Hash{Object=>Object}, Object]
           #
           # @param state [Hash{Symbol=>Object}] .
           #
@@ -194,7 +194,7 @@ module TerminalShop
           #
           #   @option state [Integer] :branched
           #
-          # @return [TerminalShop::BaseModel, Object]
+          # @return [TerminalShop::Internal::Type::BaseModel, Object]
           def coerce(value, state:)
             exactness = state.fetch(:exactness)
 
@@ -219,7 +219,7 @@ module TerminalShop
               api_name, nilable, const = field.fetch_values(:api_name, :nilable, :const)
 
               unless val.key?(api_name)
-                if required && mode != :dump && const == TerminalShop::Internal::Util::OMIT
+                if required && mode != :dump && const == TerminalShop::Internal::OMIT
                   exactness[nilable ? :maybe : :no] += 1
                 else
                   exactness[:yes] += 1
@@ -253,7 +253,7 @@ module TerminalShop
 
           # @api private
           #
-          # @param value [TerminalShop::BaseModel, Object]
+          # @param value [TerminalShop::Internal::Type::BaseModel, Object]
           #
           # @return [Hash{Object=>Object}, Object]
           def dump(value)
@@ -282,7 +282,7 @@ module TerminalShop
 
             known_fields.each_value do |field|
               mode, api_name, const = field.fetch_values(:mode, :api_name, :const)
-              next if mode == :coerce || acc.key?(api_name) || const == TerminalShop::Internal::Util::OMIT
+              next if mode == :coerce || acc.key?(api_name) || const == TerminalShop::Internal::OMIT
               acc.store(api_name, const)
             end
 
@@ -349,13 +349,13 @@ module TerminalShop
 
         # Create a new instance of a model.
         #
-        # @param data [Hash{Symbol=>Object}, TerminalShop::BaseModel]
+        # @param data [Hash{Symbol=>Object}, TerminalShop::Internal::Type::BaseModel]
         def initialize(data = {})
           case TerminalShop::Internal::Util.coerce_hash(data)
           in Hash => coerced
             @data = coerced
           else
-            raise ArgumentError.new("Expected a #{Hash} or #{TerminalShop::BaseModel}, got #{data.inspect}")
+            raise ArgumentError.new("Expected a #{Hash} or #{TerminalShop::Internal::Type::BaseModel}, got #{data.inspect}")
           end
         end
 

@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CartSetAddressParams < TerminalShop::BaseModel
+    class CartSetAddressParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
@@ -13,7 +13,7 @@ module TerminalShop
       sig do
         params(
           address_id: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

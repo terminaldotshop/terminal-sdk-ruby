@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class OrderCreateResponse < TerminalShop::BaseModel
+    class OrderCreateResponse < TerminalShop::Internal::Type::BaseModel
       # Order ID.
       sig { returns(String) }
       attr_accessor :data

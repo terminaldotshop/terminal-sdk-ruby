@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type profile_api = { user: TerminalShop::Models::ProfileAPI::User }
 
-    class ProfileAPI < TerminalShop::BaseModel
+    class ProfileAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor user: TerminalShop::Models::ProfileAPI::User
 
       def initialize: (user: TerminalShop::Models::ProfileAPI::User) -> void
@@ -18,7 +18,7 @@ module TerminalShop
           stripe_customer_id: String
         }
 
-      class User < TerminalShop::BaseModel
+      class User < TerminalShop::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor email: String?

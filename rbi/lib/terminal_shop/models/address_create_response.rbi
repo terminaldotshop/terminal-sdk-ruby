@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class AddressCreateResponse < TerminalShop::BaseModel
+    class AddressCreateResponse < TerminalShop::Internal::Type::BaseModel
       # Shipping address ID.
       sig { returns(String) }
       attr_accessor :data

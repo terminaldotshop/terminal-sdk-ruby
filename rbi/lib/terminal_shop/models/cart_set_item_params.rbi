@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class CartSetItemParams < TerminalShop::BaseModel
+    class CartSetItemParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
@@ -18,7 +18,7 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

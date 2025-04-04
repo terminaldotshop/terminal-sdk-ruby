@@ -3,7 +3,7 @@ module TerminalShop
     type cart_set_address_params =
       { address_id: String } & TerminalShop::Internal::Type::request_parameters
 
-    class CartSetAddressParams < TerminalShop::BaseModel
+    class CartSetAddressParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

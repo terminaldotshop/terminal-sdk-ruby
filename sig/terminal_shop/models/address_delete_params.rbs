@@ -3,7 +3,7 @@ module TerminalShop
     type address_delete_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class AddressDeleteParams < TerminalShop::BaseModel
+    class AddressDeleteParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class TokenAPI < TerminalShop::BaseModel
+    class TokenAPI < TerminalShop::Internal::Type::BaseModel
       # @!attribute id
       #   Unique object identifier. The format and length of IDs may change over time.
       #
@@ -31,7 +31,7 @@ module TerminalShop
       #   #
       #   def initialize(id:, token:, created:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

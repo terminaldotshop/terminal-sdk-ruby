@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type profile_update_response = { data: TerminalShop::Models::ProfileAPI }
 
-    class ProfileUpdateResponse < TerminalShop::BaseModel
+    class ProfileUpdateResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: TerminalShop::Models::ProfileAPI
 
       def initialize: (data: TerminalShop::Models::ProfileAPI) -> void

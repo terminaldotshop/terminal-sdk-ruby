@@ -3,7 +3,7 @@ module TerminalShop
     type card_get_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class CardGetParams < TerminalShop::BaseModel
+    class CardGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

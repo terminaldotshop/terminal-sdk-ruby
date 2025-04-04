@@ -33,7 +33,7 @@ class TerminalShop::Test::Resources::AddressTest < TerminalShop::Test::ResourceT
 
     assert_pattern do
       response => {
-        data: ^(TerminalShop::ArrayOf[TerminalShop::Models::AddressAPI])
+        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AddressAPI])
       }
     end
   end

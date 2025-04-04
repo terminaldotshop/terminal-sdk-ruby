@@ -7,10 +7,10 @@ module TerminalShop
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
 
-        def self.known_fields: -> ::Hash[Symbol, (TerminalShop::BaseModel::known_field
+        def self.known_fields: -> ::Hash[Symbol, (TerminalShop::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> TerminalShop::Internal::Type::Converter::input) })]
 
-        def self.fields: -> ::Hash[Symbol, (TerminalShop::BaseModel::known_field
+        def self.fields: -> ::Hash[Symbol, (TerminalShop::Internal::Type::BaseModel::known_field
         & { type: TerminalShop::Internal::Type::Converter::input })]
 
         private def self.add_field: (
@@ -52,7 +52,9 @@ module TerminalShop
         def ==: (top other) -> bool
 
         def self.coerce: (
-          TerminalShop::BaseModel | ::Hash[top, top] | top value,
+          TerminalShop::Internal::Type::BaseModel
+          | ::Hash[top, top]
+          | top value,
           state: TerminalShop::Internal::Type::Converter::state
         ) -> (instance | top)
 

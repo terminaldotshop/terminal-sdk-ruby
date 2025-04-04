@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type product_variant = { id: String, name: String, price: Integer }
 
-    class ProductVariant < TerminalShop::BaseModel
+    class ProductVariant < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor name: String

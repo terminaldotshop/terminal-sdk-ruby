@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Card#create
-    class CardCreateResponse < TerminalShop::BaseModel
+    class CardCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   ID of the card.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type email_create_response = { data: :ok }
 
-    class EmailCreateResponse < TerminalShop::BaseModel
+    class EmailCreateResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void

@@ -17,11 +17,11 @@ module TerminalShop
         sig(:final) do
           params(
             type_info: T.any(
-              TerminalShop::Internal::Util::AnyHash,
+              TerminalShop::Internal::AnyHash,
               T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
               TerminalShop::Internal::Type::Converter::Input
             ),
-            spec: TerminalShop::Internal::Util::AnyHash
+            spec: TerminalShop::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -71,11 +71,11 @@ module TerminalShop
         sig(:final) do
           params(
             type_info: T.any(
-              TerminalShop::Internal::Util::AnyHash,
+              TerminalShop::Internal::AnyHash,
               T.proc.returns(TerminalShop::Internal::Type::Converter::Input),
               TerminalShop::Internal::Type::Converter::Input
             ),
-            spec: TerminalShop::Internal::Util::AnyHash
+            spec: TerminalShop::Internal::AnyHash
           )
             .void
         end

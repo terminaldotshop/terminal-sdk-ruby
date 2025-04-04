@@ -2,7 +2,7 @@ module TerminalShop
   module Models
     type card_list_response = { data: ::Array[TerminalShop::Models::CardAPI] }
 
-    class CardListResponse < TerminalShop::BaseModel
+    class CardListResponse < TerminalShop::Internal::Type::BaseModel
       attr_accessor data: ::Array[TerminalShop::Models::CardAPI]
 
       def initialize: (data: ::Array[TerminalShop::Models::CardAPI]) -> void

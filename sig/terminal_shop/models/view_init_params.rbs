@@ -3,7 +3,7 @@ module TerminalShop
     type view_init_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class ViewInitParams < TerminalShop::BaseModel
+    class ViewInitParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

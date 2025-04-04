@@ -2,7 +2,7 @@
 
 module TerminalShop
   module Models
-    class ProfileUpdateParams < TerminalShop::BaseModel
+    class ProfileUpdateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module TerminalShop
         params(
           email: String,
           name: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::Util::AnyHash)
+          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -11,7 +11,7 @@ module TerminalShop
         schedule: TerminalShop::Models::SubscriptionAPI::schedule
       }
 
-    class SubscriptionAPI < TerminalShop::BaseModel
+    class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor address_id: String
@@ -49,11 +49,11 @@ module TerminalShop
         | TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
 
       module Schedule
-        extend TerminalShop::Union
+        extend TerminalShop::Internal::Type::Union
 
         type fixed = { type: :fixed }
 
-        class Fixed < TerminalShop::BaseModel
+        class Fixed < TerminalShop::Internal::Type::BaseModel
           attr_accessor type: :fixed
 
           def initialize: (?type: :fixed) -> void
@@ -63,7 +63,7 @@ module TerminalShop
 
         type weekly = { interval: Integer, type: :weekly }
 
-        class Weekly < TerminalShop::BaseModel
+        class Weekly < TerminalShop::Internal::Type::BaseModel
           attr_accessor interval: Integer
 
           attr_accessor type: :weekly

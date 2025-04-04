@@ -8,12 +8,7 @@ module TerminalShop
         params(
           email: String,
           name: String,
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::ProfileUpdateResponse)
       end
@@ -26,7 +21,7 @@ module TerminalShop
           request_options: T.nilable(
             T.any(
               TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
+              TerminalShop::Internal::AnyHash
             )
           )
         )

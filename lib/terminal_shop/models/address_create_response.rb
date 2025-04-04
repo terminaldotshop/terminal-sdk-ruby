@@ -3,7 +3,7 @@
 module TerminalShop
   module Models
     # @see TerminalShop::Resources::Address#create
-    class AddressCreateResponse < TerminalShop::BaseModel
+    class AddressCreateResponse < TerminalShop::Internal::Type::BaseModel
       # @!attribute data
       #   Shipping address ID.
       #
@@ -15,7 +15,7 @@ module TerminalShop
       #   #
       #   def initialize(data:, **) = super
 
-      # def initialize: (Hash | TerminalShop::BaseModel) -> void
+      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
   end
 end

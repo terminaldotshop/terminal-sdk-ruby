@@ -3,7 +3,7 @@ module TerminalShop
     type subscription_get_params =
       {  } & TerminalShop::Internal::Type::request_parameters
 
-    class SubscriptionGetParams < TerminalShop::BaseModel
+    class SubscriptionGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 

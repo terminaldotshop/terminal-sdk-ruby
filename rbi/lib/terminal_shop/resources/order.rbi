@@ -9,12 +9,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           variants: T::Hash[Symbol, Integer],
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::OrderCreateResponse)
       end
@@ -35,7 +30,7 @@ module TerminalShop
           request_options: T.nilable(
             T.any(
               TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
+              TerminalShop::Internal::AnyHash
             )
           )
         )
@@ -48,12 +43,7 @@ module TerminalShop
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
         )
           .returns(TerminalShop::Models::OrderGetResponse)
       end
