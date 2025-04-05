@@ -173,7 +173,9 @@ module TerminalShop
           # @param other [Object]
           #
           # @return [Boolean]
-          def ==(other) = other.is_a?(Class) && other <= TerminalShop::Internal::Type::BaseModel && other.fields == fields
+          def ==(other)
+            other.is_a?(Class) && other <= TerminalShop::Internal::Type::BaseModel && other.fields == fields
+          end
         end
 
         # @param other [Object]
@@ -355,7 +357,8 @@ module TerminalShop
           in Hash => coerced
             @data = coerced
           else
-            raise ArgumentError.new("Expected a #{Hash} or #{TerminalShop::Internal::Type::BaseModel}, got #{data.inspect}")
+            message = "Expected a #{Hash} or #{TerminalShop::Internal::Type::BaseModel}, got #{data.inspect}"
+            raise ArgumentError.new(message)
           end
         end
 
@@ -363,7 +366,7 @@ module TerminalShop
         def inspect
           rows = self.class.known_fields.keys.map do
             "#{_1}=#{@data.key?(_1) ? public_send(_1) : ''}"
-          rescue TerminalShop::ConversionError
+          rescue TerminalShop::Errors::ConversionError
             "#{_1}=#{@data.fetch(_1)}"
           end
           "#<#{self.class.name}:0x#{object_id.to_s(16)} #{rows.join(' ')}>"
