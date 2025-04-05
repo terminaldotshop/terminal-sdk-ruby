@@ -1,0 +1,15 @@
+module TerminalShop
+  module Models
+    type app_get_params =
+      {  } & TerminalShop::Internal::Type::request_parameters
+
+    class AppGetParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: TerminalShop::request_opts) -> void
+
+      def to_hash: -> TerminalShop::Models::app_get_params
+    end
+  end
+end

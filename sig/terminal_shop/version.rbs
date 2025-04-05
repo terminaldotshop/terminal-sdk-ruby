@@ -1,0 +1,3 @@
+module TerminalShop
+  VERSION: String
+end

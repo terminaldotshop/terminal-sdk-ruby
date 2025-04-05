@@ -1,0 +1,13 @@
+module TerminalShop
+  module Models
+    type order_create_response = { data: String }
+
+    class OrderCreateResponse < TerminalShop::Internal::Type::BaseModel
+      attr_accessor data: String
+
+      def initialize: (data: String) -> void
+
+      def to_hash: -> TerminalShop::Models::order_create_response
+    end
+  end
+end

@@ -1,0 +1,24 @@
+module TerminalShop
+  module Models
+    type app_create_params =
+      { name: String, redirect_uri: String }
+      & TerminalShop::Internal::Type::request_parameters
+
+    class AppCreateParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      attr_accessor name: String
+
+      attr_accessor redirect_uri: String
+
+      def initialize: (
+        name: String,
+        redirect_uri: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::app_create_params
+    end
+  end
+end

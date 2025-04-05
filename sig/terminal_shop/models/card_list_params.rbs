@@ -1,0 +1,15 @@
+module TerminalShop
+  module Models
+    type card_list_params =
+      {  } & TerminalShop::Internal::Type::request_parameters
+
+    class CardListParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: TerminalShop::request_opts) -> void
+
+      def to_hash: -> TerminalShop::Models::card_list_params
+    end
+  end
+end

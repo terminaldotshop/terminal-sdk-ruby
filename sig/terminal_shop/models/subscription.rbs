@@ -1,0 +1,80 @@
+module TerminalShop
+  module Models
+    type subscription_api =
+      {
+        id: String,
+        address_id: String,
+        card_id: String,
+        product_variant_id: String,
+        quantity: Integer,
+        next_: String,
+        schedule: TerminalShop::Models::SubscriptionAPI::schedule
+      }
+
+    class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor address_id: String
+
+      attr_accessor card_id: String
+
+      attr_accessor product_variant_id: String
+
+      attr_accessor quantity: Integer
+
+      attr_reader next_: String?
+
+      def next_=: (String) -> String
+
+      attr_reader schedule: TerminalShop::Models::SubscriptionAPI::schedule?
+
+      def schedule=: (
+        TerminalShop::Models::SubscriptionAPI::schedule
+      ) -> TerminalShop::Models::SubscriptionAPI::schedule
+
+      def initialize: (
+        id: String,
+        address_id: String,
+        card_id: String,
+        product_variant_id: String,
+        quantity: Integer,
+        ?next_: String,
+        ?schedule: TerminalShop::Models::SubscriptionAPI::schedule
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::subscription_api
+
+      type schedule =
+        TerminalShop::Models::SubscriptionAPI::Schedule::Fixed
+        | TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
+
+      module Schedule
+        extend TerminalShop::Internal::Type::Union
+
+        type fixed = { type: :fixed }
+
+        class Fixed < TerminalShop::Internal::Type::BaseModel
+          attr_accessor type: :fixed
+
+          def initialize: (?type: :fixed) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::fixed
+        end
+
+        type weekly = { interval: Integer, type: :weekly }
+
+        class Weekly < TerminalShop::Internal::Type::BaseModel
+          attr_accessor interval: Integer
+
+          attr_accessor type: :weekly
+
+          def initialize: (interval: Integer, ?type: :weekly) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionAPI::Schedule::weekly
+        end
+
+        def self?.variants: -> [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+      end
+    end
+  end
+end

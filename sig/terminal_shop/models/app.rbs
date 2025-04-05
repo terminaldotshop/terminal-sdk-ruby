@@ -1,0 +1,25 @@
+module TerminalShop
+  module Models
+    type app_api =
+      { id: String, name: String, redirect_uri: String, secret: String }
+
+    class AppAPI < TerminalShop::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor name: String
+
+      attr_accessor redirect_uri: String
+
+      attr_accessor secret: String
+
+      def initialize: (
+        id: String,
+        name: String,
+        redirect_uri: String,
+        secret: String
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::app_api
+    end
+  end
+end

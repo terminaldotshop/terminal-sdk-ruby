@@ -1,0 +1,13 @@
+module TerminalShop
+  module Models
+    type address_get_response = { data: TerminalShop::Models::AddressAPI }
+
+    class AddressGetResponse < TerminalShop::Internal::Type::BaseModel
+      attr_accessor data: TerminalShop::Models::AddressAPI
+
+      def initialize: (data: TerminalShop::Models::AddressAPI) -> void
+
+      def to_hash: -> TerminalShop::Models::address_get_response
+    end
+  end
+end

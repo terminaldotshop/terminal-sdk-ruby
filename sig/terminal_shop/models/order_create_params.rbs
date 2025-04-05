@@ -1,0 +1,27 @@
+module TerminalShop
+  module Models
+    type order_create_params =
+      { address_id: String, card_id: String, variants: ::Hash[Symbol, Integer] }
+      & TerminalShop::Internal::Type::request_parameters
+
+    class OrderCreateParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      attr_accessor address_id: String
+
+      attr_accessor card_id: String
+
+      attr_accessor variants: ::Hash[Symbol, Integer]
+
+      def initialize: (
+        address_id: String,
+        card_id: String,
+        variants: ::Hash[Symbol, Integer],
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::order_create_params
+    end
+  end
+end

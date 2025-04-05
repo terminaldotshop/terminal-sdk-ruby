@@ -1,0 +1,20 @@
+module TerminalShop
+  module Models
+    type card_create_params =
+      { token: String } & TerminalShop::Internal::Type::request_parameters
+
+    class CardCreateParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      attr_accessor token: String
+
+      def initialize: (
+        token: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::card_create_params
+    end
+  end
+end

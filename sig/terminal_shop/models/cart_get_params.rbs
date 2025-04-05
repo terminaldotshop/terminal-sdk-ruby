@@ -1,0 +1,15 @@
+module TerminalShop
+  module Models
+    type cart_get_params =
+      {  } & TerminalShop::Internal::Type::request_parameters
+
+    class CartGetParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: TerminalShop::request_opts) -> void
+
+      def to_hash: -> TerminalShop::Models::cart_get_params
+    end
+  end
+end

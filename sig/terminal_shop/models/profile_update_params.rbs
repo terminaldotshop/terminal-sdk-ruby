@@ -1,0 +1,24 @@
+module TerminalShop
+  module Models
+    type profile_update_params =
+      { email: String, name: String }
+      & TerminalShop::Internal::Type::request_parameters
+
+    class ProfileUpdateParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      attr_accessor email: String
+
+      attr_accessor name: String
+
+      def initialize: (
+        email: String,
+        name: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::profile_update_params
+    end
+  end
+end

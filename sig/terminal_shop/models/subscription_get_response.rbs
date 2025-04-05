@@ -1,0 +1,14 @@
+module TerminalShop
+  module Models
+    type subscription_get_response =
+      { data: TerminalShop::Models::SubscriptionAPI }
+
+    class SubscriptionGetResponse < TerminalShop::Internal::Type::BaseModel
+      attr_accessor data: TerminalShop::Models::SubscriptionAPI
+
+      def initialize: (data: TerminalShop::Models::SubscriptionAPI) -> void
+
+      def to_hash: -> TerminalShop::Models::subscription_get_response
+    end
+  end
+end

@@ -1,0 +1,13 @@
+module TerminalShop
+  module Models
+    type product_get_response = { data: TerminalShop::Models::ProductAPI }
+
+    class ProductGetResponse < TerminalShop::Internal::Type::BaseModel
+      attr_accessor data: TerminalShop::Models::ProductAPI
+
+      def initialize: (data: TerminalShop::Models::ProductAPI) -> void
+
+      def to_hash: -> TerminalShop::Models::product_get_response
+    end
+  end
+end

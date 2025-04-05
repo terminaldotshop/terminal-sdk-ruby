@@ -1,6 +1,6 @@
 # Terminal Ruby API library
 
-The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.0.0+ application.
+The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.1.0+ application.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -14,9 +14,13 @@ The underlying REST API documentation can be found on [terminal.shop](https://te
 
 To use this gem, install via Bundler by adding the following to your application's `Gemfile`:
 
+<!-- x-release-please-start-version -->
+
 ```ruby
-gem "terminal-shop", "~> 2.1.2"
+gem "terminal-shop", "~> 2.1.3"
 ```
+
+<!-- x-release-please-end -->
 
 To fetch an initial copy of the gem:
 
@@ -47,7 +51,7 @@ When the library is unable to connect to the API, or if the API returns a non-su
 ```ruby
 begin
   product = terminal.product.list
-rescue TerminalShop::Error => e
+rescue TerminalShop::Errors::APIError => e
   puts(e.status) # 400
 end
 ```
@@ -63,7 +67,7 @@ Error codes are as followed:
 | HTTP 409         | `ConflictError`            |
 | HTTP 422         | `UnprocessableEntityError` |
 | HTTP 429         | `RateLimitError`           |
-| HTTP >=500       | `InternalServerError`      |
+| HTTP >= 500      | `InternalServerError`      |
 | Other HTTP error | `APIStatusError`           |
 | Timeout          | `APITimeoutError`          |
 | Network error    | `APIConnectionError`       |
@@ -104,7 +108,9 @@ terminal = TerminalShop::Client.new(
 terminal.product.list(request_options: {timeout: 5})
 ```
 
-## Sorbet Support
+## LSP Support
+
+### Sorbet
 
 **This library emits an intentional warning under the [`tapioca` toolchain](https://github.com/Shopify/tapioca)**. This is normal, and does not impact functionality.
 
@@ -117,12 +123,37 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-model = TerminalShop::Models::ProductListParams.new
+params = TerminalShop::Models::ProductListParams.new
 
-terminal.product.list(**model)
+terminal.product.list(**params)
 ```
 
 ## Advanced
+
+### Making custom/undocumented requests
+
+This library is typed for convenient access to the documented API.
+
+If you need to access undocumented endpoints, params, or response properties, the library can still be used.
+
+#### Undocumented request params
+
+If you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` under the `request_options:` parameter when making a requests as seen in examples above.
+
+#### Undocumented endpoints
+
+To make requests to undocumented endpoints, you can make requests using `client.request`. Options on the client will be respected (such as retries) when making this request.
+
+```ruby
+response =
+  client.request(
+    method: :post,
+    path: '/undocumented/endpoint',
+    query: {"dog": "woof"},
+    headers: {"useful-header": "interesting-value"},
+    body: {"he": "llo"},
+  )
+```
 
 ### Concurrency & Connection Pooling
 
@@ -142,4 +173,4 @@ This package considers improvements to the (non-runtime) `*.rbi` and `*.rbs` typ
 
 ## Requirements
 
-Ruby 3.0.0 or higher.
+Ruby 3.1.0 or higher.
