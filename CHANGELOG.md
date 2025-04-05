@@ -1,5 +1,40 @@
 # Changelog
 
+## 3.0.0 (2025-04-05)
+
+Full Changelog: [v2.1.3...v3.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.3...v3.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* bump min supported ruby version to 3.1 (oldest non-EOL) ([#193](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/193))
+* remove top level type aliases to relocated classes ([#192](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/192))
+
+### Features
+
+* add reference links in yard ([#182](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/182)) ([526aba9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/526aba920f989a1c323aac74bbf45c29480e0d1c))
+* bump min supported ruby version to 3.1 (oldest non-EOL) ([#193](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/193)) ([6d37312](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6d37312b5bee3cd9f73cc02a7b4a8fec0edef432))
+* implement `to_json` for base model ([#188](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/188)) ([cae8e58](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cae8e58c32925d35f5833f7fe675139d3dca29bf))
+* link response models to their methods in yard doc ([#184](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/184)) ([cdae10f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cdae10f6072ebe18522d95e0cd9b59a474cb8924))
+* remove top level type aliases to relocated classes ([#192](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/192)) ([5563310](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5563310b2ef6c506f956833201603f8f20aa063d))
+* support solargraph generics ([#195](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/195)) ([f822bc0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f822bc0ecba3e76823b67e27ee32890ee006a0e1))
+
+
+### Chores
+
+* demonstrate how to make undocumented requests in README ([#194](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/194)) ([e120c78](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e120c78458dc1fd588095eaf019becaba274aac9))
+* do not use literals for version in type definitions ([#196](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/196)) ([3ebbbb3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3ebbbb34b9ccd06a2f848a4a86eca76d63cf1f5e))
+* extract error classes into own module ([#189](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/189)) ([1722e5d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1722e5d0fbd15ddbfbd1f0480a256ab225b75f51))
+* improve yard docs readability ([#183](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/183)) ([0f12da7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0f12da72824387d05249b1244b1e8bc4d344bf4d))
+* **internal:** codegen related update ([#185](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/185)) ([3712266](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3712266a9a4a8f8d83bc44631121c2ab714efc2d))
+* **internal:** codegen related update ([#190](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/190)) ([e716071](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e716071e4de22cdd28e6032a58ec2f5f8bc4af27))
+* **internal:** version bump ([#180](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/180)) ([0e44707](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0e44707dda2a96791da162584ac86a22bf12908c))
+* misc sdk polish ([#199](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/199)) ([ea7285b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ea7285b257ac73ba3be0e3cb283b3bfab7f31ab6))
+* move private classes into internal module ([#191](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/191)) ([927175f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/927175f4e48ed000aad9eea061674fd1c4308f77))
+* order client variables by "importance" ([#187](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/187)) ([2cb1427](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2cb1427ab1bac91bfa5eb850e558caf78a3938bc))
+* relax sorbet enum parameters to allow `String` in addition to `Symbol` ([#186](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/186)) ([e7f8d62](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e7f8d62f6cd9aa237bb26d2c4a546f56062fbe63))
+* simplify internal utils ([#198](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/198)) ([8e7e56c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8e7e56c796c1da3a93fd6d61c18fe3f003547bae))
+* use package name for gemspec ([#197](https://github.com/terminaldotshop/terminal-sdk-ruby/issues/197)) ([3ff332c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3ff332c7a914c41cd8c4a0d6053a843283ba2666))
+
 ## 2.1.3 (2025-04-02)
 
 Full Changelog: [v2.1.2...v2.1.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.2...v2.1.3)
