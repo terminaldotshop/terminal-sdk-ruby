@@ -20,7 +20,7 @@ module TerminalShop
         @client.request(
           method: :post,
           path: "order",
-          body: parsed,
+          body: parsed.transform_keys(address_id: :addressID, card_id: :cardID),
           model: TerminalShop::Models::OrderCreateResponse,
           options: options
         )
