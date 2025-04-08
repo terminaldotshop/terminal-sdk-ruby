@@ -19,7 +19,7 @@ module TerminalShop
         @client.request(
           method: :post,
           path: "app",
-          body: parsed,
+          body: parsed.transform_keys(redirect_uri: :redirectURI),
           model: TerminalShop::Models::AppCreateResponse,
           options: options
         )
