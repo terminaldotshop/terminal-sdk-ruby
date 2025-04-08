@@ -62,7 +62,7 @@ module TerminalShop
       end
 
       # Create a temporary URL for collecting credit card information for the current
-      #   user.
+      # user.
       #
       # @overload collect(request_options: {})
       #

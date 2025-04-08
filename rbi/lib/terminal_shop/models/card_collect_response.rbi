@@ -21,7 +21,7 @@ module TerminalShop
 
       class Data < TerminalShop::Internal::Type::BaseModel
         # Temporary URL that allows a user to enter credit card details over https at
-        #   terminal.shop.
+        # terminal.shop.
         sig { returns(String) }
         attr_accessor :url
 

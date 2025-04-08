@@ -26,7 +26,7 @@ module TerminalShop
 
         # @!attribute token
         #   Personal access token. Include this in the Authorization header
-        #     (`Bearer <token>`) when accessing the Terminal API.
+        #   (`Bearer <token>`) when accessing the Terminal API.
         #
         #   @return [String]
         required :token, String

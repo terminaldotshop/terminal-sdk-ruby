@@ -24,7 +24,7 @@ module TerminalShop
         attr_accessor :id
 
         # Personal access token. Include this in the Authorization header
-        #   (`Bearer <token>`) when accessing the Terminal API.
+        # (`Bearer <token>`) when accessing the Terminal API.
         sig { returns(String) }
         attr_accessor :token
 
