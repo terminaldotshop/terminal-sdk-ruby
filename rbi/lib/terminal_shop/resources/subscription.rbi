@@ -37,9 +37,7 @@ module TerminalShop
         # Schedule of the subscription.
         schedule: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List the subscriptions associated with the current user.
       sig do
         params(
@@ -52,8 +50,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::SubscriptionListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Cancel a subscription for the current user.
       sig do
@@ -67,9 +64,7 @@ module TerminalShop
         # ID of the subscription to cancel.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the subscription with the given ID.
       sig do
         params(
@@ -82,13 +77,10 @@ module TerminalShop
         # ID of the subscription to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

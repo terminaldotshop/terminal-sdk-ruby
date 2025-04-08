@@ -72,8 +72,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil)
-      end
+      def self.new(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil); end
 
       sig do
         override
@@ -92,8 +91,7 @@ module TerminalShop
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Schedule of the subscription.
       module Schedule
@@ -104,12 +102,10 @@ module TerminalShop
           attr_accessor :type
 
           sig { params(type: Symbol).returns(T.attached_class) }
-          def self.new(type: :fixed)
-          end
+          def self.new(type: :fixed); end
 
           sig { override.returns({type: Symbol}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         class Weekly < TerminalShop::Internal::Type::BaseModel
@@ -120,12 +116,10 @@ module TerminalShop
           attr_accessor :type
 
           sig { params(interval: Integer, type: Symbol).returns(T.attached_class) }
-          def self.new(interval:, type: :weekly)
-          end
+          def self.new(interval:, type: :weekly); end
 
           sig { override.returns({interval: Integer, type: Symbol}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig do
@@ -134,8 +128,7 @@ module TerminalShop
               [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
             )
         end
-        def self.variants
-        end
+        def self.variants; end
       end
     end
   end

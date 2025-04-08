@@ -17,12 +17,10 @@ module TerminalShop
 
       # Variant of a product in the Terminal shop.
       sig { params(id: String, name: String, price: Integer).returns(T.attached_class) }
-      def self.new(id:, name:, price:)
-      end
+      def self.new(id:, name:, price:); end
 
       sig { override.returns({id: String, name: String, price: Integer}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

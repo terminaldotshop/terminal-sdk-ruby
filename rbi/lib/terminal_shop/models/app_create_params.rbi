@@ -20,14 +20,12 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(name:, redirect_uri:, request_options: {})
-      end
+      def self.new(name:, redirect_uri:, request_options: {}); end
 
       sig do
         override.returns({name: String, redirect_uri: String, request_options: TerminalShop::RequestOptions})
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

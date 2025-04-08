@@ -51,8 +51,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, amount:, items:, shipping:, tracking:, index: nil)
-      end
+      def self.new(id:, amount:, items:, shipping:, tracking:, index: nil); end
 
       sig do
         override
@@ -67,8 +66,7 @@ module TerminalShop
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Amount < TerminalShop::Internal::Type::BaseModel
         # Shipping amount of the order, in cents (USD).
@@ -81,12 +79,10 @@ module TerminalShop
 
         # The subtotal and shipping amounts of the order.
         sig { params(shipping: Integer, subtotal: Integer).returns(T.attached_class) }
-        def self.new(shipping:, subtotal:)
-        end
+        def self.new(shipping:, subtotal:); end
 
         sig { override.returns({shipping: Integer, subtotal: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
@@ -126,8 +122,7 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, amount:, quantity:, description: nil, product_variant_id: nil)
-        end
+        def self.new(id:, amount:, quantity:, description: nil, product_variant_id: nil); end
 
         sig do
           override
@@ -139,8 +134,7 @@ module TerminalShop
                        product_variant_id: String
                      })
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
@@ -199,8 +193,7 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
-        end
+        def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil); end
 
         sig do
           override
@@ -217,8 +210,7 @@ module TerminalShop
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class Tracking < TerminalShop::Internal::Type::BaseModel
@@ -245,12 +237,10 @@ module TerminalShop
 
         # Tracking information of the order.
         sig { params(number: String, service: String, url: String).returns(T.attached_class) }
-        def self.new(number: nil, service: nil, url: nil)
-        end
+        def self.new(number: nil, service: nil, url: nil); end
 
         sig { override.returns({number: String, service: String, url: String}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

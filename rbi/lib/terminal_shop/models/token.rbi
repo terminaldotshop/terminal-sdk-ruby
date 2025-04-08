@@ -18,12 +18,10 @@ module TerminalShop
       # A personal access token used to access the Terminal API. If you leak this,
       #   expect large sums of coffee to be ordered on your credit card.
       sig { params(id: String, token: String, created: String).returns(T.attached_class) }
-      def self.new(id:, token:, created:)
-      end
+      def self.new(id:, token:, created:); end
 
       sig { override.returns({id: String, token: String, created: String}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

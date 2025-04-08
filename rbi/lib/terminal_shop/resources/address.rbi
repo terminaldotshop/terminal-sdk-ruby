@@ -36,9 +36,7 @@ module TerminalShop
         # Apartment, suite, etc. of the address.
         street2: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the shipping addresses associated with the current user.
       sig do
         params(
@@ -51,8 +49,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AddressListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Delete a shipping address from the current user.
       sig do
@@ -66,9 +63,7 @@ module TerminalShop
         # ID of the shipping address to delete.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the shipping address with the given ID.
       sig do
         params(
@@ -81,13 +76,10 @@ module TerminalShop
         # ID of the shipping address to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

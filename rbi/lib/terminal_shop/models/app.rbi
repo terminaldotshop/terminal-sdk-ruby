@@ -21,12 +21,10 @@ module TerminalShop
 
       # A Terminal App used for configuring an OAuth 2.0 client.
       sig { params(id: String, name: String, redirect_uri: String, secret: String).returns(T.attached_class) }
-      def self.new(id:, name:, redirect_uri:, secret:)
-      end
+      def self.new(id:, name:, redirect_uri:, secret:); end
 
       sig { override.returns({id: String, name: String, redirect_uri: String, secret: String}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end
