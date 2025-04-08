@@ -7,7 +7,7 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       # Stripe card token. Learn how to
-      #   [create one here](https://docs.stripe.com/api/tokens/create_card).
+      # [create one here](https://docs.stripe.com/api/tokens/create_card).
       sig { returns(String) }
       attr_accessor :token
 
