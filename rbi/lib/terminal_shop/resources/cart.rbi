@@ -15,8 +15,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CartClearResponse)
       end
-      def clear(request_options: {})
-      end
+      def clear(request_options: {}); end
 
       # Convert the current user's cart to an order.
       sig do
@@ -30,8 +29,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CartConvertResponse)
       end
-      def convert(request_options: {})
-      end
+      def convert(request_options: {}); end
 
       # Get the current user's cart.
       sig do
@@ -45,8 +43,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CartGetResponse)
       end
-      def get(request_options: {})
-      end
+      def get(request_options: {}); end
 
       # Set the shipping address for the current user's cart.
       sig do
@@ -60,9 +57,7 @@ module TerminalShop
         # ID of the shipping address to set for the current user's cart.
         address_id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Set the credit card for the current user's cart.
       sig do
         params(
@@ -75,9 +70,7 @@ module TerminalShop
         # ID of the credit card to set for the current user's cart.
         card_id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Add an item to the current user's cart.
       sig do
         params(
@@ -93,13 +86,10 @@ module TerminalShop
         # Quantity of the item to add to the cart.
         quantity:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

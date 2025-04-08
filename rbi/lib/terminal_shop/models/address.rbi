@@ -63,8 +63,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
-      end
+      def self.new(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil); end
 
       sig do
         override
@@ -82,8 +81,7 @@ module TerminalShop
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

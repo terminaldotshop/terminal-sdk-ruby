@@ -22,8 +22,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(product_variant_id:, quantity:, request_options: {})
-      end
+      def self.new(product_variant_id:, quantity:, request_options: {}); end
 
       sig do
         override
@@ -33,8 +32,7 @@ module TerminalShop
                      request_options: TerminalShop::RequestOptions
                    })
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

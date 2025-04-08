@@ -51,8 +51,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
-      end
+      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil); end
 
       sig do
         override
@@ -67,8 +66,7 @@ module TerminalShop
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Amount < TerminalShop::Internal::Type::BaseModel
         # Subtotal of the current user's cart, in cents (USD).
@@ -91,12 +89,10 @@ module TerminalShop
 
         # The subtotal and shipping amounts for the current user's cart.
         sig { params(subtotal: Integer, shipping: Integer, total: Integer).returns(T.attached_class) }
-        def self.new(subtotal:, shipping: nil, total: nil)
-        end
+        def self.new(subtotal:, shipping: nil, total: nil); end
 
         sig { override.returns({subtotal: Integer, shipping: Integer, total: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
@@ -121,14 +117,12 @@ module TerminalShop
           params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer)
             .returns(T.attached_class)
         end
-        def self.new(id:, product_variant_id:, quantity:, subtotal:)
-        end
+        def self.new(id:, product_variant_id:, quantity:, subtotal:); end
 
         sig do
           override.returns({id: String, product_variant_id: String, quantity: Integer, subtotal: Integer})
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
@@ -148,12 +142,10 @@ module TerminalShop
 
         # Shipping information for the current user's cart.
         sig { params(service: String, timeframe: String).returns(T.attached_class) }
-        def self.new(service: nil, timeframe: nil)
-        end
+        def self.new(service: nil, timeframe: nil); end
 
         sig { override.returns({service: String, timeframe: String}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

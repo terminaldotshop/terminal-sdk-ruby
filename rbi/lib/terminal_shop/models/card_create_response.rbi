@@ -8,12 +8,10 @@ module TerminalShop
       attr_accessor :data
 
       sig { params(data: String).returns(T.attached_class) }
-      def self.new(data:)
-      end
+      def self.new(data:); end
 
       sig { override.returns({data: String}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

@@ -14,12 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:)
-      end
+      def self.new(data:); end
 
       sig { override.returns({data: TerminalShop::Models::ViewInitResponse::Data}) }
-      def to_hash
-      end
+      def to_hash; end
 
       class Data < TerminalShop::Internal::Type::BaseModel
         sig { returns(T::Array[TerminalShop::Models::AddressAPI]) }
@@ -108,8 +106,7 @@ module TerminalShop
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

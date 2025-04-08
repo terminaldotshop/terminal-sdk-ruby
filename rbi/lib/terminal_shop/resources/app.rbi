@@ -12,8 +12,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppCreateResponse)
       end
-      def create(name:, redirect_uri:, request_options: {})
-      end
+      def create(name:, redirect_uri:, request_options: {}); end
 
       # List the current user's registered apps.
       sig do
@@ -27,8 +26,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::AppListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Delete the app with the given ID.
       sig do
@@ -42,9 +40,7 @@ module TerminalShop
         # ID of the app to delete.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the app with the given ID.
       sig do
         params(
@@ -57,13 +53,10 @@ module TerminalShop
         # ID of the app to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

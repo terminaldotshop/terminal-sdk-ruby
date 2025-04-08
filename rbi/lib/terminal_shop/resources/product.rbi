@@ -15,8 +15,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::ProductListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Get a product by ID from the Terminal shop.
       sig do
@@ -30,13 +29,10 @@ module TerminalShop
         # ID of the product to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end
