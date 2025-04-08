@@ -72,7 +72,7 @@ module TerminalShop
         @client.request(
           method: :put,
           path: "cart/address",
-          body: parsed.transform_keys(address_id: :addressID),
+          body: parsed,
           model: TerminalShop::Models::CartSetAddressResponse,
           options: options
         )
@@ -93,7 +93,7 @@ module TerminalShop
         @client.request(
           method: :put,
           path: "cart/card",
-          body: parsed.transform_keys(card_id: :cardID),
+          body: parsed,
           model: TerminalShop::Models::CartSetCardResponse,
           options: options
         )
@@ -115,7 +115,7 @@ module TerminalShop
         @client.request(
           method: :put,
           path: "cart/item",
-          body: parsed.transform_keys(product_variant_id: :productVariantID),
+          body: parsed,
           model: TerminalShop::Models::CartSetItemResponse,
           options: options
         )
