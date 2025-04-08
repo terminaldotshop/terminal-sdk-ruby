@@ -20,12 +20,10 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(email:, name:, request_options: {})
-      end
+      def self.new(email:, name:, request_options: {}); end
 
       sig { override.returns({email: String, name: String, request_options: TerminalShop::RequestOptions}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

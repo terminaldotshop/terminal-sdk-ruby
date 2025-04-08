@@ -15,13 +15,10 @@ module TerminalShop
         # Email address to subscribe to Terminal updates with.
         email:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

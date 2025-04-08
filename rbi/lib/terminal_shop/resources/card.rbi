@@ -16,9 +16,7 @@ module TerminalShop
         #   [create one here](https://docs.stripe.com/api/tokens/create_card).
         token:,
         request_options: {}
-      )
-      end
-
+      ); end
       # List the credit cards associated with the current user.
       sig do
         params(
@@ -31,8 +29,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CardListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Delete a credit card associated with the current user.
       sig do
@@ -46,9 +43,7 @@ module TerminalShop
         # ID of the card to delete.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Create a temporary URL for collecting credit card information for the current
       #   user.
       sig do
@@ -62,8 +57,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::CardCollectResponse)
       end
-      def collect(request_options: {})
-      end
+      def collect(request_options: {}); end
 
       # Get a credit card by ID associated with the current user.
       sig do
@@ -77,13 +71,10 @@ module TerminalShop
         # ID of the card to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

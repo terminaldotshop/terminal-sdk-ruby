@@ -11,12 +11,10 @@ module TerminalShop
         params(data: T::Array[T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
-      def self.new(data:)
-      end
+      def self.new(data:); end
 
       sig { override.returns({data: T::Array[TerminalShop::Models::ProductAPI]}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

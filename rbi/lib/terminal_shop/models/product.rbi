@@ -53,8 +53,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
-      end
+      def self.new(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil); end
 
       sig do
         override
@@ -70,8 +69,7 @@ module TerminalShop
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Whether the product must be or can be subscribed to.
       module Subscription
@@ -85,8 +83,7 @@ module TerminalShop
         REQUIRED = T.let(:required, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
 
         sig { override.returns(T::Array[TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class Tags < TerminalShop::Internal::Type::BaseModel
@@ -131,8 +128,7 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
-        end
+        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil); end
 
         sig do
           override
@@ -144,8 +140,7 @@ module TerminalShop
                        market_na: T::Boolean
                      })
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end
