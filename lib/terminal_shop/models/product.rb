@@ -111,7 +111,7 @@ module TerminalShop
         # @!attribute [r] featured
         #
         #   @return [Boolean, nil]
-        optional :featured, TerminalShop::Internal::Type::BooleanModel
+        optional :featured, TerminalShop::Internal::Type::Boolean
 
         # @!parse
         #   # @return [Boolean]
@@ -120,7 +120,7 @@ module TerminalShop
         # @!attribute [r] market_eu
         #
         #   @return [Boolean, nil]
-        optional :market_eu, TerminalShop::Internal::Type::BooleanModel
+        optional :market_eu, TerminalShop::Internal::Type::Boolean
 
         # @!parse
         #   # @return [Boolean]
@@ -129,7 +129,7 @@ module TerminalShop
         # @!attribute [r] market_na
         #
         #   @return [Boolean, nil]
-        optional :market_na, TerminalShop::Internal::Type::BooleanModel
+        optional :market_na, TerminalShop::Internal::Type::Boolean
 
         # @!parse
         #   # @return [Boolean]
