@@ -24,7 +24,12 @@ module TerminalShop
         @client.request(
           method: :post,
           path: "subscription",
-          body: parsed,
+          body: parsed.transform_keys(
+            address_id: :addressID,
+            card_id: :cardID,
+            product_variant_id: :productVariantID,
+            next_: :next
+          ),
           model: TerminalShop::Models::SubscriptionCreateResponse,
           options: options
         )
