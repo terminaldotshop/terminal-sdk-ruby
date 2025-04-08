@@ -32,15 +32,13 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, brand:, expiration:, last4:)
-      end
+      def self.new(id:, brand:, expiration:, last4:); end
 
       sig do
         override
           .returns({id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String})
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Expiration < TerminalShop::Internal::Type::BaseModel
         # Expiration month of the card.
@@ -53,12 +51,10 @@ module TerminalShop
 
         # Expiration of the card.
         sig { params(month: Integer, year: Integer).returns(T.attached_class) }
-        def self.new(month:, year:)
-        end
+        def self.new(month:, year:); end
 
         sig { override.returns({month: Integer, year: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

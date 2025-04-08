@@ -15,8 +15,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::TokenCreateResponse)
       end
-      def create(request_options: {})
-      end
+      def create(request_options: {}); end
 
       # List the current user's personal access tokens.
       sig do
@@ -30,8 +29,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::TokenListResponse)
       end
-      def list(request_options: {})
-      end
+      def list(request_options: {}); end
 
       # Delete the personal access token with the given ID.
       sig do
@@ -45,9 +43,7 @@ module TerminalShop
         # ID of the personal token to delete.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the personal access token with the given ID.
       sig do
         params(
@@ -60,13 +56,10 @@ module TerminalShop
         # ID of the personal token to get.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

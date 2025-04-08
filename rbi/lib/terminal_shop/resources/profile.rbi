@@ -12,8 +12,7 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::ProfileUpdateResponse)
       end
-      def update(email:, name:, request_options: {})
-      end
+      def update(email:, name:, request_options: {}); end
 
       # Get the current user's profile.
       sig do
@@ -27,13 +26,11 @@ module TerminalShop
         )
           .returns(TerminalShop::Models::ProfileMeResponse)
       end
-      def me(request_options: {})
-      end
+      def me(request_options: {}); end
 
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end
