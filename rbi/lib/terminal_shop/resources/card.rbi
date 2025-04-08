@@ -13,7 +13,7 @@ module TerminalShop
       end
       def create(
         # Stripe card token. Learn how to
-        #   [create one here](https://docs.stripe.com/api/tokens/create_card).
+        # [create one here](https://docs.stripe.com/api/tokens/create_card).
         token:,
         request_options: {}
       ); end
@@ -45,7 +45,7 @@ module TerminalShop
         request_options: {}
       ); end
       # Create a temporary URL for collecting credit card information for the current
-      #   user.
+      # user.
       sig do
         params(
           request_options: T.nilable(
