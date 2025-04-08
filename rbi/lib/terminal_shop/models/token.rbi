@@ -16,7 +16,7 @@ module TerminalShop
       attr_accessor :created
 
       # A personal access token used to access the Terminal API. If you leak this,
-      #   expect large sums of coffee to be ordered on your credit card.
+      # expect large sums of coffee to be ordered on your credit card.
       sig { params(id: String, token: String, created: String).returns(T.attached_class) }
       def self.new(id:, token:, created:); end
 

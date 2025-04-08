@@ -10,7 +10,7 @@ module TerminalShop
 
       # @!attribute token
       #   Stripe card token. Learn how to
-      #     [create one here](https://docs.stripe.com/api/tokens/create_card).
+      #   [create one here](https://docs.stripe.com/api/tokens/create_card).
       #
       #   @return [String]
       required :token, String
