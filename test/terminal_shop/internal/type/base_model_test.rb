@@ -22,7 +22,7 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
   def test_typing
     converters = [
       TerminalShop::Internal::Type::Unknown,
-      TerminalShop::Internal::Type::BooleanModel,
+      TerminalShop::Internal::Type::Boolean,
       A,
       H,
       E,
@@ -42,8 +42,8 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
       [TerminalShop::Internal::Type::Unknown, :a] => [{yes: 1}, :a],
       [NilClass, :a] => [{maybe: 1}, nil],
       [NilClass, nil] => [{yes: 1}, nil],
-      [TerminalShop::Internal::Type::BooleanModel, true] => [{yes: 1}, true],
-      [TerminalShop::Internal::Type::BooleanModel, "true"] => [{no: 1}, "true"],
+      [TerminalShop::Internal::Type::Boolean, true] => [{yes: 1}, true],
+      [TerminalShop::Internal::Type::Boolean, "true"] => [{no: 1}, "true"],
       [Integer, 1] => [{yes: 1}, 1],
       [Integer, 1.0] => [{maybe: 1}, 1],
       [Integer, "1"] => [{maybe: 1}, 1],
@@ -85,8 +85,8 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
       [String, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [:b, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [nil, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
-      [TerminalShop::Internal::Type::BooleanModel, true] => true,
-      [TerminalShop::Internal::Type::BooleanModel, "true"] => "true",
+      [TerminalShop::Internal::Type::Boolean, true] => true,
+      [TerminalShop::Internal::Type::Boolean, "true"] => "true",
       [Integer, "1"] => "1",
       [Float, 1] => 1,
       [String, "one"] => "one",
@@ -560,8 +560,8 @@ class TerminalShop::Test::BaseModelQoLTest < Minitest::Test
   def test_equality
     cases = {
       [TerminalShop::Internal::Type::Unknown, TerminalShop::Internal::Type::Unknown] => true,
-      [TerminalShop::Internal::Type::BooleanModel, TerminalShop::Internal::Type::BooleanModel] => true,
-      [TerminalShop::Internal::Type::Unknown, TerminalShop::Internal::Type::BooleanModel] => false,
+      [TerminalShop::Internal::Type::Boolean, TerminalShop::Internal::Type::Boolean] => true,
+      [TerminalShop::Internal::Type::Unknown, TerminalShop::Internal::Type::Boolean] => false,
       [E1, E2] => true,
       [E1, E3] => false,
       [M1, M2] => false,
