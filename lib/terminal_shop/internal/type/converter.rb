@@ -64,7 +64,7 @@ module TerminalShop
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { TerminalShop::Internal::Type::BooleanModel }
+              -> { TerminalShop::Internal::Type::Boolean }
             in TerminalShop::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float
