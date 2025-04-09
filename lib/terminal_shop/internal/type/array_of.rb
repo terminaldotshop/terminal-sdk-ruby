@@ -79,12 +79,16 @@ module TerminalShop
         #
         # @param value [Array<Object>, Object]
         #
+        # @param state [Hash{Symbol=>Object}] .
+        #
+        #   @option state [Boolean] :can_retry
+        #
         # @return [Array<Object>, Object]
-        def dump(value)
+        def dump(value, state:)
           target = item_type
           if value.is_a?(Array)
             value.map do
-              TerminalShop::Internal::Type::Converter.dump(target, _1)
+              TerminalShop::Internal::Type::Converter.dump(target, _1, state: state)
             end
           else
             super

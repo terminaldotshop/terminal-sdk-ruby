@@ -40,19 +40,25 @@ module TerminalShop
         # of the enum.
         sig do
           override
-            .params(value: T.any(
-              String,
-              Symbol,
-              T.anything
-            ),
-                    state: TerminalShop::Internal::Type::Converter::State)
+            .params(
+              value: T.any(String, Symbol, T.anything),
+              state: TerminalShop::Internal::Type::Converter::CoerceState
+            )
             .returns(T.any(Symbol, T.anything))
         end
         def coerce(value, state:); end
 
         # @api private
-        sig { override.params(value: T.any(Symbol, T.anything)).returns(T.any(Symbol, T.anything)) }
-        def dump(value); end
+        sig do
+          override
+            .params(value: T.any(
+              Symbol,
+              T.anything
+            ),
+                    state: TerminalShop::Internal::Type::Converter::DumpState)
+            .returns(T.any(Symbol, T.anything))
+        end
+        def dump(value, state:); end
       end
     end
   end
