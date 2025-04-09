@@ -234,6 +234,36 @@ module TerminalShop
         #   # @return [String]
         #   attr_writer :service
 
+        # @!attribute [r] status
+        #   Current tracking status of the shipment.
+        #
+        #   @return [String, nil]
+        optional :status, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :status
+
+        # @!attribute [r] status_details
+        #   Additional details about the tracking status.
+        #
+        #   @return [String, nil]
+        optional :status_details, String, api_name: :statusDetails
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :status_details
+
+        # @!attribute [r] status_updated_at
+        #   When the tracking status was last updated.
+        #
+        #   @return [String, nil]
+        optional :status_updated_at, String, api_name: :statusUpdatedAt
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :status_updated_at
+
         # @!attribute [r] url
         #   Tracking URL of the order.
         #
@@ -249,9 +279,12 @@ module TerminalShop
         #   #
         #   # @param number [String]
         #   # @param service [String]
+        #   # @param status [String]
+        #   # @param status_details [String]
+        #   # @param status_updated_at [String]
         #   # @param url [String]
         #   #
-        #   def initialize(number: nil, service: nil, url: nil, **) = super
+        #   def initialize(number: nil, service: nil, status: nil, status_details: nil, status_updated_at: nil, url: nil, **) = super
 
         # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
       end
