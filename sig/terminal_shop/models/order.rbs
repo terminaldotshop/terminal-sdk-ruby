@@ -132,7 +132,15 @@ module TerminalShop
         def to_hash: -> TerminalShop::Models::OrderAPI::shipping
       end
 
-      type tracking = { number: String, service: String, url: String }
+      type tracking =
+        {
+          number: String,
+          service: String,
+          status: String,
+          status_details: String,
+          status_updated_at: String,
+          url: String
+        }
 
       class Tracking < TerminalShop::Internal::Type::BaseModel
         attr_reader number: String?
@@ -143,6 +151,18 @@ module TerminalShop
 
         def service=: (String) -> String
 
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader status_details: String?
+
+        def status_details=: (String) -> String
+
+        attr_reader status_updated_at: String?
+
+        def status_updated_at=: (String) -> String
+
         attr_reader url: String?
 
         def url=: (String) -> String
@@ -150,6 +170,9 @@ module TerminalShop
         def initialize: (
           ?number: String,
           ?service: String,
+          ?status: String,
+          ?status_details: String,
+          ?status_updated_at: String,
           ?url: String
         ) -> void
 
