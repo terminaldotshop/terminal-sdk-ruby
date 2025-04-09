@@ -22,14 +22,18 @@ module TerminalShop
           # @api private
           sig(:final) do
             override
-              .params(value: T.anything, state: TerminalShop::Internal::Type::Converter::State)
+              .params(value: T.anything, state: TerminalShop::Internal::Type::Converter::CoerceState)
               .returns(T.anything)
           end
           def coerce(value, state:); end
 
           # @api private
-          sig(:final) { override.params(value: T.anything).returns(T.anything) }
-          def dump(value); end
+          sig(:final) do
+            override
+              .params(value: T.anything, state: TerminalShop::Internal::Type::Converter::DumpState)
+              .returns(T.anything)
+          end
+          def dump(value, state:); end
         end
       end
     end

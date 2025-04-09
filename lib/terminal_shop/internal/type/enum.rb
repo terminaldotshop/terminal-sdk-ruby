@@ -97,8 +97,12 @@ module TerminalShop
         #   #
         #   # @param value [Symbol, Object]
         #   #
+        #   # @param state [Hash{Symbol=>Object}] .
+        #   #
+        #   #   @option state [Boolean] :can_retry
+        #   #
         #   # @return [Symbol, Object]
-        #   def dump(value) = super
+        #   def dump(value, state:) = super
       end
     end
   end

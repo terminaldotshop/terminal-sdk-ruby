@@ -4,19 +4,24 @@ module TerminalShop
       module Converter
         type input = TerminalShop::Internal::Type::Converter | Class
 
-        type state =
+        type coerce_state =
           {
             strictness: bool | :strong,
             exactness: { yes: Integer, no: Integer, maybe: Integer },
             branched: Integer
           }
 
+        type dump_state = { can_retry: bool }
+
         def coerce: (
           top value,
-          state: TerminalShop::Internal::Type::Converter::state
+          state: TerminalShop::Internal::Type::Converter::coerce_state
         ) -> top
 
-        def dump: (top value) -> top
+        def dump: (
+          top value,
+          state: TerminalShop::Internal::Type::Converter::dump_state
+        ) -> top
 
         def self.type_info: (
           {
@@ -31,12 +36,13 @@ module TerminalShop
         def self.coerce: (
           TerminalShop::Internal::Type::Converter::input target,
           top value,
-          ?state: TerminalShop::Internal::Type::Converter::state
+          ?state: TerminalShop::Internal::Type::Converter::coerce_state
         ) -> top
 
         def self.dump: (
           TerminalShop::Internal::Type::Converter::input target,
-          top value
+          top value,
+          ?state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> top
       end
     end
