@@ -228,6 +228,27 @@ module TerminalShop
         sig { params(service: String).void }
         attr_writer :service
 
+        # Current tracking status of the shipment.
+        sig { returns(T.nilable(String)) }
+        attr_reader :status
+
+        sig { params(status: String).void }
+        attr_writer :status
+
+        # Additional details about the tracking status.
+        sig { returns(T.nilable(String)) }
+        attr_reader :status_details
+
+        sig { params(status_details: String).void }
+        attr_writer :status_details
+
+        # When the tracking status was last updated.
+        sig { returns(T.nilable(String)) }
+        attr_reader :status_updated_at
+
+        sig { params(status_updated_at: String).void }
+        attr_writer :status_updated_at
+
         # Tracking URL of the order.
         sig { returns(T.nilable(String)) }
         attr_reader :url
@@ -236,10 +257,40 @@ module TerminalShop
         attr_writer :url
 
         # Tracking information of the order.
-        sig { params(number: String, service: String, url: String).returns(T.attached_class) }
-        def self.new(number: nil, service: nil, url: nil); end
+        sig do
+          params(
+            number: String,
+            service: String,
+            status: String,
+            status_details: String,
+            status_updated_at: String,
+            url: String
+          )
+            .returns(T.attached_class)
+        end
+        def self.new(
+          number: nil,
+          service: nil,
+          status: nil,
+          status_details: nil,
+          status_updated_at: nil,
+          url: nil
+        )
+        end
 
-        sig { override.returns({number: String, service: String, url: String}) }
+        sig do
+          override
+            .returns(
+              {
+                number: String,
+                service: String,
+                status: String,
+                status_details: String,
+                status_updated_at: String,
+                url: String
+              }
+            )
+        end
         def to_hash; end
       end
     end
