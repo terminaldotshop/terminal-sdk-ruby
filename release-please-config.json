@@ -60,5 +60,8 @@
     }
   ],
   "release-type": "ruby",
-  "version-file": "lib/terminal_shop/version.rb"
+  "version-file": "lib/terminal_shop/version.rb",
+  "extra-files": [
+    "README.md"
+  ]
 }
