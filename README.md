@@ -22,17 +22,11 @@ gem "terminal-shop", "~> 3.0.0"
 
 <!-- x-release-please-end -->
 
-To fetch an initial copy of the gem:
-
-```sh
-bundle install
-```
-
 ## Usage
 
 ```ruby
 require "bundler/setup"
-require "terminal-shop"
+require "terminal_shop"
 
 terminal = TerminalShop::Client.new(
   bearer_token: "My Bearer Token", # defaults to ENV["TERMINAL_BEARER_TOKEN"]
@@ -46,7 +40,7 @@ puts(products.data)
 
 ### Errors
 
-When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `TerminalShop::Error` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `TerminalShop::Errors::APIError` will be thrown:
 
 ```ruby
 begin
@@ -172,8 +166,7 @@ If you want to explicitly send an extra param, you can do so with the `extra_que
 To make requests to undocumented endpoints, you can make requests using `client.request`. Options on the client will be respected (such as retries) when making this request.
 
 ```ruby
-response =
-  client.request(
+response = client.request(
     method: :post,
     path: '/undocumented/endpoint',
     query: {"dog": "woof"},
