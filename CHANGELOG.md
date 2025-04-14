@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.1.0 (2025-04-14)
+
+Full Changelog: [v3.0.0...v3.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.0.0...v3.1.0)
+
+### Features
+
+* **api:** include created timestamps ([31da9d2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/31da9d2395f580dc5ae3cfe5b6e012f3fde66a2b))
+
+
+### Bug Fixes
+
+* inaccuracies in the README.md ([ed0d6c1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ed0d6c1b042499b2f0161583cd9dce84c6eea91e))
+* **internal:** update release-please to use ruby strategy for README.md ([89ed69d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/89ed69db0b451b0c32a636a2be4f1129bca29834))
+
+
+### Chores
+
+* ensure readme.md is bumped when release please updates versions ([b7a238c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b7a238cf978c74802bac10f060e3a35c430de82a))
+* fix lsp configuration file for local development ([c52b170](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c52b1701a7c9e05ce4366015d9efac772291b38c))
+* **internal:** expand CI branch coverage ([754aaf7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/754aaf70aaf5c8f51d96297fe9851b3497dc5207))
+* **internal:** reduce CI branch coverage ([ec791c9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ec791c962055d3a92a7a1ddd3cbb14f6e00f6ee2))
+* **internal:** version bump ([41b749b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/41b749bd415202dd889a1578827a782b697373fd))
+
 ## 3.0.0 (2025-04-09)
 
 Full Changelog: [v2.1.3...v3.0.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v2.1.3...v3.0.0)
