@@ -5,6 +5,7 @@ module TerminalShop
         id: String,
         city: String,
         country: String,
+        created: String,
         name: String,
         :street1 => String,
         zip: String,
@@ -19,6 +20,8 @@ module TerminalShop
       attr_accessor city: String
 
       attr_accessor country: String
+
+      attr_accessor created: String
 
       attr_accessor name: String
 
@@ -42,6 +45,7 @@ module TerminalShop
         id: String,
         city: String,
         country: String,
+        created: String,
         name: String,
         street1: String,
         zip: String,

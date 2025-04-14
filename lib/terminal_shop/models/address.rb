@@ -21,6 +21,12 @@ module TerminalShop
       #   @return [String]
       required :country, String
 
+      # @!attribute created
+      #   Date the address was created.
+      #
+      #   @return [String]
+      required :created, String
+
       # @!attribute name
       #   The recipient's name.
       #
@@ -75,6 +81,7 @@ module TerminalShop
       #   # @param id [String]
       #   # @param city [String]
       #   # @param country [String]
+      #   # @param created [String]
       #   # @param name [String]
       #   # @param street1 [String]
       #   # @param zip [String]
@@ -82,7 +89,7 @@ module TerminalShop
       #   # @param province [String]
       #   # @param street2 [String]
       #   #
-      #   def initialize(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
+      #   def initialize(id:, city:, country:, created:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
     end
