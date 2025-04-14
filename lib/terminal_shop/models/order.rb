@@ -15,6 +15,12 @@ module TerminalShop
       #   @return [TerminalShop::Models::OrderAPI::Amount]
       required :amount, -> { TerminalShop::Models::OrderAPI::Amount }
 
+      # @!attribute created
+      #   Date the order was created.
+      #
+      #   @return [String]
+      required :created, String
+
       # @!attribute items
       #   Items in the order.
       #
@@ -48,12 +54,13 @@ module TerminalShop
       #   #
       #   # @param id [String]
       #   # @param amount [TerminalShop::Models::OrderAPI::Amount]
+      #   # @param created [String]
       #   # @param items [Array<TerminalShop::Models::OrderAPI::Item>]
       #   # @param shipping [TerminalShop::Models::OrderAPI::Shipping]
       #   # @param tracking [TerminalShop::Models::OrderAPI::Tracking]
       #   # @param index [Integer]
       #   #
-      #   def initialize(id:, amount:, items:, shipping:, tracking:, index: nil, **) = super
+      #   def initialize(id:, amount:, created:, items:, shipping:, tracking:, index: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 

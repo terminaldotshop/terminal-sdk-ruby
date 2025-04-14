@@ -5,11 +5,12 @@ module TerminalShop
     class Subscription
       # Create a subscription for the current user.
       #
-      # @overload create(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil, request_options: {})
+      # @overload create(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil, request_options: {})
       #
       # @param id [String]
       # @param address_id [String]
       # @param card_id [String]
+      # @param created [String]
       # @param product_variant_id [String]
       # @param quantity [Integer]
       # @param next_ [String]

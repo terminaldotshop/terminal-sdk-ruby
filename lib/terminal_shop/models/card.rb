@@ -15,6 +15,12 @@ module TerminalShop
       #   @return [String]
       required :brand, String
 
+      # @!attribute created
+      #   Date the card was created.
+      #
+      #   @return [String]
+      required :created, String
+
       # @!attribute expiration
       #   Expiration of the card.
       #
@@ -32,10 +38,11 @@ module TerminalShop
       #   #
       #   # @param id [String]
       #   # @param brand [String]
+      #   # @param created [String]
       #   # @param expiration [TerminalShop::Models::CardAPI::Expiration]
       #   # @param last4 [String]
       #   #
-      #   def initialize(id:, brand:, expiration:, last4:, **) = super
+      #   def initialize(id:, brand:, created:, expiration:, last4:, **) = super
 
       # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 

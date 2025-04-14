@@ -11,6 +11,10 @@ module TerminalShop
       sig { returns(String) }
       attr_accessor :brand
 
+      # Date the card was created.
+      sig { returns(String) }
+      attr_accessor :created
+
       # Expiration of the card.
       sig { returns(TerminalShop::Models::CardAPI::Expiration) }
       attr_reader :expiration
@@ -27,16 +31,19 @@ module TerminalShop
         params(
           id: String,
           brand: String,
+          created: String,
           expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::AnyHash),
           last4: String
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, brand:, expiration:, last4:); end
+      def self.new(id:, brand:, created:, expiration:, last4:); end
 
       sig do
         override
-          .returns({id: String, brand: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String})
+          .returns(
+            {id: String, brand: String, created: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String}
+          )
       end
       def to_hash; end
 

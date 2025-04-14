@@ -21,6 +21,12 @@ module TerminalShop
       #   @return [String]
       required :card_id, String, api_name: :cardID
 
+      # @!attribute created
+      #   Date the subscription was created.
+      #
+      #   @return [String]
+      required :created, String
+
       # @!attribute product_variant_id
       #   ID of the product variant being subscribed to.
       #
@@ -59,12 +65,13 @@ module TerminalShop
       #   # @param id [String]
       #   # @param address_id [String]
       #   # @param card_id [String]
+      #   # @param created [String]
       #   # @param product_variant_id [String]
       #   # @param quantity [Integer]
       #   # @param next_ [String]
       #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       #   #
-      #   def initialize(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
+      #   def initialize(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
 
       # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
 
