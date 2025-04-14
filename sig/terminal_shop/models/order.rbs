@@ -4,6 +4,7 @@ module TerminalShop
       {
         id: String,
         amount: TerminalShop::Models::OrderAPI::Amount,
+        created: String,
         items: ::Array[TerminalShop::Models::OrderAPI::Item],
         shipping: TerminalShop::Models::OrderAPI::Shipping,
         tracking: TerminalShop::Models::OrderAPI::Tracking,
@@ -14,6 +15,8 @@ module TerminalShop
       attr_accessor id: String
 
       attr_accessor amount: TerminalShop::Models::OrderAPI::Amount
+
+      attr_accessor created: String
 
       attr_accessor items: ::Array[TerminalShop::Models::OrderAPI::Item]
 
@@ -28,6 +31,7 @@ module TerminalShop
       def initialize: (
         id: String,
         amount: TerminalShop::Models::OrderAPI::Amount,
+        created: String,
         items: ::Array[TerminalShop::Models::OrderAPI::Item],
         shipping: TerminalShop::Models::OrderAPI::Shipping,
         tracking: TerminalShop::Models::OrderAPI::Tracking,

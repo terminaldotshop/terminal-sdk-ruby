@@ -15,6 +15,10 @@ module TerminalShop
       sig { returns(String) }
       attr_accessor :card_id
 
+      # Date the subscription was created.
+      sig { returns(String) }
+      attr_accessor :created
+
       # ID of the product variant being subscribed to.
       sig { returns(String) }
       attr_accessor :product_variant_id
@@ -61,6 +65,7 @@ module TerminalShop
           id: String,
           address_id: String,
           card_id: String,
+          created: String,
           product_variant_id: String,
           quantity: Integer,
           next_: String,
@@ -72,7 +77,17 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, address_id:, card_id:, product_variant_id:, quantity:, next_: nil, schedule: nil); end
+      def self.new(
+        id:,
+        address_id:,
+        card_id:,
+        created:,
+        product_variant_id:,
+        quantity:,
+        next_: nil,
+        schedule: nil
+      )
+      end
 
       sig do
         override
@@ -81,6 +96,7 @@ module TerminalShop
               id: String,
               address_id: String,
               card_id: String,
+              created: String,
               product_variant_id: String,
               quantity: Integer,
               next_: String,

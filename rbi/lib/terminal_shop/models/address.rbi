@@ -15,6 +15,10 @@ module TerminalShop
       sig { returns(String) }
       attr_accessor :country
 
+      # Date the address was created.
+      sig { returns(String) }
+      attr_accessor :created
+
       # The recipient's name.
       sig { returns(String) }
       attr_accessor :name
@@ -54,6 +58,7 @@ module TerminalShop
           id: String,
           city: String,
           country: String,
+          created: String,
           name: String,
           street1: String,
           zip: String,
@@ -63,7 +68,19 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil); end
+      def self.new(
+        id:,
+        city:,
+        country:,
+        created:,
+        name:,
+        street1:,
+        zip:,
+        phone: nil,
+        province: nil,
+        street2: nil
+      )
+      end
 
       sig do
         override
@@ -72,6 +89,7 @@ module TerminalShop
               id: String,
               city: String,
               country: String,
+              created: String,
               name: String,
               street1: String,
               zip: String,

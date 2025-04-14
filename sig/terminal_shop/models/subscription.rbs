@@ -5,6 +5,7 @@ module TerminalShop
         id: String,
         address_id: String,
         card_id: String,
+        created: String,
         product_variant_id: String,
         quantity: Integer,
         next_: String,
@@ -17,6 +18,8 @@ module TerminalShop
       attr_accessor address_id: String
 
       attr_accessor card_id: String
+
+      attr_accessor created: String
 
       attr_accessor product_variant_id: String
 
@@ -36,6 +39,7 @@ module TerminalShop
         id: String,
         address_id: String,
         card_id: String,
+        created: String,
         product_variant_id: String,
         quantity: Integer,
         ?next_: String,

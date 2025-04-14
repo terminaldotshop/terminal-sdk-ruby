@@ -14,6 +14,10 @@ module TerminalShop
       sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash)).void }
       attr_writer :amount
 
+      # Date the order was created.
+      sig { returns(String) }
+      attr_accessor :created
+
       # Items in the order.
       sig { returns(T::Array[TerminalShop::Models::OrderAPI::Item]) }
       attr_accessor :items
@@ -44,6 +48,7 @@ module TerminalShop
         params(
           id: String,
           amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash),
+          created: String,
           items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Internal::AnyHash)],
           shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::AnyHash),
           tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::AnyHash),
@@ -51,7 +56,7 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, amount:, items:, shipping:, tracking:, index: nil); end
+      def self.new(id:, amount:, created:, items:, shipping:, tracking:, index: nil); end
 
       sig do
         override
@@ -59,6 +64,7 @@ module TerminalShop
             {
               id: String,
               amount: TerminalShop::Models::OrderAPI::Amount,
+              created: String,
               items: T::Array[TerminalShop::Models::OrderAPI::Item],
               shipping: TerminalShop::Models::OrderAPI::Shipping,
               tracking: TerminalShop::Models::OrderAPI::Tracking,

@@ -4,6 +4,7 @@ module TerminalShop
       {
         id: String,
         brand: String,
+        created: String,
         expiration: TerminalShop::Models::CardAPI::Expiration,
         :last4 => String
       }
@@ -13,6 +14,8 @@ module TerminalShop
 
       attr_accessor brand: String
 
+      attr_accessor created: String
+
       attr_accessor expiration: TerminalShop::Models::CardAPI::Expiration
 
       attr_accessor last4: String
@@ -20,6 +23,7 @@ module TerminalShop
       def initialize: (
         id: String,
         brand: String,
+        created: String,
         expiration: TerminalShop::Models::CardAPI::Expiration,
         last4: String
       ) -> void
