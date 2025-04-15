@@ -10,17 +10,16 @@ module TerminalShop
         extend TerminalShop::Internal::Type::Converter
 
         abstract!
-        final!
 
-        sig(:final) { params(other: T.anything).returns(T::Boolean) }
+        sig { params(other: T.anything).returns(T::Boolean) }
         def self.===(other); end
 
-        sig(:final) { params(other: T.anything).returns(T::Boolean) }
+        sig { params(other: T.anything).returns(T::Boolean) }
         def self.==(other); end
 
         class << self
           # @api private
-          sig(:final) do
+          sig do
             override
               .params(
                 value: T.any(StringIO, String, T.anything),
@@ -31,7 +30,7 @@ module TerminalShop
           def coerce(value, state:); end
 
           # @api private
-          sig(:final) do
+          sig do
             override
               .params(
                 value: T.any(Pathname, StringIO, IO, String, T.anything),
