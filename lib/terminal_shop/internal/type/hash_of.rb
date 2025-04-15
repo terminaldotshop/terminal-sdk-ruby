@@ -13,6 +13,8 @@ module TerminalShop
       class HashOf
         include TerminalShop::Internal::Type::Converter
 
+        private_class_method :new
+
         # @param type_info [Hash{Symbol=>Object}, Proc, TerminalShop::Internal::Type::Converter, Class]
         #
         # @param spec [Hash{Symbol=>Object}] .
@@ -140,7 +142,18 @@ module TerminalShop
         #   @option spec [Boolean] :"nil?"
         def initialize(type_info, spec = {})
           @item_type_fn = TerminalShop::Internal::Type::Converter.type_info(type_info || spec)
-          @nilable = spec[:nil?]
+          @nilable = spec.fetch(:nil?, false)
+        end
+
+        # @api private
+        #
+        # @param depth [Integer]
+        #
+        # @return [String]
+        def inspect(depth: 0)
+          # rubocop:disable Layout/LineLength
+          "#{self.class}[#{[TerminalShop::Internal::Type::Converter.inspect(item_type, depth: depth.succ), nilable? ? 'nil' : nil].compact.join(' | ')}]"
+          # rubocop:enable Layout/LineLength
         end
       end
     end
