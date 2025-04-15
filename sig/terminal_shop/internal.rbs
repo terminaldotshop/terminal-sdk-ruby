@@ -1,5 +1,5 @@
 module TerminalShop
   module Internal
-    OMIT: top
+    OMIT: Object
   end
 end
