@@ -21,6 +21,8 @@ module TerminalShop
           Symbol | top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> (Symbol | top)
+
+        def inspect: (?depth: Integer) -> String
       end
     end
   end

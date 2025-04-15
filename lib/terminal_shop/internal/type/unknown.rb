@@ -13,6 +13,8 @@ module TerminalShop
 
         # rubocop:disable Lint/UnusedMethodArgument
 
+        private_class_method :new
+
         # @param other [Object]
         #
         # @return [Boolean]

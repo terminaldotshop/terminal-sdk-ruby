@@ -11,6 +11,8 @@ module TerminalShop
       class Boolean
         extend TerminalShop::Internal::Type::Converter
 
+        private_class_method :new
+
         # @param other [Object]
         #
         # @return [Boolean]

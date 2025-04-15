@@ -39,6 +39,8 @@ module TerminalShop
           top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> top
+
+        def inspect: (?depth: Integer) -> String
       end
     end
   end
