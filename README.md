@@ -6,7 +6,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
-Documentation for released of this gem can be found [on RubyDoc](https://gemdocs.org/gems/terminal-shop).
+Documentation for releases of this gem can be found [on RubyDoc](https://gemdocs.org/gems/terminal-shop).
 
 The underlying REST API documentation can be found on [terminal.shop](https://terminal.shop/docs).
 
