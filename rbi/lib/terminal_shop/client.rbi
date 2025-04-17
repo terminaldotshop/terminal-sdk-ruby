@@ -84,8 +84,9 @@ module TerminalShop
       # - `production` corresponds to `https://api.terminal.shop`
       # - `dev` corresponds to `https://api.dev.terminal.shop`
       environment: nil,
-      # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
-      base_url: nil,
+      # Override the default base URL for the API, e.g.,
+      # `"https://api.example.com/v2/"`. Defaults to `ENV["TERMINAL_BASE_URL"]`
+      base_url: ENV["TERMINAL_BASE_URL"],
       # Max number of retries to attempt after a failed retryable request.
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
