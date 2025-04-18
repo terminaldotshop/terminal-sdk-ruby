@@ -1,0 +1,71 @@
+module TerminalShop
+  module Models
+    type subscription_update_params =
+      {
+        address_id: String,
+        card_id: String,
+        schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule
+      }
+      & TerminalShop::Internal::Type::request_parameters
+
+    class SubscriptionUpdateParams < TerminalShop::Internal::Type::BaseModel
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
+      include TerminalShop::Internal::Type::RequestParameters
+
+      attr_reader address_id: String?
+
+      def address_id=: (String) -> String
+
+      attr_reader card_id: String?
+
+      def card_id=: (String) -> String
+
+      attr_reader schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule?
+
+      def schedule=: (
+        TerminalShop::Models::SubscriptionUpdateParams::schedule
+      ) -> TerminalShop::Models::SubscriptionUpdateParams::schedule
+
+      def initialize: (
+        ?address_id: String,
+        ?card_id: String,
+        ?schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> TerminalShop::Models::subscription_update_params
+
+      type schedule =
+        TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed
+        | TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly
+
+      module Schedule
+        extend TerminalShop::Internal::Type::Union
+
+        type fixed = { type: :fixed }
+
+        class Fixed < TerminalShop::Internal::Type::BaseModel
+          attr_accessor type: :fixed
+
+          def initialize: (?type: :fixed) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionUpdateParams::Schedule::fixed
+        end
+
+        type weekly = { interval: Integer, type: :weekly }
+
+        class Weekly < TerminalShop::Internal::Type::BaseModel
+          attr_accessor interval: Integer
+
+          attr_accessor type: :weekly
+
+          def initialize: (interval: Integer, ?type: :weekly) -> void
+
+          def to_hash: -> TerminalShop::Models::SubscriptionUpdateParams::Schedule::weekly
+        end
+
+        def self?.variants: -> [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly]
+      end
+    end
+  end
+end
