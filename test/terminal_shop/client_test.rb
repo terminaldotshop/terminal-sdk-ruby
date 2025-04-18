@@ -13,8 +13,7 @@ class TerminalShopTest < Minitest::Test
 
   def test_raises_on_unknown_environment
     e = assert_raises(ArgumentError) do
-      v = TerminalShop::Client.new(environment: "wrong")
-      puts(v.base_url)
+      TerminalShop::Client.new(environment: "wrong")
     end
     assert_match(/environment must be one of/, e.message)
   end
