@@ -1,5 +1,39 @@
 # Changelog
 
+## 3.2.0 (2025-04-18)
+
+Full Changelog: [v3.1.0...v3.2.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.1.0...v3.2.0)
+
+### Features
+
+* **api:** update subscription route ([0d5b3d8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0d5b3d86cd3919012a08160515c10bc7d3e744b3))
+* **client:** enable setting base URL from environment variable ([152e594](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/152e594ac706d4c052ef1850f9736f86c91ed399))
+
+
+### Bug Fixes
+
+* always send idempotency header when specified as a request option ([8624f64](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8624f6467c342122f7d1d6fcbd72a45e119699d6))
+* **client:** send correct HTTP path ([b486b77](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b486b7740724b356beeecbdd129245f34ae87f9d))
+* restore ability to configure server environment as string during client construction ([2979da0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2979da025a61a72e3d8835b96208a00632b23484))
+
+
+### Chores
+
+* **internal:** always run post-processing when formatting when syntax_tree ([aeaac06](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/aeaac06a0fe58254350018f32c83706b9ce67284))
+* **internal:** contribute.md and contributor QoL improvements ([b39f7ab](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b39f7ab198eeb9671e6205a9016977165d68a48f))
+* **internal:** loosen internal type restrictions ([ce191f0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ce191f00a94e52bc91b03e8ab1ffeb3c2e1bdccd))
+* **internal:** minor touch ups on sdk internals ([faa1fb2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/faa1fb292ba88662aafa162ffb7b8db8e70363a1))
+* **internal:** mostly README touch ups ([34f5447](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/34f544727145d9102afabc3aa585a364ac28e950))
+* **internal:** protect SSE parsing pipeline from broken UTF-8 characters ([9fbd1a3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/9fbd1a37d46d3ea29bdfe4309dc34a17809ff579))
+* **internal:** version bump ([47698cb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/47698cb7788869fd93d74d471f2bcec023299fe1))
+* make internal types pretty print ([9c5f191](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/9c5f191c6bbfdea36bf16880232b55199c7f96d0))
+* refine `#inspect` and `#to_s` for model classes ([2ae0d75](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2ae0d75d6fe5a47263d3af169bc7b96411bde156))
+
+
+### Documentation
+
+* update documentation links to be more uniform ([74468e6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/74468e675eb30b5b8614c9bcc2dc6d38eff22dbf))
+
 ## 3.1.0 (2025-04-14)
 
 Full Changelog: [v3.0.0...v3.1.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.0.0...v3.1.0)
