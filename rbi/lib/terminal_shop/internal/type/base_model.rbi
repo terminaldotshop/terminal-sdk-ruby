@@ -178,6 +178,13 @@ module TerminalShop
         sig { params(keys: T.nilable(T::Array[Symbol])).returns(TerminalShop::Internal::AnyHash) }
         def deconstruct_keys(keys); end
 
+        class << self
+          sig do
+            params(model: TerminalShop::Internal::Type::BaseModel).returns(TerminalShop::Internal::AnyHash)
+          end
+          def walk(model); end
+        end
+
         sig { params(a: T.anything).returns(String) }
         def to_json(*a); end
 
@@ -193,6 +200,10 @@ module TerminalShop
           sig { params(depth: Integer).returns(String) }
           def inspect(depth: 0); end
         end
+
+        # @api private
+        sig { returns(String) }
+        def to_s; end
 
         # @api private
         sig { returns(String) }
