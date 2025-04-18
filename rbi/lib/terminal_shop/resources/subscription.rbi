@@ -41,6 +41,32 @@ module TerminalShop
         schedule: nil,
         request_options: {}
       ); end
+      # Update card, address, or interval for an existing subscription.
+      sig do
+        params(
+          id: String,
+          address_id: String,
+          card_id: String,
+          schedule: T.any(
+            TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed,
+            TerminalShop::Internal::AnyHash,
+            TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly
+          ),
+          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+        )
+          .returns(TerminalShop::Models::SubscriptionUpdateResponse)
+      end
+      def update(
+        # ID of the subscription to update.
+        id,
+        # New shipping address ID for the subscription.
+        address_id: nil,
+        # New payment method ID for the subscription.
+        card_id: nil,
+        # New schedule for the subscription.
+        schedule: nil,
+        request_options: {}
+      ); end
       # List the subscriptions associated with the current user.
       sig do
         params(

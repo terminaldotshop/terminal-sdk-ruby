@@ -31,6 +31,30 @@ module TerminalShop
         )
       end
 
+      # Update card, address, or interval for an existing subscription.
+      #
+      # @overload update(id, address_id: nil, card_id: nil, schedule: nil, request_options: {})
+      #
+      # @param id [String]
+      # @param address_id [String]
+      # @param card_id [String]
+      # @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly]
+      # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [TerminalShop::Models::SubscriptionUpdateResponse]
+      #
+      # @see TerminalShop::Models::SubscriptionUpdateParams
+      def update(id, params = {})
+        parsed, options = TerminalShop::Models::SubscriptionUpdateParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: ["subscription/%1$s", id],
+          body: parsed,
+          model: TerminalShop::Models::SubscriptionUpdateResponse,
+          options: options
+        )
+      end
+
       # List the subscriptions associated with the current user.
       #
       # @overload list(request_options: {})
