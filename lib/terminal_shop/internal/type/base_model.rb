@@ -4,14 +4,6 @@ module TerminalShop
   module Internal
     module Type
       # @abstract
-      #
-      # @example
-      #   # `product_api` is a `TerminalShop::Models::ProductAPI`
-      #   product_api => {
-      #     id: id,
-      #     description: description,
-      #     name: name
-      #   }
       class BaseModel
         extend TerminalShop::Internal::Type::Converter
 
@@ -98,11 +90,13 @@ module TerminalShop
                   target, value, state: state
                 )
               end
-            rescue StandardError
+            rescue StandardError => e
               cls = self.class.name.split("::").last
-              # rubocop:disable Layout/LineLength
-              message = "Failed to parse #{cls}.#{__method__} from #{value.class} to #{target.inspect}. To get the unparsed API response, use #{cls}[:#{__method__}]."
-              # rubocop:enable Layout/LineLength
+              message = [
+                "Failed to parse #{cls}.#{__method__} from #{value.class} to #{target.inspect}.",
+                "To get the unparsed API response, use #{cls}[#{__method__.inspect}].",
+                "Cause: #{e.message}"
+              ].join(" ")
               raise TerminalShop::Errors::ConversionError.new(message)
             end
           end
@@ -176,12 +170,18 @@ module TerminalShop
           def ==(other)
             other.is_a?(Class) && other <= TerminalShop::Internal::Type::BaseModel && other.fields == fields
           end
+
+          # @return [Integer]
+          def hash = fields.hash
         end
 
         # @param other [Object]
         #
         # @return [Boolean]
         def ==(other) = self.class == other.class && @data == other.to_h
+
+        # @return [Integer]
+        def hash = [self.class, @data].hash
 
         class << self
           # @api private
