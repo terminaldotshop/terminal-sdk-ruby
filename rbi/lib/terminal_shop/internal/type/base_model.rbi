@@ -179,6 +179,7 @@ module TerminalShop
         def deconstruct_keys(keys); end
 
         class << self
+          # @api private
           sig do
             params(model: TerminalShop::Internal::Type::BaseModel).returns(TerminalShop::Internal::AnyHash)
           end

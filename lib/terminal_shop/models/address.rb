@@ -75,23 +75,19 @@ module TerminalShop
       #   # @return [String]
       #   attr_writer :street2
 
-      # @!parse
-      #   # Physical address associated with a Terminal shop user.
-      #   #
-      #   # @param id [String]
-      #   # @param city [String]
-      #   # @param country [String]
-      #   # @param created [String]
-      #   # @param name [String]
-      #   # @param street1 [String]
-      #   # @param zip [String]
-      #   # @param phone [String]
-      #   # @param province [String]
-      #   # @param street2 [String]
-      #   #
-      #   def initialize(id:, city:, country:, created:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, city:, country:, created:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
+      #   Physical address associated with a Terminal shop user.
+      #
+      #   @param id [String]
+      #   @param city [String]
+      #   @param country [String]
+      #   @param created [String]
+      #   @param name [String]
+      #   @param street1 [String]
+      #   @param zip [String]
+      #   @param phone [String]
+      #   @param province [String]
+      #   @param street2 [String]
     end
   end
 end

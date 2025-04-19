@@ -68,20 +68,16 @@ module TerminalShop
       #   # @return [String]
       #   attr_writer :street2
 
-      # @!parse
-      #   # @param city [String]
-      #   # @param country [String]
-      #   # @param name [String]
-      #   # @param street1 [String]
-      #   # @param zip [String]
-      #   # @param phone [String]
-      #   # @param province [String]
-      #   # @param street2 [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
+      #   @param city [String]
+      #   @param country [String]
+      #   @param name [String]
+      #   @param street1 [String]
+      #   @param zip [String]
+      #   @param phone [String]
+      #   @param province [String]
+      #   @param street2 [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

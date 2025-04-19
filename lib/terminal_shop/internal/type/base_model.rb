@@ -344,6 +344,8 @@ module TerminalShop
         end
 
         class << self
+          # @api private
+          #
           # @param model [TerminalShop::Internal::Type::BaseModel]
           #
           # @return [Hash{Symbol=>Object}]

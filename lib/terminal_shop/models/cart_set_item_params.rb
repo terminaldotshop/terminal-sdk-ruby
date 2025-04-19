@@ -20,14 +20,10 @@ module TerminalShop
       #   @return [Integer]
       required :quantity, Integer
 
-      # @!parse
-      #   # @param product_variant_id [String]
-      #   # @param quantity [Integer]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(product_variant_id:, quantity:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(product_variant_id:, quantity:, request_options: {})
+      #   @param product_variant_id [String]
+      #   @param quantity [Integer]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

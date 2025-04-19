@@ -14,13 +14,9 @@ module TerminalShop
       #   @return [String]
       required :card_id, String, api_name: :cardID
 
-      # @!parse
-      #   # @param card_id [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(card_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(card_id:, request_options: {})
+      #   @param card_id [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

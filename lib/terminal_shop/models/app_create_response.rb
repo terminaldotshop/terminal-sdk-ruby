@@ -9,12 +9,8 @@ module TerminalShop
       #   @return [TerminalShop::Models::AppCreateResponse::Data]
       required :data, -> { TerminalShop::Models::AppCreateResponse::Data }
 
-      # @!parse
-      #   # @param data [TerminalShop::Models::AppCreateResponse::Data]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [TerminalShop::Models::AppCreateResponse::Data]
 
       # @see TerminalShop::Models::AppCreateResponse#data
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -30,13 +26,9 @@ module TerminalShop
         #   @return [String]
         required :secret, String
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param secret [String]
-        #   #
-        #   def initialize(id:, secret:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, secret:)
+        #   @param id [String]
+        #   @param secret [String]
       end
     end
   end

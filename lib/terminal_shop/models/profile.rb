@@ -9,14 +9,10 @@ module TerminalShop
       #   @return [TerminalShop::Models::ProfileAPI::User]
       required :user, -> { TerminalShop::Models::ProfileAPI::User }
 
-      # @!parse
-      #   # A Terminal shop user's profile. (We have users, btw.)
-      #   #
-      #   # @param user [TerminalShop::Models::ProfileAPI::User]
-      #   #
-      #   def initialize(user:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(user:)
+      #   A Terminal shop user's profile. (We have users, btw.)
+      #
+      #   @param user [TerminalShop::Models::ProfileAPI::User]
 
       # @see TerminalShop::Models::ProfileAPI#user
       class User < TerminalShop::Internal::Type::BaseModel
@@ -50,18 +46,14 @@ module TerminalShop
         #   @return [String]
         required :stripe_customer_id, String, api_name: :stripeCustomerID
 
-        # @!parse
-        #   # A Terminal shop user. (We have users, btw.)
-        #   #
-        #   # @param id [String]
-        #   # @param email [String, nil]
-        #   # @param fingerprint [String, nil]
-        #   # @param name [String, nil]
-        #   # @param stripe_customer_id [String]
-        #   #
-        #   def initialize(id:, email:, fingerprint:, name:, stripe_customer_id:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, email:, fingerprint:, name:, stripe_customer_id:)
+        #   A Terminal shop user. (We have users, btw.)
+        #
+        #   @param id [String]
+        #   @param email [String, nil]
+        #   @param fingerprint [String, nil]
+        #   @param name [String, nil]
+        #   @param stripe_customer_id [String]
       end
     end
   end

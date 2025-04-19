@@ -14,13 +14,9 @@ module TerminalShop
       #   @return [String]
       required :address_id, String, api_name: :addressID
 
-      # @!parse
-      #   # @param address_id [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(address_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(address_id:, request_options: {})
+      #   @param address_id [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end
