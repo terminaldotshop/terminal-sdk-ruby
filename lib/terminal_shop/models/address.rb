@@ -45,35 +45,23 @@ module TerminalShop
       #   @return [String]
       required :zip, String
 
-      # @!attribute [r] phone
+      # @!attribute phone
       #   Phone number of the recipient.
       #
       #   @return [String, nil]
       optional :phone, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :phone
-
-      # @!attribute [r] province
+      # @!attribute province
       #   Province or state of the address.
       #
       #   @return [String, nil]
       optional :province, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :province
-
-      # @!attribute [r] street2
+      # @!attribute street2
       #   Apartment, suite, etc. of the address.
       #
       #   @return [String, nil]
       optional :street2, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :street2
 
       # @!method initialize(id:, city:, country:, created:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
       #   Physical address associated with a Terminal shop user.

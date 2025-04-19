@@ -27,35 +27,23 @@ module TerminalShop
       #   @return [Array<TerminalShop::Models::ProductVariant>]
       required :variants, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductVariant] }
 
-      # @!attribute [r] order
+      # @!attribute order
       #   Order of the product used when displaying a sorted list of products.
       #
       #   @return [Integer, nil]
       optional :order, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :order
-
-      # @!attribute [r] subscription
+      # @!attribute subscription
       #   Whether the product must be or can be subscribed to.
       #
       #   @return [Symbol, TerminalShop::Models::ProductAPI::Subscription, nil]
       optional :subscription, enum: -> { TerminalShop::Models::ProductAPI::Subscription }
 
-      # @!parse
-      #   # @return [Symbol, TerminalShop::Models::ProductAPI::Subscription]
-      #   attr_writer :subscription
-
-      # @!attribute [r] tags
+      # @!attribute tags
       #   Tags for the product.
       #
       #   @return [TerminalShop::Models::ProductAPI::Tags, nil]
       optional :tags, -> { TerminalShop::Models::ProductAPI::Tags }
-
-      # @!parse
-      #   # @return [TerminalShop::Models::ProductAPI::Tags]
-      #   attr_writer :tags
 
       # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
       #   Product sold in the Terminal shop.
@@ -83,50 +71,30 @@ module TerminalShop
 
       # @see TerminalShop::Models::ProductAPI#tags
       class Tags < TerminalShop::Internal::Type::BaseModel
-        # @!attribute [r] app
+        # @!attribute app
         #
         #   @return [String, nil]
         optional :app, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :app
-
-        # @!attribute [r] color
+        # @!attribute color
         #
         #   @return [String, nil]
         optional :color, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :color
-
-        # @!attribute [r] featured
+        # @!attribute featured
         #
         #   @return [Boolean, nil]
         optional :featured, TerminalShop::Internal::Type::Boolean
 
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :featured
-
-        # @!attribute [r] market_eu
+        # @!attribute market_eu
         #
         #   @return [Boolean, nil]
         optional :market_eu, TerminalShop::Internal::Type::Boolean
 
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :market_eu
-
-        # @!attribute [r] market_na
+        # @!attribute market_na
         #
         #   @return [Boolean, nil]
         optional :market_na, TerminalShop::Internal::Type::Boolean
-
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :market_na
 
         # @!method initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
         #   Tags for the product.

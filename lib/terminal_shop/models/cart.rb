@@ -21,35 +21,23 @@ module TerminalShop
       #   @return [Integer]
       required :subtotal, Integer
 
-      # @!attribute [r] address_id
+      # @!attribute address_id
       #   ID of the shipping address selected on the current user's cart.
       #
       #   @return [String, nil]
       optional :address_id, String, api_name: :addressID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :address_id
-
-      # @!attribute [r] card_id
+      # @!attribute card_id
       #   ID of the card selected on the current user's cart.
       #
       #   @return [String, nil]
       optional :card_id, String, api_name: :cardID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :card_id
-
-      # @!attribute [r] shipping
+      # @!attribute shipping
       #   Shipping information for the current user's cart.
       #
       #   @return [TerminalShop::Models::CartAPI::Shipping, nil]
       optional :shipping, -> { TerminalShop::Models::CartAPI::Shipping }
-
-      # @!parse
-      #   # @return [TerminalShop::Models::CartAPI::Shipping]
-      #   attr_writer :shipping
 
       # @!method initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
       #   The current Terminal shop user's cart.
@@ -69,25 +57,17 @@ module TerminalShop
         #   @return [Integer]
         required :subtotal, Integer
 
-        # @!attribute [r] shipping
+        # @!attribute shipping
         #   Shipping amount of the current user's cart, in cents (USD).
         #
         #   @return [Integer, nil]
         optional :shipping, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :shipping
-
-        # @!attribute [r] total
+        # @!attribute total
         #   Total amount after any discounts, in cents (USD).
         #
         #   @return [Integer, nil]
         optional :total, Integer
-
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :total
 
         # @!method initialize(subtotal:, shipping: nil, total: nil)
         #   The subtotal and shipping amounts for the current user's cart.
@@ -133,25 +113,17 @@ module TerminalShop
 
       # @see TerminalShop::Models::CartAPI#shipping
       class Shipping < TerminalShop::Internal::Type::BaseModel
-        # @!attribute [r] service
+        # @!attribute service
         #   Shipping service name.
         #
         #   @return [String, nil]
         optional :service, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :service
-
-        # @!attribute [r] timeframe
+        # @!attribute timeframe
         #   Shipping timeframe provided by the shipping carrier.
         #
         #   @return [String, nil]
         optional :timeframe, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :timeframe
 
         # @!method initialize(service: nil, timeframe: nil)
         #   Shipping information for the current user's cart.
