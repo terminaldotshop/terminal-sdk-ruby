@@ -4,8 +4,7 @@ module TerminalShop
   module Models
     # @see TerminalShop::Resources::Address#create
     class AddressCreateParams < TerminalShop::Internal::Type::BaseModel
-      # @!parse
-      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute city
@@ -38,35 +37,23 @@ module TerminalShop
       #   @return [String]
       required :zip, String
 
-      # @!attribute [r] phone
+      # @!attribute phone
       #   Phone number of the recipient.
       #
       #   @return [String, nil]
       optional :phone, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :phone
-
-      # @!attribute [r] province
+      # @!attribute province
       #   Province or state of the address.
       #
       #   @return [String, nil]
       optional :province, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :province
-
-      # @!attribute [r] street2
+      # @!attribute street2
       #   Apartment, suite, etc. of the address.
       #
       #   @return [String, nil]
       optional :street2, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :street2
 
       # @!method initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
       #   @param city [String]
