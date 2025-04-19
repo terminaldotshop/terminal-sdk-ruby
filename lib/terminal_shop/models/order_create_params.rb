@@ -26,15 +26,11 @@ module TerminalShop
       #   @return [Hash{Symbol=>Integer}]
       required :variants, TerminalShop::Internal::Type::HashOf[Integer]
 
-      # @!parse
-      #   # @param address_id [String]
-      #   # @param card_id [String]
-      #   # @param variants [Hash{Symbol=>Integer}]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(address_id:, card_id:, variants:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(address_id:, card_id:, variants:, request_options: {})
+      #   @param address_id [String]
+      #   @param card_id [String]
+      #   @param variants [Hash{Symbol=>Integer}]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

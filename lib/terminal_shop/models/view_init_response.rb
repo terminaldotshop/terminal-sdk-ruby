@@ -10,12 +10,8 @@ module TerminalShop
       #   @return [TerminalShop::Models::ViewInitResponse::Data]
       required :data, -> { TerminalShop::Models::ViewInitResponse::Data }
 
-      # @!parse
-      #   # @param data [TerminalShop::Models::ViewInitResponse::Data]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [TerminalShop::Models::ViewInitResponse::Data]
 
       # @see TerminalShop::Models::ViewInitResponse#data
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -73,23 +69,19 @@ module TerminalShop
         #   @return [Array<TerminalShop::Models::TokenAPI>]
         required :tokens, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::TokenAPI] }
 
-        # @!parse
-        #   # Initial app data.
-        #   #
-        #   # @param addresses [Array<TerminalShop::Models::AddressAPI>]
-        #   # @param apps [Array<TerminalShop::Models::AppAPI>]
-        #   # @param cards [Array<TerminalShop::Models::CardAPI>]
-        #   # @param cart [TerminalShop::Models::CartAPI]
-        #   # @param orders [Array<TerminalShop::Models::OrderAPI>]
-        #   # @param products [Array<TerminalShop::Models::ProductAPI>]
-        #   # @param profile [TerminalShop::Models::ProfileAPI]
-        #   # @param region [Symbol, TerminalShop::Models::Region]
-        #   # @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
-        #   # @param tokens [Array<TerminalShop::Models::TokenAPI>]
-        #   #
-        #   def initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:)
+        #   Initial app data.
+        #
+        #   @param addresses [Array<TerminalShop::Models::AddressAPI>]
+        #   @param apps [Array<TerminalShop::Models::AppAPI>]
+        #   @param cards [Array<TerminalShop::Models::CardAPI>]
+        #   @param cart [TerminalShop::Models::CartAPI]
+        #   @param orders [Array<TerminalShop::Models::OrderAPI>]
+        #   @param products [Array<TerminalShop::Models::ProductAPI>]
+        #   @param profile [TerminalShop::Models::ProfileAPI]
+        #   @param region [Symbol, TerminalShop::Models::Region]
+        #   @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
+        #   @param tokens [Array<TerminalShop::Models::TokenAPI>]
       end
     end
   end

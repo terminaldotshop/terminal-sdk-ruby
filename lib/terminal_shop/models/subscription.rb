@@ -59,21 +59,17 @@ module TerminalShop
       #   # @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
       #   attr_writer :schedule
 
-      # @!parse
-      #   # Subscription to a Terminal shop product.
-      #   #
-      #   # @param id [String]
-      #   # @param address_id [String]
-      #   # @param card_id [String]
-      #   # @param created [String]
-      #   # @param product_variant_id [String]
-      #   # @param quantity [Integer]
-      #   # @param next_ [String]
-      #   # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-      #   #
-      #   def initialize(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil)
+      #   Subscription to a Terminal shop product.
+      #
+      #   @param id [String]
+      #   @param address_id [String]
+      #   @param card_id [String]
+      #   @param created [String]
+      #   @param product_variant_id [String]
+      #   @param quantity [Integer]
+      #   @param next_ [String]
+      #   @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
 
       # Schedule of the subscription.
       #
@@ -91,12 +87,8 @@ module TerminalShop
           #   @return [Symbol, :fixed]
           required :type, const: :fixed
 
-          # @!parse
-          #   # @param type [Symbol, :fixed]
-          #   #
-          #   def initialize(type: :fixed, **) = super
-
-          # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+          # @!method initialize(type: :fixed)
+          #   @param type [Symbol, :fixed]
         end
 
         class Weekly < TerminalShop::Internal::Type::BaseModel
@@ -110,18 +102,13 @@ module TerminalShop
           #   @return [Symbol, :weekly]
           required :type, const: :weekly
 
-          # @!parse
-          #   # @param interval [Integer]
-          #   # @param type [Symbol, :weekly]
-          #   #
-          #   def initialize(interval:, type: :weekly, **) = super
-
-          # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+          # @!method initialize(interval:, type: :weekly)
+          #   @param interval [Integer]
+          #   @param type [Symbol, :weekly]
         end
 
-        # @!parse
-        #   # @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
       end
     end
   end
