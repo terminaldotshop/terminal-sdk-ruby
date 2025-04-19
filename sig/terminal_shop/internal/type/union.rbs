@@ -30,6 +30,8 @@ module TerminalShop
 
         def ==: (top other) -> bool
 
+        def hash: -> Integer
+
         def coerce: (
           top value,
           state: TerminalShop::Internal::Type::Converter::coerce_state
