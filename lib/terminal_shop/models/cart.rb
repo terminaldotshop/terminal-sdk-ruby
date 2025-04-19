@@ -21,49 +21,33 @@ module TerminalShop
       #   @return [Integer]
       required :subtotal, Integer
 
-      # @!attribute [r] address_id
+      # @!attribute address_id
       #   ID of the shipping address selected on the current user's cart.
       #
       #   @return [String, nil]
       optional :address_id, String, api_name: :addressID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :address_id
-
-      # @!attribute [r] card_id
+      # @!attribute card_id
       #   ID of the card selected on the current user's cart.
       #
       #   @return [String, nil]
       optional :card_id, String, api_name: :cardID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :card_id
-
-      # @!attribute [r] shipping
+      # @!attribute shipping
       #   Shipping information for the current user's cart.
       #
       #   @return [TerminalShop::Models::CartAPI::Shipping, nil]
       optional :shipping, -> { TerminalShop::Models::CartAPI::Shipping }
 
-      # @!parse
-      #   # @return [TerminalShop::Models::CartAPI::Shipping]
-      #   attr_writer :shipping
-
-      # @!parse
-      #   # The current Terminal shop user's cart.
-      #   #
-      #   # @param amount [TerminalShop::Models::CartAPI::Amount]
-      #   # @param items [Array<TerminalShop::Models::CartAPI::Item>]
-      #   # @param subtotal [Integer]
-      #   # @param address_id [String]
-      #   # @param card_id [String]
-      #   # @param shipping [TerminalShop::Models::CartAPI::Shipping]
-      #   #
-      #   def initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
+      #   The current Terminal shop user's cart.
+      #
+      #   @param amount [TerminalShop::Models::CartAPI::Amount]
+      #   @param items [Array<TerminalShop::Models::CartAPI::Item>]
+      #   @param subtotal [Integer]
+      #   @param address_id [String]
+      #   @param card_id [String]
+      #   @param shipping [TerminalShop::Models::CartAPI::Shipping]
 
       # @see TerminalShop::Models::CartAPI#amount
       class Amount < TerminalShop::Internal::Type::BaseModel
@@ -73,36 +57,24 @@ module TerminalShop
         #   @return [Integer]
         required :subtotal, Integer
 
-        # @!attribute [r] shipping
+        # @!attribute shipping
         #   Shipping amount of the current user's cart, in cents (USD).
         #
         #   @return [Integer, nil]
         optional :shipping, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :shipping
-
-        # @!attribute [r] total
+        # @!attribute total
         #   Total amount after any discounts, in cents (USD).
         #
         #   @return [Integer, nil]
         optional :total, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :total
-
-        # @!parse
-        #   # The subtotal and shipping amounts for the current user's cart.
-        #   #
-        #   # @param subtotal [Integer]
-        #   # @param shipping [Integer]
-        #   # @param total [Integer]
-        #   #
-        #   def initialize(subtotal:, shipping: nil, total: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(subtotal:, shipping: nil, total: nil)
+        #   The subtotal and shipping amounts for the current user's cart.
+        #
+        #   @param subtotal [Integer]
+        #   @param shipping [Integer]
+        #   @param total [Integer]
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
@@ -130,50 +102,34 @@ module TerminalShop
         #   @return [Integer]
         required :subtotal, Integer
 
-        # @!parse
-        #   # An item in the current Terminal shop user's cart.
-        #   #
-        #   # @param id [String]
-        #   # @param product_variant_id [String]
-        #   # @param quantity [Integer]
-        #   # @param subtotal [Integer]
-        #   #
-        #   def initialize(id:, product_variant_id:, quantity:, subtotal:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, product_variant_id:, quantity:, subtotal:)
+        #   An item in the current Terminal shop user's cart.
+        #
+        #   @param id [String]
+        #   @param product_variant_id [String]
+        #   @param quantity [Integer]
+        #   @param subtotal [Integer]
       end
 
       # @see TerminalShop::Models::CartAPI#shipping
       class Shipping < TerminalShop::Internal::Type::BaseModel
-        # @!attribute [r] service
+        # @!attribute service
         #   Shipping service name.
         #
         #   @return [String, nil]
         optional :service, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :service
-
-        # @!attribute [r] timeframe
+        # @!attribute timeframe
         #   Shipping timeframe provided by the shipping carrier.
         #
         #   @return [String, nil]
         optional :timeframe, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :timeframe
-
-        # @!parse
-        #   # Shipping information for the current user's cart.
-        #   #
-        #   # @param service [String]
-        #   # @param timeframe [String]
-        #   #
-        #   def initialize(service: nil, timeframe: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(service: nil, timeframe: nil)
+        #   Shipping information for the current user's cart.
+        #
+        #   @param service [String]
+        #   @param timeframe [String]
       end
     end
   end

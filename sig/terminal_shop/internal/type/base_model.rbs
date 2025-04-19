@@ -49,7 +49,11 @@ module TerminalShop
 
         def self.==: (top other) -> bool
 
+        def self.hash: -> Integer
+
         def ==: (top other) -> bool
+
+        def hash: -> Integer
 
         def self.coerce: (
           TerminalShop::Internal::Type::BaseModel

@@ -10,12 +10,8 @@ module TerminalShop
       #   @return [TerminalShop::Models::OrderAPI]
       required :data, -> { TerminalShop::Models::OrderAPI }
 
-      # @!parse
-      #   # @param data [TerminalShop::Models::OrderAPI]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [TerminalShop::Models::OrderAPI]
     end
   end
 end

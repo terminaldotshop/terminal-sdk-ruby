@@ -9,12 +9,8 @@ module TerminalShop
       #   @return [TerminalShop::Models::TokenCreateResponse::Data]
       required :data, -> { TerminalShop::Models::TokenCreateResponse::Data }
 
-      # @!parse
-      #   # @param data [TerminalShop::Models::TokenCreateResponse::Data]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [TerminalShop::Models::TokenCreateResponse::Data]
 
       # @see TerminalShop::Models::TokenCreateResponse#data
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -31,13 +27,9 @@ module TerminalShop
         #   @return [String]
         required :token, String
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param token [String]
-        #   #
-        #   def initialize(id:, token:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, token:)
+        #   @param id [String]
+        #   @param token [String]
       end
     end
   end

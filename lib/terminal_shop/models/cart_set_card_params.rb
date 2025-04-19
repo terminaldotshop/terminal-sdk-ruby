@@ -4,8 +4,7 @@ module TerminalShop
   module Models
     # @see TerminalShop::Resources::Cart#set_card
     class CartSetCardParams < TerminalShop::Internal::Type::BaseModel
-      # @!parse
-      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute card_id
@@ -14,13 +13,9 @@ module TerminalShop
       #   @return [String]
       required :card_id, String, api_name: :cardID
 
-      # @!parse
-      #   # @param card_id [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(card_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(card_id:, request_options: {})
+      #   @param card_id [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

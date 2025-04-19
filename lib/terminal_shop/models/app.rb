@@ -27,17 +27,13 @@ module TerminalShop
       #   @return [String]
       required :secret, String
 
-      # @!parse
-      #   # A Terminal App used for configuring an OAuth 2.0 client.
-      #   #
-      #   # @param id [String]
-      #   # @param name [String]
-      #   # @param redirect_uri [String]
-      #   # @param secret [String]
-      #   #
-      #   def initialize(id:, name:, redirect_uri:, secret:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, name:, redirect_uri:, secret:)
+      #   A Terminal App used for configuring an OAuth 2.0 client.
+      #
+      #   @param id [String]
+      #   @param name [String]
+      #   @param redirect_uri [String]
+      #   @param secret [String]
     end
   end
 end

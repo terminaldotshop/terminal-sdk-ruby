@@ -4,8 +4,7 @@ module TerminalShop
   module Models
     # @see TerminalShop::Resources::Card#create
     class CardCreateParams < TerminalShop::Internal::Type::BaseModel
-      # @!parse
-      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
       # @!attribute token
@@ -15,13 +14,9 @@ module TerminalShop
       #   @return [String]
       required :token, String
 
-      # @!parse
-      #   # @param token [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(token:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(token:, request_options: {})
+      #   @param token [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

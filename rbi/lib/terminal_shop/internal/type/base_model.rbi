@@ -111,10 +111,16 @@ module TerminalShop
 
           sig { params(other: T.anything).returns(T::Boolean) }
           def ==(other); end
+
+          sig { returns(Integer) }
+          def hash; end
         end
 
         sig { params(other: T.anything).returns(T::Boolean) }
         def ==(other); end
+
+        sig { returns(Integer) }
+        def hash; end
 
         class << self
           # @api private
@@ -179,6 +185,7 @@ module TerminalShop
         def deconstruct_keys(keys); end
 
         class << self
+          # @api private
           sig do
             params(model: TerminalShop::Internal::Type::BaseModel).returns(TerminalShop::Internal::AnyHash)
           end
@@ -201,7 +208,6 @@ module TerminalShop
           def inspect(depth: 0); end
         end
 
-        # @api private
         sig { returns(String) }
         def to_s; end
 

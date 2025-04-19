@@ -10,12 +10,8 @@ module TerminalShop
       #   @return [TerminalShop::Models::CardCollectResponse::Data]
       required :data, -> { TerminalShop::Models::CardCollectResponse::Data }
 
-      # @!parse
-      #   # @param data [TerminalShop::Models::CardCollectResponse::Data]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [TerminalShop::Models::CardCollectResponse::Data]
 
       # @see TerminalShop::Models::CardCollectResponse#data
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -26,14 +22,10 @@ module TerminalShop
         #   @return [String]
         required :url, String
 
-        # @!parse
-        #   # URL for collecting card information.
-        #   #
-        #   # @param url [String]
-        #   #
-        #   def initialize(url:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(url:)
+        #   URL for collecting card information.
+        #
+        #   @param url [String]
       end
     end
   end

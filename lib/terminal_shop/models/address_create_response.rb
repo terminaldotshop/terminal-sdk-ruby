@@ -10,12 +10,8 @@ module TerminalShop
       #   @return [String]
       required :data, String
 
-      # @!parse
-      #   # @param data [String]
-      #   #
-      #   def initialize(data:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data:)
+      #   @param data [String]
     end
   end
 end

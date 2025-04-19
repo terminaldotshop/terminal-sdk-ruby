@@ -39,30 +39,22 @@ module TerminalShop
       #   @return [TerminalShop::Models::OrderAPI::Tracking]
       required :tracking, -> { TerminalShop::Models::OrderAPI::Tracking }
 
-      # @!attribute [r] index
+      # @!attribute index
       #   Zero-based index of the order for this user only.
       #
       #   @return [Integer, nil]
       optional :index, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :index
-
-      # @!parse
-      #   # An order from the Terminal shop.
-      #   #
-      #   # @param id [String]
-      #   # @param amount [TerminalShop::Models::OrderAPI::Amount]
-      #   # @param created [String]
-      #   # @param items [Array<TerminalShop::Models::OrderAPI::Item>]
-      #   # @param shipping [TerminalShop::Models::OrderAPI::Shipping]
-      #   # @param tracking [TerminalShop::Models::OrderAPI::Tracking]
-      #   # @param index [Integer]
-      #   #
-      #   def initialize(id:, amount:, created:, items:, shipping:, tracking:, index: nil, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, created:, items:, shipping:, tracking:, index: nil)
+      #   An order from the Terminal shop.
+      #
+      #   @param id [String]
+      #   @param amount [TerminalShop::Models::OrderAPI::Amount]
+      #   @param created [String]
+      #   @param items [Array<TerminalShop::Models::OrderAPI::Item>]
+      #   @param shipping [TerminalShop::Models::OrderAPI::Shipping]
+      #   @param tracking [TerminalShop::Models::OrderAPI::Tracking]
+      #   @param index [Integer]
 
       # @see TerminalShop::Models::OrderAPI#amount
       class Amount < TerminalShop::Internal::Type::BaseModel
@@ -78,15 +70,11 @@ module TerminalShop
         #   @return [Integer]
         required :subtotal, Integer
 
-        # @!parse
-        #   # The subtotal and shipping amounts of the order.
-        #   #
-        #   # @param shipping [Integer]
-        #   # @param subtotal [Integer]
-        #   #
-        #   def initialize(shipping:, subtotal:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(shipping:, subtotal:)
+        #   The subtotal and shipping amounts of the order.
+        #
+        #   @param shipping [Integer]
+        #   @param subtotal [Integer]
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
@@ -108,36 +96,24 @@ module TerminalShop
         #   @return [Integer]
         required :quantity, Integer
 
-        # @!attribute [r] description
+        # @!attribute description
         #   Description of the item in the order.
         #
         #   @return [String, nil]
         optional :description, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :description
-
-        # @!attribute [r] product_variant_id
+        # @!attribute product_variant_id
         #   ID of the product variant of the item in the order.
         #
         #   @return [String, nil]
         optional :product_variant_id, String, api_name: :productVariantID
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :product_variant_id
-
-        # @!parse
-        #   # @param id [String]
-        #   # @param amount [Integer]
-        #   # @param quantity [Integer]
-        #   # @param description [String]
-        #   # @param product_variant_id [String]
-        #   #
-        #   def initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil)
+        #   @param id [String]
+        #   @param amount [Integer]
+        #   @param quantity [Integer]
+        #   @param description [String]
+        #   @param product_variant_id [String]
       end
 
       # @see TerminalShop::Models::OrderAPI#shipping
@@ -172,128 +148,84 @@ module TerminalShop
         #   @return [String]
         required :zip, String
 
-        # @!attribute [r] phone
+        # @!attribute phone
         #   Phone number of the recipient.
         #
         #   @return [String, nil]
         optional :phone, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :phone
-
-        # @!attribute [r] province
+        # @!attribute province
         #   Province or state of the address.
         #
         #   @return [String, nil]
         optional :province, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :province
-
-        # @!attribute [r] street2
+        # @!attribute street2
         #   Apartment, suite, etc. of the address.
         #
         #   @return [String, nil]
         optional :street2, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :street2
-
-        # @!parse
-        #   # Shipping address of the order.
-        #   #
-        #   # @param city [String]
-        #   # @param country [String]
-        #   # @param name [String]
-        #   # @param street1 [String]
-        #   # @param zip [String]
-        #   # @param phone [String]
-        #   # @param province [String]
-        #   # @param street2 [String]
-        #   #
-        #   def initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
+        #   Shipping address of the order.
+        #
+        #   @param city [String]
+        #   @param country [String]
+        #   @param name [String]
+        #   @param street1 [String]
+        #   @param zip [String]
+        #   @param phone [String]
+        #   @param province [String]
+        #   @param street2 [String]
       end
 
       # @see TerminalShop::Models::OrderAPI#tracking
       class Tracking < TerminalShop::Internal::Type::BaseModel
-        # @!attribute [r] number
+        # @!attribute number
         #   Tracking number of the order.
         #
         #   @return [String, nil]
         optional :number, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :number
-
-        # @!attribute [r] service
+        # @!attribute service
         #   Shipping service of the order.
         #
         #   @return [String, nil]
         optional :service, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :service
-
-        # @!attribute [r] status
+        # @!attribute status
         #   Current tracking status of the shipment.
         #
         #   @return [String, nil]
         optional :status, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :status
-
-        # @!attribute [r] status_details
+        # @!attribute status_details
         #   Additional details about the tracking status.
         #
         #   @return [String, nil]
         optional :status_details, String, api_name: :statusDetails
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :status_details
-
-        # @!attribute [r] status_updated_at
+        # @!attribute status_updated_at
         #   When the tracking status was last updated.
         #
         #   @return [String, nil]
         optional :status_updated_at, String, api_name: :statusUpdatedAt
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :status_updated_at
-
-        # @!attribute [r] url
+        # @!attribute url
         #   Tracking URL of the order.
         #
         #   @return [String, nil]
         optional :url, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :url
-
-        # @!parse
-        #   # Tracking information of the order.
-        #   #
-        #   # @param number [String]
-        #   # @param service [String]
-        #   # @param status [String]
-        #   # @param status_details [String]
-        #   # @param status_updated_at [String]
-        #   # @param url [String]
-        #   #
-        #   def initialize(number: nil, service: nil, status: nil, status_details: nil, status_updated_at: nil, url: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(number: nil, service: nil, status: nil, status_details: nil, status_updated_at: nil, url: nil)
+        #   Tracking information of the order.
+        #
+        #   @param number [String]
+        #   @param service [String]
+        #   @param status [String]
+        #   @param status_details [String]
+        #   @param status_updated_at [String]
+        #   @param url [String]
       end
     end
   end

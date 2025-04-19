@@ -21,17 +21,13 @@ module TerminalShop
       #   @return [String]
       required :created, String
 
-      # @!parse
-      #   # A personal access token used to access the Terminal API. If you leak this,
-      #   # expect large sums of coffee to be ordered on your credit card.
-      #   #
-      #   # @param id [String]
-      #   # @param token [String]
-      #   # @param created [String]
-      #   #
-      #   def initialize(id:, token:, created:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, token:, created:)
+      #   A personal access token used to access the Terminal API. If you leak this,
+      #   expect large sums of coffee to be ordered on your credit card.
+      #
+      #   @param id [String]
+      #   @param token [String]
+      #   @param created [String]
     end
   end
 end

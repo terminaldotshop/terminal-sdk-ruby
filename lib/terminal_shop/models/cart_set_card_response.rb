@@ -9,12 +9,8 @@ module TerminalShop
       #   @return [Symbol, :ok]
       required :data, const: :ok
 
-      # @!parse
-      #   # @param data [Symbol, :ok]
-      #   #
-      #   def initialize(data: :ok, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(data: :ok)
+      #   @param data [Symbol, :ok]
     end
   end
 end
