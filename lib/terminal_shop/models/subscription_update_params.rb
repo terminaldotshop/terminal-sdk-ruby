@@ -4,39 +4,26 @@ module TerminalShop
   module Models
     # @see TerminalShop::Resources::Subscription#update
     class SubscriptionUpdateParams < TerminalShop::Internal::Type::BaseModel
-      # @!parse
-      #   extend TerminalShop::Internal::Type::RequestParameters::Converter
+      extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
-      # @!attribute [r] address_id
+      # @!attribute address_id
       #   New shipping address ID for the subscription.
       #
       #   @return [String, nil]
       optional :address_id, String, api_name: :addressID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :address_id
-
-      # @!attribute [r] card_id
+      # @!attribute card_id
       #   New payment method ID for the subscription.
       #
       #   @return [String, nil]
       optional :card_id, String, api_name: :cardID
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :card_id
-
-      # @!attribute [r] schedule
+      # @!attribute schedule
       #   New schedule for the subscription.
       #
       #   @return [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionUpdateParams::Schedule }
-
-      # @!parse
-      #   # @return [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly]
-      #   attr_writer :schedule
 
       # @!method initialize(address_id: nil, card_id: nil, schedule: nil, request_options: {})
       #   @param address_id [String]

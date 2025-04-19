@@ -39,25 +39,17 @@ module TerminalShop
       #   @return [Integer]
       required :quantity, Integer
 
-      # @!attribute [r] next_
+      # @!attribute next_
       #   Next shipment and billing date for the subscription.
       #
       #   @return [String, nil]
       optional :next_, String, api_name: :next
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :next_
-
-      # @!attribute [r] schedule
+      # @!attribute schedule
       #   Schedule of the subscription.
       #
       #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
-
-      # @!parse
-      #   # @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-      #   attr_writer :schedule
 
       # @!method initialize(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil)
       #   Subscription to a Terminal shop product.
