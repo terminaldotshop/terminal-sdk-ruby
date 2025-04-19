@@ -18,14 +18,10 @@ module TerminalShop
       #   @return [String]
       required :redirect_uri, String, api_name: :redirectURI
 
-      # @!parse
-      #   # @param name [String]
-      #   # @param redirect_uri [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(name:, redirect_uri:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(name:, redirect_uri:, request_options: {})
+      #   @param name [String]
+      #   @param redirect_uri [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

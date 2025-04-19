@@ -57,20 +57,16 @@ module TerminalShop
       #   # @return [TerminalShop::Models::ProductAPI::Tags]
       #   attr_writer :tags
 
-      # @!parse
-      #   # Product sold in the Terminal shop.
-      #   #
-      #   # @param id [String]
-      #   # @param description [String]
-      #   # @param name [String]
-      #   # @param variants [Array<TerminalShop::Models::ProductVariant>]
-      #   # @param order [Integer]
-      #   # @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription]
-      #   # @param tags [TerminalShop::Models::ProductAPI::Tags]
-      #   #
-      #   def initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
+      #   Product sold in the Terminal shop.
+      #
+      #   @param id [String]
+      #   @param description [String]
+      #   @param name [String]
+      #   @param variants [Array<TerminalShop::Models::ProductVariant>]
+      #   @param order [Integer]
+      #   @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription]
+      #   @param tags [TerminalShop::Models::ProductAPI::Tags]
 
       # Whether the product must be or can be subscribed to.
       #
@@ -81,11 +77,8 @@ module TerminalShop
         ALLOWED = :allowed
         REQUIRED = :required
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see TerminalShop::Models::ProductAPI#tags
@@ -135,18 +128,14 @@ module TerminalShop
         #   # @return [Boolean]
         #   attr_writer :market_na
 
-        # @!parse
-        #   # Tags for the product.
-        #   #
-        #   # @param app [String]
-        #   # @param color [String]
-        #   # @param featured [Boolean]
-        #   # @param market_eu [Boolean]
-        #   # @param market_na [Boolean]
-        #   #
-        #   def initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
+        #   Tags for the product.
+        #
+        #   @param app [String]
+        #   @param color [String]
+        #   @param featured [Boolean]
+        #   @param market_eu [Boolean]
+        #   @param market_na [Boolean]
       end
     end
   end

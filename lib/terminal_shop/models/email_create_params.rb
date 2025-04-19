@@ -14,13 +14,9 @@ module TerminalShop
       #   @return [String]
       required :email, String
 
-      # @!parse
-      #   # @param email [String]
-      #   # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(email:, request_options: {}, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(email:, request_options: {})
+      #   @param email [String]
+      #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

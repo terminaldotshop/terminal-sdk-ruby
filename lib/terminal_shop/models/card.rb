@@ -33,18 +33,14 @@ module TerminalShop
       #   @return [String]
       required :last4, String
 
-      # @!parse
-      #   # Credit card used for payments in the Terminal shop.
-      #   #
-      #   # @param id [String]
-      #   # @param brand [String]
-      #   # @param created [String]
-      #   # @param expiration [TerminalShop::Models::CardAPI::Expiration]
-      #   # @param last4 [String]
-      #   #
-      #   def initialize(id:, brand:, created:, expiration:, last4:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, brand:, created:, expiration:, last4:)
+      #   Credit card used for payments in the Terminal shop.
+      #
+      #   @param id [String]
+      #   @param brand [String]
+      #   @param created [String]
+      #   @param expiration [TerminalShop::Models::CardAPI::Expiration]
+      #   @param last4 [String]
 
       # @see TerminalShop::Models::CardAPI#expiration
       class Expiration < TerminalShop::Internal::Type::BaseModel
@@ -60,15 +56,11 @@ module TerminalShop
         #   @return [Integer]
         required :year, Integer
 
-        # @!parse
-        #   # Expiration of the card.
-        #   #
-        #   # @param month [Integer]
-        #   # @param year [Integer]
-        #   #
-        #   def initialize(month:, year:, **) = super
-
-        # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+        # @!method initialize(month:, year:)
+        #   Expiration of the card.
+        #
+        #   @param month [Integer]
+        #   @param year [Integer]
       end
     end
   end

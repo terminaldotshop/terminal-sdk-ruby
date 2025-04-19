@@ -21,16 +21,12 @@ module TerminalShop
       #   @return [Integer]
       required :price, Integer
 
-      # @!parse
-      #   # Variant of a product in the Terminal shop.
-      #   #
-      #   # @param id [String]
-      #   # @param name [String]
-      #   # @param price [Integer]
-      #   #
-      #   def initialize(id:, name:, price:, **) = super
-
-      # def initialize: (Hash | TerminalShop::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, name:, price:)
+      #   Variant of a product in the Terminal shop.
+      #
+      #   @param id [String]
+      #   @param name [String]
+      #   @param price [Integer]
     end
   end
 end
