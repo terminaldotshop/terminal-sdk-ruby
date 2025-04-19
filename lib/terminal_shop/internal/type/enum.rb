@@ -44,11 +44,15 @@ module TerminalShop
         # @return [Array<NilClass, Boolean, Integer, Float, Symbol>]
         def values = constants.map { const_get(_1) }
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
         def ===(other) = values.include?(other)
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
@@ -58,6 +62,8 @@ module TerminalShop
           # rubocop:enable Style/CaseEquality
         end
 
+        # @api public
+        #
         # @return [Integer]
         def hash = values.to_set.hash
 
