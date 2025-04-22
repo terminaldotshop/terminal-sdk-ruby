@@ -19,7 +19,7 @@ module TerminalShop
         # @api public
         #
         # @raise [TerminalShop::Errors::APIError]
-        # @return [TerminalShop::Internal::Type::BasePage]
+        # @return [self]
         def next_page = (raise NotImplementedError)
 
         # @api public
