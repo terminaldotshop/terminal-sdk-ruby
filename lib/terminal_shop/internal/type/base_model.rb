@@ -394,7 +394,7 @@ module TerminalShop
 
         # Create a new instance of a model.
         #
-        # @param data [Hash{Symbol=>Object}, TerminalShop::Internal::Type::BaseModel]
+        # @param data [Hash{Symbol=>Object}, self]
         def initialize(data = {})
           case TerminalShop::Internal::Util.coerce_hash(data)
           in Hash => coerced
