@@ -10,6 +10,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           created: String,
+          price: Integer,
           product_variant_id: String,
           quantity: Integer,
           next_: String,
@@ -31,6 +32,8 @@ module TerminalShop
         card_id:,
         # Date the subscription was created.
         created:,
+        # Price of the subscription in cents (USD).
+        price:,
         # ID of the product variant being subscribed to.
         product_variant_id:,
         # Quantity of the subscription.

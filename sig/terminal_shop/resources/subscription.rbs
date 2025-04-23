@@ -6,6 +6,7 @@ module TerminalShop
         address_id: String,
         card_id: String,
         created: String,
+        price: Integer,
         product_variant_id: String,
         quantity: Integer,
         ?next_: String,

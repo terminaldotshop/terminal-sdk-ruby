@@ -27,6 +27,12 @@ module TerminalShop
       #   @return [String]
       required :created, String
 
+      # @!attribute price
+      #   Price of the subscription in cents (USD).
+      #
+      #   @return [Integer]
+      required :price, Integer
+
       # @!attribute product_variant_id
       #   ID of the product variant being subscribed to.
       #
@@ -51,13 +57,14 @@ module TerminalShop
       #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
 
-      # @!method initialize(id:, address_id:, card_id:, created:, product_variant_id:, quantity:, next_: nil, schedule: nil)
+      # @!method initialize(id:, address_id:, card_id:, created:, price:, product_variant_id:, quantity:, next_: nil, schedule: nil)
       #   Subscription to a Terminal shop product.
       #
       #   @param id [String]
       #   @param address_id [String]
       #   @param card_id [String]
       #   @param created [String]
+      #   @param price [Integer]
       #   @param product_variant_id [String]
       #   @param quantity [Integer]
       #   @param next_ [String]
