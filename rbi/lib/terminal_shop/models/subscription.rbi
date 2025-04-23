@@ -19,6 +19,10 @@ module TerminalShop
       sig { returns(String) }
       attr_accessor :created
 
+      # Price of the subscription in cents (USD).
+      sig { returns(Integer) }
+      attr_accessor :price
+
       # ID of the product variant being subscribed to.
       sig { returns(String) }
       attr_accessor :product_variant_id
@@ -66,6 +70,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           created: String,
+          price: Integer,
           product_variant_id: String,
           quantity: Integer,
           next_: String,
@@ -82,6 +87,7 @@ module TerminalShop
         address_id:,
         card_id:,
         created:,
+        price:,
         product_variant_id:,
         quantity:,
         next_: nil,
@@ -97,6 +103,7 @@ module TerminalShop
               address_id: String,
               card_id: String,
               created: String,
+              price: Integer,
               product_variant_id: String,
               quantity: Integer,
               next_: String,

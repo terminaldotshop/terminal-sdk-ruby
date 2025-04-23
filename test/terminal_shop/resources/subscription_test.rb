@@ -10,6 +10,7 @@ class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::Reso
         address_id: "shp_XXXXXXXXXXXXXXXXXXXXXXXXX",
         card_id: "crd_XXXXXXXXXXXXXXXXXXXXXXXXX",
         created: "2024-06-29T19:36:19.000Z",
+        price: 2200,
         product_variant_id: "var_XXXXXXXXXXXXXXXXXXXXXXXXX",
         quantity: 1
       )
