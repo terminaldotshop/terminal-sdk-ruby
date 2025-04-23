@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.3.0 (2025-04-23)
+
+Full Changelog: [v3.2.0...v3.3.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.2.0...v3.3.0)
+
+### Features
+
+* **api:** include price on subscriptions ([e21f783](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e21f78337d549c2516edc753f7bb9e966faa5cc0))
+* implement `#hash` for data containers ([d954b4f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d954b4f956b0a1ed6462a14971e75b1ebeaa0dd9))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([d328298](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d3282986fd478a2ecabf73cae37d29b244fd9286))
+* documentation improvements ([0fca24d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0fca24d472130a7bb8d7baee00ca8fbedb361b66))
+* explicitly mark apis public under `Internal` module ([e443174](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e443174de5585b34511f4d5a0bdac9c722d5df38))
+* **internal:** minor type annotation improvements ([3291fe9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3291fe9f9616128cc38b870dc19d0ef289b0013e))
+* **internal:** version bump ([e84179a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e84179a53013d4ea88339068f8db7df22045b8ed))
+* make sorbet enums easier to read ([6c9afe1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6c9afe1567674eb72881542a3ee40e41b2c46f70))
+* simplify yard annotations by removing most `@!parse` directives ([d8dd2d0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d8dd2d084d85645f3f8340c255385dd4c2596fbb))
+* update README with recommended editor plugins ([5cc4398](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5cc4398e382f88834de210d1320e0a757b705221))
+* use `@!method` instead of `@!parse` for virtual method type definitions ([451b8ca](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/451b8cac439363264e197efeea2e325de1abc6d8))
+
 ## 3.2.0 (2025-04-18)
 
 Full Changelog: [v3.1.0...v3.2.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.1.0...v3.2.0)
