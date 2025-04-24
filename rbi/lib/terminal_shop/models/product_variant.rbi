@@ -15,6 +15,13 @@ module TerminalShop
       sig { returns(Integer) }
       attr_accessor :price
 
+      # Description of the product variant.
+      sig { returns(T.nilable(String)) }
+      attr_reader :description
+
+      sig { params(description: String).void }
+      attr_writer :description
+
       # Tags for the product variant.
       sig { returns(T.nilable(TerminalShop::Models::ProductVariant::Tags)) }
       attr_reader :tags
@@ -28,15 +35,18 @@ module TerminalShop
           id: String,
           name: String,
           price: Integer,
+          description: String,
           tags: T.any(TerminalShop::Models::ProductVariant::Tags, TerminalShop::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, name:, price:, tags: nil); end
+      def self.new(id:, name:, price:, description: nil, tags: nil); end
 
       sig do
         override
-          .returns({id: String, name: String, price: Integer, tags: TerminalShop::Models::ProductVariant::Tags})
+          .returns(
+            {id: String, name: String, price: Integer, description: String, tags: TerminalShop::Models::ProductVariant::Tags}
+          )
       end
       def to_hash; end
 
