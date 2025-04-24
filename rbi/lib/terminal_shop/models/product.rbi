@@ -111,6 +111,12 @@ module TerminalShop
         attr_writer :market_eu
 
         sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :market_global
+
+        sig { params(market_global: T::Boolean).void }
+        attr_writer :market_global
+
+        sig { returns(T.nilable(T::Boolean)) }
         attr_reader :market_na
 
         sig { params(market_na: T::Boolean).void }
@@ -123,21 +129,26 @@ module TerminalShop
             color: String,
             featured: T::Boolean,
             market_eu: T::Boolean,
+            market_global: T::Boolean,
             market_na: T::Boolean
           )
             .returns(T.attached_class)
         end
-        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil); end
+        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_global: nil, market_na: nil)
+        end
 
         sig do
           override
-            .returns({
-                       app: String,
-                       color: String,
-                       featured: T::Boolean,
-                       market_eu: T::Boolean,
-                       market_na: T::Boolean
-                     })
+            .returns(
+              {
+                app: String,
+                color: String,
+                featured: T::Boolean,
+                market_eu: T::Boolean,
+                market_global: T::Boolean,
+                market_na: T::Boolean
+              }
+            )
         end
         def to_hash; end
       end

@@ -235,10 +235,10 @@ module TerminalShop
         attr_writer :service
 
         # Current tracking status of the shipment.
-        sig { returns(T.nilable(String)) }
+        sig { returns(T.nilable(TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)) }
         attr_reader :status
 
-        sig { params(status: String).void }
+        sig { params(status: TerminalShop::Models::OrderAPI::Tracking::Status::OrSymbol).void }
         attr_writer :status
 
         # Additional details about the tracking status.
@@ -267,7 +267,7 @@ module TerminalShop
           params(
             number: String,
             service: String,
-            status: String,
+            status: TerminalShop::Models::OrderAPI::Tracking::Status::OrSymbol,
             status_details: String,
             status_updated_at: String,
             url: String
@@ -290,7 +290,7 @@ module TerminalShop
               {
                 number: String,
                 service: String,
-                status: String,
+                status: TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol,
                 status_details: String,
                 status_updated_at: String,
                 url: String
@@ -298,6 +298,24 @@ module TerminalShop
             )
         end
         def to_hash; end
+
+        # Current tracking status of the shipment.
+        module Status
+          extend TerminalShop::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::OrderAPI::Tracking::Status) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          PRE_TRANSIT = T.let(:PRE_TRANSIT, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          TRANSIT = T.let(:TRANSIT, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          DELIVERED = T.let(:DELIVERED, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          RETURNED = T.let(:RETURNED, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          FAILURE = T.let(:FAILURE, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          UNKNOWN = T.let(:UNKNOWN, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+
+          sig { override.returns(T::Array[TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol]) }
+          def self.values; end
+        end
       end
     end
   end

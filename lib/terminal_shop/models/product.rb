@@ -91,18 +91,24 @@ module TerminalShop
         #   @return [Boolean, nil]
         optional :market_eu, TerminalShop::Internal::Type::Boolean
 
+        # @!attribute market_global
+        #
+        #   @return [Boolean, nil]
+        optional :market_global, TerminalShop::Internal::Type::Boolean
+
         # @!attribute market_na
         #
         #   @return [Boolean, nil]
         optional :market_na, TerminalShop::Internal::Type::Boolean
 
-        # @!method initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_na: nil)
+        # @!method initialize(app: nil, color: nil, featured: nil, market_eu: nil, market_global: nil, market_na: nil)
         #   Tags for the product.
         #
         #   @param app [String]
         #   @param color [String]
         #   @param featured [Boolean]
         #   @param market_eu [Boolean]
+        #   @param market_global [Boolean]
         #   @param market_na [Boolean]
       end
     end
