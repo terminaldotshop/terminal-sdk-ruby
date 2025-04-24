@@ -5,6 +5,7 @@ module TerminalShop
         id: String,
         name: String,
         price: Integer,
+        description: String,
         tags: TerminalShop::Models::ProductVariant::Tags
       }
 
@@ -14,6 +15,10 @@ module TerminalShop
       attr_accessor name: String
 
       attr_accessor price: Integer
+
+      attr_reader description: String?
+
+      def description=: (String) -> String
 
       attr_reader tags: TerminalShop::Models::ProductVariant::Tags?
 
@@ -25,6 +30,7 @@ module TerminalShop
         id: String,
         name: String,
         price: Integer,
+        ?description: String,
         ?tags: TerminalShop::Models::ProductVariant::Tags
       ) -> void
 
