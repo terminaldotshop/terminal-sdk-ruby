@@ -1,12 +1,13 @@
 module TerminalShop
   module Models
-    type region = :eu | :na
+    type region = :eu | :na | :global
 
     module Region
       extend TerminalShop::Internal::Type::Enum
 
       EU: :eu
       NA: :na
+      GLOBAL: :global
 
       def self?.values: -> ::Array[TerminalShop::Models::region]
     end

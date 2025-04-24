@@ -65,6 +65,7 @@ module TerminalShop
           color: String,
           featured: bool,
           market_eu: bool,
+          market_global: bool,
           market_na: bool
         }
 
@@ -85,6 +86,10 @@ module TerminalShop
 
         def market_eu=: (bool) -> bool
 
+        attr_reader market_global: bool?
+
+        def market_global=: (bool) -> bool
+
         attr_reader market_na: bool?
 
         def market_na=: (bool) -> bool
@@ -94,6 +99,7 @@ module TerminalShop
           ?color: String,
           ?featured: bool,
           ?market_eu: bool,
+          ?market_global: bool,
           ?market_na: bool
         ) -> void
 

@@ -8,6 +8,7 @@ module TerminalShop
 
       EU = :eu
       NA = :na
+      GLOBAL = :global
 
       # @!method self.values
       #   @return [Array<Symbol>]

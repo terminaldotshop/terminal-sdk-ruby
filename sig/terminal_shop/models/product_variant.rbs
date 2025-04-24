@@ -1,6 +1,12 @@
 module TerminalShop
   module Models
-    type product_variant = { id: String, name: String, price: Integer }
+    type product_variant =
+      {
+        id: String,
+        name: String,
+        price: Integer,
+        tags: TerminalShop::Models::ProductVariant::Tags
+      }
 
     class ProductVariant < TerminalShop::Internal::Type::BaseModel
       attr_accessor id: String
@@ -9,9 +15,50 @@ module TerminalShop
 
       attr_accessor price: Integer
 
-      def initialize: (id: String, name: String, price: Integer) -> void
+      attr_reader tags: TerminalShop::Models::ProductVariant::Tags?
+
+      def tags=: (
+        TerminalShop::Models::ProductVariant::Tags
+      ) -> TerminalShop::Models::ProductVariant::Tags
+
+      def initialize: (
+        id: String,
+        name: String,
+        price: Integer,
+        ?tags: TerminalShop::Models::ProductVariant::Tags
+      ) -> void
 
       def to_hash: -> TerminalShop::Models::product_variant
+
+      type tags =
+        { app: String, market_eu: bool, market_global: bool, market_na: bool }
+
+      class Tags < TerminalShop::Internal::Type::BaseModel
+        attr_reader app: String?
+
+        def app=: (String) -> String
+
+        attr_reader market_eu: bool?
+
+        def market_eu=: (bool) -> bool
+
+        attr_reader market_global: bool?
+
+        def market_global=: (bool) -> bool
+
+        attr_reader market_na: bool?
+
+        def market_na=: (bool) -> bool
+
+        def initialize: (
+          ?app: String,
+          ?market_eu: bool,
+          ?market_global: bool,
+          ?market_na: bool
+        ) -> void
+
+        def to_hash: -> TerminalShop::Models::ProductVariant::tags
+      end
     end
   end
 end
