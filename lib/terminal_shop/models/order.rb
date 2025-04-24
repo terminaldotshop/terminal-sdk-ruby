@@ -196,8 +196,8 @@ module TerminalShop
         # @!attribute status
         #   Current tracking status of the shipment.
         #
-        #   @return [String, nil]
-        optional :status, String
+        #   @return [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status, nil]
+        optional :status, enum: -> { TerminalShop::Models::OrderAPI::Tracking::Status }
 
         # @!attribute status_details
         #   Additional details about the tracking status.
@@ -222,10 +222,27 @@ module TerminalShop
         #
         #   @param number [String]
         #   @param service [String]
-        #   @param status [String]
+        #   @param status [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status]
         #   @param status_details [String]
         #   @param status_updated_at [String]
         #   @param url [String]
+
+        # Current tracking status of the shipment.
+        #
+        # @see TerminalShop::Models::OrderAPI::Tracking#status
+        module Status
+          extend TerminalShop::Internal::Type::Enum
+
+          PRE_TRANSIT = :PRE_TRANSIT
+          TRANSIT = :TRANSIT
+          DELIVERED = :DELIVERED
+          RETURNED = :RETURNED
+          FAILURE = :FAILURE
+          UNKNOWN = :UNKNOWN
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end
