@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.4.0 (2025-04-24)
+
+Full Changelog: [v3.3.0...v3.4.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.3.0...v3.4.0)
+
+### Features
+
+* **api:** global region, typed tracking status, variant tags ([736d9ef](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/736d9ef4bd55f6c924cd6706330facd329ef7b72))
+* **api:** product variant descriptions ([26d7475](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/26d7475117aa2ba4399bc3606ad52a1d69fedb29))
+
+
+### Chores
+
+* broadly detect json family of content-type headers ([a9f78b5](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a9f78b573013f313380503b26cc920f4bc48f158))
+* **ci:** only use depot for staging repos ([ce5d778](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ce5d778a7dc8e234d71c7c2f5c8c840058e5a70e))
+* **internal:** codegen related update ([3a5e9d2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3a5e9d28cd56b5060355d5335a564834646fe9b0))
+* **internal:** codegen related update ([2319933](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/23199337291f66664ed0a101bc7736adbcf44681))
+
 ## 3.3.0 (2025-04-23)
 
 Full Changelog: [v3.2.0...v3.3.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.2.0...v3.3.0)
