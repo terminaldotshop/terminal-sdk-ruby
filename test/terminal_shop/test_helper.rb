@@ -15,6 +15,7 @@ require "minitest/focus"
 require "minitest/hooks/test"
 require "minitest/proveit"
 require "minitest/rg"
+require "webmock"
 
 require_relative "../../lib/terminal_shop"
 require_relative "resource_namespaces"
@@ -44,8 +45,10 @@ end
 class TerminalShop::Test::SingletonClient < TerminalShop::Client
   include Singleton
 
+  TEST_API_BASE_URL = ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010")
+
   def initialize
-    super(base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"), bearer_token: "My Bearer Token")
+    super(base_url: TerminalShop::Test::SingletonClient::TEST_API_BASE_URL, bearer_token: "My Bearer Token")
   end
 end
 
@@ -71,4 +74,8 @@ class TerminalShop::Test::ResourceTest < Minitest::Test
   def around_all = async? ? Sync { super } : super
 
   def around = async? ? Async { super }.wait : super
+end
+
+module WebMock
+  AssertionFailure.error_class = Minitest::Assertion
 end

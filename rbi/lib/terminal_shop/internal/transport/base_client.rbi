@@ -90,7 +90,7 @@ module TerminalShop
 
         # @api private
         sig { returns(TerminalShop::Internal::Transport::PooledNetRequester) }
-        attr_accessor :requester
+        attr_reader :requester
 
         # @api private
         sig do
