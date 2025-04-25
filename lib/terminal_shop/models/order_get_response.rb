@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::OrderAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::OrderAPI]
+      #   @param data [TerminalShop::Models::OrderAPI] An order from the Terminal shop.
     end
   end
 end

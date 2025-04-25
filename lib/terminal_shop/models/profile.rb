@@ -12,7 +12,7 @@ module TerminalShop
       # @!method initialize(user:)
       #   A Terminal shop user's profile. (We have users, btw.)
       #
-      #   @param user [TerminalShop::Models::ProfileAPI::User]
+      #   @param user [TerminalShop::Models::ProfileAPI::User] A Terminal shop user. (We have users, btw.)
 
       # @see TerminalShop::Models::ProfileAPI#user
       class User < TerminalShop::Internal::Type::BaseModel
@@ -47,13 +47,20 @@ module TerminalShop
         required :stripe_customer_id, String, api_name: :stripeCustomerID
 
         # @!method initialize(id:, email:, fingerprint:, name:, stripe_customer_id:)
+        #   Some parameter documentations has been truncated, see
+        #   {TerminalShop::Models::ProfileAPI::User} for more details.
+        #
         #   A Terminal shop user. (We have users, btw.)
         #
-        #   @param id [String]
-        #   @param email [String, nil]
-        #   @param fingerprint [String, nil]
-        #   @param name [String, nil]
-        #   @param stripe_customer_id [String]
+        #   @param id [String] Unique object identifier. ...
+        #
+        #   @param email [String, nil] Email address of the user.
+        #
+        #   @param fingerprint [String, nil] The user's fingerprint, derived from their public SSH key.
+        #
+        #   @param name [String, nil] Name of the user.
+        #
+        #   @param stripe_customer_id [String] Stripe customer ID of the user.
       end
     end
   end

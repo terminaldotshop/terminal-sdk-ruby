@@ -51,8 +51,20 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil); end
-
+      def self.new(
+        # The subtotal and shipping amounts for the current user's cart.
+        amount:,
+        # An array of items in the current user's cart.
+        items:,
+        # The subtotal of all items in the current user's cart, in cents (USD).
+        subtotal:,
+        # ID of the shipping address selected on the current user's cart.
+        address_id: nil,
+        # ID of the card selected on the current user's cart.
+        card_id: nil,
+        # Shipping information for the current user's cart.
+        shipping: nil
+      ); end
       sig do
         override
           .returns(
@@ -89,8 +101,14 @@ module TerminalShop
 
         # The subtotal and shipping amounts for the current user's cart.
         sig { params(subtotal: Integer, shipping: Integer, total: Integer).returns(T.attached_class) }
-        def self.new(subtotal:, shipping: nil, total: nil); end
-
+        def self.new(
+          # Subtotal of the current user's cart, in cents (USD).
+          subtotal:,
+          # Shipping amount of the current user's cart, in cents (USD).
+          shipping: nil,
+          # Total amount after any discounts, in cents (USD).
+          total: nil
+        ); end
         sig { override.returns({subtotal: Integer, shipping: Integer, total: Integer}) }
         def to_hash; end
       end
@@ -117,8 +135,16 @@ module TerminalShop
           params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer)
             .returns(T.attached_class)
         end
-        def self.new(id:, product_variant_id:, quantity:, subtotal:); end
-
+        def self.new(
+          # Unique object identifier. The format and length of IDs may change over time.
+          id:,
+          # ID of the product variant for this item in the current user's cart.
+          product_variant_id:,
+          # Quantity of the item in the current user's cart.
+          quantity:,
+          # Subtotal of the item in the current user's cart, in cents (USD).
+          subtotal:
+        ); end
         sig do
           override.returns({id: String, product_variant_id: String, quantity: Integer, subtotal: Integer})
         end
@@ -142,8 +168,12 @@ module TerminalShop
 
         # Shipping information for the current user's cart.
         sig { params(service: String, timeframe: String).returns(T.attached_class) }
-        def self.new(service: nil, timeframe: nil); end
-
+        def self.new(
+          # Shipping service name.
+          service: nil,
+          # Shipping timeframe provided by the shipping carrier.
+          timeframe: nil
+        ); end
         sig { override.returns({service: String, timeframe: String}) }
         def to_hash; end
       end

@@ -56,8 +56,22 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, amount:, created:, items:, shipping:, tracking:, index: nil); end
-
+      def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
+        id:,
+        # The subtotal and shipping amounts of the order.
+        amount:,
+        # Date the order was created.
+        created:,
+        # Items in the order.
+        items:,
+        # Shipping address of the order.
+        shipping:,
+        # Tracking information of the order.
+        tracking:,
+        # Zero-based index of the order for this user only.
+        index: nil
+      ); end
       sig do
         override
           .returns(
@@ -85,8 +99,12 @@ module TerminalShop
 
         # The subtotal and shipping amounts of the order.
         sig { params(shipping: Integer, subtotal: Integer).returns(T.attached_class) }
-        def self.new(shipping:, subtotal:); end
-
+        def self.new(
+          # Shipping amount of the order, in cents (USD).
+          shipping:,
+          # Subtotal amount of the order, in cents (USD).
+          subtotal:
+        ); end
         sig { override.returns({shipping: Integer, subtotal: Integer}) }
         def to_hash; end
       end
@@ -128,8 +146,18 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, amount:, quantity:, description: nil, product_variant_id: nil); end
-
+        def self.new(
+          # Unique object identifier. The format and length of IDs may change over time.
+          id:,
+          # Amount of the item in the order, in cents (USD).
+          amount:,
+          # Quantity of the item in the order.
+          quantity:,
+          # Description of the item in the order.
+          description: nil,
+          # ID of the product variant of the item in the order.
+          product_variant_id: nil
+        ); end
         sig do
           override
             .returns({
@@ -199,8 +227,24 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil); end
-
+        def self.new(
+          # City of the address.
+          city:,
+          # ISO 3166-1 alpha-2 country code of the address.
+          country:,
+          # The recipient's name.
+          name:,
+          # Street of the address.
+          street1:,
+          # Zip code of the address.
+          zip:,
+          # Phone number of the recipient.
+          phone: nil,
+          # Province or state of the address.
+          province: nil,
+          # Apartment, suite, etc. of the address.
+          street2: nil
+        ); end
         sig do
           override
             .returns(
@@ -275,15 +319,19 @@ module TerminalShop
             .returns(T.attached_class)
         end
         def self.new(
+          # Tracking number of the order.
           number: nil,
+          # Shipping service of the order.
           service: nil,
+          # Current tracking status of the shipment.
           status: nil,
+          # Additional details about the tracking status.
           status_details: nil,
+          # When the tracking status was last updated.
           status_updated_at: nil,
+          # Tracking URL of the order.
           url: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(

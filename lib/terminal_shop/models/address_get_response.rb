@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::AddressAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::AddressAPI]
+      #   @param data [TerminalShop::Models::AddressAPI] Physical address associated with a Terminal shop user.
     end
   end
 end

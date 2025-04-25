@@ -17,8 +17,11 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(email:, request_options: {}); end
-
+      def self.new(
+        # Email address to subscribe to Terminal updates with.
+        email:,
+        request_options: {}
+      ); end
       sig { override.returns({email: String, request_options: TerminalShop::RequestOptions}) }
       def to_hash; end
     end

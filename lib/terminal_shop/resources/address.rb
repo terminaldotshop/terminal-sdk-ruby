@@ -7,14 +7,22 @@ module TerminalShop
       #
       # @overload create(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil, request_options: {})
       #
-      # @param city [String]
-      # @param country [String]
-      # @param name [String]
-      # @param street1 [String]
-      # @param zip [String]
-      # @param phone [String]
-      # @param province [String]
-      # @param street2 [String]
+      # @param city [String] City of the address.
+      #
+      # @param country [String] ISO 3166-1 alpha-2 country code of the address.
+      #
+      # @param name [String] The recipient's name.
+      #
+      # @param street1 [String] Street of the address.
+      #
+      # @param zip [String] Zip code of the address.
+      #
+      # @param phone [String] Phone number of the recipient.
+      #
+      # @param province [String] Province or state of the address.
+      #
+      # @param street2 [String] Apartment, suite, etc. of the address.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressCreateResponse]
@@ -53,7 +61,8 @@ module TerminalShop
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the shipping address to delete.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressDeleteResponse]
@@ -72,7 +81,8 @@ module TerminalShop
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the shipping address to get.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::AddressGetResponse]

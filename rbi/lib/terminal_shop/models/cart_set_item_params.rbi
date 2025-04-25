@@ -22,8 +22,13 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(product_variant_id:, quantity:, request_options: {}); end
-
+      def self.new(
+        # ID of the product variant to add to the cart.
+        product_variant_id:,
+        # Quantity of the item to add to the cart.
+        quantity:,
+        request_options: {}
+      ); end
       sig do
         override
           .returns({

@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::ProductAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Product sold in the Terminal shop.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::ProductAPI}) }
       def to_hash; end
     end

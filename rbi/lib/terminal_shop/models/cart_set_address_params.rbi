@@ -17,8 +17,11 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(address_id:, request_options: {}); end
-
+      def self.new(
+        # ID of the shipping address to set for the current user's cart.
+        address_id:,
+        request_options: {}
+      ); end
       sig { override.returns({address_id: String, request_options: TerminalShop::RequestOptions}) }
       def to_hash; end
     end

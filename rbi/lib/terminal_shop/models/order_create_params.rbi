@@ -27,8 +27,15 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(address_id:, card_id:, variants:, request_options: {}); end
-
+      def self.new(
+        # Shipping address ID.
+        address_id:,
+        # Card ID.
+        card_id:,
+        # Product variants to include in the order, along with their quantities.
+        variants:,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

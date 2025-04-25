@@ -17,8 +17,11 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(card_id:, request_options: {}); end
-
+      def self.new(
+        # ID of the credit card to set for the current user's cart.
+        card_id:,
+        request_options: {}
+      ); end
       sig { override.returns({card_id: String, request_options: TerminalShop::RequestOptions}) }
       def to_hash; end
     end

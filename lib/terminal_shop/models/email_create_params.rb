@@ -14,7 +14,8 @@ module TerminalShop
       required :email, String
 
       # @!method initialize(email:, request_options: {})
-      #   @param email [String]
+      #   @param email [String] Email address to subscribe to Terminal updates with.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end

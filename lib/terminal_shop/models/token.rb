@@ -22,12 +22,17 @@ module TerminalShop
       required :created, String
 
       # @!method initialize(id:, token:, created:)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::TokenAPI} for more details.
+      #
       #   A personal access token used to access the Terminal API. If you leak this,
       #   expect large sums of coffee to be ordered on your credit card.
       #
-      #   @param id [String]
-      #   @param token [String]
-      #   @param created [String]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param token [String] Personal access token (obfuscated).
+      #
+      #   @param created [String] The created time for the token.
     end
   end
 end

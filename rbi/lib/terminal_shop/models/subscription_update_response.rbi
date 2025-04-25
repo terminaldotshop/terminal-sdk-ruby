@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Subscription to a Terminal shop product.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::SubscriptionAPI}) }
       def to_hash; end
     end

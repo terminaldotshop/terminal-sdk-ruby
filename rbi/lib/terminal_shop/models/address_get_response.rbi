@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::AddressAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Physical address associated with a Terminal shop user.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::AddressAPI}) }
       def to_hash; end
     end

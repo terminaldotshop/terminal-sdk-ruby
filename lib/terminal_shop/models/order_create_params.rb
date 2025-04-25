@@ -26,9 +26,12 @@ module TerminalShop
       required :variants, TerminalShop::Internal::Type::HashOf[Integer]
 
       # @!method initialize(address_id:, card_id:, variants:, request_options: {})
-      #   @param address_id [String]
-      #   @param card_id [String]
-      #   @param variants [Hash{Symbol=>Integer}]
+      #   @param address_id [String] Shipping address ID.
+      #
+      #   @param card_id [String] Card ID.
+      #
+      #   @param variants [Hash{Symbol=>Integer}] Product variants to include in the order, along with their quantities.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -62,18 +62,24 @@ module TerminalShop
           .returns(T.attached_class)
       end
       def self.new(
+        # City of the address.
         city:,
+        # ISO 3166-1 alpha-2 country code of the address.
         country:,
+        # The recipient's name.
         name:,
+        # Street of the address.
         street1:,
+        # Zip code of the address.
         zip:,
+        # Phone number of the recipient.
         phone: nil,
+        # Province or state of the address.
         province: nil,
+        # Apartment, suite, etc. of the address.
         street2: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

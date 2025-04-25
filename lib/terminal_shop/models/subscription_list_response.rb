@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::SubscriptionAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::SubscriptionAPI>]
+      #   @param data [Array<TerminalShop::Models::SubscriptionAPI>] List of subscriptions.
     end
   end
 end
