@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::ProductAPI>]
+      #   @param data [Array<TerminalShop::Models::ProductAPI>] A list of products.
     end
   end
 end

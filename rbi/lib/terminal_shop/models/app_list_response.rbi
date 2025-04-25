@@ -11,8 +11,10 @@ module TerminalShop
         params(data: T::Array[T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # List of apps.
+        data:
+      ); end
       sig { override.returns({data: T::Array[TerminalShop::Models::AppAPI]}) }
       def to_hash; end
     end

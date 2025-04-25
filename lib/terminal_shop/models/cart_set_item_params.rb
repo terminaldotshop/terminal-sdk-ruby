@@ -20,8 +20,10 @@ module TerminalShop
       required :quantity, Integer
 
       # @!method initialize(product_variant_id:, quantity:, request_options: {})
-      #   @param product_variant_id [String]
-      #   @param quantity [Integer]
+      #   @param product_variant_id [String] ID of the product variant to add to the cart.
+      #
+      #   @param quantity [Integer] Quantity of the item to add to the cart.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end

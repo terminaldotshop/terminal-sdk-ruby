@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::CartAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::CartAPI]
+      #   @param data [TerminalShop::Models::CartAPI] The current Terminal shop user's cart.
     end
   end
 end

@@ -58,17 +58,28 @@ module TerminalShop
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
 
       # @!method initialize(id:, address_id:, card_id:, created:, price:, product_variant_id:, quantity:, next_: nil, schedule: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::SubscriptionAPI} for more details.
+      #
       #   Subscription to a Terminal shop product.
       #
-      #   @param id [String]
-      #   @param address_id [String]
-      #   @param card_id [String]
-      #   @param created [String]
-      #   @param price [Integer]
-      #   @param product_variant_id [String]
-      #   @param quantity [Integer]
-      #   @param next_ [String]
-      #   @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param address_id [String] ID of the shipping address used for the subscription.
+      #
+      #   @param card_id [String] ID of the card used for the subscription.
+      #
+      #   @param created [String] Date the subscription was created.
+      #
+      #   @param price [Integer] Price of the subscription in cents (USD).
+      #
+      #   @param product_variant_id [String] ID of the product variant being subscribed to.
+      #
+      #   @param quantity [Integer] Quantity of the subscription.
+      #
+      #   @param next_ [String] Next shipment and billing date for the subscription.
+      #
+      #   @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
 
       # Schedule of the subscription.
       #

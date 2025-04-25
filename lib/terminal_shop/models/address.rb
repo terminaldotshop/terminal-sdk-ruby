@@ -64,18 +64,30 @@ module TerminalShop
       optional :street2, String
 
       # @!method initialize(id:, city:, country:, created:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::AddressAPI} for more details.
+      #
       #   Physical address associated with a Terminal shop user.
       #
-      #   @param id [String]
-      #   @param city [String]
-      #   @param country [String]
-      #   @param created [String]
-      #   @param name [String]
-      #   @param street1 [String]
-      #   @param zip [String]
-      #   @param phone [String]
-      #   @param province [String]
-      #   @param street2 [String]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param city [String] City of the address.
+      #
+      #   @param country [String] ISO 3166-1 alpha-2 country code of the address.
+      #
+      #   @param created [String] Date the address was created.
+      #
+      #   @param name [String] The recipient's name.
+      #
+      #   @param street1 [String] Street of the address.
+      #
+      #   @param zip [String] Zip code of the address.
+      #
+      #   @param phone [String] Phone number of the recipient.
+      #
+      #   @param province [String] Province or state of the address.
+      #
+      #   @param street2 [String] Apartment, suite, etc. of the address.
     end
   end
 end

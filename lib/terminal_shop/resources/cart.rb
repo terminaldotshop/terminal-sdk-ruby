@@ -61,7 +61,8 @@ module TerminalShop
       #
       # @overload set_address(address_id:, request_options: {})
       #
-      # @param address_id [String]
+      # @param address_id [String] ID of the shipping address to set for the current user's cart.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetAddressResponse]
@@ -82,7 +83,8 @@ module TerminalShop
       #
       # @overload set_card(card_id:, request_options: {})
       #
-      # @param card_id [String]
+      # @param card_id [String] ID of the credit card to set for the current user's cart.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetCardResponse]
@@ -103,8 +105,10 @@ module TerminalShop
       #
       # @overload set_item(product_variant_id:, quantity:, request_options: {})
       #
-      # @param product_variant_id [String]
-      # @param quantity [Integer]
+      # @param product_variant_id [String] ID of the product variant to add to the cart.
+      #
+      # @param quantity [Integer] Quantity of the item to add to the cart.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CartSetItemResponse]

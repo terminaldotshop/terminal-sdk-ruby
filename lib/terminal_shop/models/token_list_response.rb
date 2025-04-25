@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::TokenAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::TokenAPI>]
+      #   @param data [Array<TerminalShop::Models::TokenAPI>] List of personal access tokens.
     end
   end
 end

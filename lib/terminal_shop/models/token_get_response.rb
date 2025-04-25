@@ -12,7 +12,11 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::TokenAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::TokenAPI]
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::TokenGetResponse} for more details.
+      #
+      #   @param data [TerminalShop::Models::TokenAPI] A personal access token used to access the Terminal API. If you leak this, expec
+      #   ...
     end
   end
 end

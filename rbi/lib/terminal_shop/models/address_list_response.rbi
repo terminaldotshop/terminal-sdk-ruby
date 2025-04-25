@@ -11,8 +11,10 @@ module TerminalShop
         params(data: T::Array[T.any(TerminalShop::Models::AddressAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Shipping addresses.
+        data:
+      ); end
       sig { override.returns({data: T::Array[TerminalShop::Models::AddressAPI]}) }
       def to_hash; end
     end

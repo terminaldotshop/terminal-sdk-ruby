@@ -27,8 +27,9 @@ module TerminalShop
         required :secret, String
 
         # @!method initialize(id:, secret:)
-        #   @param id [String]
-        #   @param secret [String]
+        #   @param id [String] OAuth 2.0 client ID.
+        #
+        #   @param secret [String] OAuth 2.0 client secret.
       end
     end
   end

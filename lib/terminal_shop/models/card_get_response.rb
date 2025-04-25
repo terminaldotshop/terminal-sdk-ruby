@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::CardAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::CardAPI]
+      #   @param data [TerminalShop::Models::CardAPI] Credit card used for payments in the Terminal shop.
     end
   end
 end

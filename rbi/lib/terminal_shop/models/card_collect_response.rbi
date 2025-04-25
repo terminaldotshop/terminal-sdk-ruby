@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # URL for collecting card information.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::CardCollectResponse::Data}) }
       def to_hash; end
 
@@ -27,8 +29,11 @@ module TerminalShop
 
         # URL for collecting card information.
         sig { params(url: String).returns(T.attached_class) }
-        def self.new(url:); end
-
+        def self.new(
+          # Temporary URL that allows a user to enter credit card details over https at
+          # terminal.shop.
+          url:
+        ); end
         sig { override.returns({url: String}) }
         def to_hash; end
       end

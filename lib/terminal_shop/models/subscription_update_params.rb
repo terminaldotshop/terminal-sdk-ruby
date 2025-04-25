@@ -26,9 +26,12 @@ module TerminalShop
       optional :schedule, union: -> { TerminalShop::Models::SubscriptionUpdateParams::Schedule }
 
       # @!method initialize(address_id: nil, card_id: nil, schedule: nil, request_options: {})
-      #   @param address_id [String]
-      #   @param card_id [String]
-      #   @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly]
+      #   @param address_id [String] New shipping address ID for the subscription.
+      #
+      #   @param card_id [String] New payment method ID for the subscription.
+      #
+      #   @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
 
       # New schedule for the subscription.

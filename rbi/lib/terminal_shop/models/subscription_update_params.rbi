@@ -58,8 +58,15 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(address_id: nil, card_id: nil, schedule: nil, request_options: {}); end
-
+      def self.new(
+        # New shipping address ID for the subscription.
+        address_id: nil,
+        # New payment method ID for the subscription.
+        card_id: nil,
+        # New schedule for the subscription.
+        schedule: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

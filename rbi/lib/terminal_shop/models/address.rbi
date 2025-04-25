@@ -69,19 +69,27 @@ module TerminalShop
           .returns(T.attached_class)
       end
       def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
         id:,
+        # City of the address.
         city:,
+        # ISO 3166-1 alpha-2 country code of the address.
         country:,
+        # Date the address was created.
         created:,
+        # The recipient's name.
         name:,
+        # Street of the address.
         street1:,
+        # Zip code of the address.
         zip:,
+        # Phone number of the recipient.
         phone: nil,
+        # Province or state of the address.
         province: nil,
+        # Apartment, suite, etc. of the address.
         street2: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

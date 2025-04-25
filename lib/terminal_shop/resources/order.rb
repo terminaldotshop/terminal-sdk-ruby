@@ -7,9 +7,12 @@ module TerminalShop
       #
       # @overload create(address_id:, card_id:, variants:, request_options: {})
       #
-      # @param address_id [String]
-      # @param card_id [String]
-      # @param variants [Hash{Symbol=>Integer}]
+      # @param address_id [String] Shipping address ID.
+      #
+      # @param card_id [String] Card ID.
+      #
+      # @param variants [Hash{Symbol=>Integer}] Product variants to include in the order, along with their quantities.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::OrderCreateResponse]
@@ -48,7 +51,8 @@ module TerminalShop
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the order to get.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::OrderGetResponse]

@@ -46,15 +46,24 @@ module TerminalShop
       optional :tags, -> { TerminalShop::Models::ProductAPI::Tags }
 
       # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::ProductAPI} for more details.
+      #
       #   Product sold in the Terminal shop.
       #
-      #   @param id [String]
-      #   @param description [String]
-      #   @param name [String]
-      #   @param variants [Array<TerminalShop::Models::ProductVariant>]
-      #   @param order [Integer]
-      #   @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription]
-      #   @param tags [TerminalShop::Models::ProductAPI::Tags]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param description [String] Description of the product.
+      #
+      #   @param name [String] Name of the product.
+      #
+      #   @param variants [Array<TerminalShop::Models::ProductVariant>] List of variants of the product.
+      #
+      #   @param order [Integer] Order of the product used when displaying a sorted list of products.
+      #
+      #   @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription] Whether the product must be or can be subscribed to.
+      #
+      #   @param tags [TerminalShop::Models::ProductAPI::Tags] Tags for the product.
 
       # Whether the product must be or can be subscribed to.
       #

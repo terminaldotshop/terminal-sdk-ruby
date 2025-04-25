@@ -14,7 +14,8 @@ module TerminalShop
       required :card_id, String, api_name: :cardID
 
       # @!method initialize(card_id:, request_options: {})
-      #   @param card_id [String]
+      #   @param card_id [String] ID of the credit card to set for the current user's cart.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end
