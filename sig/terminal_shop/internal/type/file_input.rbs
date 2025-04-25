@@ -1,7 +1,7 @@
 module TerminalShop
   module Internal
     module Type
-      class IOLike
+      class FileInput
         extend TerminalShop::Internal::Type::Converter
 
         def self.===: (top other) -> bool

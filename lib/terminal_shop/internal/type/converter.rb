@@ -43,7 +43,7 @@ module TerminalShop
             value.string
           in Pathname | IO
             state[:can_retry] = false if value.is_a?(IO)
-            TerminalShop::Internal::Util::SerializationAdapter.new(value)
+            TerminalShop::FilePart.new(value)
           else
             value
           end
