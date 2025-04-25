@@ -7,8 +7,12 @@ module TerminalShop
       #
       # @abstract
       #
-      # Either `Pathname` or `StringIO`.
-      class IOLike
+      # Either `Pathname` or `StringIO`, or `IO`, or
+      # `TerminalShop::Internal::Type::FileInput`.
+      #
+      # Note: when `IO` is used, all retries are disabled, since many IO` streams are
+      # not rewindable.
+      class FileInput
         extend TerminalShop::Internal::Type::Converter
 
         private_class_method :new
@@ -20,7 +24,7 @@ module TerminalShop
         # @return [Boolean]
         def self.===(other)
           case other
-          in StringIO | Pathname | IO
+          in Pathname | StringIO | IO | String | TerminalShop::FilePart
             true
           else
             false
@@ -32,7 +36,7 @@ module TerminalShop
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= TerminalShop::Internal::Type::IOLike
+        def self.==(other) = other.is_a?(Class) && other <= TerminalShop::Internal::Type::FileInput
 
         class << self
           # @api private
