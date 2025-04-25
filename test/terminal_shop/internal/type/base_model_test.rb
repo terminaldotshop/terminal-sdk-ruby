@@ -94,7 +94,7 @@ class TerminalShop::Test::PrimitiveModelTest < Minitest::Test
       [:a, :b] => :b,
       [:a, "a"] => "a",
       [String, StringIO.new("one")] => "one",
-      [String, Pathname(__FILE__)] => TerminalShop::Internal::Util::SerializationAdapter
+      [String, Pathname(__FILE__)] => TerminalShop::FilePart
     }
 
     cases.each do
