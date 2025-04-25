@@ -53,8 +53,22 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil); end
-
+      def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
+        id:,
+        # Description of the product.
+        description:,
+        # Name of the product.
+        name:,
+        # List of variants of the product.
+        variants:,
+        # Order of the product used when displaying a sorted list of products.
+        order: nil,
+        # Whether the product must be or can be subscribed to.
+        subscription: nil,
+        # Tags for the product.
+        tags: nil
+      ); end
       sig do
         override
           .returns(

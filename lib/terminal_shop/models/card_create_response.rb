@@ -11,7 +11,7 @@ module TerminalShop
       required :data, String
 
       # @!method initialize(data:)
-      #   @param data [String]
+      #   @param data [String] ID of the card.
     end
   end
 end

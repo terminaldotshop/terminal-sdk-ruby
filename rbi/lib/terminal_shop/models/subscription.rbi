@@ -83,18 +83,25 @@ module TerminalShop
           .returns(T.attached_class)
       end
       def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
         id:,
+        # ID of the shipping address used for the subscription.
         address_id:,
+        # ID of the card used for the subscription.
         card_id:,
+        # Date the subscription was created.
         created:,
+        # Price of the subscription in cents (USD).
         price:,
+        # ID of the product variant being subscribed to.
         product_variant_id:,
+        # Quantity of the subscription.
         quantity:,
+        # Next shipment and billing date for the subscription.
         next_: nil,
+        # Schedule of the subscription.
         schedule: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

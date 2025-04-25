@@ -29,8 +29,13 @@ module TerminalShop
         attr_accessor :token
 
         sig { params(id: String, token: String).returns(T.attached_class) }
-        def self.new(id:, token:); end
-
+        def self.new(
+          # Personal token ID.
+          id:,
+          # Personal access token. Include this in the Authorization header
+          # (`Bearer <token>`) when accessing the Terminal API.
+          token:
+        ); end
         sig { override.returns({id: String, token: String}) }
         def to_hash; end
       end

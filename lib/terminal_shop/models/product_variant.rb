@@ -34,13 +34,20 @@ module TerminalShop
       optional :tags, -> { TerminalShop::Models::ProductVariant::Tags }
 
       # @!method initialize(id:, name:, price:, description: nil, tags: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::ProductVariant} for more details.
+      #
       #   Variant of a product in the Terminal shop.
       #
-      #   @param id [String]
-      #   @param name [String]
-      #   @param price [Integer]
-      #   @param description [String]
-      #   @param tags [TerminalShop::Models::ProductVariant::Tags]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param name [String] Name of the product variant.
+      #
+      #   @param price [Integer] Price of the product variant in cents (USD).
+      #
+      #   @param description [String] Description of the product variant.
+      #
+      #   @param tags [TerminalShop::Models::ProductVariant::Tags] Tags for the product variant.
 
       # @see TerminalShop::Models::ProductVariant#tags
       class Tags < TerminalShop::Internal::Type::BaseModel

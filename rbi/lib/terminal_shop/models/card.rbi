@@ -37,8 +37,18 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, brand:, created:, expiration:, last4:); end
-
+      def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
+        id:,
+        # Brand of the card.
+        brand:,
+        # Date the card was created.
+        created:,
+        # Expiration of the card.
+        expiration:,
+        # Last four digits of the card.
+        last4:
+      ); end
       sig do
         override
           .returns(
@@ -58,8 +68,12 @@ module TerminalShop
 
         # Expiration of the card.
         sig { params(month: Integer, year: Integer).returns(T.attached_class) }
-        def self.new(month:, year:); end
-
+        def self.new(
+          # Expiration month of the card.
+          month:,
+          # Expiration year of the card.
+          year:
+        ); end
         sig { override.returns({month: Integer, year: Integer}) }
         def to_hash; end
       end

@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::SubscriptionAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::SubscriptionAPI]
+      #   @param data [TerminalShop::Models::SubscriptionAPI] Subscription to a Terminal shop product.
     end
   end
 end

@@ -11,8 +11,10 @@ module TerminalShop
         params(data: T::Array[T.any(TerminalShop::Models::TokenAPI, TerminalShop::Internal::AnyHash)])
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # List of personal access tokens.
+        data:
+      ); end
       sig { override.returns({data: T::Array[TerminalShop::Models::TokenAPI]}) }
       def to_hash; end
     end

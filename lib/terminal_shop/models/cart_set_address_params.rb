@@ -14,7 +14,8 @@ module TerminalShop
       required :address_id, String, api_name: :addressID
 
       # @!method initialize(address_id:, request_options: {})
-      #   @param address_id [String]
+      #   @param address_id [String] ID of the shipping address to set for the current user's cart.
+      #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end
   end

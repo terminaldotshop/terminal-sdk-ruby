@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::OrderAPI>]
+      #   @param data [Array<TerminalShop::Models::OrderAPI>] List of orders.
     end
   end
 end

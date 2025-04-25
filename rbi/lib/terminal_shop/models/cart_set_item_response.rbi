@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::CartAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # The current Terminal shop user's cart.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::CartAPI}) }
       def to_hash; end
     end

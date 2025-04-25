@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::CardAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Credit card used for payments in the Terminal shop.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::CardAPI}) }
       def to_hash; end
     end

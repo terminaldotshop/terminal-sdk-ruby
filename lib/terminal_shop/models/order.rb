@@ -46,15 +46,24 @@ module TerminalShop
       optional :index, Integer
 
       # @!method initialize(id:, amount:, created:, items:, shipping:, tracking:, index: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::OrderAPI} for more details.
+      #
       #   An order from the Terminal shop.
       #
-      #   @param id [String]
-      #   @param amount [TerminalShop::Models::OrderAPI::Amount]
-      #   @param created [String]
-      #   @param items [Array<TerminalShop::Models::OrderAPI::Item>]
-      #   @param shipping [TerminalShop::Models::OrderAPI::Shipping]
-      #   @param tracking [TerminalShop::Models::OrderAPI::Tracking]
-      #   @param index [Integer]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param amount [TerminalShop::Models::OrderAPI::Amount] The subtotal and shipping amounts of the order.
+      #
+      #   @param created [String] Date the order was created.
+      #
+      #   @param items [Array<TerminalShop::Models::OrderAPI::Item>] Items in the order.
+      #
+      #   @param shipping [TerminalShop::Models::OrderAPI::Shipping] Shipping address of the order.
+      #
+      #   @param tracking [TerminalShop::Models::OrderAPI::Tracking] Tracking information of the order.
+      #
+      #   @param index [Integer] Zero-based index of the order for this user only.
 
       # @see TerminalShop::Models::OrderAPI#amount
       class Amount < TerminalShop::Internal::Type::BaseModel
@@ -73,8 +82,9 @@ module TerminalShop
         # @!method initialize(shipping:, subtotal:)
         #   The subtotal and shipping amounts of the order.
         #
-        #   @param shipping [Integer]
-        #   @param subtotal [Integer]
+        #   @param shipping [Integer] Shipping amount of the order, in cents (USD).
+        #
+        #   @param subtotal [Integer] Subtotal amount of the order, in cents (USD).
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
@@ -109,11 +119,18 @@ module TerminalShop
         optional :product_variant_id, String, api_name: :productVariantID
 
         # @!method initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil)
-        #   @param id [String]
-        #   @param amount [Integer]
-        #   @param quantity [Integer]
-        #   @param description [String]
-        #   @param product_variant_id [String]
+        #   Some parameter documentations has been truncated, see
+        #   {TerminalShop::Models::OrderAPI::Item} for more details.
+        #
+        #   @param id [String] Unique object identifier. ...
+        #
+        #   @param amount [Integer] Amount of the item in the order, in cents (USD).
+        #
+        #   @param quantity [Integer] Quantity of the item in the order.
+        #
+        #   @param description [String] Description of the item in the order.
+        #
+        #   @param product_variant_id [String] ID of the product variant of the item in the order.
       end
 
       # @see TerminalShop::Models::OrderAPI#shipping
@@ -169,14 +186,21 @@ module TerminalShop
         # @!method initialize(city:, country:, name:, street1:, zip:, phone: nil, province: nil, street2: nil)
         #   Shipping address of the order.
         #
-        #   @param city [String]
-        #   @param country [String]
-        #   @param name [String]
-        #   @param street1 [String]
-        #   @param zip [String]
-        #   @param phone [String]
-        #   @param province [String]
-        #   @param street2 [String]
+        #   @param city [String] City of the address.
+        #
+        #   @param country [String] ISO 3166-1 alpha-2 country code of the address.
+        #
+        #   @param name [String] The recipient's name.
+        #
+        #   @param street1 [String] Street of the address.
+        #
+        #   @param zip [String] Zip code of the address.
+        #
+        #   @param phone [String] Phone number of the recipient.
+        #
+        #   @param province [String] Province or state of the address.
+        #
+        #   @param street2 [String] Apartment, suite, etc. of the address.
       end
 
       # @see TerminalShop::Models::OrderAPI#tracking
@@ -220,12 +244,17 @@ module TerminalShop
         # @!method initialize(number: nil, service: nil, status: nil, status_details: nil, status_updated_at: nil, url: nil)
         #   Tracking information of the order.
         #
-        #   @param number [String]
-        #   @param service [String]
-        #   @param status [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status]
-        #   @param status_details [String]
-        #   @param status_updated_at [String]
-        #   @param url [String]
+        #   @param number [String] Tracking number of the order.
+        #
+        #   @param service [String] Shipping service of the order.
+        #
+        #   @param status [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status] Current tracking status of the shipment.
+        #
+        #   @param status_details [String] Additional details about the tracking status.
+        #
+        #   @param status_updated_at [String] When the tracking status was last updated.
+        #
+        #   @param url [String] Tracking URL of the order.
 
         # Current tracking status of the shipment.
         #

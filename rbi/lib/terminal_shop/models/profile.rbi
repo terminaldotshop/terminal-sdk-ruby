@@ -15,8 +15,10 @@ module TerminalShop
         params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(user:); end
-
+      def self.new(
+        # A Terminal shop user. (We have users, btw.)
+        user:
+      ); end
       sig { override.returns({user: TerminalShop::Models::ProfileAPI::User}) }
       def to_hash; end
 
@@ -52,8 +54,18 @@ module TerminalShop
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, email:, fingerprint:, name:, stripe_customer_id:); end
-
+        def self.new(
+          # Unique object identifier. The format and length of IDs may change over time.
+          id:,
+          # Email address of the user.
+          email:,
+          # The user's fingerprint, derived from their public SSH key.
+          fingerprint:,
+          # Name of the user.
+          name:,
+          # Stripe customer ID of the user.
+          stripe_customer_id:
+        ); end
         sig do
           override
             .returns(

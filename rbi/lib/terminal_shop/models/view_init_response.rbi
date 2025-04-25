@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::ViewInitResponse::Data, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # Initial app data.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::ViewInitResponse::Data}) }
       def to_hash; end
 
@@ -79,16 +81,17 @@ module TerminalShop
           addresses:,
           apps:,
           cards:,
+          # The current Terminal shop user's cart.
           cart:,
           orders:,
           products:,
+          # A Terminal shop user's profile. (We have users, btw.)
           profile:,
+          # A Terminal shop user's region.
           region:,
           subscriptions:,
           tokens:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(

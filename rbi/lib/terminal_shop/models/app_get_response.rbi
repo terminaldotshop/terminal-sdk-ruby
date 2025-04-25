@@ -14,8 +14,10 @@ module TerminalShop
         params(data: T.any(TerminalShop::Models::AppAPI, TerminalShop::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(data:); end
-
+      def self.new(
+        # A Terminal App used for configuring an OAuth 2.0 client.
+        data:
+      ); end
       sig { override.returns({data: TerminalShop::Models::AppAPI}) }
       def to_hash; end
     end

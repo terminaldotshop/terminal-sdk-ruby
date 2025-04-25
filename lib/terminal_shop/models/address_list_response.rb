@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AddressAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::AddressAPI>]
+      #   @param data [Array<TerminalShop::Models::AddressAPI>] Shipping addresses.
     end
   end
 end

@@ -28,8 +28,12 @@ module TerminalShop
         attr_accessor :secret
 
         sig { params(id: String, secret: String).returns(T.attached_class) }
-        def self.new(id:, secret:); end
-
+        def self.new(
+          # OAuth 2.0 client ID.
+          id:,
+          # OAuth 2.0 client secret.
+          secret:
+        ); end
         sig { override.returns({id: String, secret: String}) }
         def to_hash; end
       end

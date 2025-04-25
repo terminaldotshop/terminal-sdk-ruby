@@ -28,12 +28,18 @@ module TerminalShop
       required :secret, String
 
       # @!method initialize(id:, name:, redirect_uri:, secret:)
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::AppAPI} for more details.
+      #
       #   A Terminal App used for configuring an OAuth 2.0 client.
       #
-      #   @param id [String]
-      #   @param name [String]
-      #   @param redirect_uri [String]
-      #   @param secret [String]
+      #   @param id [String] Unique object identifier. ...
+      #
+      #   @param name [String] Name of the app.
+      #
+      #   @param redirect_uri [String] Redirect URI of the app.
+      #
+      #   @param secret [String] OAuth 2.0 client secret of the app (obfuscated).
     end
   end
 end

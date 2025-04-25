@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::ProfileAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::ProfileAPI]
+      #   @param data [TerminalShop::Models::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
     end
   end
 end

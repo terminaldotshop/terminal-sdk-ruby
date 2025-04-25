@@ -25,7 +25,8 @@ module TerminalShop
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the product to get.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::ProductGetResponse]

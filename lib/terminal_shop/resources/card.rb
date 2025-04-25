@@ -3,11 +3,16 @@
 module TerminalShop
   module Resources
     class Card
+      # Some parameter documentations has been truncated, see
+      # {TerminalShop::Models::CardCreateParams} for more details.
+      #
       # Attach a credit card (tokenized via Stripe) to the current user.
       #
       # @overload create(token:, request_options: {})
       #
-      # @param token [String]
+      # @param token [String] Stripe card token. Learn how to [create one here](https://docs.stripe.com/api/to
+      # ...
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardCreateResponse]
@@ -46,7 +51,8 @@ module TerminalShop
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the card to delete.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardDeleteResponse]
@@ -84,7 +90,8 @@ module TerminalShop
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] ID of the card to get.
+      #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [TerminalShop::Models::CardGetResponse]

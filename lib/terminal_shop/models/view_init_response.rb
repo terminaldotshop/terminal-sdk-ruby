@@ -11,7 +11,7 @@ module TerminalShop
       required :data, -> { TerminalShop::Models::ViewInitResponse::Data }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::ViewInitResponse::Data]
+      #   @param data [TerminalShop::Models::ViewInitResponse::Data] Initial app data.
 
       # @see TerminalShop::Models::ViewInitResponse#data
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -73,14 +73,23 @@ module TerminalShop
         #   Initial app data.
         #
         #   @param addresses [Array<TerminalShop::Models::AddressAPI>]
+        #
         #   @param apps [Array<TerminalShop::Models::AppAPI>]
+        #
         #   @param cards [Array<TerminalShop::Models::CardAPI>]
-        #   @param cart [TerminalShop::Models::CartAPI]
+        #
+        #   @param cart [TerminalShop::Models::CartAPI] The current Terminal shop user's cart.
+        #
         #   @param orders [Array<TerminalShop::Models::OrderAPI>]
+        #
         #   @param products [Array<TerminalShop::Models::ProductAPI>]
-        #   @param profile [TerminalShop::Models::ProfileAPI]
-        #   @param region [Symbol, TerminalShop::Models::Region]
+        #
+        #   @param profile [TerminalShop::Models::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
+        #
+        #   @param region [Symbol, TerminalShop::Models::Region] A Terminal shop user's region.
+        #
         #   @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
+        #
         #   @param tokens [Array<TerminalShop::Models::TokenAPI>]
       end
     end

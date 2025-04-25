@@ -28,8 +28,13 @@ module TerminalShop
         required :token, String
 
         # @!method initialize(id:, token:)
-        #   @param id [String]
-        #   @param token [String]
+        #   Some parameter documentations has been truncated, see
+        #   {TerminalShop::Models::TokenCreateResponse::Data} for more details.
+        #
+        #   @param id [String] Personal token ID.
+        #
+        #   @param token [String] Personal access token. Include this in the Authorization header (`Bearer <token>
+        #   ...
       end
     end
   end

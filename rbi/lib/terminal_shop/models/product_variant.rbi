@@ -40,8 +40,18 @@ module TerminalShop
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, name:, price:, description: nil, tags: nil); end
-
+      def self.new(
+        # Unique object identifier. The format and length of IDs may change over time.
+        id:,
+        # Name of the product variant.
+        name:,
+        # Price of the product variant in cents (USD).
+        price:,
+        # Description of the product variant.
+        description: nil,
+        # Tags for the product variant.
+        tags: nil
+      ); end
       sig do
         override
           .returns(
