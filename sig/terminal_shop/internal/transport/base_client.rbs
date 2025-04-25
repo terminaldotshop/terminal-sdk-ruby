@@ -53,7 +53,7 @@ module TerminalShop
         ) -> void
 
         # @api private
-        attr_accessor requester: TerminalShop::Internal::Transport::PooledNetRequester
+        attr_reader requester: TerminalShop::Internal::Transport::PooledNetRequester
 
         def initialize: (
           base_url: String,
