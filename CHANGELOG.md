@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.5.0 (2025-04-26)
+
+Full Changelog: [v3.4.0...v3.5.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.4.0...v3.5.0)
+
+### Features
+
+* support specifying content-type with FilePart class ([60735e1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/60735e16282c5acd3417b3dc50c5d2898d673425))
+* support webmock for testing ([ff907ee](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ff907ee938893c90f26230b95ef2b10077b2f6a3))
+
+
+### Bug Fixes
+
+* ensure gem release is unaffected by renaming ([bbc47b4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/bbc47b4cf411fbc82b4b52399c36ae582d985fc2))
+* make a typo for `FilePart.content` ([197b7f8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/197b7f881262ecc8e1580e9d11975b8f41b48461))
+
+
+### Chores
+
+* **internal:** codegen related update ([a28dff0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a28dff09e0ebf4f05e658fecc3d165ab7b20fc23))
+* **internal:** improve response envelope unwrap functionality ([b3ceb20](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b3ceb2025333ebbbf8627fbf527b9178f410b099))
+* show truncated parameter docs in yard ([ce3d7ce](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ce3d7ceb66f4f99f0f7b92e2883689805ca492c8))
+
 ## 3.4.0 (2025-04-24)
 
 Full Changelog: [v3.3.0...v3.4.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.3.0...v3.4.0)
