@@ -4,53 +4,20 @@ module TerminalShop
   module Resources
     class Cart
       # Clear the current user's cart.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::CartClearResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::CartClearResponse) }
       def clear(request_options: {}); end
 
       # Convert the current user's cart to an order.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::CartConvertResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::CartConvertResponse) }
       def convert(request_options: {}); end
 
       # Get the current user's cart.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::CartGetResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::CartGetResponse) }
       def get(request_options: {}); end
 
       # Set the shipping address for the current user's cart.
       sig do
-        params(
-          address_id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(address_id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::CartSetAddressResponse)
       end
       def set_address(
@@ -60,10 +27,7 @@ module TerminalShop
       ); end
       # Set the credit card for the current user's cart.
       sig do
-        params(
-          card_id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(card_id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::CartSetCardResponse)
       end
       def set_card(
@@ -73,11 +37,7 @@ module TerminalShop
       ); end
       # Add an item to the current user's cart.
       sig do
-        params(
-          product_variant_id: String,
-          quantity: Integer,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(product_variant_id: String, quantity: Integer, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::CartSetItemResponse)
       end
       def set_item(

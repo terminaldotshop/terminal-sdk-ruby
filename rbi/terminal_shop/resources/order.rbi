@@ -9,7 +9,7 @@ module TerminalShop
           address_id: String,
           card_id: String,
           variants: T::Hash[Symbol, Integer],
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+          request_options: TerminalShop::RequestOpts
         )
           .returns(TerminalShop::Models::OrderCreateResponse)
       end
@@ -23,25 +23,12 @@ module TerminalShop
         request_options: {}
       ); end
       # List the orders associated with the current user.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::OrderListResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::OrderListResponse) }
       def list(request_options: {}); end
 
       # Get the order with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::OrderGetResponse)
       end
       def get(

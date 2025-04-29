@@ -5,17 +5,7 @@ module TerminalShop
     class View
       # Get initial app data, including user, products, cart, addresses, cards,
       # subscriptions, and orders.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::ViewInitResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::ViewInitResponse) }
       def init(request_options: {}); end
 
       # @api private
