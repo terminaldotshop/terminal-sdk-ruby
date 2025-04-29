@@ -5,35 +5,18 @@ module TerminalShop
     class App
       # Create an app.
       sig do
-        params(
-          name: String,
-          redirect_uri: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(name: String, redirect_uri: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::AppCreateResponse)
       end
       def create(name:, redirect_uri:, request_options: {}); end
 
       # List the current user's registered apps.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::AppListResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::AppListResponse) }
       def list(request_options: {}); end
 
       # Delete the app with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::AppDeleteResponse)
       end
       def delete(
@@ -43,10 +26,7 @@ module TerminalShop
       ); end
       # Get the app with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::AppGetResponse)
       end
       def get(

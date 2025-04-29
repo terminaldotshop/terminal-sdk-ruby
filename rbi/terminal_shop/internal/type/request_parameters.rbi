@@ -6,7 +6,7 @@ module TerminalShop
       # @api private
       module RequestParameters
         # Options to specify HTTP behaviour for this request.
-        sig { returns(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)) }
+        sig { returns(TerminalShop::RequestOpts) }
         attr_accessor :request_options
 
         # @api private

@@ -4,25 +4,12 @@ module TerminalShop
   module Resources
     class Product
       # List all products for sale in the Terminal shop.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::ProductListResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::ProductListResponse) }
       def list(request_options: {}); end
 
       # Get a product by ID from the Terminal shop.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::ProductGetResponse)
       end
       def get(

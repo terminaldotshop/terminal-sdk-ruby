@@ -35,7 +35,7 @@ module TerminalShop
               page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(TerminalShop::Internal::Type::Converter::Input),
-              options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+              options: T.nilable(TerminalShop::RequestOpts)
             }
           end
 
@@ -188,7 +188,7 @@ module TerminalShop
             page: T.nilable(T::Class[TerminalShop::Internal::Type::BasePage[TerminalShop::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(TerminalShop::Internal::Type::Converter::Input),
-            options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+            options: T.nilable(TerminalShop::RequestOpts)
           )
             .returns(T.anything)
         end

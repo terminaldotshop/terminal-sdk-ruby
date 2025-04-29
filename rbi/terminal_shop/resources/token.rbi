@@ -4,39 +4,16 @@ module TerminalShop
   module Resources
     class Token
       # Create a personal access token.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::TokenCreateResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::TokenCreateResponse) }
       def create(request_options: {}); end
 
       # List the current user's personal access tokens.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::TokenListResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::TokenListResponse) }
       def list(request_options: {}); end
 
       # Delete the personal access token with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::TokenDeleteResponse)
       end
       def delete(
@@ -46,10 +23,7 @@ module TerminalShop
       ); end
       # Get the personal access token with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::TokenGetResponse)
       end
       def get(
