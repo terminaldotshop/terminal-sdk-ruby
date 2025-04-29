@@ -65,10 +65,9 @@ module TerminalShop
     #   @return [Float, nil]
     optional :timeout, Float
 
-    # @!parse
-    #   # @!method initialize(values = {})
-    #   #   Returns a new instance of RequestOptions.
-    #   #
-    #   #   @param values [Hash{Symbol=>Object}]
+    # @!method initialize(values = {})
+    #   Returns a new instance of RequestOptions.
+    #
+    #   @param values [Hash{Symbol=>Object}]
   end
 end
