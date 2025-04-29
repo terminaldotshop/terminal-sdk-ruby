@@ -5,10 +5,7 @@ module TerminalShop
     class Email
       # Subscribe to email updates from Terminal.
       sig do
-        params(
-          email: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(email: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::EmailCreateResponse)
       end
       def create(

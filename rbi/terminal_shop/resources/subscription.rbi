@@ -19,7 +19,7 @@ module TerminalShop
             TerminalShop::Internal::AnyHash,
             TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
           ),
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+          request_options: TerminalShop::RequestOpts
         )
           .returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
@@ -55,7 +55,7 @@ module TerminalShop
             TerminalShop::Internal::AnyHash,
             TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly
           ),
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
+          request_options: TerminalShop::RequestOpts
         )
           .returns(TerminalShop::Models::SubscriptionUpdateResponse)
       end
@@ -71,25 +71,12 @@ module TerminalShop
         request_options: {}
       ); end
       # List the subscriptions associated with the current user.
-      sig do
-        params(
-          request_options: T.nilable(
-            T.any(
-              TerminalShop::RequestOptions,
-              TerminalShop::Internal::AnyHash
-            )
-          )
-        )
-          .returns(TerminalShop::Models::SubscriptionListResponse)
-      end
+      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::SubscriptionListResponse) }
       def list(request_options: {}); end
 
       # Cancel a subscription for the current user.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
       def delete(
@@ -99,10 +86,7 @@ module TerminalShop
       ); end
       # Get the subscription with the given ID.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash))
-        )
+        params(id: String, request_options: TerminalShop::RequestOpts)
           .returns(TerminalShop::Models::SubscriptionGetResponse)
       end
       def get(
