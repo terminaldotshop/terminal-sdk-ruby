@@ -1,6 +1,6 @@
 # Terminal Ruby API library
 
-The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.1.0+ application.
+The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.2.0+ application.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -60,7 +60,7 @@ rescue TerminalShop::Errors::APIError => e
 end
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Cause            | Error Type                 |
 | ---------------- | -------------------------- |
@@ -198,7 +198,7 @@ This package considers improvements to the (non-runtime) `*.rbi` and `*.rbs` typ
 
 ## Requirements
 
-Ruby 3.1.0 or higher.
+Ruby 3.2.0 or higher.
 
 ## Contributing
 
