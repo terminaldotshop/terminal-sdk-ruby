@@ -1,0 +1,97 @@
+module TerminalShop
+  class AddressAPI = TerminalShop::Models::AddressAPI
+
+  class AddressCreateParams = TerminalShop::Models::AddressCreateParams
+
+  class AddressDeleteParams = TerminalShop::Models::AddressDeleteParams
+
+  class AddressGetParams = TerminalShop::Models::AddressGetParams
+
+  class AddressListParams = TerminalShop::Models::AddressListParams
+
+  class AppAPI = TerminalShop::Models::AppAPI
+
+  class AppCreateParams = TerminalShop::Models::AppCreateParams
+
+  class AppDeleteParams = TerminalShop::Models::AppDeleteParams
+
+  class AppGetParams = TerminalShop::Models::AppGetParams
+
+  class AppListParams = TerminalShop::Models::AppListParams
+
+  class CardAPI = TerminalShop::Models::CardAPI
+
+  class CardCollectParams = TerminalShop::Models::CardCollectParams
+
+  class CardCreateParams = TerminalShop::Models::CardCreateParams
+
+  class CardDeleteParams = TerminalShop::Models::CardDeleteParams
+
+  class CardGetParams = TerminalShop::Models::CardGetParams
+
+  class CardListParams = TerminalShop::Models::CardListParams
+
+  class CartAPI = TerminalShop::Models::CartAPI
+
+  class CartClearParams = TerminalShop::Models::CartClearParams
+
+  class CartConvertParams = TerminalShop::Models::CartConvertParams
+
+  class CartGetParams = TerminalShop::Models::CartGetParams
+
+  class CartSetAddressParams = TerminalShop::Models::CartSetAddressParams
+
+  class CartSetCardParams = TerminalShop::Models::CartSetCardParams
+
+  class CartSetItemParams = TerminalShop::Models::CartSetItemParams
+
+  class EmailCreateParams = TerminalShop::Models::EmailCreateParams
+
+  class OrderAPI = TerminalShop::Models::OrderAPI
+
+  class OrderCreateParams = TerminalShop::Models::OrderCreateParams
+
+  class OrderGetParams = TerminalShop::Models::OrderGetParams
+
+  class OrderListParams = TerminalShop::Models::OrderListParams
+
+  class ProductAPI = TerminalShop::Models::ProductAPI
+
+  class ProductGetParams = TerminalShop::Models::ProductGetParams
+
+  class ProductListParams = TerminalShop::Models::ProductListParams
+
+  class ProductVariant = TerminalShop::Models::ProductVariant
+
+  class ProfileAPI = TerminalShop::Models::ProfileAPI
+
+  class ProfileMeParams = TerminalShop::Models::ProfileMeParams
+
+  class ProfileUpdateParams = TerminalShop::Models::ProfileUpdateParams
+
+  module Region = TerminalShop::Models::Region
+
+  class SubscriptionAPI = TerminalShop::Models::SubscriptionAPI
+
+  class SubscriptionCreateParams = TerminalShop::Models::SubscriptionCreateParams
+
+  class SubscriptionDeleteParams = TerminalShop::Models::SubscriptionDeleteParams
+
+  class SubscriptionGetParams = TerminalShop::Models::SubscriptionGetParams
+
+  class SubscriptionListParams = TerminalShop::Models::SubscriptionListParams
+
+  class SubscriptionUpdateParams = TerminalShop::Models::SubscriptionUpdateParams
+
+  class TokenAPI = TerminalShop::Models::TokenAPI
+
+  class TokenCreateParams = TerminalShop::Models::TokenCreateParams
+
+  class TokenDeleteParams = TerminalShop::Models::TokenDeleteParams
+
+  class TokenGetParams = TerminalShop::Models::TokenGetParams
+
+  class TokenListParams = TerminalShop::Models::TokenListParams
+
+  class ViewInitParams = TerminalShop::Models::ViewInitParams
+end
