@@ -29,7 +29,7 @@ require "bundler/setup"
 require "terminal_shop"
 
 terminal = TerminalShop::Client.new(
-  bearer_token: "My Bearer Token", # defaults to ENV["TERMINAL_BEARER_TOKEN"]
+  bearer_token: ENV["TERMINAL_BEARER_TOKEN"], # This is the default and can be omitted
   environment: "dev" # defaults to "production"
 )
 
