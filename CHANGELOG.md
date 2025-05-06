@@ -1,5 +1,33 @@
 # Changelog
 
+## 3.6.0 (2025-05-06)
+
+Full Changelog: [v3.5.0...v3.6.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.5.0...v3.6.0)
+
+### Features
+
+* **api:** manual updates ([7e38ac6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7e38ac6016b5c475c03a7cdddd9169aa4b8fda3f))
+
+
+### Chores
+
+* accept all nd-json mimetype variants ([eff73e0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/eff73e0f8215f55c8455193891dbe9a5c28cc825))
+* add generator safe directory ([44215e0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/44215e0adfaf3ee818d03584bcbf9b87eee98a4c))
+* **internal:** annotate request options with type aliases in sorbet ([3b7e0d0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3b7e0d05e1f6b0f4a5fc71c95ffde379b77b83af))
+* **internal:** codegen related update ([5808227](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/580822724b6fe3dcb7061f6bbbac5d5a09d24713))
+* **internal:** codegen related update ([e11bb76](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e11bb7657fda2f3aff6c0fb7510e8844d865b051))
+* **internal:** remove unnecessary `rbi/lib` folder ([b27aba4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b27aba431115bb8236725d3c00b144b990a810b7))
+* loosen rubocop rules that don't always make sense ([c4bbb53](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c4bbb53755be82037edcd40c413fe659628ce241))
+* more accurate type annotations and aliases ([e957025](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e957025f3031eb1044363d9ddd7a1d4ce7057d21))
+* re-export top level models under library namespace ([36d326e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/36d326ea8861bc14a1e75552dfaaa8e70bf13235))
+* remove Gemfile.lock during bootstrap ([5f4d256](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5f4d256c3429fd3c8ff15473bf73bb94f9e5aef1))
+* validate request option coercion correctness ([0d21861](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/0d21861585dc0297ac3d27f3b0a84ac64a0ca0ac))
+
+
+### Documentation
+
+* illustrate environmental defaults for auth variables ([35a00a8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/35a00a8f7ec1e109009075c02ab8920ceba84393))
+
 ## 3.5.0 (2025-04-26)
 
 Full Changelog: [v3.4.0...v3.5.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.4.0...v3.5.0)
