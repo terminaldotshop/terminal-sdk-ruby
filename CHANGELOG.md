@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.6.1 (2025-05-06)
+
+Full Changelog: [v3.6.0...v3.6.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.0...v3.6.1)
+
+### Bug Fixes
+
+* **internal:** fix formatting script for macos ([2a11953](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2a119536aeb607452bbeee0b6eb444dc7e592b58))
+
+
+### Chores
+
+* **internal:** version bump ([d10ec26](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d10ec2627089405c24d0fab842fe38e4162fd88a))
+* revert ignoring Gemfile.lock ([aeb56e3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/aeb56e3ed5baeb5a212bcd7315b2ce793bf33e9f))
+
 ## 3.6.0 (2025-05-06)
 
 Full Changelog: [v3.5.0...v3.6.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.5.0...v3.6.0)
