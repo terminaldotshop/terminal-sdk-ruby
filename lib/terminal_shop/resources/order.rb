@@ -19,7 +19,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::OrderCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::OrderCreateParams.dump_request(params)
+        parsed, options = TerminalShop::OrderCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "order",

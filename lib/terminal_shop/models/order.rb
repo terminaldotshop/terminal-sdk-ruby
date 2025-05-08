@@ -12,8 +12,8 @@ module TerminalShop
       # @!attribute amount
       #   The subtotal and shipping amounts of the order.
       #
-      #   @return [TerminalShop::Models::OrderAPI::Amount]
-      required :amount, -> { TerminalShop::Models::OrderAPI::Amount }
+      #   @return [TerminalShop::OrderAPI::Amount]
+      required :amount, -> { TerminalShop::OrderAPI::Amount }
 
       # @!attribute created
       #   Date the order was created.
@@ -24,20 +24,20 @@ module TerminalShop
       # @!attribute items
       #   Items in the order.
       #
-      #   @return [Array<TerminalShop::Models::OrderAPI::Item>]
-      required :items, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI::Item] }
+      #   @return [Array<TerminalShop::OrderAPI::Item>]
+      required :items, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::OrderAPI::Item] }
 
       # @!attribute shipping
       #   Shipping address of the order.
       #
-      #   @return [TerminalShop::Models::OrderAPI::Shipping]
-      required :shipping, -> { TerminalShop::Models::OrderAPI::Shipping }
+      #   @return [TerminalShop::OrderAPI::Shipping]
+      required :shipping, -> { TerminalShop::OrderAPI::Shipping }
 
       # @!attribute tracking
       #   Tracking information of the order.
       #
-      #   @return [TerminalShop::Models::OrderAPI::Tracking]
-      required :tracking, -> { TerminalShop::Models::OrderAPI::Tracking }
+      #   @return [TerminalShop::OrderAPI::Tracking]
+      required :tracking, -> { TerminalShop::OrderAPI::Tracking }
 
       # @!attribute index
       #   Zero-based index of the order for this user only.
@@ -46,26 +46,26 @@ module TerminalShop
       optional :index, Integer
 
       # @!method initialize(id:, amount:, created:, items:, shipping:, tracking:, index: nil)
-      #   Some parameter documentations has been truncated, see
-      #   {TerminalShop::Models::OrderAPI} for more details.
+      #   Some parameter documentations has been truncated, see {TerminalShop::OrderAPI}
+      #   for more details.
       #
       #   An order from the Terminal shop.
       #
-      #   @param id [String] Unique object identifier. ...
+      #   @param id [String] Unique object identifier.
       #
-      #   @param amount [TerminalShop::Models::OrderAPI::Amount] The subtotal and shipping amounts of the order.
+      #   @param amount [TerminalShop::OrderAPI::Amount] The subtotal and shipping amounts of the order.
       #
       #   @param created [String] Date the order was created.
       #
-      #   @param items [Array<TerminalShop::Models::OrderAPI::Item>] Items in the order.
+      #   @param items [Array<TerminalShop::OrderAPI::Item>] Items in the order.
       #
-      #   @param shipping [TerminalShop::Models::OrderAPI::Shipping] Shipping address of the order.
+      #   @param shipping [TerminalShop::OrderAPI::Shipping] Shipping address of the order.
       #
-      #   @param tracking [TerminalShop::Models::OrderAPI::Tracking] Tracking information of the order.
+      #   @param tracking [TerminalShop::OrderAPI::Tracking] Tracking information of the order.
       #
       #   @param index [Integer] Zero-based index of the order for this user only.
 
-      # @see TerminalShop::Models::OrderAPI#amount
+      # @see TerminalShop::OrderAPI#amount
       class Amount < TerminalShop::Internal::Type::BaseModel
         # @!attribute shipping
         #   Shipping amount of the order, in cents (USD).
@@ -120,9 +120,9 @@ module TerminalShop
 
         # @!method initialize(id:, amount:, quantity:, description: nil, product_variant_id: nil)
         #   Some parameter documentations has been truncated, see
-        #   {TerminalShop::Models::OrderAPI::Item} for more details.
+        #   {TerminalShop::OrderAPI::Item} for more details.
         #
-        #   @param id [String] Unique object identifier. ...
+        #   @param id [String] Unique object identifier.
         #
         #   @param amount [Integer] Amount of the item in the order, in cents (USD).
         #
@@ -133,7 +133,7 @@ module TerminalShop
         #   @param product_variant_id [String] ID of the product variant of the item in the order.
       end
 
-      # @see TerminalShop::Models::OrderAPI#shipping
+      # @see TerminalShop::OrderAPI#shipping
       class Shipping < TerminalShop::Internal::Type::BaseModel
         # @!attribute city
         #   City of the address.
@@ -203,7 +203,7 @@ module TerminalShop
         #   @param street2 [String] Apartment, suite, etc. of the address.
       end
 
-      # @see TerminalShop::Models::OrderAPI#tracking
+      # @see TerminalShop::OrderAPI#tracking
       class Tracking < TerminalShop::Internal::Type::BaseModel
         # @!attribute number
         #   Tracking number of the order.
@@ -220,8 +220,8 @@ module TerminalShop
         # @!attribute status
         #   Current tracking status of the shipment.
         #
-        #   @return [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status, nil]
-        optional :status, enum: -> { TerminalShop::Models::OrderAPI::Tracking::Status }
+        #   @return [Symbol, TerminalShop::OrderAPI::Tracking::Status, nil]
+        optional :status, enum: -> { TerminalShop::OrderAPI::Tracking::Status }
 
         # @!attribute status_details
         #   Additional details about the tracking status.
@@ -248,7 +248,7 @@ module TerminalShop
         #
         #   @param service [String] Shipping service of the order.
         #
-        #   @param status [Symbol, TerminalShop::Models::OrderAPI::Tracking::Status] Current tracking status of the shipment.
+        #   @param status [Symbol, TerminalShop::OrderAPI::Tracking::Status] Current tracking status of the shipment.
         #
         #   @param status_details [String] Additional details about the tracking status.
         #
@@ -258,7 +258,7 @@ module TerminalShop
 
         # Current tracking status of the shipment.
         #
-        # @see TerminalShop::Models::OrderAPI::Tracking#status
+        # @see TerminalShop::OrderAPI::Tracking#status
         module Status
           extend TerminalShop::Internal::Type::Enum
 

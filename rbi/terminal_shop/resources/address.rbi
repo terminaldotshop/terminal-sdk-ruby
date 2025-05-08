@@ -14,9 +14,8 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String,
-          request_options: TerminalShop::RequestOpts
-        )
-          .returns(TerminalShop::Models::AddressCreateResponse)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::AddressCreateResponse)
       end
       def create(
         # City of the address.
@@ -36,34 +35,50 @@ module TerminalShop
         # Apartment, suite, etc. of the address.
         street2: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get the shipping addresses associated with the current user.
-      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::AddressListResponse) }
-      def list(request_options: {}); end
+      sig do
+        params(request_options: TerminalShop::RequestOptions::OrHash).returns(
+          TerminalShop::Models::AddressListResponse
+        )
+      end
+      def list(request_options: {})
+      end
 
       # Delete a shipping address from the current user.
       sig do
-        params(id: String, request_options: TerminalShop::RequestOpts)
-          .returns(TerminalShop::Models::AddressDeleteResponse)
+        params(
+          id: String,
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::AddressDeleteResponse)
       end
       def delete(
         # ID of the shipping address to delete.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get the shipping address with the given ID.
       sig do
-        params(id: String, request_options: TerminalShop::RequestOpts)
-          .returns(TerminalShop::Models::AddressGetResponse)
+        params(
+          id: String,
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::AddressGetResponse)
       end
       def get(
         # ID of the shipping address to get.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

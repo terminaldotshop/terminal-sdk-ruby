@@ -29,7 +29,6 @@ module TerminalShop
         #   URL for collecting card information.
         #
         #   @param url [String] Temporary URL that allows a user to enter credit card details over https at term
-        #   ...
       end
     end
   end

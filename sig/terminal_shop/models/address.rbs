@@ -53,8 +53,6 @@ module TerminalShop
         ?province: String,
         ?street2: String
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::address_api
     end
   end
 end

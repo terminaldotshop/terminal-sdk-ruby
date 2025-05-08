@@ -17,8 +17,6 @@ module TerminalShop
         quantity: Integer,
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::cart_set_item_params
     end
   end
 end

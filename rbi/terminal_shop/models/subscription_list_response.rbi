@@ -3,20 +3,29 @@
 module TerminalShop
   module Models
     class SubscriptionListResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # List of subscriptions.
-      sig { returns(T::Array[TerminalShop::Models::SubscriptionAPI]) }
+      sig { returns(T::Array[TerminalShop::SubscriptionAPI]) }
       attr_accessor :data
 
       sig do
-        params(data: T::Array[T.any(TerminalShop::Models::SubscriptionAPI, TerminalShop::Internal::AnyHash)])
-          .returns(T.attached_class)
+        params(data: T::Array[TerminalShop::SubscriptionAPI::OrHash]).returns(
+          T.attached_class
+        )
       end
       def self.new(
         # List of subscriptions.
         data:
-      ); end
-      sig { override.returns({data: T::Array[TerminalShop::Models::SubscriptionAPI]}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns({ data: T::Array[TerminalShop::SubscriptionAPI] })
+      end
+      def to_hash
+      end
     end
   end
 end

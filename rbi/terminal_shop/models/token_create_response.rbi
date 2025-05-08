@@ -3,22 +3,39 @@
 module TerminalShop
   module Models
     class TokenCreateResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       sig { returns(TerminalShop::Models::TokenCreateResponse::Data) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Internal::AnyHash)).void }
+      sig do
+        params(
+          data: TerminalShop::Models::TokenCreateResponse::Data::OrHash
+        ).void
+      end
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::TokenCreateResponse::Data, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(
+          data: TerminalShop::Models::TokenCreateResponse::Data::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(data:); end
+      def self.new(data:)
+      end
 
-      sig { override.returns({data: TerminalShop::Models::TokenCreateResponse::Data}) }
-      def to_hash; end
+      sig do
+        override.returns(
+          { data: TerminalShop::Models::TokenCreateResponse::Data }
+        )
+      end
+      def to_hash
+      end
 
       class Data < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Personal token ID.
         sig { returns(String) }
         attr_accessor :id
@@ -35,9 +52,12 @@ module TerminalShop
           # Personal access token. Include this in the Authorization header
           # (`Bearer <token>`) when accessing the Terminal API.
           token:
-        ); end
-        sig { override.returns({id: String, token: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ id: String, token: String }) }
+        def to_hash
+        end
       end
     end
   end

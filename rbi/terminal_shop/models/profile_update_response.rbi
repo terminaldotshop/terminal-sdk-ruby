@@ -3,23 +3,28 @@
 module TerminalShop
   module Models
     class ProfileUpdateResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # A Terminal shop user's profile. (We have users, btw.)
-      sig { returns(TerminalShop::Models::ProfileAPI) }
+      sig { returns(TerminalShop::ProfileAPI) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::AnyHash)).void }
+      sig { params(data: TerminalShop::ProfileAPI::OrHash).void }
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::ProfileAPI, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(data: TerminalShop::ProfileAPI::OrHash).returns(T.attached_class)
       end
       def self.new(
         # A Terminal shop user's profile. (We have users, btw.)
         data:
-      ); end
-      sig { override.returns({data: TerminalShop::Models::ProfileAPI}) }
-      def to_hash; end
+      )
+      end
+
+      sig { override.returns({ data: TerminalShop::ProfileAPI }) }
+      def to_hash
+      end
     end
   end
 end

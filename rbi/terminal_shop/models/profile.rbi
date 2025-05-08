@@ -3,26 +3,36 @@
 module TerminalShop
   module Models
     class ProfileAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # A Terminal shop user. (We have users, btw.)
-      sig { returns(TerminalShop::Models::ProfileAPI::User) }
+      sig { returns(TerminalShop::ProfileAPI::User) }
       attr_reader :user
 
-      sig { params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::AnyHash)).void }
+      sig { params(user: TerminalShop::ProfileAPI::User::OrHash).void }
       attr_writer :user
 
       # A Terminal shop user's profile. (We have users, btw.)
       sig do
-        params(user: T.any(TerminalShop::Models::ProfileAPI::User, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(user: TerminalShop::ProfileAPI::User::OrHash).returns(
+          T.attached_class
+        )
       end
       def self.new(
         # A Terminal shop user. (We have users, btw.)
         user:
-      ); end
-      sig { override.returns({user: TerminalShop::Models::ProfileAPI::User}) }
-      def to_hash; end
+      )
+      end
+
+      sig { override.returns({ user: TerminalShop::ProfileAPI::User }) }
+      def to_hash
+      end
 
       class User < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id
@@ -51,8 +61,7 @@ module TerminalShop
             fingerprint: T.nilable(String),
             name: T.nilable(String),
             stripe_customer_id: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Unique object identifier. The format and length of IDs may change over time.
@@ -65,20 +74,22 @@ module TerminalShop
           name:,
           # Stripe customer ID of the user.
           stripe_customer_id:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                email: T.nilable(String),
-                fingerprint: T.nilable(String),
-                name: T.nilable(String),
-                stripe_customer_id: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              email: T.nilable(String),
+              fingerprint: T.nilable(String),
+              name: T.nilable(String),
+              stripe_customer_id: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

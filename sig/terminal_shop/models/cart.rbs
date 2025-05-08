@@ -2,18 +2,18 @@ module TerminalShop
   module Models
     type cart_api =
       {
-        amount: TerminalShop::Models::CartAPI::Amount,
-        items: ::Array[TerminalShop::Models::CartAPI::Item],
+        amount: TerminalShop::CartAPI::Amount,
+        items: ::Array[TerminalShop::CartAPI::Item],
         subtotal: Integer,
         address_id: String,
         card_id: String,
-        shipping: TerminalShop::Models::CartAPI::Shipping
+        shipping: TerminalShop::CartAPI::Shipping
       }
 
     class CartAPI < TerminalShop::Internal::Type::BaseModel
-      attr_accessor amount: TerminalShop::Models::CartAPI::Amount
+      attr_accessor amount: TerminalShop::CartAPI::Amount
 
-      attr_accessor items: ::Array[TerminalShop::Models::CartAPI::Item]
+      attr_accessor items: ::Array[TerminalShop::CartAPI::Item]
 
       attr_accessor subtotal: Integer
 
@@ -25,22 +25,20 @@ module TerminalShop
 
       def card_id=: (String) -> String
 
-      attr_reader shipping: TerminalShop::Models::CartAPI::Shipping?
+      attr_reader shipping: TerminalShop::CartAPI::Shipping?
 
       def shipping=: (
-        TerminalShop::Models::CartAPI::Shipping
-      ) -> TerminalShop::Models::CartAPI::Shipping
+        TerminalShop::CartAPI::Shipping
+      ) -> TerminalShop::CartAPI::Shipping
 
       def initialize: (
-        amount: TerminalShop::Models::CartAPI::Amount,
-        items: ::Array[TerminalShop::Models::CartAPI::Item],
+        amount: TerminalShop::CartAPI::Amount,
+        items: ::Array[TerminalShop::CartAPI::Item],
         subtotal: Integer,
         ?address_id: String,
         ?card_id: String,
-        ?shipping: TerminalShop::Models::CartAPI::Shipping
+        ?shipping: TerminalShop::CartAPI::Shipping
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::cart_api
 
       type amount = { subtotal: Integer, shipping: Integer, total: Integer }
 
@@ -60,8 +58,6 @@ module TerminalShop
           ?shipping: Integer,
           ?total: Integer
         ) -> void
-
-        def to_hash: -> TerminalShop::Models::CartAPI::amount
       end
 
       type item =
@@ -87,8 +83,6 @@ module TerminalShop
           quantity: Integer,
           subtotal: Integer
         ) -> void
-
-        def to_hash: -> TerminalShop::Models::CartAPI::item
       end
 
       type shipping = { service: String, timeframe: String }
@@ -103,8 +97,6 @@ module TerminalShop
         def timeframe=: (String) -> String
 
         def initialize: (?service: String, ?timeframe: String) -> void
-
-        def to_hash: -> TerminalShop::Models::CartAPI::shipping
       end
     end
   end

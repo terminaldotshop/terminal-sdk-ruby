@@ -54,16 +54,16 @@ module TerminalShop
       # @!attribute schedule
       #   Schedule of the subscription.
       #
-      #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly, nil]
-      optional :schedule, union: -> { TerminalShop::Models::SubscriptionAPI::Schedule }
+      #   @return [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly, nil]
+      optional :schedule, union: -> { TerminalShop::SubscriptionAPI::Schedule }
 
       # @!method initialize(id:, address_id:, card_id:, created:, price:, product_variant_id:, quantity:, next_: nil, schedule: nil)
       #   Some parameter documentations has been truncated, see
-      #   {TerminalShop::Models::SubscriptionAPI} for more details.
+      #   {TerminalShop::SubscriptionAPI} for more details.
       #
       #   Subscription to a Terminal shop product.
       #
-      #   @param id [String] Unique object identifier. ...
+      #   @param id [String] Unique object identifier.
       #
       #   @param address_id [String] ID of the shipping address used for the subscription.
       #
@@ -79,17 +79,17 @@ module TerminalShop
       #
       #   @param next_ [String] Next shipment and billing date for the subscription.
       #
-      #   @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
+      #   @param schedule [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
 
       # Schedule of the subscription.
       #
-      # @see TerminalShop::Models::SubscriptionAPI#schedule
+      # @see TerminalShop::SubscriptionAPI#schedule
       module Schedule
         extend TerminalShop::Internal::Type::Union
 
-        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Fixed }
+        variant -> { TerminalShop::SubscriptionAPI::Schedule::Fixed }
 
-        variant -> { TerminalShop::Models::SubscriptionAPI::Schedule::Weekly }
+        variant -> { TerminalShop::SubscriptionAPI::Schedule::Weekly }
 
         class Fixed < TerminalShop::Internal::Type::BaseModel
           # @!attribute type
@@ -118,7 +118,7 @@ module TerminalShop
         end
 
         # @!method self.variants
-        #   @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
+        #   @return [Array(TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly)]
       end
     end
   end

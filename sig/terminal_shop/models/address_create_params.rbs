@@ -50,8 +50,6 @@ module TerminalShop
         ?street2: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::address_create_params
     end
   end
 end

@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class AddressCreateResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Shipping address ID.
       sig { returns(String) }
       attr_accessor :data
@@ -11,9 +14,12 @@ module TerminalShop
       def self.new(
         # Shipping address ID.
         data:
-      ); end
-      sig { override.returns({data: String}) }
-      def to_hash; end
+      )
+      end
+
+      sig { override.returns({ data: String }) }
+      def to_hash
+      end
     end
   end
 end

@@ -10,8 +10,6 @@ module TerminalShop
         data: TerminalShop::Models::AppCreateResponse::Data
       ) -> void
 
-      def to_hash: -> TerminalShop::Models::app_create_response
-
       type data = { id: String, secret: String }
 
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -20,8 +18,6 @@ module TerminalShop
         attr_accessor secret: String
 
         def initialize: (id: String, secret: String) -> void
-
-        def to_hash: -> TerminalShop::Models::AppCreateResponse::data
       end
     end
   end

@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class ProductAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -16,7 +19,7 @@ module TerminalShop
       attr_accessor :name
 
       # List of variants of the product.
-      sig { returns(T::Array[TerminalShop::Models::ProductVariant]) }
+      sig { returns(T::Array[TerminalShop::ProductVariant]) }
       attr_accessor :variants
 
       # Order of the product used when displaying a sorted list of products.
@@ -27,17 +30,23 @@ module TerminalShop
       attr_writer :order
 
       # Whether the product must be or can be subscribed to.
-      sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)) }
+      sig do
+        returns(T.nilable(TerminalShop::ProductAPI::Subscription::TaggedSymbol))
+      end
       attr_reader :subscription
 
-      sig { params(subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol).void }
+      sig do
+        params(
+          subscription: TerminalShop::ProductAPI::Subscription::OrSymbol
+        ).void
+      end
       attr_writer :subscription
 
       # Tags for the product.
-      sig { returns(T.nilable(TerminalShop::Models::ProductAPI::Tags)) }
+      sig { returns(T.nilable(TerminalShop::ProductAPI::Tags)) }
       attr_reader :tags
 
-      sig { params(tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::AnyHash)).void }
+      sig { params(tags: TerminalShop::ProductAPI::Tags::OrHash).void }
       attr_writer :tags
 
       # Product sold in the Terminal shop.
@@ -46,12 +55,11 @@ module TerminalShop
           id: String,
           description: String,
           name: String,
-          variants: T::Array[T.any(TerminalShop::Models::ProductVariant, TerminalShop::Internal::AnyHash)],
+          variants: T::Array[TerminalShop::ProductVariant::OrHash],
           order: Integer,
-          subscription: TerminalShop::Models::ProductAPI::Subscription::OrSymbol,
-          tags: T.any(TerminalShop::Models::ProductAPI::Tags, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          subscription: TerminalShop::ProductAPI::Subscription::OrSymbol,
+          tags: TerminalShop::ProductAPI::Tags::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -68,38 +76,51 @@ module TerminalShop
         subscription: nil,
         # Tags for the product.
         tags: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              description: String,
-              name: String,
-              variants: T::Array[TerminalShop::Models::ProductVariant],
-              order: Integer,
-              subscription: TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol,
-              tags: TerminalShop::Models::ProductAPI::Tags
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            description: String,
+            name: String,
+            variants: T::Array[TerminalShop::ProductVariant],
+            order: Integer,
+            subscription: TerminalShop::ProductAPI::Subscription::TaggedSymbol,
+            tags: TerminalShop::ProductAPI::Tags
+          }
+        )
+      end
+      def to_hash
+      end
 
       # Whether the product must be or can be subscribed to.
       module Subscription
         extend TerminalShop::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::ProductAPI::Subscription) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, TerminalShop::ProductAPI::Subscription) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ALLOWED = T.let(:allowed, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
-        REQUIRED = T.let(:required, TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol)
+        ALLOWED =
+          T.let(:allowed, TerminalShop::ProductAPI::Subscription::TaggedSymbol)
+        REQUIRED =
+          T.let(:required, TerminalShop::ProductAPI::Subscription::TaggedSymbol)
 
-        sig { override.returns(T::Array[TerminalShop::Models::ProductAPI::Subscription::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[TerminalShop::ProductAPI::Subscription::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       class Tags < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         sig { returns(T.nilable(String)) }
         attr_reader :app
 
@@ -145,26 +166,32 @@ module TerminalShop
             market_eu: T::Boolean,
             market_global: T::Boolean,
             market_na: T::Boolean
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
-        def self.new(app: nil, color: nil, featured: nil, market_eu: nil, market_global: nil, market_na: nil)
+        def self.new(
+          app: nil,
+          color: nil,
+          featured: nil,
+          market_eu: nil,
+          market_global: nil,
+          market_na: nil
+        )
         end
 
         sig do
-          override
-            .returns(
-              {
-                app: String,
-                color: String,
-                featured: T::Boolean,
-                market_eu: T::Boolean,
-                market_global: T::Boolean,
-                market_na: T::Boolean
-              }
-            )
+          override.returns(
+            {
+              app: String,
+              color: String,
+              featured: T::Boolean,
+              market_eu: T::Boolean,
+              market_global: T::Boolean,
+              market_na: T::Boolean
+            }
+          )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

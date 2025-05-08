@@ -33,11 +33,9 @@ module TerminalShop
         ?request_options: TerminalShop::request_opts
       ) -> void
 
-      def to_hash: -> TerminalShop::Models::subscription_update_params
-
       type schedule =
-        TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed
-        | TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly
+        TerminalShop::SubscriptionUpdateParams::Schedule::Fixed
+        | TerminalShop::SubscriptionUpdateParams::Schedule::Weekly
 
       module Schedule
         extend TerminalShop::Internal::Type::Union
@@ -48,8 +46,6 @@ module TerminalShop
           attr_accessor type: :fixed
 
           def initialize: (?type: :fixed) -> void
-
-          def to_hash: -> TerminalShop::Models::SubscriptionUpdateParams::Schedule::fixed
         end
 
         type weekly = { interval: Integer, type: :weekly }
@@ -60,11 +56,9 @@ module TerminalShop
           attr_accessor type: :weekly
 
           def initialize: (interval: Integer, ?type: :weekly) -> void
-
-          def to_hash: -> TerminalShop::Models::SubscriptionUpdateParams::Schedule::weekly
         end
 
-        def self?.variants: -> [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly]
+        def self?.variants: -> ::Array[TerminalShop::Models::SubscriptionUpdateParams::schedule]
       end
     end
   end
