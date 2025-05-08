@@ -18,8 +18,6 @@ module TerminalShop
         redirect_uri: String,
         secret: String
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::app_api
     end
   end
 end

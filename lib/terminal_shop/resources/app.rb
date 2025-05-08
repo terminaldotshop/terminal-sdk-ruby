@@ -15,7 +15,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::AppCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::AppCreateParams.dump_request(params)
+        parsed, options = TerminalShop::AppCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "app",

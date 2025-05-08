@@ -12,7 +12,10 @@ module TerminalShop
 
     ENVIRONMENTS =
       T.let(
-        {production: "https://api.terminal.shop", dev: "https://api.dev.terminal.shop"},
+        {
+          production: "https://api.terminal.shop",
+          dev: "https://api.dev.terminal.shop"
+        },
         T::Hash[Symbol, String]
       )
 
@@ -57,7 +60,8 @@ module TerminalShop
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }
-    private def auth_headers; end
+    private def auth_headers
+    end
 
     # Creates and returns a new client for interacting with the API.
     sig do
@@ -70,8 +74,7 @@ module TerminalShop
         timeout: Float,
         initial_retry_delay: Float,
         max_retry_delay: Float
-      )
-        .returns(T.attached_class)
+      ).returns(T.attached_class)
     end
     def self.new(
       # Defaults to `ENV["TERMINAL_BEARER_TOKEN"]`
@@ -92,6 +95,7 @@ module TerminalShop
       timeout: TerminalShop::Client::DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: TerminalShop::Client::DEFAULT_INITIAL_RETRY_DELAY,
       max_retry_delay: TerminalShop::Client::DEFAULT_MAX_RETRY_DELAY
-    ); end
+    )
+    end
   end
 end

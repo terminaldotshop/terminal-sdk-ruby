@@ -13,8 +13,6 @@ module TerminalShop
         email: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::email_create_params
     end
   end
 end

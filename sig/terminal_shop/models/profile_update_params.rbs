@@ -17,8 +17,6 @@ module TerminalShop
         name: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::profile_update_params
     end
   end
 end

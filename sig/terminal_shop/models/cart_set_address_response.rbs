@@ -6,8 +6,6 @@ module TerminalShop
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void
-
-      def to_hash: -> TerminalShop::Models::cart_set_address_response
     end
   end
 end

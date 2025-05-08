@@ -11,7 +11,6 @@ module TerminalShop
       # @overload create(token:, request_options: {})
       #
       # @param token [String] Stripe card token. Learn how to [create one here](https://docs.stripe.com/api/to
-      # ...
       #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -19,7 +18,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::CardCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::CardCreateParams.dump_request(params)
+        parsed, options = TerminalShop::CardCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "card",

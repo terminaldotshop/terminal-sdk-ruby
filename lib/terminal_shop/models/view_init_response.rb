@@ -17,80 +17,79 @@ module TerminalShop
       class Data < TerminalShop::Internal::Type::BaseModel
         # @!attribute addresses
         #
-        #   @return [Array<TerminalShop::Models::AddressAPI>]
-        required :addresses, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AddressAPI] }
+        #   @return [Array<TerminalShop::AddressAPI>]
+        required :addresses, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::AddressAPI] }
 
         # @!attribute apps
         #
-        #   @return [Array<TerminalShop::Models::AppAPI>]
-        required :apps, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AppAPI] }
+        #   @return [Array<TerminalShop::AppAPI>]
+        required :apps, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::AppAPI] }
 
         # @!attribute cards
         #
-        #   @return [Array<TerminalShop::Models::CardAPI>]
-        required :cards, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::CardAPI] }
+        #   @return [Array<TerminalShop::CardAPI>]
+        required :cards, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::CardAPI] }
 
         # @!attribute cart
         #   The current Terminal shop user's cart.
         #
-        #   @return [TerminalShop::Models::CartAPI]
-        required :cart, -> { TerminalShop::Models::CartAPI }
+        #   @return [TerminalShop::CartAPI]
+        required :cart, -> { TerminalShop::CartAPI }
 
         # @!attribute orders
         #
-        #   @return [Array<TerminalShop::Models::OrderAPI>]
-        required :orders, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::OrderAPI] }
+        #   @return [Array<TerminalShop::OrderAPI>]
+        required :orders, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::OrderAPI] }
 
         # @!attribute products
         #
-        #   @return [Array<TerminalShop::Models::ProductAPI>]
-        required :products, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductAPI] }
+        #   @return [Array<TerminalShop::ProductAPI>]
+        required :products, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::ProductAPI] }
 
         # @!attribute profile
         #   A Terminal shop user's profile. (We have users, btw.)
         #
-        #   @return [TerminalShop::Models::ProfileAPI]
-        required :profile, -> { TerminalShop::Models::ProfileAPI }
+        #   @return [TerminalShop::ProfileAPI]
+        required :profile, -> { TerminalShop::ProfileAPI }
 
         # @!attribute region
         #   A Terminal shop user's region.
         #
-        #   @return [Symbol, TerminalShop::Models::Region]
-        required :region, enum: -> { TerminalShop::Models::Region }
+        #   @return [Symbol, TerminalShop::Region]
+        required :region, enum: -> { TerminalShop::Region }
 
         # @!attribute subscriptions
         #
-        #   @return [Array<TerminalShop::Models::SubscriptionAPI>]
-        required :subscriptions,
-                 -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::SubscriptionAPI] }
+        #   @return [Array<TerminalShop::SubscriptionAPI>]
+        required :subscriptions, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::SubscriptionAPI] }
 
         # @!attribute tokens
         #
-        #   @return [Array<TerminalShop::Models::TokenAPI>]
-        required :tokens, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::TokenAPI] }
+        #   @return [Array<TerminalShop::TokenAPI>]
+        required :tokens, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::TokenAPI] }
 
         # @!method initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:)
         #   Initial app data.
         #
-        #   @param addresses [Array<TerminalShop::Models::AddressAPI>]
+        #   @param addresses [Array<TerminalShop::AddressAPI>]
         #
-        #   @param apps [Array<TerminalShop::Models::AppAPI>]
+        #   @param apps [Array<TerminalShop::AppAPI>]
         #
-        #   @param cards [Array<TerminalShop::Models::CardAPI>]
+        #   @param cards [Array<TerminalShop::CardAPI>]
         #
-        #   @param cart [TerminalShop::Models::CartAPI] The current Terminal shop user's cart.
+        #   @param cart [TerminalShop::CartAPI] The current Terminal shop user's cart.
         #
-        #   @param orders [Array<TerminalShop::Models::OrderAPI>]
+        #   @param orders [Array<TerminalShop::OrderAPI>]
         #
-        #   @param products [Array<TerminalShop::Models::ProductAPI>]
+        #   @param products [Array<TerminalShop::ProductAPI>]
         #
-        #   @param profile [TerminalShop::Models::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
+        #   @param profile [TerminalShop::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
         #
-        #   @param region [Symbol, TerminalShop::Models::Region] A Terminal shop user's region.
+        #   @param region [Symbol, TerminalShop::Region] A Terminal shop user's region.
         #
-        #   @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
+        #   @param subscriptions [Array<TerminalShop::SubscriptionAPI>]
         #
-        #   @param tokens [Array<TerminalShop::Models::TokenAPI>]
+        #   @param tokens [Array<TerminalShop::TokenAPI>]
       end
     end
   end

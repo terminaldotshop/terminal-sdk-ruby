@@ -34,7 +34,6 @@ module TerminalShop
         #   @param id [String] Personal token ID.
         #
         #   @param token [String] Personal access token. Include this in the Authorization header (`Bearer <token>
-        #   ...
       end
     end
   end

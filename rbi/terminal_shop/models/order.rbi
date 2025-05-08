@@ -3,15 +3,18 @@
 module TerminalShop
   module Models
     class OrderAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
 
       # The subtotal and shipping amounts of the order.
-      sig { returns(TerminalShop::Models::OrderAPI::Amount) }
+      sig { returns(TerminalShop::OrderAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash)).void }
+      sig { params(amount: TerminalShop::OrderAPI::Amount::OrHash).void }
       attr_writer :amount
 
       # Date the order was created.
@@ -19,21 +22,21 @@ module TerminalShop
       attr_accessor :created
 
       # Items in the order.
-      sig { returns(T::Array[TerminalShop::Models::OrderAPI::Item]) }
+      sig { returns(T::Array[TerminalShop::OrderAPI::Item]) }
       attr_accessor :items
 
       # Shipping address of the order.
-      sig { returns(TerminalShop::Models::OrderAPI::Shipping) }
+      sig { returns(TerminalShop::OrderAPI::Shipping) }
       attr_reader :shipping
 
-      sig { params(shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::AnyHash)).void }
+      sig { params(shipping: TerminalShop::OrderAPI::Shipping::OrHash).void }
       attr_writer :shipping
 
       # Tracking information of the order.
-      sig { returns(TerminalShop::Models::OrderAPI::Tracking) }
+      sig { returns(TerminalShop::OrderAPI::Tracking) }
       attr_reader :tracking
 
-      sig { params(tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::AnyHash)).void }
+      sig { params(tracking: TerminalShop::OrderAPI::Tracking::OrHash).void }
       attr_writer :tracking
 
       # Zero-based index of the order for this user only.
@@ -47,14 +50,13 @@ module TerminalShop
       sig do
         params(
           id: String,
-          amount: T.any(TerminalShop::Models::OrderAPI::Amount, TerminalShop::Internal::AnyHash),
+          amount: TerminalShop::OrderAPI::Amount::OrHash,
           created: String,
-          items: T::Array[T.any(TerminalShop::Models::OrderAPI::Item, TerminalShop::Internal::AnyHash)],
-          shipping: T.any(TerminalShop::Models::OrderAPI::Shipping, TerminalShop::Internal::AnyHash),
-          tracking: T.any(TerminalShop::Models::OrderAPI::Tracking, TerminalShop::Internal::AnyHash),
+          items: T::Array[TerminalShop::OrderAPI::Item::OrHash],
+          shipping: TerminalShop::OrderAPI::Shipping::OrHash,
+          tracking: TerminalShop::OrderAPI::Tracking::OrHash,
           index: Integer
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -71,24 +73,29 @@ module TerminalShop
         tracking:,
         # Zero-based index of the order for this user only.
         index: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              amount: TerminalShop::Models::OrderAPI::Amount,
-              created: String,
-              items: T::Array[TerminalShop::Models::OrderAPI::Item],
-              shipping: TerminalShop::Models::OrderAPI::Shipping,
-              tracking: TerminalShop::Models::OrderAPI::Tracking,
-              index: Integer
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: TerminalShop::OrderAPI::Amount,
+            created: String,
+            items: T::Array[TerminalShop::OrderAPI::Item],
+            shipping: TerminalShop::OrderAPI::Shipping,
+            tracking: TerminalShop::OrderAPI::Tracking,
+            index: Integer
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Amount < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Shipping amount of the order, in cents (USD).
         sig { returns(Integer) }
         attr_accessor :shipping
@@ -98,18 +105,26 @@ module TerminalShop
         attr_accessor :subtotal
 
         # The subtotal and shipping amounts of the order.
-        sig { params(shipping: Integer, subtotal: Integer).returns(T.attached_class) }
+        sig do
+          params(shipping: Integer, subtotal: Integer).returns(T.attached_class)
+        end
         def self.new(
           # Shipping amount of the order, in cents (USD).
           shipping:,
           # Subtotal amount of the order, in cents (USD).
           subtotal:
-        ); end
-        sig { override.returns({shipping: Integer, subtotal: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ shipping: Integer, subtotal: Integer }) }
+        def to_hash
+        end
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id
@@ -143,8 +158,7 @@ module TerminalShop
             quantity: Integer,
             description: String,
             product_variant_id: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Unique object identifier. The format and length of IDs may change over time.
@@ -157,21 +171,28 @@ module TerminalShop
           description: nil,
           # ID of the product variant of the item in the order.
           product_variant_id: nil
-        ); end
-        sig do
-          override
-            .returns({
-                       id: String,
-                       amount: Integer,
-                       quantity: Integer,
-                       description: String,
-                       product_variant_id: String
-                     })
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              quantity: Integer,
+              description: String,
+              product_variant_id: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # City of the address.
         sig { returns(String) }
         attr_accessor :city
@@ -224,8 +245,7 @@ module TerminalShop
             phone: String,
             province: String,
             street2: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # City of the address.
@@ -244,26 +264,31 @@ module TerminalShop
           province: nil,
           # Apartment, suite, etc. of the address.
           street2: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                city: String,
-                country: String,
-                name: String,
-                street1: String,
-                zip: String,
-                phone: String,
-                province: String,
-                street2: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              city: String,
+              country: String,
+              name: String,
+              street1: String,
+              zip: String,
+              phone: String,
+              province: String,
+              street2: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class Tracking < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Tracking number of the order.
         sig { returns(T.nilable(String)) }
         attr_reader :number
@@ -279,10 +304,18 @@ module TerminalShop
         attr_writer :service
 
         # Current tracking status of the shipment.
-        sig { returns(T.nilable(TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)) }
+        sig do
+          returns(
+            T.nilable(TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol)
+          )
+        end
         attr_reader :status
 
-        sig { params(status: TerminalShop::Models::OrderAPI::Tracking::Status::OrSymbol).void }
+        sig do
+          params(
+            status: TerminalShop::OrderAPI::Tracking::Status::OrSymbol
+          ).void
+        end
         attr_writer :status
 
         # Additional details about the tracking status.
@@ -311,12 +344,11 @@ module TerminalShop
           params(
             number: String,
             service: String,
-            status: TerminalShop::Models::OrderAPI::Tracking::Status::OrSymbol,
+            status: TerminalShop::OrderAPI::Tracking::Status::OrSymbol,
             status_details: String,
             status_updated_at: String,
             url: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Tracking number of the order.
@@ -331,38 +363,72 @@ module TerminalShop
           status_updated_at: nil,
           # Tracking URL of the order.
           url: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                number: String,
-                service: String,
-                status: TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol,
-                status_details: String,
-                status_updated_at: String,
-                url: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              number: String,
+              service: String,
+              status: TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol,
+              status_details: String,
+              status_updated_at: String,
+              url: String
+            }
+          )
+        end
+        def to_hash
+        end
 
         # Current tracking status of the shipment.
         module Status
           extend TerminalShop::Internal::Type::Enum
 
-          TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Models::OrderAPI::Tracking::Status) }
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, TerminalShop::OrderAPI::Tracking::Status)
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          PRE_TRANSIT = T.let(:PRE_TRANSIT, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
-          TRANSIT = T.let(:TRANSIT, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
-          DELIVERED = T.let(:DELIVERED, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
-          RETURNED = T.let(:RETURNED, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
-          FAILURE = T.let(:FAILURE, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
-          UNKNOWN = T.let(:UNKNOWN, TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol)
+          PRE_TRANSIT =
+            T.let(
+              :PRE_TRANSIT,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
+          TRANSIT =
+            T.let(
+              :TRANSIT,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
+          DELIVERED =
+            T.let(
+              :DELIVERED,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
+          RETURNED =
+            T.let(
+              :RETURNED,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
+          FAILURE =
+            T.let(
+              :FAILURE,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
+          UNKNOWN =
+            T.let(
+              :UNKNOWN,
+              TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol
+            )
 
-          sig { override.returns(T::Array[TerminalShop::Models::OrderAPI::Tracking::Status::TaggedSymbol]) }
-          def self.values; end
+          sig do
+            override.returns(
+              T::Array[TerminalShop::OrderAPI::Tracking::Status::TaggedSymbol]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

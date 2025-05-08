@@ -69,7 +69,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::CartSetAddressParams
       def set_address(params)
-        parsed, options = TerminalShop::Models::CartSetAddressParams.dump_request(params)
+        parsed, options = TerminalShop::CartSetAddressParams.dump_request(params)
         @client.request(
           method: :put,
           path: "cart/address",
@@ -91,7 +91,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::CartSetCardParams
       def set_card(params)
-        parsed, options = TerminalShop::Models::CartSetCardParams.dump_request(params)
+        parsed, options = TerminalShop::CartSetCardParams.dump_request(params)
         @client.request(
           method: :put,
           path: "cart/card",
@@ -115,7 +115,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::CartSetItemParams
       def set_item(params)
-        parsed, options = TerminalShop::Models::CartSetItemParams.dump_request(params)
+        parsed, options = TerminalShop::CartSetItemParams.dump_request(params)
         @client.request(
           method: :put,
           path: "cart/item",

@@ -1,13 +1,11 @@
 module TerminalShop
   module Models
-    type order_get_response = { data: TerminalShop::Models::OrderAPI }
+    type order_get_response = { data: TerminalShop::OrderAPI }
 
     class OrderGetResponse < TerminalShop::Internal::Type::BaseModel
-      attr_accessor data: TerminalShop::Models::OrderAPI
+      attr_accessor data: TerminalShop::OrderAPI
 
-      def initialize: (data: TerminalShop::Models::OrderAPI) -> void
-
-      def to_hash: -> TerminalShop::Models::order_get_response
+      def initialize: (data: TerminalShop::OrderAPI) -> void
     end
   end
 end

@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   List of subscriptions.
       #
-      #   @return [Array<TerminalShop::Models::SubscriptionAPI>]
-      required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::SubscriptionAPI] }
+      #   @return [Array<TerminalShop::SubscriptionAPI>]
+      required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::SubscriptionAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::SubscriptionAPI>] List of subscriptions.
+      #   @param data [Array<TerminalShop::SubscriptionAPI>] List of subscriptions.
     end
   end
 end

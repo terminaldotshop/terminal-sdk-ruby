@@ -10,57 +10,53 @@ module TerminalShop
         data: TerminalShop::Models::ViewInitResponse::Data
       ) -> void
 
-      def to_hash: -> TerminalShop::Models::view_init_response
-
       type data =
         {
-          addresses: ::Array[TerminalShop::Models::AddressAPI],
-          apps: ::Array[TerminalShop::Models::AppAPI],
-          cards: ::Array[TerminalShop::Models::CardAPI],
-          cart: TerminalShop::Models::CartAPI,
-          orders: ::Array[TerminalShop::Models::OrderAPI],
-          products: ::Array[TerminalShop::Models::ProductAPI],
-          profile: TerminalShop::Models::ProfileAPI,
+          addresses: ::Array[TerminalShop::AddressAPI],
+          apps: ::Array[TerminalShop::AppAPI],
+          cards: ::Array[TerminalShop::CardAPI],
+          cart: TerminalShop::CartAPI,
+          orders: ::Array[TerminalShop::OrderAPI],
+          products: ::Array[TerminalShop::ProductAPI],
+          profile: TerminalShop::ProfileAPI,
           region: TerminalShop::Models::region,
-          subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
-          tokens: ::Array[TerminalShop::Models::TokenAPI]
+          subscriptions: ::Array[TerminalShop::SubscriptionAPI],
+          tokens: ::Array[TerminalShop::TokenAPI]
         }
 
       class Data < TerminalShop::Internal::Type::BaseModel
-        attr_accessor addresses: ::Array[TerminalShop::Models::AddressAPI]
+        attr_accessor addresses: ::Array[TerminalShop::AddressAPI]
 
-        attr_accessor apps: ::Array[TerminalShop::Models::AppAPI]
+        attr_accessor apps: ::Array[TerminalShop::AppAPI]
 
-        attr_accessor cards: ::Array[TerminalShop::Models::CardAPI]
+        attr_accessor cards: ::Array[TerminalShop::CardAPI]
 
-        attr_accessor cart: TerminalShop::Models::CartAPI
+        attr_accessor cart: TerminalShop::CartAPI
 
-        attr_accessor orders: ::Array[TerminalShop::Models::OrderAPI]
+        attr_accessor orders: ::Array[TerminalShop::OrderAPI]
 
-        attr_accessor products: ::Array[TerminalShop::Models::ProductAPI]
+        attr_accessor products: ::Array[TerminalShop::ProductAPI]
 
-        attr_accessor profile: TerminalShop::Models::ProfileAPI
+        attr_accessor profile: TerminalShop::ProfileAPI
 
         attr_accessor region: TerminalShop::Models::region
 
-        attr_accessor subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI]
+        attr_accessor subscriptions: ::Array[TerminalShop::SubscriptionAPI]
 
-        attr_accessor tokens: ::Array[TerminalShop::Models::TokenAPI]
+        attr_accessor tokens: ::Array[TerminalShop::TokenAPI]
 
         def initialize: (
-          addresses: ::Array[TerminalShop::Models::AddressAPI],
-          apps: ::Array[TerminalShop::Models::AppAPI],
-          cards: ::Array[TerminalShop::Models::CardAPI],
-          cart: TerminalShop::Models::CartAPI,
-          orders: ::Array[TerminalShop::Models::OrderAPI],
-          products: ::Array[TerminalShop::Models::ProductAPI],
-          profile: TerminalShop::Models::ProfileAPI,
+          addresses: ::Array[TerminalShop::AddressAPI],
+          apps: ::Array[TerminalShop::AppAPI],
+          cards: ::Array[TerminalShop::CardAPI],
+          cart: TerminalShop::CartAPI,
+          orders: ::Array[TerminalShop::OrderAPI],
+          products: ::Array[TerminalShop::ProductAPI],
+          profile: TerminalShop::ProfileAPI,
           region: TerminalShop::Models::region,
-          subscriptions: ::Array[TerminalShop::Models::SubscriptionAPI],
-          tokens: ::Array[TerminalShop::Models::TokenAPI]
+          subscriptions: ::Array[TerminalShop::SubscriptionAPI],
+          tokens: ::Array[TerminalShop::TokenAPI]
         ) -> void
-
-        def to_hash: -> TerminalShop::Models::ViewInitResponse::data
       end
     end
   end

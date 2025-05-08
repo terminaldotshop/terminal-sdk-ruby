@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   Physical address associated with a Terminal shop user.
       #
-      #   @return [TerminalShop::Models::AddressAPI]
-      required :data, -> { TerminalShop::Models::AddressAPI }
+      #   @return [TerminalShop::AddressAPI]
+      required :data, -> { TerminalShop::AddressAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::AddressAPI] Physical address associated with a Terminal shop user.
+      #   @param data [TerminalShop::AddressAPI] Physical address associated with a Terminal shop user.
     end
   end
 end

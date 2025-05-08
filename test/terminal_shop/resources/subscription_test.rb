@@ -35,7 +35,7 @@ class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::Reso
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::SubscriptionAPI
+        data: TerminalShop::SubscriptionAPI
       }
     end
   end
@@ -49,7 +49,7 @@ class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::Reso
 
     assert_pattern do
       response => {
-        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::SubscriptionAPI])
+        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::SubscriptionAPI])
       }
     end
   end
@@ -77,7 +77,7 @@ class TerminalShop::Test::Resources::SubscriptionTest < TerminalShop::Test::Reso
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::SubscriptionAPI
+        data: TerminalShop::SubscriptionAPI
       }
     end
   end

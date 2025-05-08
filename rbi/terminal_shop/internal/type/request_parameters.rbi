@@ -6,14 +6,24 @@ module TerminalShop
       # @api private
       module RequestParameters
         # Options to specify HTTP behaviour for this request.
-        sig { returns(TerminalShop::RequestOpts) }
-        attr_accessor :request_options
+        sig { returns(TerminalShop::RequestOptions) }
+        attr_reader :request_options
+
+        sig do
+          params(request_options: TerminalShop::RequestOptions::OrHash).void
+        end
+        attr_writer :request_options
 
         # @api private
         module Converter
           # @api private
-          sig { params(params: T.anything).returns([T.anything, TerminalShop::Internal::AnyHash]) }
-          def dump_request(params); end
+          sig do
+            params(params: T.anything).returns(
+              [T.anything, TerminalShop::Internal::AnyHash]
+            )
+          end
+          def dump_request(params)
+          end
         end
       end
     end

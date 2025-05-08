@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class AddressAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -65,8 +68,7 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -89,25 +91,27 @@ module TerminalShop
         province: nil,
         # Apartment, suite, etc. of the address.
         street2: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              city: String,
-              country: String,
-              created: String,
-              name: String,
-              street1: String,
-              zip: String,
-              phone: String,
-              province: String,
-              street2: String
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            city: String,
+            country: String,
+            created: String,
+            name: String,
+            street1: String,
+            zip: String,
+            phone: String,
+            province: String,
+            street2: String
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

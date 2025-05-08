@@ -10,8 +10,6 @@ module TerminalShop
       attr_accessor created: String
 
       def initialize: (id: String, token: String, created: String) -> void
-
-      def to_hash: -> TerminalShop::Models::token_api
     end
   end
 end

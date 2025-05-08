@@ -29,7 +29,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::AddressCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::AddressCreateParams.dump_request(params)
+        parsed, options = TerminalShop::AddressCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "address",

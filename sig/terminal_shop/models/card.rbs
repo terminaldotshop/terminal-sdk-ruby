@@ -5,7 +5,7 @@ module TerminalShop
         id: String,
         brand: String,
         created: String,
-        expiration: TerminalShop::Models::CardAPI::Expiration,
+        expiration: TerminalShop::CardAPI::Expiration,
         :last4 => String
       }
 
@@ -16,7 +16,7 @@ module TerminalShop
 
       attr_accessor created: String
 
-      attr_accessor expiration: TerminalShop::Models::CardAPI::Expiration
+      attr_accessor expiration: TerminalShop::CardAPI::Expiration
 
       attr_accessor last4: String
 
@@ -24,11 +24,9 @@ module TerminalShop
         id: String,
         brand: String,
         created: String,
-        expiration: TerminalShop::Models::CardAPI::Expiration,
+        expiration: TerminalShop::CardAPI::Expiration,
         last4: String
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::card_api
 
       type expiration = { month: Integer, year: Integer }
 
@@ -38,8 +36,6 @@ module TerminalShop
         attr_accessor year: Integer
 
         def initialize: (month: Integer, year: Integer) -> void
-
-        def to_hash: -> TerminalShop::Models::CardAPI::expiration
       end
     end
   end

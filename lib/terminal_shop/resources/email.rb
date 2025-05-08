@@ -15,7 +15,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::EmailCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::EmailCreateParams.dump_request(params)
+        parsed, options = TerminalShop::EmailCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "email",

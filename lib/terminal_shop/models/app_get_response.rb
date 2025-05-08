@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   A Terminal App used for configuring an OAuth 2.0 client.
       #
-      #   @return [TerminalShop::Models::AppAPI]
-      required :data, -> { TerminalShop::Models::AppAPI }
+      #   @return [TerminalShop::AppAPI]
+      required :data, -> { TerminalShop::AppAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::AppAPI] A Terminal App used for configuring an OAuth 2.0 client.
+      #   @param data [TerminalShop::AppAPI] A Terminal App used for configuring an OAuth 2.0 client.
     end
   end
 end

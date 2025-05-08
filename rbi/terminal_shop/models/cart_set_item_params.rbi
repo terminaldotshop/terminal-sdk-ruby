@@ -6,6 +6,9 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # ID of the product variant to add to the cart.
       sig { returns(String) }
       attr_accessor :product_variant_id
@@ -18,9 +21,8 @@ module TerminalShop
         params(
           product_variant_id: String,
           quantity: Integer,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # ID of the product variant to add to the cart.
@@ -28,16 +30,20 @@ module TerminalShop
         # Quantity of the item to add to the cart.
         quantity:,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns({
-                     product_variant_id: String,
-                     quantity: Integer,
-                     request_options: TerminalShop::RequestOptions
-                   })
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            product_variant_id: String,
+            quantity: Integer,
+            request_options: TerminalShop::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

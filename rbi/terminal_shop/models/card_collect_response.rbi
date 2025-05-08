@@ -3,25 +3,43 @@
 module TerminalShop
   module Models
     class CardCollectResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # URL for collecting card information.
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Internal::AnyHash)).void }
+      sig do
+        params(
+          data: TerminalShop::Models::CardCollectResponse::Data::OrHash
+        ).void
+      end
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::CardCollectResponse::Data, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(
+          data: TerminalShop::Models::CardCollectResponse::Data::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # URL for collecting card information.
         data:
-      ); end
-      sig { override.returns({data: TerminalShop::Models::CardCollectResponse::Data}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { data: TerminalShop::Models::CardCollectResponse::Data }
+        )
+      end
+      def to_hash
+      end
 
       class Data < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Temporary URL that allows a user to enter credit card details over https at
         # terminal.shop.
         sig { returns(String) }
@@ -33,9 +51,12 @@ module TerminalShop
           # Temporary URL that allows a user to enter credit card details over https at
           # terminal.shop.
           url:
-        ); end
-        sig { override.returns({url: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ url: String }) }
+        def to_hash
+        end
       end
     end
   end

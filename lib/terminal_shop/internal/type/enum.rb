@@ -17,13 +17,13 @@ module TerminalShop
       # values safely.
       #
       # @example
-      #   # `region` is a `TerminalShop::Models::Region`
+      #   # `region` is a `TerminalShop::Region`
       #   case region
-      #   when TerminalShop::Models::Region::EU
+      #   when TerminalShop::Region::EU
       #     # ...
-      #   when TerminalShop::Models::Region::NA
+      #   when TerminalShop::Region::NA
       #     # ...
-      #   when TerminalShop::Models::Region::GLOBAL
+      #   when TerminalShop::Region::GLOBAL
       #     # ...
       #   else
       #     puts(region)
