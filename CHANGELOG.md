@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.6.2 (2025-05-08)
+
+Full Changelog: [v3.6.1...v3.6.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.1...v3.6.2)
+
+### Bug Fixes
+
+* **internal:** ensure formatting always uses c.utf-8 locale ([4a90972](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4a90972d352696d7c6e895c5c20dbfe3b9f02c11))
+
+
+### Chores
+
+* **internal:** version bump ([ae3d3c6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ae3d3c696dc3332e7b8058ea59dfa33ae77a7305))
+
 ## 3.6.1 (2025-05-06)
 
 Full Changelog: [v3.6.0...v3.6.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.0...v3.6.1)
