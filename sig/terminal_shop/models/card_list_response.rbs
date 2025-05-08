@@ -1,13 +1,11 @@
 module TerminalShop
   module Models
-    type card_list_response = { data: ::Array[TerminalShop::Models::CardAPI] }
+    type card_list_response = { data: ::Array[TerminalShop::CardAPI] }
 
     class CardListResponse < TerminalShop::Internal::Type::BaseModel
-      attr_accessor data: ::Array[TerminalShop::Models::CardAPI]
+      attr_accessor data: ::Array[TerminalShop::CardAPI]
 
-      def initialize: (data: ::Array[TerminalShop::Models::CardAPI]) -> void
-
-      def to_hash: -> TerminalShop::Models::card_list_response
+      def initialize: (data: ::Array[TerminalShop::CardAPI]) -> void
     end
   end
 end

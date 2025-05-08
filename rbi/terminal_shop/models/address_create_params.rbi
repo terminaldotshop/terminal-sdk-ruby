@@ -6,6 +6,9 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # City of the address.
       sig { returns(String) }
       attr_accessor :city
@@ -57,9 +60,8 @@ module TerminalShop
           phone: String,
           province: String,
           street2: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # City of the address.
@@ -79,24 +81,26 @@ module TerminalShop
         # Apartment, suite, etc. of the address.
         street2: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              city: String,
-              country: String,
-              name: String,
-              street1: String,
-              zip: String,
-              phone: String,
-              province: String,
-              street2: String,
-              request_options: TerminalShop::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            city: String,
+            country: String,
+            name: String,
+            street1: String,
+            zip: String,
+            phone: String,
+            province: String,
+            street2: String,
+            request_options: TerminalShop::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

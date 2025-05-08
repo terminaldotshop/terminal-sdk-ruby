@@ -3,22 +3,37 @@
 module TerminalShop
   module Models
     class AppCreateResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       sig { returns(TerminalShop::Models::AppCreateResponse::Data) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::AnyHash)).void }
+      sig do
+        params(data: TerminalShop::Models::AppCreateResponse::Data::OrHash).void
+      end
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::AppCreateResponse::Data, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(
+          data: TerminalShop::Models::AppCreateResponse::Data::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(data:); end
+      def self.new(data:)
+      end
 
-      sig { override.returns({data: TerminalShop::Models::AppCreateResponse::Data}) }
-      def to_hash; end
+      sig do
+        override.returns(
+          { data: TerminalShop::Models::AppCreateResponse::Data }
+        )
+      end
+      def to_hash
+      end
 
       class Data < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # OAuth 2.0 client ID.
         sig { returns(String) }
         attr_accessor :id
@@ -33,9 +48,12 @@ module TerminalShop
           id:,
           # OAuth 2.0 client secret.
           secret:
-        ); end
-        sig { override.returns({id: String, secret: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ id: String, secret: String }) }
+        def to_hash
+        end
       end
     end
   end

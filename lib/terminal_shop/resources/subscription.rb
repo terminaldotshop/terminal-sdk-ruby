@@ -10,7 +10,7 @@ module TerminalShop
       #
       # @overload create(id:, address_id:, card_id:, created:, price:, product_variant_id:, quantity:, next_: nil, schedule: nil, request_options: {})
       #
-      # @param id [String] Unique object identifier. ...
+      # @param id [String] Unique object identifier.
       #
       # @param address_id [String] ID of the shipping address used for the subscription.
       #
@@ -26,7 +26,7 @@ module TerminalShop
       #
       # @param next_ [String] Next shipment and billing date for the subscription.
       #
-      # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
+      # @param schedule [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
       #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -34,7 +34,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::SubscriptionCreateParams
       def create(params)
-        parsed, options = TerminalShop::Models::SubscriptionCreateParams.dump_request(params)
+        parsed, options = TerminalShop::SubscriptionCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "subscription",
@@ -54,7 +54,7 @@ module TerminalShop
       #
       # @param card_id [String] New payment method ID for the subscription.
       #
-      # @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
+      # @param schedule [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
       #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -62,7 +62,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::SubscriptionUpdateParams
       def update(id, params = {})
-        parsed, options = TerminalShop::Models::SubscriptionUpdateParams.dump_request(params)
+        parsed, options = TerminalShop::SubscriptionUpdateParams.dump_request(params)
         @client.request(
           method: :put,
           path: ["subscription/%1$s", id],

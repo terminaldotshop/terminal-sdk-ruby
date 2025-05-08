@@ -3,23 +3,28 @@
 module TerminalShop
   module Models
     class OrderGetResponse < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # An order from the Terminal shop.
-      sig { returns(TerminalShop::Models::OrderAPI) }
+      sig { returns(TerminalShop::OrderAPI) }
       attr_reader :data
 
-      sig { params(data: T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::AnyHash)).void }
+      sig { params(data: TerminalShop::OrderAPI::OrHash).void }
       attr_writer :data
 
       sig do
-        params(data: T.any(TerminalShop::Models::OrderAPI, TerminalShop::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(data: TerminalShop::OrderAPI::OrHash).returns(T.attached_class)
       end
       def self.new(
         # An order from the Terminal shop.
         data:
-      ); end
-      sig { override.returns({data: TerminalShop::Models::OrderAPI}) }
-      def to_hash; end
+      )
+      end
+
+      sig { override.returns({ data: TerminalShop::OrderAPI }) }
+      def to_hash
+      end
     end
   end
 end

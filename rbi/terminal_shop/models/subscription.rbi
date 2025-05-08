@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -43,8 +46,8 @@ module TerminalShop
         returns(
           T.nilable(
             T.any(
-              TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
+              TerminalShop::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::SubscriptionAPI::Schedule::Weekly
             )
           )
         )
@@ -53,13 +56,12 @@ module TerminalShop
 
       sig do
         params(
-          schedule: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Internal::AnyHash,
-            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-          )
-        )
-          .void
+          schedule:
+            T.any(
+              TerminalShop::SubscriptionAPI::Schedule::Fixed::OrHash,
+              TerminalShop::SubscriptionAPI::Schedule::Weekly::OrHash
+            )
+        ).void
       end
       attr_writer :schedule
 
@@ -74,13 +76,12 @@ module TerminalShop
           product_variant_id: String,
           quantity: Integer,
           next_: String,
-          schedule: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Internal::AnyHash,
-            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-          )
-        )
-          .returns(T.attached_class)
+          schedule:
+            T.any(
+              TerminalShop::SubscriptionAPI::Schedule::Fixed::OrHash,
+              TerminalShop::SubscriptionAPI::Schedule::Weekly::OrHash
+            )
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -101,64 +102,87 @@ module TerminalShop
         next_: nil,
         # Schedule of the subscription.
         schedule: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              address_id: String,
-              card_id: String,
-              created: String,
-              price: Integer,
-              product_variant_id: String,
-              quantity: Integer,
-              next_: String,
-              schedule: T.any(
-                TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-                TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-              )
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            address_id: String,
+            card_id: String,
+            created: String,
+            price: Integer,
+            product_variant_id: String,
+            quantity: Integer,
+            next_: String,
+            schedule:
+              T.any(
+                TerminalShop::SubscriptionAPI::Schedule::Fixed,
+                TerminalShop::SubscriptionAPI::Schedule::Weekly
+              )
+          }
+        )
+      end
+      def to_hash
+      end
 
       # Schedule of the subscription.
       module Schedule
         extend TerminalShop::Internal::Type::Union
 
+        Variants =
+          T.type_alias do
+            T.any(
+              TerminalShop::SubscriptionAPI::Schedule::Fixed,
+              TerminalShop::SubscriptionAPI::Schedule::Weekly
+            )
+          end
+
         class Fixed < TerminalShop::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
           sig { returns(Symbol) }
           attr_accessor :type
 
           sig { params(type: Symbol).returns(T.attached_class) }
-          def self.new(type: :fixed); end
+          def self.new(type: :fixed)
+          end
 
-          sig { override.returns({type: Symbol}) }
-          def to_hash; end
+          sig { override.returns({ type: Symbol }) }
+          def to_hash
+          end
         end
 
         class Weekly < TerminalShop::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
           sig { returns(Integer) }
           attr_accessor :interval
 
           sig { returns(Symbol) }
           attr_accessor :type
 
-          sig { params(interval: Integer, type: Symbol).returns(T.attached_class) }
-          def self.new(interval:, type: :weekly); end
+          sig do
+            params(interval: Integer, type: Symbol).returns(T.attached_class)
+          end
+          def self.new(interval:, type: :weekly)
+          end
 
-          sig { override.returns({interval: Integer, type: Symbol}) }
-          def to_hash; end
+          sig { override.returns({ interval: Integer, type: Symbol }) }
+          def to_hash
+          end
         end
 
         sig do
-          override
-            .returns(
-              [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly]
-            )
+          override.returns(
+            T::Array[TerminalShop::SubscriptionAPI::Schedule::Variants]
+          )
         end
-        def self.variants; end
+        def self.variants
+        end
       end
     end
   end

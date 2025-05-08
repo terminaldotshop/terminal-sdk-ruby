@@ -15,7 +15,7 @@ module TerminalShop
       #
       # @see TerminalShop::Models::ProfileUpdateParams
       def update(params)
-        parsed, options = TerminalShop::Models::ProfileUpdateParams.dump_request(params)
+        parsed, options = TerminalShop::ProfileUpdateParams.dump_request(params)
         @client.request(
           method: :put,
           path: "profile",

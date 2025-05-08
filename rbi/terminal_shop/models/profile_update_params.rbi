@@ -6,6 +6,9 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :email
 
@@ -16,14 +19,23 @@ module TerminalShop
         params(
           email: String,
           name: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(email:, name:, request_options: {}); end
+      def self.new(email:, name:, request_options: {})
+      end
 
-      sig { override.returns({email: String, name: String, request_options: TerminalShop::RequestOptions}) }
-      def to_hash; end
+      sig do
+        override.returns(
+          {
+            email: String,
+            name: String,
+            request_options: TerminalShop::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

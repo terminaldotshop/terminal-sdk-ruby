@@ -26,7 +26,7 @@ class TerminalShop::Test::Resources::CardTest < TerminalShop::Test::ResourceTest
 
     assert_pattern do
       response => {
-        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::CardAPI])
+        data: ^(TerminalShop::Internal::Type::ArrayOf[TerminalShop::CardAPI])
       }
     end
   end
@@ -68,7 +68,7 @@ class TerminalShop::Test::Resources::CardTest < TerminalShop::Test::ResourceTest
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::CardAPI
+        data: TerminalShop::CardAPI
       }
     end
   end

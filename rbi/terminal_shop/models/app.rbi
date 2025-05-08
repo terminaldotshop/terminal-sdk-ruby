@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class AppAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -20,7 +23,14 @@ module TerminalShop
       attr_accessor :secret
 
       # A Terminal App used for configuring an OAuth 2.0 client.
-      sig { params(id: String, name: String, redirect_uri: String, secret: String).returns(T.attached_class) }
+      sig do
+        params(
+          id: String,
+          name: String,
+          redirect_uri: String,
+          secret: String
+        ).returns(T.attached_class)
+      end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
         id:,
@@ -30,9 +40,16 @@ module TerminalShop
         redirect_uri:,
         # OAuth 2.0 client secret of the app (obfuscated).
         secret:
-      ); end
-      sig { override.returns({id: String, name: String, redirect_uri: String, secret: String}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { id: String, name: String, redirect_uri: String, secret: String }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

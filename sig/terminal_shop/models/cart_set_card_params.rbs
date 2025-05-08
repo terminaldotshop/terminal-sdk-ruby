@@ -13,8 +13,6 @@ module TerminalShop
         card_id: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::cart_set_card_params
     end
   end
 end

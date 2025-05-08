@@ -15,7 +15,7 @@ module TerminalShop
     }
 
   class RequestOptions < TerminalShop::Internal::Type::BaseModel
-    def self.validate!: (self | ::Hash[Symbol, top] opts) -> void
+    def self.validate!: (TerminalShop::request_opts opts) -> void
 
     attr_accessor idempotency_key: String?
 

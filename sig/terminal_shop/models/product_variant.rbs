@@ -6,7 +6,7 @@ module TerminalShop
         name: String,
         price: Integer,
         description: String,
-        tags: TerminalShop::Models::ProductVariant::Tags
+        tags: TerminalShop::ProductVariant::Tags
       }
 
     class ProductVariant < TerminalShop::Internal::Type::BaseModel
@@ -20,21 +20,19 @@ module TerminalShop
 
       def description=: (String) -> String
 
-      attr_reader tags: TerminalShop::Models::ProductVariant::Tags?
+      attr_reader tags: TerminalShop::ProductVariant::Tags?
 
       def tags=: (
-        TerminalShop::Models::ProductVariant::Tags
-      ) -> TerminalShop::Models::ProductVariant::Tags
+        TerminalShop::ProductVariant::Tags
+      ) -> TerminalShop::ProductVariant::Tags
 
       def initialize: (
         id: String,
         name: String,
         price: Integer,
         ?description: String,
-        ?tags: TerminalShop::Models::ProductVariant::Tags
+        ?tags: TerminalShop::ProductVariant::Tags
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::product_variant
 
       type tags =
         { app: String, market_eu: bool, market_global: bool, market_na: bool }
@@ -62,8 +60,6 @@ module TerminalShop
           ?market_global: bool,
           ?market_na: bool
         ) -> void
-
-        def to_hash: -> TerminalShop::Models::ProductVariant::tags
       end
     end
   end

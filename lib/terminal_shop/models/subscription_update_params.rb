@@ -22,15 +22,15 @@ module TerminalShop
       # @!attribute schedule
       #   New schedule for the subscription.
       #
-      #   @return [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly, nil]
-      optional :schedule, union: -> { TerminalShop::Models::SubscriptionUpdateParams::Schedule }
+      #   @return [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly, nil]
+      optional :schedule, union: -> { TerminalShop::SubscriptionUpdateParams::Schedule }
 
       # @!method initialize(address_id: nil, card_id: nil, schedule: nil, request_options: {})
       #   @param address_id [String] New shipping address ID for the subscription.
       #
       #   @param card_id [String] New payment method ID for the subscription.
       #
-      #   @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
+      #   @param schedule [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
       #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
 
@@ -38,9 +38,9 @@ module TerminalShop
       module Schedule
         extend TerminalShop::Internal::Type::Union
 
-        variant -> { TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed }
+        variant -> { TerminalShop::SubscriptionUpdateParams::Schedule::Fixed }
 
-        variant -> { TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly }
+        variant -> { TerminalShop::SubscriptionUpdateParams::Schedule::Weekly }
 
         class Fixed < TerminalShop::Internal::Type::BaseModel
           # @!attribute type
@@ -69,7 +69,7 @@ module TerminalShop
         end
 
         # @!method self.variants
-        #   @return [Array(TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly)]
+        #   @return [Array(TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly)]
       end
     end
   end

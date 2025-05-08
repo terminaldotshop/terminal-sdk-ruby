@@ -1,14 +1,11 @@
 module TerminalShop
   module Models
-    type address_list_response =
-      { data: ::Array[TerminalShop::Models::AddressAPI] }
+    type address_list_response = { data: ::Array[TerminalShop::AddressAPI] }
 
     class AddressListResponse < TerminalShop::Internal::Type::BaseModel
-      attr_accessor data: ::Array[TerminalShop::Models::AddressAPI]
+      attr_accessor data: ::Array[TerminalShop::AddressAPI]
 
-      def initialize: (data: ::Array[TerminalShop::Models::AddressAPI]) -> void
-
-      def to_hash: -> TerminalShop::Models::address_list_response
+      def initialize: (data: ::Array[TerminalShop::AddressAPI]) -> void
     end
   end
 end

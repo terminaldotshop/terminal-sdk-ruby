@@ -1,13 +1,11 @@
 module TerminalShop
   module Models
-    type profile_update_response = { data: TerminalShop::Models::ProfileAPI }
+    type profile_update_response = { data: TerminalShop::ProfileAPI }
 
     class ProfileUpdateResponse < TerminalShop::Internal::Type::BaseModel
-      attr_accessor data: TerminalShop::Models::ProfileAPI
+      attr_accessor data: TerminalShop::ProfileAPI
 
-      def initialize: (data: TerminalShop::Models::ProfileAPI) -> void
-
-      def to_hash: -> TerminalShop::Models::profile_update_response
+      def initialize: (data: TerminalShop::ProfileAPI) -> void
     end
   end
 end

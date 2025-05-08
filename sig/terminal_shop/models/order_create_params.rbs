@@ -20,8 +20,6 @@ module TerminalShop
         variants: ::Hash[Symbol, Integer],
         ?request_options: TerminalShop::request_opts
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::order_create_params
     end
   end
 end

@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   The current Terminal shop user's cart.
       #
-      #   @return [TerminalShop::Models::CartAPI]
-      required :data, -> { TerminalShop::Models::CartAPI }
+      #   @return [TerminalShop::CartAPI]
+      required :data, -> { TerminalShop::CartAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::Models::CartAPI] The current Terminal shop user's cart.
+      #   @param data [TerminalShop::CartAPI] The current Terminal shop user's cart.
     end
   end
 end

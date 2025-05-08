@@ -6,8 +6,6 @@ module TerminalShop
       attr_accessor data: String
 
       def initialize: (data: String) -> void
-
-      def to_hash: -> TerminalShop::Models::order_create_response
     end
   end
 end

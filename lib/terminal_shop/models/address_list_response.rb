@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   Shipping addresses.
       #
-      #   @return [Array<TerminalShop::Models::AddressAPI>]
-      required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::AddressAPI] }
+      #   @return [Array<TerminalShop::AddressAPI>]
+      required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::AddressAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::Models::AddressAPI>] Shipping addresses.
+      #   @param data [Array<TerminalShop::AddressAPI>] Shipping addresses.
     end
   end
 end

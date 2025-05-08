@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class CardAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -16,10 +19,10 @@ module TerminalShop
       attr_accessor :created
 
       # Expiration of the card.
-      sig { returns(TerminalShop::Models::CardAPI::Expiration) }
+      sig { returns(TerminalShop::CardAPI::Expiration) }
       attr_reader :expiration
 
-      sig { params(expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::AnyHash)).void }
+      sig { params(expiration: TerminalShop::CardAPI::Expiration::OrHash).void }
       attr_writer :expiration
 
       # Last four digits of the card.
@@ -32,10 +35,9 @@ module TerminalShop
           id: String,
           brand: String,
           created: String,
-          expiration: T.any(TerminalShop::Models::CardAPI::Expiration, TerminalShop::Internal::AnyHash),
+          expiration: TerminalShop::CardAPI::Expiration::OrHash,
           last4: String
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -48,16 +50,27 @@ module TerminalShop
         expiration:,
         # Last four digits of the card.
         last4:
-      ); end
-      sig do
-        override
-          .returns(
-            {id: String, brand: String, created: String, expiration: TerminalShop::Models::CardAPI::Expiration, last4: String}
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            brand: String,
+            created: String,
+            expiration: TerminalShop::CardAPI::Expiration,
+            last4: String
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Expiration < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Expiration month of the card.
         sig { returns(Integer) }
         attr_accessor :month
@@ -73,9 +86,12 @@ module TerminalShop
           month:,
           # Expiration year of the card.
           year:
-        ); end
-        sig { override.returns({month: Integer, year: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ month: Integer, year: Integer }) }
+        def to_hash
+        end
       end
     end
   end

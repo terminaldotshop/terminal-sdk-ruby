@@ -24,8 +24,8 @@ module TerminalShop
       # @!attribute variants
       #   List of variants of the product.
       #
-      #   @return [Array<TerminalShop::Models::ProductVariant>]
-      required :variants, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::Models::ProductVariant] }
+      #   @return [Array<TerminalShop::ProductVariant>]
+      required :variants, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::ProductVariant] }
 
       # @!attribute order
       #   Order of the product used when displaying a sorted list of products.
@@ -36,38 +36,38 @@ module TerminalShop
       # @!attribute subscription
       #   Whether the product must be or can be subscribed to.
       #
-      #   @return [Symbol, TerminalShop::Models::ProductAPI::Subscription, nil]
-      optional :subscription, enum: -> { TerminalShop::Models::ProductAPI::Subscription }
+      #   @return [Symbol, TerminalShop::ProductAPI::Subscription, nil]
+      optional :subscription, enum: -> { TerminalShop::ProductAPI::Subscription }
 
       # @!attribute tags
       #   Tags for the product.
       #
-      #   @return [TerminalShop::Models::ProductAPI::Tags, nil]
-      optional :tags, -> { TerminalShop::Models::ProductAPI::Tags }
+      #   @return [TerminalShop::ProductAPI::Tags, nil]
+      optional :tags, -> { TerminalShop::ProductAPI::Tags }
 
       # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
-      #   Some parameter documentations has been truncated, see
-      #   {TerminalShop::Models::ProductAPI} for more details.
+      #   Some parameter documentations has been truncated, see {TerminalShop::ProductAPI}
+      #   for more details.
       #
       #   Product sold in the Terminal shop.
       #
-      #   @param id [String] Unique object identifier. ...
+      #   @param id [String] Unique object identifier.
       #
       #   @param description [String] Description of the product.
       #
       #   @param name [String] Name of the product.
       #
-      #   @param variants [Array<TerminalShop::Models::ProductVariant>] List of variants of the product.
+      #   @param variants [Array<TerminalShop::ProductVariant>] List of variants of the product.
       #
       #   @param order [Integer] Order of the product used when displaying a sorted list of products.
       #
-      #   @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription] Whether the product must be or can be subscribed to.
+      #   @param subscription [Symbol, TerminalShop::ProductAPI::Subscription] Whether the product must be or can be subscribed to.
       #
-      #   @param tags [TerminalShop::Models::ProductAPI::Tags] Tags for the product.
+      #   @param tags [TerminalShop::ProductAPI::Tags] Tags for the product.
 
       # Whether the product must be or can be subscribed to.
       #
-      # @see TerminalShop::Models::ProductAPI#subscription
+      # @see TerminalShop::ProductAPI#subscription
       module Subscription
         extend TerminalShop::Internal::Type::Enum
 
@@ -78,7 +78,7 @@ module TerminalShop
         #   @return [Array<Symbol>]
       end
 
-      # @see TerminalShop::Models::ProductAPI#tags
+      # @see TerminalShop::ProductAPI#tags
       class Tags < TerminalShop::Internal::Type::BaseModel
         # @!attribute app
         #

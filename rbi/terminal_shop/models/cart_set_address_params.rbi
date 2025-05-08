@@ -6,6 +6,9 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # ID of the shipping address to set for the current user's cart.
       sig { returns(String) }
       attr_accessor :address_id
@@ -13,17 +16,23 @@ module TerminalShop
       sig do
         params(
           address_id: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # ID of the shipping address to set for the current user's cart.
         address_id:,
         request_options: {}
-      ); end
-      sig { override.returns({address_id: String, request_options: TerminalShop::RequestOptions}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { address_id: String, request_options: TerminalShop::RequestOptions }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

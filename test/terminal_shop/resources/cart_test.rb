@@ -26,7 +26,7 @@ class TerminalShop::Test::Resources::CartTest < TerminalShop::Test::ResourceTest
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::OrderAPI
+        data: TerminalShop::OrderAPI
       }
     end
   end
@@ -40,7 +40,7 @@ class TerminalShop::Test::Resources::CartTest < TerminalShop::Test::ResourceTest
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::CartAPI
+        data: TerminalShop::CartAPI
       }
     end
   end
@@ -82,7 +82,7 @@ class TerminalShop::Test::Resources::CartTest < TerminalShop::Test::ResourceTest
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::CartAPI
+        data: TerminalShop::CartAPI
       }
     end
   end

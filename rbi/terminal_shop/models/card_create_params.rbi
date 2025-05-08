@@ -6,6 +6,9 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Stripe card token. Learn how to
       # [create one here](https://docs.stripe.com/api/tokens/create_card).
       sig { returns(String) }
@@ -14,18 +17,24 @@ module TerminalShop
       sig do
         params(
           token: String,
-          request_options: T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Stripe card token. Learn how to
         # [create one here](https://docs.stripe.com/api/tokens/create_card).
         token:,
         request_options: {}
-      ); end
-      sig { override.returns({token: String, request_options: TerminalShop::RequestOptions}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { token: String, request_options: TerminalShop::RequestOptions }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

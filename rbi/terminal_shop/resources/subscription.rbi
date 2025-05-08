@@ -14,14 +14,13 @@ module TerminalShop
           product_variant_id: String,
           quantity: Integer,
           next_: String,
-          schedule: T.any(
-            TerminalShop::Models::SubscriptionAPI::Schedule::Fixed,
-            TerminalShop::Internal::AnyHash,
-            TerminalShop::Models::SubscriptionAPI::Schedule::Weekly
-          ),
-          request_options: TerminalShop::RequestOpts
-        )
-          .returns(TerminalShop::Models::SubscriptionCreateResponse)
+          schedule:
+            T.any(
+              TerminalShop::SubscriptionAPI::Schedule::Fixed::OrHash,
+              TerminalShop::SubscriptionAPI::Schedule::Weekly::OrHash
+            ),
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::SubscriptionCreateResponse)
       end
       def create(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -43,21 +42,22 @@ module TerminalShop
         # Schedule of the subscription.
         schedule: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update card, address, or interval for an existing subscription.
       sig do
         params(
           id: String,
           address_id: String,
           card_id: String,
-          schedule: T.any(
-            TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed,
-            TerminalShop::Internal::AnyHash,
-            TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly
-          ),
-          request_options: TerminalShop::RequestOpts
-        )
-          .returns(TerminalShop::Models::SubscriptionUpdateResponse)
+          schedule:
+            T.any(
+              TerminalShop::SubscriptionUpdateParams::Schedule::Fixed::OrHash,
+              TerminalShop::SubscriptionUpdateParams::Schedule::Weekly::OrHash
+            ),
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::SubscriptionUpdateResponse)
       end
       def update(
         # ID of the subscription to update.
@@ -69,34 +69,50 @@ module TerminalShop
         # New schedule for the subscription.
         schedule: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # List the subscriptions associated with the current user.
-      sig { params(request_options: TerminalShop::RequestOpts).returns(TerminalShop::Models::SubscriptionListResponse) }
-      def list(request_options: {}); end
+      sig do
+        params(request_options: TerminalShop::RequestOptions::OrHash).returns(
+          TerminalShop::Models::SubscriptionListResponse
+        )
+      end
+      def list(request_options: {})
+      end
 
       # Cancel a subscription for the current user.
       sig do
-        params(id: String, request_options: TerminalShop::RequestOpts)
-          .returns(TerminalShop::Models::SubscriptionDeleteResponse)
+        params(
+          id: String,
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::SubscriptionDeleteResponse)
       end
       def delete(
         # ID of the subscription to cancel.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get the subscription with the given ID.
       sig do
-        params(id: String, request_options: TerminalShop::RequestOpts)
-          .returns(TerminalShop::Models::SubscriptionGetResponse)
+        params(
+          id: String,
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(TerminalShop::Models::SubscriptionGetResponse)
       end
       def get(
         # ID of the subscription to get.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: TerminalShop::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

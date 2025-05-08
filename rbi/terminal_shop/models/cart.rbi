@@ -3,15 +3,18 @@
 module TerminalShop
   module Models
     class CartAPI < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # The subtotal and shipping amounts for the current user's cart.
-      sig { returns(TerminalShop::Models::CartAPI::Amount) }
+      sig { returns(TerminalShop::CartAPI::Amount) }
       attr_reader :amount
 
-      sig { params(amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::AnyHash)).void }
+      sig { params(amount: TerminalShop::CartAPI::Amount::OrHash).void }
       attr_writer :amount
 
       # An array of items in the current user's cart.
-      sig { returns(T::Array[TerminalShop::Models::CartAPI::Item]) }
+      sig { returns(T::Array[TerminalShop::CartAPI::Item]) }
       attr_accessor :items
 
       # The subtotal of all items in the current user's cart, in cents (USD).
@@ -33,23 +36,22 @@ module TerminalShop
       attr_writer :card_id
 
       # Shipping information for the current user's cart.
-      sig { returns(T.nilable(TerminalShop::Models::CartAPI::Shipping)) }
+      sig { returns(T.nilable(TerminalShop::CartAPI::Shipping)) }
       attr_reader :shipping
 
-      sig { params(shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::AnyHash)).void }
+      sig { params(shipping: TerminalShop::CartAPI::Shipping::OrHash).void }
       attr_writer :shipping
 
       # The current Terminal shop user's cart.
       sig do
         params(
-          amount: T.any(TerminalShop::Models::CartAPI::Amount, TerminalShop::Internal::AnyHash),
-          items: T::Array[T.any(TerminalShop::Models::CartAPI::Item, TerminalShop::Internal::AnyHash)],
+          amount: TerminalShop::CartAPI::Amount::OrHash,
+          items: T::Array[TerminalShop::CartAPI::Item::OrHash],
           subtotal: Integer,
           address_id: String,
           card_id: String,
-          shipping: T.any(TerminalShop::Models::CartAPI::Shipping, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          shipping: TerminalShop::CartAPI::Shipping::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The subtotal and shipping amounts for the current user's cart.
@@ -64,23 +66,28 @@ module TerminalShop
         card_id: nil,
         # Shipping information for the current user's cart.
         shipping: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              amount: TerminalShop::Models::CartAPI::Amount,
-              items: T::Array[TerminalShop::Models::CartAPI::Item],
-              subtotal: Integer,
-              address_id: String,
-              card_id: String,
-              shipping: TerminalShop::Models::CartAPI::Shipping
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            amount: TerminalShop::CartAPI::Amount,
+            items: T::Array[TerminalShop::CartAPI::Item],
+            subtotal: Integer,
+            address_id: String,
+            card_id: String,
+            shipping: TerminalShop::CartAPI::Shipping
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Amount < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Subtotal of the current user's cart, in cents (USD).
         sig { returns(Integer) }
         attr_accessor :subtotal
@@ -100,7 +107,11 @@ module TerminalShop
         attr_writer :total
 
         # The subtotal and shipping amounts for the current user's cart.
-        sig { params(subtotal: Integer, shipping: Integer, total: Integer).returns(T.attached_class) }
+        sig do
+          params(subtotal: Integer, shipping: Integer, total: Integer).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # Subtotal of the current user's cart, in cents (USD).
           subtotal:,
@@ -108,12 +119,22 @@ module TerminalShop
           shipping: nil,
           # Total amount after any discounts, in cents (USD).
           total: nil
-        ); end
-        sig { override.returns({subtotal: Integer, shipping: Integer, total: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { subtotal: Integer, shipping: Integer, total: Integer }
+          )
+        end
+        def to_hash
+        end
       end
 
       class Item < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
         attr_accessor :id
@@ -132,8 +153,12 @@ module TerminalShop
 
         # An item in the current Terminal shop user's cart.
         sig do
-          params(id: String, product_variant_id: String, quantity: Integer, subtotal: Integer)
-            .returns(T.attached_class)
+          params(
+            id: String,
+            product_variant_id: String,
+            quantity: Integer,
+            subtotal: Integer
+          ).returns(T.attached_class)
         end
         def self.new(
           # Unique object identifier. The format and length of IDs may change over time.
@@ -144,14 +169,27 @@ module TerminalShop
           quantity:,
           # Subtotal of the item in the current user's cart, in cents (USD).
           subtotal:
-        ); end
-        sig do
-          override.returns({id: String, product_variant_id: String, quantity: Integer, subtotal: Integer})
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              product_variant_id: String,
+              quantity: Integer,
+              subtotal: Integer
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         # Shipping service name.
         sig { returns(T.nilable(String)) }
         attr_reader :service
@@ -167,15 +205,20 @@ module TerminalShop
         attr_writer :timeframe
 
         # Shipping information for the current user's cart.
-        sig { params(service: String, timeframe: String).returns(T.attached_class) }
+        sig do
+          params(service: String, timeframe: String).returns(T.attached_class)
+        end
         def self.new(
           # Shipping service name.
           service: nil,
           # Shipping timeframe provided by the shipping carrier.
           timeframe: nil
-        ); end
-        sig { override.returns({service: String, timeframe: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ service: String, timeframe: String }) }
+        def to_hash
+        end
       end
     end
   end

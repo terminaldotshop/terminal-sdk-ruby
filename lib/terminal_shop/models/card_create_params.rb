@@ -19,7 +19,6 @@ module TerminalShop
       #   {TerminalShop::Models::CardCreateParams} for more details.
       #
       #   @param token [String] Stripe card token. Learn how to [create one here](https://docs.stripe.com/api/to
-      #   ...
       #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
     end

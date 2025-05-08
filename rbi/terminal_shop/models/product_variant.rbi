@@ -3,6 +3,9 @@
 module TerminalShop
   module Models
     class ProductVariant < TerminalShop::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
       attr_accessor :id
@@ -23,10 +26,10 @@ module TerminalShop
       attr_writer :description
 
       # Tags for the product variant.
-      sig { returns(T.nilable(TerminalShop::Models::ProductVariant::Tags)) }
+      sig { returns(T.nilable(TerminalShop::ProductVariant::Tags)) }
       attr_reader :tags
 
-      sig { params(tags: T.any(TerminalShop::Models::ProductVariant::Tags, TerminalShop::Internal::AnyHash)).void }
+      sig { params(tags: TerminalShop::ProductVariant::Tags::OrHash).void }
       attr_writer :tags
 
       # Variant of a product in the Terminal shop.
@@ -36,9 +39,8 @@ module TerminalShop
           name: String,
           price: Integer,
           description: String,
-          tags: T.any(TerminalShop::Models::ProductVariant::Tags, TerminalShop::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          tags: TerminalShop::ProductVariant::Tags::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique object identifier. The format and length of IDs may change over time.
@@ -51,16 +53,27 @@ module TerminalShop
         description: nil,
         # Tags for the product variant.
         tags: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {id: String, name: String, price: Integer, description: String, tags: TerminalShop::Models::ProductVariant::Tags}
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            name: String,
+            price: Integer,
+            description: String,
+            tags: TerminalShop::ProductVariant::Tags
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Tags < TerminalShop::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+
         sig { returns(T.nilable(String)) }
         attr_reader :app
 
@@ -87,10 +100,20 @@ module TerminalShop
 
         # Tags for the product variant.
         sig do
-          params(app: String, market_eu: T::Boolean, market_global: T::Boolean, market_na: T::Boolean)
-            .returns(T.attached_class)
+          params(
+            app: String,
+            market_eu: T::Boolean,
+            market_global: T::Boolean,
+            market_na: T::Boolean
+          ).returns(T.attached_class)
         end
-        def self.new(app: nil, market_eu: nil, market_global: nil, market_na: nil); end
+        def self.new(
+          app: nil,
+          market_eu: nil,
+          market_global: nil,
+          market_na: nil
+        )
+        end
 
         sig do
           override.returns(
@@ -102,7 +125,8 @@ module TerminalShop
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

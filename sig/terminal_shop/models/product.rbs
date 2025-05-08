@@ -5,10 +5,10 @@ module TerminalShop
         id: String,
         description: String,
         name: String,
-        variants: ::Array[TerminalShop::Models::ProductVariant],
+        variants: ::Array[TerminalShop::ProductVariant],
         order: Integer,
-        subscription: TerminalShop::Models::ProductAPI::subscription,
-        tags: TerminalShop::Models::ProductAPI::Tags
+        subscription: TerminalShop::ProductAPI::subscription,
+        tags: TerminalShop::ProductAPI::Tags
       }
 
     class ProductAPI < TerminalShop::Internal::Type::BaseModel
@@ -18,35 +18,33 @@ module TerminalShop
 
       attr_accessor name: String
 
-      attr_accessor variants: ::Array[TerminalShop::Models::ProductVariant]
+      attr_accessor variants: ::Array[TerminalShop::ProductVariant]
 
       attr_reader order: Integer?
 
       def order=: (Integer) -> Integer
 
-      attr_reader subscription: TerminalShop::Models::ProductAPI::subscription?
+      attr_reader subscription: TerminalShop::ProductAPI::subscription?
 
       def subscription=: (
-        TerminalShop::Models::ProductAPI::subscription
-      ) -> TerminalShop::Models::ProductAPI::subscription
+        TerminalShop::ProductAPI::subscription
+      ) -> TerminalShop::ProductAPI::subscription
 
-      attr_reader tags: TerminalShop::Models::ProductAPI::Tags?
+      attr_reader tags: TerminalShop::ProductAPI::Tags?
 
       def tags=: (
-        TerminalShop::Models::ProductAPI::Tags
-      ) -> TerminalShop::Models::ProductAPI::Tags
+        TerminalShop::ProductAPI::Tags
+      ) -> TerminalShop::ProductAPI::Tags
 
       def initialize: (
         id: String,
         description: String,
         name: String,
-        variants: ::Array[TerminalShop::Models::ProductVariant],
+        variants: ::Array[TerminalShop::ProductVariant],
         ?order: Integer,
-        ?subscription: TerminalShop::Models::ProductAPI::subscription,
-        ?tags: TerminalShop::Models::ProductAPI::Tags
+        ?subscription: TerminalShop::ProductAPI::subscription,
+        ?tags: TerminalShop::ProductAPI::Tags
       ) -> void
-
-      def to_hash: -> TerminalShop::Models::product_api
 
       type subscription = :allowed | :required
 
@@ -56,7 +54,7 @@ module TerminalShop
         ALLOWED: :allowed
         REQUIRED: :required
 
-        def self?.values: -> ::Array[TerminalShop::Models::ProductAPI::subscription]
+        def self?.values: -> ::Array[TerminalShop::ProductAPI::subscription]
       end
 
       type tags =
@@ -102,8 +100,6 @@ module TerminalShop
           ?market_global: bool,
           ?market_na: bool
         ) -> void
-
-        def to_hash: -> TerminalShop::Models::ProductAPI::tags
       end
     end
   end

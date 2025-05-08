@@ -12,7 +12,7 @@ class TerminalShop::Test::Resources::ProfileTest < TerminalShop::Test::ResourceT
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::ProfileAPI
+        data: TerminalShop::ProfileAPI
       }
     end
   end
@@ -26,7 +26,7 @@ class TerminalShop::Test::Resources::ProfileTest < TerminalShop::Test::ResourceT
 
     assert_pattern do
       response => {
-        data: TerminalShop::Models::ProfileAPI
+        data: TerminalShop::ProfileAPI
       }
     end
   end
