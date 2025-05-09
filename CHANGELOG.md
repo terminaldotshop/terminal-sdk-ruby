@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.6.3 (2025-05-09)
+
+Full Changelog: [v3.6.2...v3.6.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.2...v3.6.3)
+
+### Chores
+
+* **internal:** version bump ([cbba1d7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cbba1d7501215bf6a55a54d1fcbdaea01da212d6))
+
 ## 3.6.2 (2025-05-08)
 
 Full Changelog: [v3.6.1...v3.6.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.1...v3.6.2)
