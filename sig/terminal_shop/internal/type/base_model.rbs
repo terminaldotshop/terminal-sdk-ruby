@@ -63,10 +63,10 @@ module TerminalShop
           | ::Hash[top, top]
           | top value,
           state: TerminalShop::Internal::Type::Converter::coerce_state
-        ) -> (self | top)
+        ) -> (instance | top)
 
         def self.dump: (
-          self | top value,
+          instance | top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 
@@ -86,7 +86,7 @@ module TerminalShop
 
         def to_yaml: (*top a) -> String
 
-        def initialize: (?::Hash[Symbol, top] | self data) -> void
+        def initialize: (?::Hash[Symbol, top] | instance data) -> void
 
         def self.inspect: (?depth: Integer) -> String
 
