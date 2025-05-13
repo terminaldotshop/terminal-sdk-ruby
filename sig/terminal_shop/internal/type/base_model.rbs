@@ -3,9 +3,12 @@ module TerminalShop
     module Type
       class BaseModel
         extend TerminalShop::Internal::Type::Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
+
+        def self.inherited: (self child) -> void
 
         def self.known_fields: -> ::Hash[Symbol, (TerminalShop::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> TerminalShop::Internal::Type::Converter::input) })]
@@ -60,10 +63,10 @@ module TerminalShop
           | ::Hash[top, top]
           | top value,
           state: TerminalShop::Internal::Type::Converter::coerce_state
-        ) -> (instance | top)
+        ) -> (self | top)
 
         def self.dump: (
-          instance | top value,
+          self | top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 

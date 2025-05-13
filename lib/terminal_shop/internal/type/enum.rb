@@ -42,6 +42,7 @@ module TerminalShop
       #   end
       module Enum
         include TerminalShop::Internal::Type::Converter
+        include TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         # All of the valid Symbol values for this enum.
         #

@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class ProductAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::ProductAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
@@ -119,7 +121,12 @@ module TerminalShop
 
       class Tags < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::ProductAPI::Tags,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :app

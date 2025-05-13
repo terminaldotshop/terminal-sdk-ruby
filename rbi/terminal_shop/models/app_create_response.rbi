@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class AppCreateResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::AppCreateResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       sig { returns(TerminalShop::Models::AppCreateResponse::Data) }
       attr_reader :data
@@ -32,7 +37,12 @@ module TerminalShop
 
       class Data < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::Models::AppCreateResponse::Data,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # OAuth 2.0 client ID.
         sig { returns(String) }

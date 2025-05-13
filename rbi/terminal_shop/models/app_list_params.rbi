@@ -7,7 +7,9 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::AppListParams, TerminalShop::Internal::AnyHash)
+        end
 
       sig do
         params(request_options: TerminalShop::RequestOptions::OrHash).returns(

@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class CardAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::CardAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
@@ -69,7 +71,12 @@ module TerminalShop
 
       class Expiration < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::CardAPI::Expiration,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Expiration month of the card.
         sig { returns(Integer) }

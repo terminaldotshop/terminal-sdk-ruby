@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class TokenAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::TokenAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }

@@ -29,7 +29,7 @@ module TerminalShop
         #
         #   @option spec [Boolean] :"nil?"
         #
-        # @return [TerminalShop::Internal::Type::HashOf]
+        # @return [self]
         def self.[](...) = new(...)
 
         # @api public

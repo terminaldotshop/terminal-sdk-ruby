@@ -2,6 +2,8 @@ module TerminalShop
   module Internal
     module Type
       module Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
+
         type input = TerminalShop::Internal::Type::Converter | Class
 
         type coerce_state =

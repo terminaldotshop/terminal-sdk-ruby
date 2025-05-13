@@ -6,6 +6,7 @@ module TerminalShop
       # @abstract
       class BaseModel
         extend TerminalShop::Internal::Type::Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         class << self
           # @api private
@@ -13,10 +14,16 @@ module TerminalShop
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
           #
-          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
-          def known_fields
-            @known_fields ||= (self < TerminalShop::Internal::Type::BaseModel ? superclass.known_fields.dup : {})
+          # @param child [Class<TerminalShop::Internal::Type::BaseModel>]
+          def inherited(child)
+            super
+            child.known_fields.replace(known_fields.dup)
           end
+
+          # @api private
+          #
+          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
+          def known_fields = @known_fields ||= {}
 
           # @api private
           #
@@ -204,7 +211,7 @@ module TerminalShop
           #
           #   @option state [Integer] :branched
           #
-          # @return [TerminalShop::Internal::Type::BaseModel, Object]
+          # @return [self, Object]
           def coerce(value, state:)
             exactness = state.fetch(:exactness)
 
@@ -263,7 +270,7 @@ module TerminalShop
 
           # @api private
           #
-          # @param value [TerminalShop::Internal::Type::BaseModel, Object]
+          # @param value [self, Object]
           #
           # @param state [Hash{Symbol=>Object}] .
           #
@@ -429,6 +436,10 @@ module TerminalShop
         #
         # @return [String]
         def inspect = "#<#{self.class}:0x#{object_id.to_s(16)} #{self}>"
+
+        define_sorbet_constant!(:KnownField) do
+          T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean, nilable: T::Boolean} }
+        end
       end
     end
   end

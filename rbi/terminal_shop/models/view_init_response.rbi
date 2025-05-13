@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class ViewInitResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::ViewInitResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # Initial app data.
       sig { returns(TerminalShop::Models::ViewInitResponse::Data) }
@@ -34,7 +39,12 @@ module TerminalShop
 
       class Data < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::Models::ViewInitResponse::Data,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         sig { returns(T::Array[TerminalShop::AddressAPI]) }
         attr_accessor :addresses
