@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::SubscriptionUpdateParams,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # New shipping address ID for the subscription.
       sig { returns(T.nilable(String)) }
@@ -101,7 +106,12 @@ module TerminalShop
 
         class Fixed < TerminalShop::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                TerminalShop::SubscriptionUpdateParams::Schedule::Fixed,
+                TerminalShop::Internal::AnyHash
+              )
+            end
 
           sig { returns(Symbol) }
           attr_accessor :type
@@ -117,7 +127,12 @@ module TerminalShop
 
         class Weekly < TerminalShop::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                TerminalShop::SubscriptionUpdateParams::Schedule::Weekly,
+                TerminalShop::Internal::AnyHash
+              )
+            end
 
           sig { returns(Integer) }
           attr_accessor :interval

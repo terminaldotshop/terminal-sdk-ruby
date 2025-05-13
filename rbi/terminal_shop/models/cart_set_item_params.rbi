@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::CartSetItemParams,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # ID of the product variant to add to the cart.
       sig { returns(String) }

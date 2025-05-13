@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class CartAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::CartAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # The subtotal and shipping amounts for the current user's cart.
       sig { returns(TerminalShop::CartAPI::Amount) }
@@ -86,7 +88,12 @@ module TerminalShop
 
       class Amount < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::CartAPI::Amount,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Subtotal of the current user's cart, in cents (USD).
         sig { returns(Integer) }
@@ -133,7 +140,9 @@ module TerminalShop
 
       class Item < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(TerminalShop::CartAPI::Item, TerminalShop::Internal::AnyHash)
+          end
 
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
@@ -188,7 +197,12 @@ module TerminalShop
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::CartAPI::Shipping,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Shipping service name.
         sig { returns(T.nilable(String)) }

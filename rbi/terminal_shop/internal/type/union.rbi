@@ -6,6 +6,7 @@ module TerminalShop
       # @api private
       module Union
         include TerminalShop::Internal::Type::Converter
+        include TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         # @api private
         #

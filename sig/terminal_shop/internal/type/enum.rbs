@@ -3,6 +3,7 @@ module TerminalShop
     module Type
       module Enum
         include TerminalShop::Internal::Type::Converter
+        include TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         def self.values: -> ::Array[(nil | bool | Integer | Float | Symbol)]
 

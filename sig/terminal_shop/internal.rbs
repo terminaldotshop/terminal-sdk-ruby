@@ -1,5 +1,7 @@
 module TerminalShop
   module Internal
+    extend TerminalShop::Internal::Util::SorbetRuntimeSupport
+
     OMIT: Object
   end
 end

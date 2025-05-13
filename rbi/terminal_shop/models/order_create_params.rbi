@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::OrderCreateParams,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # Shipping address ID.
       sig { returns(String) }

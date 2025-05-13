@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class TokenGetResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::TokenGetResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # A personal access token used to access the Terminal API. If you leak this,
       # expect large sums of coffee to be ordered on your credit card.

@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class ProductListResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::ProductListResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # A list of products.
       sig { returns(T::Array[TerminalShop::ProductAPI]) }

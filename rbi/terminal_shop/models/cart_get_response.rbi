@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CartGetResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::CartGetResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # The current Terminal shop user's cart.
       sig { returns(TerminalShop::CartAPI) }

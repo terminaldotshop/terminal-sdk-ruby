@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class TokenListResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::TokenListResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # List of personal access tokens.
       sig { returns(T::Array[TerminalShop::TokenAPI]) }

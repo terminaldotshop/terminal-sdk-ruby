@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CardCreateResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::CardCreateResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # ID of the card.
       sig { returns(String) }
