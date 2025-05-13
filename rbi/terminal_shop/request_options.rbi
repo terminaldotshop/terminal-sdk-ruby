@@ -8,7 +8,9 @@ module TerminalShop
   # simply pass a Hash with symbol keys matching the attributes on this class.
   class RequestOptions < TerminalShop::Internal::Type::BaseModel
     OrHash =
-      T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+      T.type_alias do
+        T.any(TerminalShop::RequestOptions, TerminalShop::Internal::AnyHash)
+      end
 
     # @api private
     sig { params(opts: TerminalShop::RequestOptions::OrHash).void }

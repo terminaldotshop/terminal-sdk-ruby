@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class ProfileAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::ProfileAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # A Terminal shop user. (We have users, btw.)
       sig { returns(TerminalShop::ProfileAPI::User) }
@@ -31,7 +33,12 @@ module TerminalShop
 
       class User < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::ProfileAPI::User,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }

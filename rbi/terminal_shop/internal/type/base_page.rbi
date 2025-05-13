@@ -30,7 +30,7 @@ module TerminalShop
           params(
             client: TerminalShop::Internal::Transport::BaseClient,
             req:
-              TerminalShop::Internal::Transport::BaseClient::RequestComponentsShape,
+              TerminalShop::Internal::Transport::BaseClient::RequestComponents,
             headers: T.any(T::Hash[String, String], Net::HTTPHeader),
             page_data: T.anything
           ).void

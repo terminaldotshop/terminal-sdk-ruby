@@ -4,7 +4,9 @@ module TerminalShop
   module Models
     class OrderAPI < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(TerminalShop::OrderAPI, TerminalShop::Internal::AnyHash)
+        end
 
       # Unique object identifier. The format and length of IDs may change over time.
       sig { returns(String) }
@@ -94,7 +96,12 @@ module TerminalShop
 
       class Amount < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::OrderAPI::Amount,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Shipping amount of the order, in cents (USD).
         sig { returns(Integer) }
@@ -123,7 +130,9 @@ module TerminalShop
 
       class Item < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(TerminalShop::OrderAPI::Item, TerminalShop::Internal::AnyHash)
+          end
 
         # Unique object identifier. The format and length of IDs may change over time.
         sig { returns(String) }
@@ -191,7 +200,12 @@ module TerminalShop
 
       class Shipping < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::OrderAPI::Shipping,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # City of the address.
         sig { returns(String) }
@@ -287,7 +301,12 @@ module TerminalShop
 
       class Tracking < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::OrderAPI::Tracking,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Tracking number of the order.
         sig { returns(T.nilable(String)) }

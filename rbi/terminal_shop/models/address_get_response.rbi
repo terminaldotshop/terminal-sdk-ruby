@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class AddressGetResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::AddressGetResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # Physical address associated with a Terminal shop user.
       sig { returns(TerminalShop::AddressAPI) }

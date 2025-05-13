@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class OrderCreateResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::OrderCreateResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # Order ID.
       sig { returns(String) }

@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class CardCollectResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::CardCollectResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # URL for collecting card information.
       sig { returns(TerminalShop::Models::CardCollectResponse::Data) }
@@ -38,7 +43,12 @@ module TerminalShop
 
       class Data < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::Models::CardCollectResponse::Data,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Temporary URL that allows a user to enter credit card details over https at
         # terminal.shop.

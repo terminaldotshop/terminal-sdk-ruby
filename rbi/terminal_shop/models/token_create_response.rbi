@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class TokenCreateResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::TokenCreateResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       sig { returns(TerminalShop::Models::TokenCreateResponse::Data) }
       attr_reader :data
@@ -34,7 +39,12 @@ module TerminalShop
 
       class Data < TerminalShop::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::Models::TokenCreateResponse::Data,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         # Personal token ID.
         sig { returns(String) }

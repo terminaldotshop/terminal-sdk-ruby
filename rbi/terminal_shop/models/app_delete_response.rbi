@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class AppDeleteResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::AppDeleteResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       sig { returns(Symbol) }
       attr_accessor :data

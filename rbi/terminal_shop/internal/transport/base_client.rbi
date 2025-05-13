@@ -5,9 +5,11 @@ module TerminalShop
     module Transport
       # @api private
       class BaseClient
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
+
         abstract!
 
-        RequestComponentsShape =
+        RequestComponents =
           T.type_alias do
             {
               method: Symbol,
@@ -53,7 +55,7 @@ module TerminalShop
             }
           end
 
-        RequestInputShape =
+        RequestInput =
           T.type_alias do
             {
               method: Symbol,
@@ -75,7 +77,7 @@ module TerminalShop
           sig do
             params(
               req:
-                TerminalShop::Internal::Transport::BaseClient::RequestComponentsShape
+                TerminalShop::Internal::Transport::BaseClient::RequestComponents
             ).void
           end
           def validate!(req)
@@ -95,11 +97,11 @@ module TerminalShop
           sig do
             params(
               request:
-                TerminalShop::Internal::Transport::BaseClient::RequestInputShape,
+                TerminalShop::Internal::Transport::BaseClient::RequestInput,
               status: Integer,
               response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
             ).returns(
-              TerminalShop::Internal::Transport::BaseClient::RequestInputShape
+              TerminalShop::Internal::Transport::BaseClient::RequestInput
             )
           end
           def follow_redirect(request, status:, response_headers:)
@@ -168,11 +170,11 @@ module TerminalShop
           overridable
             .params(
               req:
-                TerminalShop::Internal::Transport::BaseClient::RequestComponentsShape,
+                TerminalShop::Internal::Transport::BaseClient::RequestComponents,
               opts: TerminalShop::Internal::AnyHash
             )
             .returns(
-              TerminalShop::Internal::Transport::BaseClient::RequestInputShape
+              TerminalShop::Internal::Transport::BaseClient::RequestInput
             )
         end
         private def build_request(req, opts)
@@ -192,7 +194,7 @@ module TerminalShop
         sig do
           params(
             request:
-              TerminalShop::Internal::Transport::BaseClient::RequestInputShape,
+              TerminalShop::Internal::Transport::BaseClient::RequestInput,
             redirect_count: Integer,
             retry_count: Integer,
             send_retry_header: T::Boolean

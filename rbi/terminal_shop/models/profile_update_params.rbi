@@ -7,7 +7,12 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::ProfileUpdateParams,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       sig { returns(String) }
       attr_accessor :email

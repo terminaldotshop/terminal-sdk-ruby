@@ -4,7 +4,12 @@ module TerminalShop
   module Models
     class AddressListResponse < TerminalShop::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            TerminalShop::Models::AddressListResponse,
+            TerminalShop::Internal::AnyHash
+          )
+        end
 
       # Shipping addresses.
       sig { returns(T::Array[TerminalShop::AddressAPI]) }

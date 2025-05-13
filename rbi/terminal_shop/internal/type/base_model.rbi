@@ -5,10 +5,11 @@ module TerminalShop
     module Type
       class BaseModel
         extend TerminalShop::Internal::Type::Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
-        KnownFieldShape =
+        KnownField =
           T.type_alias do
             {
               mode: T.nilable(Symbol),
@@ -18,19 +19,29 @@ module TerminalShop
           end
 
         OrHash =
-          T.type_alias { T.any(T.self_type, TerminalShop::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              TerminalShop::Internal::Type::BaseModel,
+              TerminalShop::Internal::AnyHash
+            )
+          end
 
         class << self
           # @api private
           #
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
+          sig { params(child: T.self_type).void }
+          def inherited(child)
+          end
+
+          # @api private
           sig do
             returns(
               T::Hash[
                 Symbol,
                 T.all(
-                  TerminalShop::Internal::Type::BaseModel::KnownFieldShape,
+                  TerminalShop::Internal::Type::BaseModel::KnownField,
                   {
                     type_fn:
                       T.proc.returns(
@@ -50,7 +61,7 @@ module TerminalShop
               T::Hash[
                 Symbol,
                 T.all(
-                  TerminalShop::Internal::Type::BaseModel::KnownFieldShape,
+                  TerminalShop::Internal::Type::BaseModel::KnownField,
                   { type: TerminalShop::Internal::Type::Converter::Input }
                 )
               ]
