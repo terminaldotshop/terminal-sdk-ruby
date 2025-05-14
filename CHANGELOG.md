@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.7.0 (2025-05-14)
+
+Full Changelog: [v3.6.2...v3.7.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.2...v3.7.0)
+
+### Features
+
+* expose base client options as read only attributes ([5ed1891](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5ed18915050ee0f2db755deaa6655e93e0e3b766))
+* expose recursive `#to_h` conversion ([ca0cc5f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ca0cc5f0001bbb2f5b9c5edd7e4e7a017f268956))
+* support sorbet aliases at the runtime ([9e210bb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/9e210bb7cb568a0c4b7a10e87e69772d56a0306b))
+
+
+### Bug Fixes
+
+* **internal:** update gemspec name ([47cc74b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/47cc74b18b522e6caa46b014977c035b144e8faf))
+
+
+### Chores
+
+* fix misc linting / minor issues ([536f483](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/536f483f7916651ae0ae11f663315c8b379dc619))
+* **internal:** version bump ([cbba1d7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cbba1d7501215bf6a55a54d1fcbdaea01da212d6))
+
 ## 3.6.2 (2025-05-08)
 
 Full Changelog: [v3.6.1...v3.6.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.1...v3.6.2)
