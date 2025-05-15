@@ -96,10 +96,10 @@ module TerminalShop
       app_id: nil,
       environment: nil,
       base_url: ENV["TERMINAL_BASE_URL"],
-      max_retries: TerminalShop::Client::DEFAULT_MAX_RETRIES,
-      timeout: TerminalShop::Client::DEFAULT_TIMEOUT_IN_SECONDS,
-      initial_retry_delay: TerminalShop::Client::DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: TerminalShop::Client::DEFAULT_MAX_RETRY_DELAY
+      max_retries: self.class::DEFAULT_MAX_RETRIES,
+      timeout: self.class::DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: self.class::DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: self.class::DEFAULT_MAX_RETRY_DELAY
     )
       base_url ||= TerminalShop::Client::ENVIRONMENTS.fetch(environment&.to_sym || :production) do
         message = "environment must be one of #{TerminalShop::Client::ENVIRONMENTS.keys}, got #{environment}"
