@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.8.0 (2025-05-15)
+
+Full Changelog: [v3.7.0...v3.8.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.7.0...v3.8.0)
+
+### Features
+
+* bump default connection pool size limit to minimum of 99 ([81feb3e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/81feb3eb7e2d0c5b1df983647c436ebf966ece2c))
+
+
+### Chores
+
+* **internal:** codegen related update ([68a3efa](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/68a3efaf40e8944faf60b604b5aa33b46c1aedf0))
+
+
+### Documentation
+
+* rewrite much of README.md for readability ([564f4f7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/564f4f7b65f67c1f4f17f6a06c952a570263d4d1))
+
 ## 3.7.0 (2025-05-14)
 
 Full Changelog: [v3.6.2...v3.7.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.2...v3.7.0)
