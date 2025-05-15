@@ -391,6 +391,14 @@ module TerminalShop
         # @param keys [Array<Symbol>, nil]
         #
         # @return [Hash{Symbol=>Object}]
+        #
+        # @example
+        #   # `product_api` is a `TerminalShop::ProductAPI`
+        #   product_api => {
+        #     id: id,
+        #     description: description,
+        #     name: name
+        #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)
             .filter_map do |k|
