@@ -1,6 +1,6 @@
 # Terminal Ruby API library
 
-The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.2.0+ application.
+The Terminal Ruby library provides convenient access to the Terminal REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/terminaldotshop/terminal-sdk-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -38,25 +38,21 @@ products = terminal.product.list
 puts(products.data)
 ```
 
-## Sorbet
-
-This library is written with [Sorbet type definitions](https://sorbet.org/docs/rbi). However, there is no runtime dependency on the `sorbet-runtime`.
-
-When using sorbet, it is recommended to use model classes as below. This provides stronger type checking and tooling integration.
-
-```ruby
-terminal.product.list
-```
-
-### Errors
+### Handling errors
 
 When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `TerminalShop::Errors::APIError` will be thrown:
 
 ```ruby
 begin
   product = terminal.product.list
-rescue TerminalShop::Errors::APIError => e
-  puts(e.status) # 400
+rescue TerminalShop::Errors::APIConnectionError => e
+  puts("The server could not be reached")
+  puts(e.cause)  # an underlying Exception, likely raised within `net/http`
+rescue TerminalShop::Errors::RateLimitError => e
+  puts("A 429 status code was received; we should back off a bit.")
+rescue TerminalShop::Errors::APIStatusError => e
+  puts("Another non-200-range status code was received")
+  puts(e.status)
 end
 ```
 
@@ -96,11 +92,7 @@ terminal.product.list(request_options: {max_retries: 5})
 
 ### Timeouts
 
-By default, requests will time out after 60 seconds.
-
-Timeouts are applied separately to the initial connection and the overall request time, so in some cases a request could wait 2\*timeout seconds before it fails.
-
-You can use the `timeout` option to configure or disable this:
+By default, requests will time out after 60 seconds. You can use the timeout option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
@@ -112,39 +104,52 @@ terminal = TerminalShop::Client.new(
 terminal.product.list(request_options: {timeout: 5})
 ```
 
-## Model DSL
+On timeout, `TerminalShop::Errors::APITimeoutError` is raised.
 
-This library uses a simple DSL to represent request parameters and response shapes in `lib/terminal_shop/models`.
-
-With the right [editor plugins](https://shopify.github.io/ruby-lsp), you can ctrl-click on elements of the DSL to navigate around and explore the library.
-
-In all places where a `BaseModel` type is specified, vanilla Ruby `Hash` can also be used. For example, the following are interchangeable as arguments:
-
-```ruby
-# This has tooling readability, for auto-completion, static analysis, and goto definition with supported language services
-params = TerminalShop::Models::ProductListParams.new
-
-# This also works
-params = {
-
-}
-```
-
-## Editor support
-
-A combination of [Shopify LSP](https://shopify.github.io/ruby-lsp) and [Solargraph](https://solargraph.org/) is recommended for non-[Sorbet](https://sorbet.org) users. The former is especially good at go to definition, while the latter has much better auto-completion support.
+Note that requests that time out are retried by default.
 
 ## Advanced concepts
 
-### Making custom/undocumented requests
+### BaseModel
+
+All parameter and response objects inherit from `TerminalShop::Internal::Type::BaseModel`, which provides several conveniences, including:
+
+1. All fields, including unknown ones, are accessible with `obj[:prop]` syntax, and can be destructured with `obj => {prop: prop}` or pattern-matching syntax.
+
+2. Structural equivalence for equality; if two API calls return the same values, comparing the responses with == will return true.
+
+3. Both instances and the classes themselves can be pretty-printed.
+
+4. Helpers such as `#to_h`, `#deep_to_h`, `#to_json`, and `#to_yaml`.
+
+### Making custom or undocumented requests
+
+#### Undocumented properties
+
+You can send undocumented parameters to any endpoint, and read undocumented response properties, like so:
+
+Note: the `extra_` parameters of the same name overrides the documented parameters.
+
+```ruby
+products =
+  terminal.product.list(
+    request_options: {
+      extra_query: {my_query_parameter: value},
+      extra_body: {my_body_parameter: value},
+      extra_headers: {"my-header": value}
+    }
+  )
+
+puts(products[:my_undocumented_property])
+```
 
 #### Undocumented request params
 
-If you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` under the `request_options:` parameter when making a requests as seen in examples above.
+If you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` under the `request_options:` parameter when making a request as seen in examples above.
 
 #### Undocumented endpoints
 
-To make requests to undocumented endpoints, you can make requests using `client.request`. Options on the client will be respected (such as retries) when making this request.
+To make requests to undocumented endpoints while retaining the benefit of auth, retries, and so on, you can make requests using `client.request`, like so:
 
 ```ruby
 response = client.request(
@@ -152,42 +157,65 @@ response = client.request(
   path: '/undocumented/endpoint',
   query: {"dog": "woof"},
   headers: {"useful-header": "interesting-value"},
-  body: {"he": "llo"},
+  body: {"hello": "world"}
 )
 ```
 
 ### Concurrency & connection pooling
 
-The `TerminalShop::Client` instances are thread-safe, and should be re-used across multiple threads. By default, each `Client` have their own HTTP connection pool, with a maximum number of connections equal to thread count.
+The `TerminalShop::Client` instances are threadsafe, but only are fork-safe when there are no in-flight HTTP requests.
 
-When the maximum number of connections has been checked out from the connection pool, the `Client` will wait for an in use connection to become available. The queue time for this mechanism is accounted for by the per-request timeout.
+Each instance of `TerminalShop::Client` has its own HTTP connection pool with a default size of 99. As such, we recommend instantiating the client once per application in most settings.
+
+When all available connections from the pool are checked out, requests wait for a new connection to become available, with queue time counting towards the request timeout.
 
 Unless otherwise specified, other classes in the SDK do not have locks protecting their underlying data structure.
 
-Currently, `TerminalShop::Client` instances are only fork-safe if there are no in-flight HTTP requests.
+## Sorbet
 
-### Sorbet
+This library provides comprehensive [RBI](https://sorbet.org/docs/rbi) definitions, and has no dependency on sorbet-runtime.
 
-#### Enums
-
-Sorbet's typed enums require sub-classing of the [`T::Enum` class](https://sorbet.org/docs/tenum) from the `sorbet-runtime` gem.
-
-Since this library does not depend on `sorbet-runtime`, it uses a [`T.all` intersection type](https://sorbet.org/docs/intersection-types) with a ruby primitive type to construct a "tagged alias" instead.
+You can provide typesafe request parameters like so:
 
 ```ruby
-module TerminalShop::Region
-  # This alias aids language service driven navigation.
-  TaggedSymbol = T.type_alias { T.all(Symbol, TerminalShop::Region) }
-end
+terminal.product.list
 ```
 
-#### Argument passing trick
-
-It is possible to pass a compatible model / parameter class to a method that expects keyword arguments by using the `**` splat operator.
+Or, equivalently:
 
 ```ruby
-params = TerminalShop::Models::ProductListParams.new
+# Hashes work, but are not typesafe:
+terminal.product.list
+
+# You can also splat a full Params class:
+params = TerminalShop::ProductListParams.new
 terminal.product.list(**params)
+```
+
+### Enums
+
+Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
+
+```ruby
+# :allowed
+puts(TerminalShop::ProductAPI::Subscription::ALLOWED)
+
+# Revealed type: `T.all(TerminalShop::ProductAPI::Subscription, Symbol)`
+T.reveal_type(TerminalShop::ProductAPI::Subscription::ALLOWED)
+```
+
+Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
+
+```ruby
+TerminalShop::ProductAPI.new(
+  subscription: TerminalShop::ProductAPI::Subscription::ALLOWED,
+  # …
+)
+
+TerminalShop::ProductAPI.new(
+  subscription: :allowed,
+  # …
+)
 ```
 
 ## Versioning
