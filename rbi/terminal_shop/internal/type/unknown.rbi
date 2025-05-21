@@ -8,6 +8,7 @@ module TerminalShop
       # When we don't know what to expect for the value.
       class Unknown
         extend TerminalShop::Internal::Type::Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
@@ -42,6 +43,11 @@ module TerminalShop
               .returns(T.anything)
           end
           def dump(value, state:)
+          end
+
+          # @api private
+          sig { returns(T.anything) }
+          def to_sorbet_type
           end
         end
       end

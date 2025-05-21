@@ -3,6 +3,7 @@ module TerminalShop
     module Type
       class ArrayOf[Elem]
         include TerminalShop::Internal::Type::Converter
+        include TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         def self.[]: (
           ::Hash[Symbol, top]
@@ -26,6 +27,8 @@ module TerminalShop
           ::Array[top] | top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> (::Array[top] | top)
+
+        def to_sorbet_type: -> top
 
         def item_type: -> Elem
 
