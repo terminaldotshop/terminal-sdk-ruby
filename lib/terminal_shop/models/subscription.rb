@@ -119,15 +119,6 @@ module TerminalShop
 
         # @!method self.variants
         #   @return [Array(TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly)]
-
-        define_sorbet_constant!(:Variants) do
-          T.type_alias do
-            T.any(
-              TerminalShop::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::SubscriptionAPI::Schedule::Weekly
-            )
-          end
-        end
       end
     end
   end

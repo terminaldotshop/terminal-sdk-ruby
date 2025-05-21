@@ -3,6 +3,7 @@ module TerminalShop
     module Type
       class Boolean
         extend TerminalShop::Internal::Type::Converter
+        extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         def self.===: (top other) -> bool
 
@@ -17,6 +18,8 @@ module TerminalShop
           bool | top value,
           state: TerminalShop::Internal::Type::Converter::dump_state
         ) -> (bool | top)
+
+        def self.to_sorbet_type: -> top
       end
     end
   end

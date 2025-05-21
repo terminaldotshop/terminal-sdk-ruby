@@ -12,6 +12,7 @@ module TerminalShop
       # Array of items of a given type.
       class ArrayOf
         include TerminalShop::Internal::Type::Converter
+        include TerminalShop::Internal::Util::SorbetRuntimeSupport
 
         private_class_method :new
 
@@ -108,6 +109,13 @@ module TerminalShop
           else
             super
           end
+        end
+
+        # @api private
+        #
+        # @return [Object]
+        def to_sorbet_type
+          T::Array[TerminalShop::Internal::Util::SorbetRuntimeSupport.to_sorbet_type(item_type)]
         end
 
         # @api private
