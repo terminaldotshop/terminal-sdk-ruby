@@ -45,14 +45,7 @@ module TerminalShop
 
       # Schedule of the subscription.
       sig do
-        returns(
-          T.nilable(
-            T.any(
-              TerminalShop::SubscriptionAPI::Schedule::Fixed,
-              TerminalShop::SubscriptionAPI::Schedule::Weekly
-            )
-          )
-        )
+        returns(T.nilable(TerminalShop::SubscriptionAPI::Schedule::Variants))
       end
       attr_reader :schedule
 
@@ -118,11 +111,7 @@ module TerminalShop
             product_variant_id: String,
             quantity: Integer,
             next_: String,
-            schedule:
-              T.any(
-                TerminalShop::SubscriptionAPI::Schedule::Fixed,
-                TerminalShop::SubscriptionAPI::Schedule::Weekly
-              )
+            schedule: TerminalShop::SubscriptionAPI::Schedule::Variants
           }
         )
       end
