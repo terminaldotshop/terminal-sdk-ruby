@@ -89,6 +89,13 @@ module TerminalShop
 
             value
           end
+
+          # @api private
+          #
+          # @return [Object]
+          def to_sorbet_type
+            T.any(Pathname, StringIO, IO, String, TerminalShop::FilePart)
+          end
         end
       end
     end
