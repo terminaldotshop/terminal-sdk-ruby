@@ -25,6 +25,7 @@ class TerminalShop::Test::SorbetRuntimeSupportTest < Minitest::Test
     err = TerminalShop::Internal::Util::SorbetRuntimeSupport::MissingSorbetRuntimeError
 
     assert_raises(err) { TerminalShop::Internal::AnyHash }
+    assert_raises(err) { TerminalShop::Internal::FileInput }
     assert_raises(err) { TerminalShop::Internal::Type::Converter::Input }
     assert_raises(err) { TerminalShop::Internal::Type::Converter::CoerceState }
     assert_raises(err) { TerminalShop::Internal::Type::Converter::DumpState }
