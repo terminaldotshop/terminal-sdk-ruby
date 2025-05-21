@@ -2,6 +2,8 @@ module TerminalShop
   module Internal
     extend TerminalShop::Internal::Util::SorbetRuntimeSupport
 
+    type file_input = Pathname | StringIO | IO | String | TerminalShop::FilePart
+
     OMIT: Object
   end
 end
