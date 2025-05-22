@@ -40,6 +40,15 @@ module TerminalShop
         ?shipping: TerminalShop::CartAPI::Shipping
       ) -> void
 
+      def to_hash: -> {
+        amount: TerminalShop::CartAPI::Amount,
+        items: ::Array[TerminalShop::CartAPI::Item],
+        subtotal: Integer,
+        address_id: String,
+        card_id: String,
+        shipping: TerminalShop::CartAPI::Shipping
+      }
+
       type amount = { subtotal: Integer, shipping: Integer, total: Integer }
 
       class Amount < TerminalShop::Internal::Type::BaseModel
@@ -58,6 +67,8 @@ module TerminalShop
           ?shipping: Integer,
           ?total: Integer
         ) -> void
+
+        def to_hash: -> { subtotal: Integer, shipping: Integer, total: Integer }
       end
 
       type item =
@@ -83,6 +94,13 @@ module TerminalShop
           quantity: Integer,
           subtotal: Integer
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          product_variant_id: String,
+          quantity: Integer,
+          subtotal: Integer
+        }
       end
 
       type shipping = { service: String, timeframe: String }
@@ -97,6 +115,8 @@ module TerminalShop
         def timeframe=: (String) -> String
 
         def initialize: (?service: String, ?timeframe: String) -> void
+
+        def to_hash: -> { service: String, timeframe: String }
       end
     end
   end

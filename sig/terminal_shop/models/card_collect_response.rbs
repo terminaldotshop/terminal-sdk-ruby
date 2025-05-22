@@ -10,12 +10,16 @@ module TerminalShop
         data: TerminalShop::Models::CardCollectResponse::Data
       ) -> void
 
+      def to_hash: -> { data: TerminalShop::Models::CardCollectResponse::Data }
+
       type data = { url: String }
 
       class Data < TerminalShop::Internal::Type::BaseModel
         attr_accessor url: String
 
         def initialize: (url: String) -> void
+
+        def to_hash: -> { url: String }
       end
     end
   end
