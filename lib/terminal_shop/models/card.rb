@@ -24,7 +24,7 @@ module TerminalShop
       # @!attribute expiration
       #   Expiration of the card.
       #
-      #   @return [TerminalShop::CardAPI::Expiration]
+      #   @return [TerminalShop::Models::CardAPI::Expiration]
       required :expiration, -> { TerminalShop::CardAPI::Expiration }
 
       # @!attribute last4
@@ -34,8 +34,8 @@ module TerminalShop
       required :last4, String
 
       # @!method initialize(id:, brand:, created:, expiration:, last4:)
-      #   Some parameter documentations has been truncated, see {TerminalShop::CardAPI}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::CardAPI} for more details.
       #
       #   Credit card used for payments in the Terminal shop.
       #
@@ -45,11 +45,11 @@ module TerminalShop
       #
       #   @param created [String] Date the card was created.
       #
-      #   @param expiration [TerminalShop::CardAPI::Expiration] Expiration of the card.
+      #   @param expiration [TerminalShop::Models::CardAPI::Expiration] Expiration of the card.
       #
       #   @param last4 [String] Last four digits of the card.
 
-      # @see TerminalShop::CardAPI#expiration
+      # @see TerminalShop::Models::CardAPI#expiration
       class Expiration < TerminalShop::Internal::Type::BaseModel
         # @!attribute month
         #   Expiration month of the card.

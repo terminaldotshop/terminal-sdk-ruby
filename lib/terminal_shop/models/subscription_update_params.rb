@@ -22,7 +22,7 @@ module TerminalShop
       # @!attribute schedule
       #   New schedule for the subscription.
       #
-      #   @return [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly, nil]
+      #   @return [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::SubscriptionUpdateParams::Schedule }
 
       # @!method initialize(address_id: nil, card_id: nil, schedule: nil, request_options: {})
@@ -30,7 +30,7 @@ module TerminalShop
       #
       #   @param card_id [String] New payment method ID for the subscription.
       #
-      #   @param schedule [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
+      #   @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
       #
       #   @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}]
 
@@ -69,7 +69,7 @@ module TerminalShop
         end
 
         # @!method self.variants
-        #   @return [Array(TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly)]
+        #   @return [Array(TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly)]
       end
     end
   end

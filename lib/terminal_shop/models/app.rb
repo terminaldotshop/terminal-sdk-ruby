@@ -28,8 +28,8 @@ module TerminalShop
       required :secret, String
 
       # @!method initialize(id:, name:, redirect_uri:, secret:)
-      #   Some parameter documentations has been truncated, see {TerminalShop::AppAPI} for
-      #   more details.
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::AppAPI} for more details.
       #
       #   A Terminal App used for configuring an OAuth 2.0 client.
       #

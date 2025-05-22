@@ -20,6 +20,13 @@ module TerminalShop
         variants: ::Hash[Symbol, Integer],
         ?request_options: TerminalShop::request_opts
       ) -> void
+
+      def to_hash: -> {
+        address_id: String,
+        card_id: String,
+        variants: ::Hash[Symbol, Integer],
+        request_options: TerminalShop::RequestOptions
+      }
     end
   end
 end

@@ -6,13 +6,13 @@ module TerminalShop
       # @!attribute amount
       #   The subtotal and shipping amounts for the current user's cart.
       #
-      #   @return [TerminalShop::CartAPI::Amount]
+      #   @return [TerminalShop::Models::CartAPI::Amount]
       required :amount, -> { TerminalShop::CartAPI::Amount }
 
       # @!attribute items
       #   An array of items in the current user's cart.
       #
-      #   @return [Array<TerminalShop::CartAPI::Item>]
+      #   @return [Array<TerminalShop::Models::CartAPI::Item>]
       required :items, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::CartAPI::Item] }
 
       # @!attribute subtotal
@@ -36,15 +36,15 @@ module TerminalShop
       # @!attribute shipping
       #   Shipping information for the current user's cart.
       #
-      #   @return [TerminalShop::CartAPI::Shipping, nil]
+      #   @return [TerminalShop::Models::CartAPI::Shipping, nil]
       optional :shipping, -> { TerminalShop::CartAPI::Shipping }
 
       # @!method initialize(amount:, items:, subtotal:, address_id: nil, card_id: nil, shipping: nil)
       #   The current Terminal shop user's cart.
       #
-      #   @param amount [TerminalShop::CartAPI::Amount] The subtotal and shipping amounts for the current user's cart.
+      #   @param amount [TerminalShop::Models::CartAPI::Amount] The subtotal and shipping amounts for the current user's cart.
       #
-      #   @param items [Array<TerminalShop::CartAPI::Item>] An array of items in the current user's cart.
+      #   @param items [Array<TerminalShop::Models::CartAPI::Item>] An array of items in the current user's cart.
       #
       #   @param subtotal [Integer] The subtotal of all items in the current user's cart, in cents (USD).
       #
@@ -52,9 +52,9 @@ module TerminalShop
       #
       #   @param card_id [String] ID of the card selected on the current user's cart.
       #
-      #   @param shipping [TerminalShop::CartAPI::Shipping] Shipping information for the current user's cart.
+      #   @param shipping [TerminalShop::Models::CartAPI::Shipping] Shipping information for the current user's cart.
 
-      # @see TerminalShop::CartAPI#amount
+      # @see TerminalShop::Models::CartAPI#amount
       class Amount < TerminalShop::Internal::Type::BaseModel
         # @!attribute subtotal
         #   Subtotal of the current user's cart, in cents (USD).
@@ -111,7 +111,7 @@ module TerminalShop
 
         # @!method initialize(id:, product_variant_id:, quantity:, subtotal:)
         #   Some parameter documentations has been truncated, see
-        #   {TerminalShop::CartAPI::Item} for more details.
+        #   {TerminalShop::Models::CartAPI::Item} for more details.
         #
         #   An item in the current Terminal shop user's cart.
         #
@@ -124,7 +124,7 @@ module TerminalShop
         #   @param subtotal [Integer] Subtotal of the item in the current user's cart, in cents (USD).
       end
 
-      # @see TerminalShop::CartAPI#shipping
+      # @see TerminalShop::Models::CartAPI#shipping
       class Shipping < TerminalShop::Internal::Type::BaseModel
         # @!attribute service
         #   Shipping service name.

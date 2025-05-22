@@ -7,7 +7,7 @@ module TerminalShop
         name: String,
         variants: ::Array[TerminalShop::ProductVariant],
         order: Integer,
-        subscription: TerminalShop::ProductAPI::subscription,
+        subscription: TerminalShop::Models::ProductAPI::subscription,
         tags: TerminalShop::ProductAPI::Tags
       }
 
@@ -24,11 +24,11 @@ module TerminalShop
 
       def order=: (Integer) -> Integer
 
-      attr_reader subscription: TerminalShop::ProductAPI::subscription?
+      attr_reader subscription: TerminalShop::Models::ProductAPI::subscription?
 
       def subscription=: (
-        TerminalShop::ProductAPI::subscription
-      ) -> TerminalShop::ProductAPI::subscription
+        TerminalShop::Models::ProductAPI::subscription
+      ) -> TerminalShop::Models::ProductAPI::subscription
 
       attr_reader tags: TerminalShop::ProductAPI::Tags?
 
@@ -42,9 +42,19 @@ module TerminalShop
         name: String,
         variants: ::Array[TerminalShop::ProductVariant],
         ?order: Integer,
-        ?subscription: TerminalShop::ProductAPI::subscription,
+        ?subscription: TerminalShop::Models::ProductAPI::subscription,
         ?tags: TerminalShop::ProductAPI::Tags
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        description: String,
+        name: String,
+        variants: ::Array[TerminalShop::ProductVariant],
+        order: Integer,
+        subscription: TerminalShop::Models::ProductAPI::subscription,
+        tags: TerminalShop::ProductAPI::Tags
+      }
 
       type subscription = :allowed | :required
 
@@ -54,7 +64,7 @@ module TerminalShop
         ALLOWED: :allowed
         REQUIRED: :required
 
-        def self?.values: -> ::Array[TerminalShop::ProductAPI::subscription]
+        def self?.values: -> ::Array[TerminalShop::Models::ProductAPI::subscription]
       end
 
       type tags =
@@ -100,6 +110,15 @@ module TerminalShop
           ?market_global: bool,
           ?market_na: bool
         ) -> void
+
+        def to_hash: -> {
+          app: String,
+          color: String,
+          featured: bool,
+          market_eu: bool,
+          market_global: bool,
+          market_na: bool
+        }
       end
     end
   end
