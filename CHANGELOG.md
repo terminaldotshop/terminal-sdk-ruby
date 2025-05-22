@@ -1,5 +1,32 @@
 # Changelog
 
+## 3.8.0 (2025-05-22)
+
+Full Changelog: [v3.7.0...v3.8.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.7.0...v3.8.0)
+
+### Features
+
+* bump default connection pool size limit to minimum of 99 ([81feb3e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/81feb3eb7e2d0c5b1df983647c436ebf966ece2c))
+
+
+### Bug Fixes
+
+* correctly instantiate sorbet type aliases for enums and unions ([2698489](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2698489f9f63ced3353196009dc2329e20f8cff5))
+
+
+### Chores
+
+* **docs:** grammar improvements ([841d9a7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/841d9a7d18776a55e947cee60233d0756579b22c))
+* **internal:** codegen related update ([68a3efa](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/68a3efaf40e8944faf60b604b5aa33b46c1aedf0))
+* refine Yard and Sorbet types and ensure linting is turned on for examples ([41916e7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/41916e7b6c195ae8085ac89393b0893b42bf72bc))
+* use sorbet union aliases where available ([046dd18](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/046dd183ff9c9826d45fdcf73a6512effd343ca5))
+* whitespaces ([88c3862](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/88c38620dbdceefd1eb268b457a464a0b59daa6c))
+
+
+### Documentation
+
+* rewrite much of README.md for readability ([564f4f7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/564f4f7b65f67c1f4f17f6a06c952a570263d4d1))
+
 ## 3.7.0 (2025-05-14)
 
 Full Changelog: [v3.6.2...v3.7.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.6.2...v3.7.0)
