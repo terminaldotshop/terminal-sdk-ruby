@@ -6,6 +6,8 @@ module TerminalShop
       attr_accessor data: :ok
 
       def initialize: (?data: :ok) -> void
+
+      def to_hash: -> { data: :ok }
     end
   end
 end

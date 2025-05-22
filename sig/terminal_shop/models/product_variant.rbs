@@ -34,6 +34,14 @@ module TerminalShop
         ?tags: TerminalShop::ProductVariant::Tags
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        name: String,
+        price: Integer,
+        description: String,
+        tags: TerminalShop::ProductVariant::Tags
+      }
+
       type tags =
         { app: String, market_eu: bool, market_global: bool, market_na: bool }
 
@@ -60,6 +68,13 @@ module TerminalShop
           ?market_global: bool,
           ?market_na: bool
         ) -> void
+
+        def to_hash: -> {
+          app: String,
+          market_eu: bool,
+          market_global: bool,
+          market_na: bool
+        }
       end
     end
   end

@@ -17,6 +17,12 @@ module TerminalShop
         quantity: Integer,
         ?request_options: TerminalShop::request_opts
       ) -> void
+
+      def to_hash: -> {
+        product_variant_id: String,
+        quantity: Integer,
+        request_options: TerminalShop::RequestOptions
+      }
     end
   end
 end

@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   List of orders.
       #
-      #   @return [Array<TerminalShop::OrderAPI>]
+      #   @return [Array<TerminalShop::Models::OrderAPI>]
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::OrderAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::OrderAPI>] List of orders.
+      #   @param data [Array<TerminalShop::Models::OrderAPI>] List of orders.
     end
   end
 end

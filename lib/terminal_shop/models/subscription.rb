@@ -54,12 +54,12 @@ module TerminalShop
       # @!attribute schedule
       #   Schedule of the subscription.
       #
-      #   @return [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly, nil]
+      #   @return [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::SubscriptionAPI::Schedule }
 
       # @!method initialize(id:, address_id:, card_id:, created:, price:, product_variant_id:, quantity:, next_: nil, schedule: nil)
       #   Some parameter documentations has been truncated, see
-      #   {TerminalShop::SubscriptionAPI} for more details.
+      #   {TerminalShop::Models::SubscriptionAPI} for more details.
       #
       #   Subscription to a Terminal shop product.
       #
@@ -79,11 +79,11 @@ module TerminalShop
       #
       #   @param next_ [String] Next shipment and billing date for the subscription.
       #
-      #   @param schedule [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
+      #   @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
 
       # Schedule of the subscription.
       #
-      # @see TerminalShop::SubscriptionAPI#schedule
+      # @see TerminalShop::Models::SubscriptionAPI#schedule
       module Schedule
         extend TerminalShop::Internal::Type::Union
 
@@ -118,7 +118,7 @@ module TerminalShop
         end
 
         # @!method self.variants
-        #   @return [Array(TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly)]
+        #   @return [Array(TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly)]
       end
     end
   end

@@ -38,6 +38,16 @@ module TerminalShop
         ?index: Integer
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        amount: TerminalShop::OrderAPI::Amount,
+        created: String,
+        items: ::Array[TerminalShop::OrderAPI::Item],
+        shipping: TerminalShop::OrderAPI::Shipping,
+        tracking: TerminalShop::OrderAPI::Tracking,
+        index: Integer
+      }
+
       type amount = { shipping: Integer, subtotal: Integer }
 
       class Amount < TerminalShop::Internal::Type::BaseModel
@@ -46,6 +56,8 @@ module TerminalShop
         attr_accessor subtotal: Integer
 
         def initialize: (shipping: Integer, subtotal: Integer) -> void
+
+        def to_hash: -> { shipping: Integer, subtotal: Integer }
       end
 
       type item =
@@ -79,6 +91,14 @@ module TerminalShop
           ?description: String,
           ?product_variant_id: String
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          amount: Integer,
+          quantity: Integer,
+          description: String,
+          product_variant_id: String
+        }
       end
 
       type shipping =
@@ -126,13 +146,24 @@ module TerminalShop
           ?province: String,
           ?street2: String
         ) -> void
+
+        def to_hash: -> {
+          city: String,
+          country: String,
+          name: String,
+          :street1 => String,
+          zip: String,
+          phone: String,
+          province: String,
+          :street2 => String
+        }
       end
 
       type tracking =
         {
           number: String,
           service: String,
-          status: TerminalShop::OrderAPI::Tracking::status,
+          status: TerminalShop::Models::OrderAPI::Tracking::status,
           status_details: String,
           status_updated_at: String,
           url: String
@@ -147,11 +178,11 @@ module TerminalShop
 
         def service=: (String) -> String
 
-        attr_reader status: TerminalShop::OrderAPI::Tracking::status?
+        attr_reader status: TerminalShop::Models::OrderAPI::Tracking::status?
 
         def status=: (
-          TerminalShop::OrderAPI::Tracking::status
-        ) -> TerminalShop::OrderAPI::Tracking::status
+          TerminalShop::Models::OrderAPI::Tracking::status
+        ) -> TerminalShop::Models::OrderAPI::Tracking::status
 
         attr_reader status_details: String?
 
@@ -168,11 +199,20 @@ module TerminalShop
         def initialize: (
           ?number: String,
           ?service: String,
-          ?status: TerminalShop::OrderAPI::Tracking::status,
+          ?status: TerminalShop::Models::OrderAPI::Tracking::status,
           ?status_details: String,
           ?status_updated_at: String,
           ?url: String
         ) -> void
+
+        def to_hash: -> {
+          number: String,
+          service: String,
+          status: TerminalShop::Models::OrderAPI::Tracking::status,
+          status_details: String,
+          status_updated_at: String,
+          url: String
+        }
 
         type status =
           :PRE_TRANSIT | :TRANSIT | :DELIVERED | :RETURNED | :FAILURE | :UNKNOWN
@@ -187,7 +227,7 @@ module TerminalShop
           FAILURE: :FAILURE
           UNKNOWN: :UNKNOWN
 
-          def self?.values: -> ::Array[TerminalShop::OrderAPI::Tracking::status]
+          def self?.values: -> ::Array[TerminalShop::Models::OrderAPI::Tracking::status]
         end
       end
     end

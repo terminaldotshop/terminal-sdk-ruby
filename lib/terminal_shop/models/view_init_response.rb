@@ -17,79 +17,79 @@ module TerminalShop
       class Data < TerminalShop::Internal::Type::BaseModel
         # @!attribute addresses
         #
-        #   @return [Array<TerminalShop::AddressAPI>]
+        #   @return [Array<TerminalShop::Models::AddressAPI>]
         required :addresses, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::AddressAPI] }
 
         # @!attribute apps
         #
-        #   @return [Array<TerminalShop::AppAPI>]
+        #   @return [Array<TerminalShop::Models::AppAPI>]
         required :apps, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::AppAPI] }
 
         # @!attribute cards
         #
-        #   @return [Array<TerminalShop::CardAPI>]
+        #   @return [Array<TerminalShop::Models::CardAPI>]
         required :cards, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::CardAPI] }
 
         # @!attribute cart
         #   The current Terminal shop user's cart.
         #
-        #   @return [TerminalShop::CartAPI]
+        #   @return [TerminalShop::Models::CartAPI]
         required :cart, -> { TerminalShop::CartAPI }
 
         # @!attribute orders
         #
-        #   @return [Array<TerminalShop::OrderAPI>]
+        #   @return [Array<TerminalShop::Models::OrderAPI>]
         required :orders, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::OrderAPI] }
 
         # @!attribute products
         #
-        #   @return [Array<TerminalShop::ProductAPI>]
+        #   @return [Array<TerminalShop::Models::ProductAPI>]
         required :products, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::ProductAPI] }
 
         # @!attribute profile
         #   A Terminal shop user's profile. (We have users, btw.)
         #
-        #   @return [TerminalShop::ProfileAPI]
+        #   @return [TerminalShop::Models::ProfileAPI]
         required :profile, -> { TerminalShop::ProfileAPI }
 
         # @!attribute region
         #   A Terminal shop user's region.
         #
-        #   @return [Symbol, TerminalShop::Region]
+        #   @return [Symbol, TerminalShop::Models::Region]
         required :region, enum: -> { TerminalShop::Region }
 
         # @!attribute subscriptions
         #
-        #   @return [Array<TerminalShop::SubscriptionAPI>]
+        #   @return [Array<TerminalShop::Models::SubscriptionAPI>]
         required :subscriptions, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::SubscriptionAPI] }
 
         # @!attribute tokens
         #
-        #   @return [Array<TerminalShop::TokenAPI>]
+        #   @return [Array<TerminalShop::Models::TokenAPI>]
         required :tokens, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::TokenAPI] }
 
         # @!method initialize(addresses:, apps:, cards:, cart:, orders:, products:, profile:, region:, subscriptions:, tokens:)
         #   Initial app data.
         #
-        #   @param addresses [Array<TerminalShop::AddressAPI>]
+        #   @param addresses [Array<TerminalShop::Models::AddressAPI>]
         #
-        #   @param apps [Array<TerminalShop::AppAPI>]
+        #   @param apps [Array<TerminalShop::Models::AppAPI>]
         #
-        #   @param cards [Array<TerminalShop::CardAPI>]
+        #   @param cards [Array<TerminalShop::Models::CardAPI>]
         #
-        #   @param cart [TerminalShop::CartAPI] The current Terminal shop user's cart.
+        #   @param cart [TerminalShop::Models::CartAPI] The current Terminal shop user's cart.
         #
-        #   @param orders [Array<TerminalShop::OrderAPI>]
+        #   @param orders [Array<TerminalShop::Models::OrderAPI>]
         #
-        #   @param products [Array<TerminalShop::ProductAPI>]
+        #   @param products [Array<TerminalShop::Models::ProductAPI>]
         #
-        #   @param profile [TerminalShop::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
+        #   @param profile [TerminalShop::Models::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
         #
-        #   @param region [Symbol, TerminalShop::Region] A Terminal shop user's region.
+        #   @param region [Symbol, TerminalShop::Models::Region] A Terminal shop user's region.
         #
-        #   @param subscriptions [Array<TerminalShop::SubscriptionAPI>]
+        #   @param subscriptions [Array<TerminalShop::Models::SubscriptionAPI>]
         #
-        #   @param tokens [Array<TerminalShop::TokenAPI>]
+        #   @param tokens [Array<TerminalShop::Models::TokenAPI>]
       end
     end
   end

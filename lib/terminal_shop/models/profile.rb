@@ -6,15 +6,15 @@ module TerminalShop
       # @!attribute user
       #   A Terminal shop user. (We have users, btw.)
       #
-      #   @return [TerminalShop::ProfileAPI::User]
+      #   @return [TerminalShop::Models::ProfileAPI::User]
       required :user, -> { TerminalShop::ProfileAPI::User }
 
       # @!method initialize(user:)
       #   A Terminal shop user's profile. (We have users, btw.)
       #
-      #   @param user [TerminalShop::ProfileAPI::User] A Terminal shop user. (We have users, btw.)
+      #   @param user [TerminalShop::Models::ProfileAPI::User] A Terminal shop user. (We have users, btw.)
 
-      # @see TerminalShop::ProfileAPI#user
+      # @see TerminalShop::Models::ProfileAPI#user
       class User < TerminalShop::Internal::Type::BaseModel
         # @!attribute id
         #   Unique object identifier. The format and length of IDs may change over time.
@@ -48,7 +48,7 @@ module TerminalShop
 
         # @!method initialize(id:, email:, fingerprint:, name:, stripe_customer_id:)
         #   Some parameter documentations has been truncated, see
-        #   {TerminalShop::ProfileAPI::User} for more details.
+        #   {TerminalShop::Models::ProfileAPI::User} for more details.
         #
         #   A Terminal shop user. (We have users, btw.)
         #
