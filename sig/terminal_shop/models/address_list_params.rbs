@@ -8,6 +8,8 @@ module TerminalShop
       include TerminalShop::Internal::Type::RequestParameters
 
       def initialize: (?request_options: TerminalShop::request_opts) -> void
+
+      def to_hash: -> { request_options: TerminalShop::RequestOptions }
     end
   end
 end

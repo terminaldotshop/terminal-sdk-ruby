@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   List of cards associated with the user.
       #
-      #   @return [Array<TerminalShop::CardAPI>]
+      #   @return [Array<TerminalShop::Models::CardAPI>]
       required :data, -> { TerminalShop::Internal::Type::ArrayOf[TerminalShop::CardAPI] }
 
       # @!method initialize(data:)
-      #   @param data [Array<TerminalShop::CardAPI>] List of cards associated with the user.
+      #   @param data [Array<TerminalShop::Models::CardAPI>] List of cards associated with the user.
     end
   end
 end

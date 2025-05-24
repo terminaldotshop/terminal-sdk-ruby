@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   Product sold in the Terminal shop.
       #
-      #   @return [TerminalShop::ProductAPI]
+      #   @return [TerminalShop::Models::ProductAPI]
       required :data, -> { TerminalShop::ProductAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::ProductAPI] Product sold in the Terminal shop.
+      #   @param data [TerminalShop::Models::ProductAPI] Product sold in the Terminal shop.
     end
   end
 end

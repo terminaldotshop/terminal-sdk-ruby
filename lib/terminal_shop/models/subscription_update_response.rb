@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   Subscription to a Terminal shop product.
       #
-      #   @return [TerminalShop::SubscriptionAPI]
+      #   @return [TerminalShop::Models::SubscriptionAPI]
       required :data, -> { TerminalShop::SubscriptionAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::SubscriptionAPI] Subscription to a Terminal shop product.
+      #   @param data [TerminalShop::Models::SubscriptionAPI] Subscription to a Terminal shop product.
     end
   end
 end

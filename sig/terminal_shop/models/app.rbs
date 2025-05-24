@@ -18,6 +18,13 @@ module TerminalShop
         redirect_uri: String,
         secret: String
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        name: String,
+        redirect_uri: String,
+        secret: String
+      }
     end
   end
 end

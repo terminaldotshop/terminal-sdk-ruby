@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   A Terminal shop user's profile. (We have users, btw.)
       #
-      #   @return [TerminalShop::ProfileAPI]
+      #   @return [TerminalShop::Models::ProfileAPI]
       required :data, -> { TerminalShop::ProfileAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
+      #   @param data [TerminalShop::Models::ProfileAPI] A Terminal shop user's profile. (We have users, btw.)
     end
   end
 end

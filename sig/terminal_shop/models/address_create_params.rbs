@@ -50,6 +50,18 @@ module TerminalShop
         ?street2: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
+
+      def to_hash: -> {
+        city: String,
+        country: String,
+        name: String,
+        :street1 => String,
+        zip: String,
+        phone: String,
+        province: String,
+        :street2 => String,
+        request_options: TerminalShop::RequestOptions
+      }
     end
   end
 end

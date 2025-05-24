@@ -7,6 +7,8 @@ module TerminalShop
 
       def initialize: (user: TerminalShop::ProfileAPI::User) -> void
 
+      def to_hash: -> { user: TerminalShop::ProfileAPI::User }
+
       type user =
         {
           id: String,
@@ -34,6 +36,14 @@ module TerminalShop
           name: String?,
           stripe_customer_id: String
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          email: String?,
+          fingerprint: String?,
+          name: String?,
+          stripe_customer_id: String
+        }
       end
     end
   end

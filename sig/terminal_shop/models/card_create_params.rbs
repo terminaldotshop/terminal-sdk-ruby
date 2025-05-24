@@ -13,6 +13,11 @@ module TerminalShop
         token: String,
         ?request_options: TerminalShop::request_opts
       ) -> void
+
+      def to_hash: -> {
+        token: String,
+        request_options: TerminalShop::RequestOptions
+      }
     end
   end
 end

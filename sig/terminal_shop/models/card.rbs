@@ -28,6 +28,14 @@ module TerminalShop
         last4: String
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        brand: String,
+        created: String,
+        expiration: TerminalShop::CardAPI::Expiration,
+        :last4 => String
+      }
+
       type expiration = { month: Integer, year: Integer }
 
       class Expiration < TerminalShop::Internal::Type::BaseModel
@@ -36,6 +44,8 @@ module TerminalShop
         attr_accessor year: Integer
 
         def initialize: (month: Integer, year: Integer) -> void
+
+        def to_hash: -> { month: Integer, year: Integer }
       end
     end
   end

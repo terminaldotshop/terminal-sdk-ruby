@@ -7,11 +7,11 @@ module TerminalShop
       # @!attribute data
       #   An order from the Terminal shop.
       #
-      #   @return [TerminalShop::OrderAPI]
+      #   @return [TerminalShop::Models::OrderAPI]
       required :data, -> { TerminalShop::OrderAPI }
 
       # @!method initialize(data:)
-      #   @param data [TerminalShop::OrderAPI] An order from the Terminal shop.
+      #   @param data [TerminalShop::Models::OrderAPI] An order from the Terminal shop.
     end
   end
 end

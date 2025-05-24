@@ -10,7 +10,7 @@ module TerminalShop
         product_variant_id: String,
         quantity: Integer,
         next_: String,
-        schedule: TerminalShop::SubscriptionAPI::schedule
+        schedule: TerminalShop::Models::SubscriptionAPI::schedule
       }
 
     class SubscriptionAPI < TerminalShop::Internal::Type::BaseModel
@@ -32,11 +32,11 @@ module TerminalShop
 
       def next_=: (String) -> String
 
-      attr_reader schedule: TerminalShop::SubscriptionAPI::schedule?
+      attr_reader schedule: TerminalShop::Models::SubscriptionAPI::schedule?
 
       def schedule=: (
-        TerminalShop::SubscriptionAPI::schedule
-      ) -> TerminalShop::SubscriptionAPI::schedule
+        TerminalShop::Models::SubscriptionAPI::schedule
+      ) -> TerminalShop::Models::SubscriptionAPI::schedule
 
       def initialize: (
         id: String,
@@ -47,8 +47,20 @@ module TerminalShop
         product_variant_id: String,
         quantity: Integer,
         ?next_: String,
-        ?schedule: TerminalShop::SubscriptionAPI::schedule
+        ?schedule: TerminalShop::Models::SubscriptionAPI::schedule
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        address_id: String,
+        card_id: String,
+        created: String,
+        price: Integer,
+        product_variant_id: String,
+        quantity: Integer,
+        next_: String,
+        schedule: TerminalShop::Models::SubscriptionAPI::schedule
+      }
 
       type schedule =
         TerminalShop::SubscriptionAPI::Schedule::Fixed
@@ -63,6 +75,8 @@ module TerminalShop
           attr_accessor type: :fixed
 
           def initialize: (?type: :fixed) -> void
+
+          def to_hash: -> { type: :fixed }
         end
 
         type weekly = { interval: Integer, type: :weekly }
@@ -73,9 +87,11 @@ module TerminalShop
           attr_accessor type: :weekly
 
           def initialize: (interval: Integer, ?type: :weekly) -> void
+
+          def to_hash: -> { interval: Integer, type: :weekly }
         end
 
-        def self?.variants: -> ::Array[TerminalShop::SubscriptionAPI::schedule]
+        def self?.variants: -> ::Array[TerminalShop::Models::SubscriptionAPI::schedule]
       end
     end
   end

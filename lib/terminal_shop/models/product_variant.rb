@@ -30,12 +30,12 @@ module TerminalShop
       # @!attribute tags
       #   Tags for the product variant.
       #
-      #   @return [TerminalShop::ProductVariant::Tags, nil]
+      #   @return [TerminalShop::Models::ProductVariant::Tags, nil]
       optional :tags, -> { TerminalShop::ProductVariant::Tags }
 
       # @!method initialize(id:, name:, price:, description: nil, tags: nil)
       #   Some parameter documentations has been truncated, see
-      #   {TerminalShop::ProductVariant} for more details.
+      #   {TerminalShop::Models::ProductVariant} for more details.
       #
       #   Variant of a product in the Terminal shop.
       #
@@ -47,9 +47,9 @@ module TerminalShop
       #
       #   @param description [String] Description of the product variant.
       #
-      #   @param tags [TerminalShop::ProductVariant::Tags] Tags for the product variant.
+      #   @param tags [TerminalShop::Models::ProductVariant::Tags] Tags for the product variant.
 
-      # @see TerminalShop::ProductVariant#tags
+      # @see TerminalShop::Models::ProductVariant#tags
       class Tags < TerminalShop::Internal::Type::BaseModel
         # @!attribute app
         #

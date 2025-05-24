@@ -10,6 +10,8 @@ module TerminalShop
         data: TerminalShop::Models::TokenCreateResponse::Data
       ) -> void
 
+      def to_hash: -> { data: TerminalShop::Models::TokenCreateResponse::Data }
+
       type data = { id: String, token: String }
 
       class Data < TerminalShop::Internal::Type::BaseModel
@@ -18,6 +20,8 @@ module TerminalShop
         attr_accessor token: String
 
         def initialize: (id: String, token: String) -> void
+
+        def to_hash: -> { id: String, token: String }
       end
     end
   end

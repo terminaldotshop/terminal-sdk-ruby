@@ -22,8 +22,8 @@ module TerminalShop
       required :created, String
 
       # @!method initialize(id:, token:, created:)
-      #   Some parameter documentations has been truncated, see {TerminalShop::TokenAPI}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {TerminalShop::Models::TokenAPI} for more details.
       #
       #   A personal access token used to access the Terminal API. If you leak this,
       #   expect large sums of coffee to be ordered on your credit card.

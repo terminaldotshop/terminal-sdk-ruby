@@ -26,7 +26,7 @@ module TerminalShop
       #
       # @param next_ [String] Next shipment and billing date for the subscription.
       #
-      # @param schedule [TerminalShop::SubscriptionAPI::Schedule::Fixed, TerminalShop::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
+      # @param schedule [TerminalShop::Models::SubscriptionAPI::Schedule::Fixed, TerminalShop::Models::SubscriptionAPI::Schedule::Weekly] Schedule of the subscription.
       #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -54,7 +54,7 @@ module TerminalShop
       #
       # @param card_id [String] New payment method ID for the subscription.
       #
-      # @param schedule [TerminalShop::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
+      # @param schedule [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly] New schedule for the subscription.
       #
       # @param request_options [TerminalShop::RequestOptions, Hash{Symbol=>Object}, nil]
       #

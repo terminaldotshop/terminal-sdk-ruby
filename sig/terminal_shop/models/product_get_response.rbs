@@ -6,6 +6,8 @@ module TerminalShop
       attr_accessor data: TerminalShop::ProductAPI
 
       def initialize: (data: TerminalShop::ProductAPI) -> void
+
+      def to_hash: -> { data: TerminalShop::ProductAPI }
     end
   end
 end

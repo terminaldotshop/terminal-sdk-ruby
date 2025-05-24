@@ -53,6 +53,19 @@ module TerminalShop
         ?province: String,
         ?street2: String
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        city: String,
+        country: String,
+        created: String,
+        name: String,
+        :street1 => String,
+        zip: String,
+        phone: String,
+        province: String,
+        :street2 => String
+      }
     end
   end
 end

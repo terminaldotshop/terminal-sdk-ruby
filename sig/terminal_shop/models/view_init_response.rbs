@@ -10,6 +10,8 @@ module TerminalShop
         data: TerminalShop::Models::ViewInitResponse::Data
       ) -> void
 
+      def to_hash: -> { data: TerminalShop::Models::ViewInitResponse::Data }
+
       type data =
         {
           addresses: ::Array[TerminalShop::AddressAPI],
@@ -57,6 +59,19 @@ module TerminalShop
           subscriptions: ::Array[TerminalShop::SubscriptionAPI],
           tokens: ::Array[TerminalShop::TokenAPI]
         ) -> void
+
+        def to_hash: -> {
+          addresses: ::Array[TerminalShop::AddressAPI],
+          apps: ::Array[TerminalShop::AppAPI],
+          cards: ::Array[TerminalShop::CardAPI],
+          cart: TerminalShop::CartAPI,
+          orders: ::Array[TerminalShop::OrderAPI],
+          products: ::Array[TerminalShop::ProductAPI],
+          profile: TerminalShop::ProfileAPI,
+          region: TerminalShop::Models::region,
+          subscriptions: ::Array[TerminalShop::SubscriptionAPI],
+          tokens: ::Array[TerminalShop::TokenAPI]
+        }
       end
     end
   end
