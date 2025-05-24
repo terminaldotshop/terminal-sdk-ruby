@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.8.1 (2025-05-24)
+
+Full Changelog: [v3.8.0...v3.8.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.0...v3.8.1)
+
+### Bug Fixes
+
+* prevent rubocop from mangling `===` to `is_a?` check ([ef67cc1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ef67cc123e98b33e690847f476fec8301fb48081))
+
+
+### Chores
+
+* force utf-8 locale via `RUBYOPT` when formatting ([f38a6fe](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f38a6feeb6dd8fc0771bb885cdd61c6d2cdedd84))
+* **internal:** codegen related update ([ed70989](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ed70989fc05a5d6e3736656467c9b838757db6eb))
+* use fully qualified names for yard annotations and rbs aliases ([ea3d97a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ea3d97acf7a9d7d01d5e10f6f5f990c0994c396f))
+
 ## 3.8.0 (2025-05-22)
 
 Full Changelog: [v3.7.0...v3.8.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.7.0...v3.8.0)
