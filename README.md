@@ -17,7 +17,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "terminal-shop", "~> 3.8.1"
+gem "terminal-shop", "~> 3.8.2"
 ```
 
 <!-- x-release-please-end -->
