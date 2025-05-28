@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.2 (2025-05-28)
+
+Full Changelog: [v3.8.1...v3.8.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.1...v3.8.2)
+
+### Bug Fixes
+
+* sorbet types for enums, and make tapioca detection ignore `tapioca dsl` ([30f6f4a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/30f6f4a26d4fb2075d067c8aa673686512dcd68b))
+
+
+### Chores
+
+* **internal:** version bump ([730fe7b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/730fe7b769330586248eae9ec45fd35b3a60c3e1))
+
 ## 3.8.1 (2025-05-24)
 
 Full Changelog: [v3.8.0...v3.8.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.0...v3.8.1)
