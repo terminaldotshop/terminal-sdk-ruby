@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.3 (2025-06-03)
+
+Full Changelog: [v3.8.2...v3.8.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.2...v3.8.3)
+
+### Bug Fixes
+
+* `to_sorbet_type` should not return branded types ([5d5980e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5d5980e177248dc7f66ee0802622bfa833b5b313))
+
+
+### Chores
+
+* **internal:** version bump ([ff0ee20](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ff0ee20a9b486bdbf60d5d386d2edf9c1c594dcc))
+
 ## 3.8.2 (2025-05-28)
 
 Full Changelog: [v3.8.1...v3.8.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.1...v3.8.2)
