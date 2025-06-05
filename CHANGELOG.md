@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.4 (2025-06-05)
+
+Full Changelog: [v3.8.3...v3.8.4](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.3...v3.8.4)
+
+### Bug Fixes
+
+* default content-type for text in multi-part formdata uploads should be text/plain ([7c8cc7e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7c8cc7e330f3b66d18e4e76cef49ae2a8d69589d))
+
+
+### Chores
+
+* **internal:** codegen related update ([baecbc3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/baecbc34faa811ec38809e21900cc38719e91527))
+
 ## 3.8.3 (2025-06-03)
 
 Full Changelog: [v3.8.2...v3.8.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.2...v3.8.3)
