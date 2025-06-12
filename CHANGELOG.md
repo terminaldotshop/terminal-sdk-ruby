@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.8.5 (2025-06-12)
+
+Full Changelog: [v3.8.4...v3.8.5](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.4...v3.8.5)
+
+### Chores
+
+* **ci:** link to correct github repo ([6da4f5f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6da4f5f3738240df6fbe390c09fe7d1e89b6b96e))
+* **internal:** codegen related update ([a22c6d9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a22c6d93bc4fa4d7f7ef54097c39d161efd874e9))
+
 ## 3.8.4 (2025-06-05)
 
 Full Changelog: [v3.8.3...v3.8.4](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.3...v3.8.4)
