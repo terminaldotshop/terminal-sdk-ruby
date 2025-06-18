@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.8.5 (2025-06-18)
+
+Full Changelog: [v3.8.4...v3.8.5](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.4...v3.8.5)
+
+### Bug Fixes
+
+* issue where we cannot mutate arrays on base model derivatives ([67eea64](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/67eea6419e7733a1b4c407fea534ce6a14572d85))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([ba15351](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ba153514926fec886b5d8d6abdb8d5a8a009abad))
+* **ci:** link to correct github repo ([6da4f5f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6da4f5f3738240df6fbe390c09fe7d1e89b6b96e))
+* **internal:** codegen related update ([a22c6d9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a22c6d93bc4fa4d7f7ef54097c39d161efd874e9))
+
 ## 3.8.4 (2025-06-05)
 
 Full Changelog: [v3.8.3...v3.8.4](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.3...v3.8.4)
