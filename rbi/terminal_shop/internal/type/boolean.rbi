@@ -22,6 +22,8 @@ module TerminalShop
 
         class << self
           # @api private
+          #
+          # Coerce value to Boolean if possible, otherwise return the original value.
           sig do
             override
               .params(
