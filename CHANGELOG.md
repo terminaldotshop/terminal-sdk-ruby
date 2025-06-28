@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.7 (2025-06-28)
+
+Full Changelog: [v3.8.6...v3.8.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.6...v3.8.7)
+
+### Bug Fixes
+
+* sorbet type annotation on client's `environ` settings ([644ab1c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/644ab1c82711603dd0b93521aa1d025fd446ce47))
+
+
+### Chores
+
+* **internal:** codegen related update ([1391c7f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1391c7f943ab85c1abf4f5bda9d1ab7f468b8f12))
+
 ## 3.8.6 (2025-06-27)
 
 Full Changelog: [v3.8.5...v3.8.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.5...v3.8.6)
