@@ -68,7 +68,7 @@ module TerminalShop
       params(
         bearer_token: T.nilable(String),
         app_id: T.nilable(String),
-        environment: NilClass,
+        environment: T.nilable(T.any(Symbol, String)),
         base_url: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
