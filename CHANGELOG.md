@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.8.8 (2025-06-30)
+
+Full Changelog: [v3.8.7...v3.8.8](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.7...v3.8.8)
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([793774d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/793774dabec34277b8a5906958f4fe88919bdeaa))
+* **internal:** allow streams to also be unwrapped on a per-row basis ([816b2e8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/816b2e81eb4275597b54b53d9a8a2803d106712c))
+* **internal:** codegen related update ([1cbc702](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1cbc702862c19b950259123dd40832aa6c7ca288))
+
 ## 3.8.7 (2025-06-28)
 
 Full Changelog: [v3.8.6...v3.8.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.6...v3.8.7)
