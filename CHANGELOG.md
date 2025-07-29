@@ -1,5 +1,21 @@
 # Changelog
 
+## 3.8.8 (2025-07-29)
+
+Full Changelog: [v3.8.7...v3.8.8](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.7...v3.8.8)
+
+### Bug Fixes
+
+* **internal:** ensure sorbet test always runs serially ([930be27](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/930be27b01e695ce028f13e29c538f5ace851cef))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([793774d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/793774dabec34277b8a5906958f4fe88919bdeaa))
+* **internal:** allow streams to also be unwrapped on a per-row basis ([816b2e8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/816b2e81eb4275597b54b53d9a8a2803d106712c))
+* **internal:** codegen related update ([1cbc702](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1cbc702862c19b950259123dd40832aa6c7ca288))
+* update contribute.md ([09724c1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/09724c11fb4132e226eeda713288c04845e5061a))
+
 ## 3.8.7 (2025-06-28)
 
 Full Changelog: [v3.8.6...v3.8.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.6...v3.8.7)
