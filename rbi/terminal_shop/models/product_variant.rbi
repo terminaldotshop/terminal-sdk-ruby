@@ -20,13 +20,6 @@ module TerminalShop
       sig { returns(Integer) }
       attr_accessor :price
 
-      # Description of the product variant.
-      sig { returns(T.nilable(String)) }
-      attr_reader :description
-
-      sig { params(description: String).void }
-      attr_writer :description
-
       # Tags for the product variant.
       sig { returns(T.nilable(TerminalShop::ProductVariant::Tags)) }
       attr_reader :tags
@@ -40,7 +33,6 @@ module TerminalShop
           id: String,
           name: String,
           price: Integer,
-          description: String,
           tags: TerminalShop::ProductVariant::Tags::OrHash
         ).returns(T.attached_class)
       end
@@ -51,8 +43,6 @@ module TerminalShop
         name:,
         # Price of the product variant in cents (USD).
         price:,
-        # Description of the product variant.
-        description: nil,
         # Tags for the product variant.
         tags: nil
       )
@@ -64,7 +54,6 @@ module TerminalShop
             id: String,
             name: String,
             price: Integer,
-            description: String,
             tags: TerminalShop::ProductVariant::Tags
           }
         )

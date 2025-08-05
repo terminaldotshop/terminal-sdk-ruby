@@ -51,6 +51,13 @@ module TerminalShop
       sig { params(tags: TerminalShop::ProductAPI::Tags::OrHash).void }
       attr_writer :tags
 
+      # Timestamp when the product was hidden from public view.
+      sig { returns(T.nilable(String)) }
+      attr_reader :time_hidden
+
+      sig { params(time_hidden: String).void }
+      attr_writer :time_hidden
+
       # Product sold in the Terminal shop.
       sig do
         params(
@@ -60,7 +67,8 @@ module TerminalShop
           variants: T::Array[TerminalShop::ProductVariant::OrHash],
           order: Integer,
           subscription: TerminalShop::ProductAPI::Subscription::OrSymbol,
-          tags: TerminalShop::ProductAPI::Tags::OrHash
+          tags: TerminalShop::ProductAPI::Tags::OrHash,
+          time_hidden: String
         ).returns(T.attached_class)
       end
       def self.new(
@@ -77,7 +85,9 @@ module TerminalShop
         # Whether the product must be or can be subscribed to.
         subscription: nil,
         # Tags for the product.
-        tags: nil
+        tags: nil,
+        # Timestamp when the product was hidden from public view.
+        time_hidden: nil
       )
       end
 
@@ -90,7 +100,8 @@ module TerminalShop
             variants: T::Array[TerminalShop::ProductVariant],
             order: Integer,
             subscription: TerminalShop::ProductAPI::Subscription::TaggedSymbol,
-            tags: TerminalShop::ProductAPI::Tags
+            tags: TerminalShop::ProductAPI::Tags,
+            time_hidden: String
           }
         )
       end
