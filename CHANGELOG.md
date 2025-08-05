@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.9 (2025-08-05)
+
+Full Changelog: [v3.8.8...v3.8.9](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.8...v3.8.9)
+
+### Features
+
+* **api:** manual updates ([6f6a036](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6f6a036504e2d3e45b1dee5eb419bd0a462a4e08))
+
+
+### Chores
+
+* **internal:** increase visibility of internal helper method ([bb446db](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/bb446db6d6005b09cee51a48fab1490ca07b2ada))
+
 ## 3.8.8 (2025-07-29)
 
 Full Changelog: [v3.8.7...v3.8.8](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.7...v3.8.8)
