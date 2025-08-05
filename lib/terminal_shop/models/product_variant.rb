@@ -21,19 +21,13 @@ module TerminalShop
       #   @return [Integer]
       required :price, Integer
 
-      # @!attribute description
-      #   Description of the product variant.
-      #
-      #   @return [String, nil]
-      optional :description, String
-
       # @!attribute tags
       #   Tags for the product variant.
       #
       #   @return [TerminalShop::Models::ProductVariant::Tags, nil]
       optional :tags, -> { TerminalShop::ProductVariant::Tags }
 
-      # @!method initialize(id:, name:, price:, description: nil, tags: nil)
+      # @!method initialize(id:, name:, price:, tags: nil)
       #   Some parameter documentations has been truncated, see
       #   {TerminalShop::Models::ProductVariant} for more details.
       #
@@ -44,8 +38,6 @@ module TerminalShop
       #   @param name [String] Name of the product variant.
       #
       #   @param price [Integer] Price of the product variant in cents (USD).
-      #
-      #   @param description [String] Description of the product variant.
       #
       #   @param tags [TerminalShop::Models::ProductVariant::Tags] Tags for the product variant.
 
