@@ -45,7 +45,13 @@ module TerminalShop
       #   @return [TerminalShop::Models::ProductAPI::Tags, nil]
       optional :tags, -> { TerminalShop::ProductAPI::Tags }
 
-      # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil)
+      # @!attribute time_hidden
+      #   Timestamp when the product was hidden from public view.
+      #
+      #   @return [String, nil]
+      optional :time_hidden, String, api_name: :timeHidden
+
+      # @!method initialize(id:, description:, name:, variants:, order: nil, subscription: nil, tags: nil, time_hidden: nil)
       #   Some parameter documentations has been truncated, see
       #   {TerminalShop::Models::ProductAPI} for more details.
       #
@@ -64,6 +70,8 @@ module TerminalShop
       #   @param subscription [Symbol, TerminalShop::Models::ProductAPI::Subscription] Whether the product must be or can be subscribed to.
       #
       #   @param tags [TerminalShop::Models::ProductAPI::Tags] Tags for the product.
+      #
+      #   @param time_hidden [String] Timestamp when the product was hidden from public view.
 
       # Whether the product must be or can be subscribed to.
       #
