@@ -39,6 +39,23 @@ module TerminalShop
           | TerminalShop::Internal::Type::Converter::input spec
         ) -> (^-> top)
 
+        def self.meta_info: (
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> TerminalShop::Internal::Type::Converter::input?,
+            union: ^-> TerminalShop::Internal::Type::Converter::input?
+          }
+          | ^-> TerminalShop::Internal::Type::Converter::input
+          | TerminalShop::Internal::Type::Converter::input type_info,
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> TerminalShop::Internal::Type::Converter::input?,
+            union: ^-> TerminalShop::Internal::Type::Converter::input?
+          }
+          | ^-> TerminalShop::Internal::Type::Converter::input
+          | TerminalShop::Internal::Type::Converter::input spec
+        ) -> ::Hash[Symbol, top]
+
         def self.new_coerce_state: (
           ?translate_names: bool
         ) -> TerminalShop::Internal::Type::Converter::coerce_state
