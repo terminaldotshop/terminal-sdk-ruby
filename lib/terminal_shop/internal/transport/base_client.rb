@@ -367,10 +367,7 @@ module TerminalShop
         # @return [Array(Integer, Net::HTTPResponse, Enumerable<String>)]
         def send_request(request, redirect_count:, retry_count:, send_retry_header:)
           url, headers, max_retries, timeout = request.fetch_values(:url, :headers, :max_retries, :timeout)
-          input = {
-            **request.except(:timeout),
-            deadline: TerminalShop::Internal::Util.monotonic_secs + timeout
-          }
+          input = {**request.except(:timeout), deadline: TerminalShop::Internal::Util.monotonic_secs + timeout}
 
           if send_retry_header
             headers["x-stainless-retry-count"] = retry_count.to_s
