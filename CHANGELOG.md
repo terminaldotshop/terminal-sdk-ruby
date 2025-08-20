@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.8.10 (2025-08-20)
+
+Full Changelog: [v3.8.9...v3.8.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.9...v3.8.10)
+
+### Bug Fixes
+
+* bump sorbet version and fix new type errors from the breaking change ([b8a165c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b8a165c99dda340d95ee12680ad4a662dae84adb))
+
+
+### Chores
+
+* collect metadata from type DSL ([48d6bd6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/48d6bd6aef75e097d4fac1e87680a56194a46849))
+* **internal:** update comment in script ([29e8d0e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/29e8d0ee82f862af88091ce124082f798a73d52f))
+* update @stainless-api/prism-cli to v5.15.0 ([c859658](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c85965842c1dd5e37ed2f37010a8dfa096f12147))
+
 ## 3.8.9 (2025-08-05)
 
 Full Changelog: [v3.8.8...v3.8.9](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.8...v3.8.9)
