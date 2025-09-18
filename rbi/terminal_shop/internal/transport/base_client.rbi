@@ -85,10 +85,9 @@ module TerminalShop
 
           # @api private
           sig do
-            params(
-              status: Integer,
-              headers: T.any(T::Hash[String, String], Net::HTTPHeader)
-            ).returns(T::Boolean)
+            params(status: Integer, headers: T::Hash[String, String]).returns(
+              T::Boolean
+            )
           end
           def should_retry?(status, headers:)
           end
@@ -99,7 +98,7 @@ module TerminalShop
               request:
                 TerminalShop::Internal::Transport::BaseClient::RequestInput,
               status: Integer,
-              response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
+              response_headers: T::Hash[String, String]
             ).returns(
               TerminalShop::Internal::Transport::BaseClient::RequestInput
             )
