@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.9.0 (2025-09-27)
+
+Full Changelog: [v3.8.10...v3.9.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.10...v3.9.0)
+
+### Features
+
+* expose response headers for both streams and errors ([21b1cb6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/21b1cb61ee1b0264d04fb4ce3c7b12e65b8dace9))
+
+
+### Bug Fixes
+
+* shorten multipart boundary sep to less than RFC specificed max length ([b1cb8d7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b1cb8d7f52a4cb1fccb512e82aab97d54c6687fa))
+
+
+### Performance Improvements
+
+* faster code formatting ([c4d7efd](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c4d7efd87dddd04e7099452f717a5e2becab73c2))
+
+
+### Chores
+
+* add json schema comment for rubocop.yml ([cdd17ee](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/cdd17ee6be620549c47c1656dde4c70c4a76d6cc))
+* **internal:** codegen related update ([5b3d643](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5b3d643979e95d1bf5084fae10f85fc8e73e648d))
+* **internal:** codegen related update ([2195e2b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2195e2b0ea1cbbf360bb5c3373626e538676266f))
+
 ## 3.8.10 (2025-08-20)
 
 Full Changelog: [v3.8.9...v3.8.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.9...v3.8.10)
