@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.9.1 (2025-09-30)
+
+Full Changelog: [v3.9.0...v3.9.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.0...v3.9.1)
+
+### Bug Fixes
+
+* always send `filename=...` for multipart requests where a file is expected ([e4027f3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/e4027f383a8f0c5e2ffe470a552d4b8a9c75f21a))
+
+
+### Chores
+
+* **internal:** codegen related update ([09f1843](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/09f184386ef53243e1159fa9a76e2bf8a8bfe165))
+
 ## 3.9.0 (2025-09-27)
 
 Full Changelog: [v3.8.10...v3.9.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.8.10...v3.9.0)
