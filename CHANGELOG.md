@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.9.2 (2025-10-15)
+
+Full Changelog: [v3.9.1...v3.9.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.1...v3.9.2)
+
+### Bug Fixes
+
+* coroutine leaks from connection pool ([609da82](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/609da8210e3c355913e5464b72b4bf562e984024))
+* should not reuse buffers for `IO.copy_stream` interop ([51cbae7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/51cbae7450fb445d494a6e8a1161ab2c87a980f6))
+
+
+### Chores
+
+* ignore linter error for tests having large collections ([6d41fa1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6d41fa1ca081d582e52a432a2d953952bf6d15f1))
+
 ## 3.9.1 (2025-09-30)
 
 Full Changelog: [v3.9.0...v3.9.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.0...v3.9.1)
