@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.9.3 (2025-10-16)
+
+Full Changelog: [v3.9.2...v3.9.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.2...v3.9.3)
+
+### Bug Fixes
+
+* absolutely qualified uris should always override the default ([a277185](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a2771859a9a3931bed9854d2eea945070ea7fe13))
+
 ## 3.9.2 (2025-10-15)
 
 Full Changelog: [v3.9.1...v3.9.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.1...v3.9.2)
