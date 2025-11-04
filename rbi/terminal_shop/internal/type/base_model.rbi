@@ -31,7 +31,7 @@ module TerminalShop
           #
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
-          sig { params(child: T.self_type).void }
+          sig { params(child: TerminalShop::Internal::Type::BaseModel).void }
           def inherited(child)
           end
 
@@ -282,9 +282,13 @@ module TerminalShop
 
         # Create a new instance of a model.
         sig do
-          params(data: T.any(T::Hash[Symbol, T.anything], T.self_type)).returns(
-            T.attached_class
-          )
+          params(
+            data:
+              T.any(
+                T::Hash[Symbol, T.anything],
+                TerminalShop::Internal::Type::BaseModel
+              )
+          ).returns(T.attached_class)
         end
         def self.new(data = {})
         end
