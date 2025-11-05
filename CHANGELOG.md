@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.10.0 (2025-11-05)
+
+Full Changelog: [v3.9.3...v3.10.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.3...v3.10.0)
+
+### Features
+
+* handle thread interrupts in the core HTTP client ([6b9ed12](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6b9ed1271c78b568833e656bb17eaca1ae3b3a9c))
+
+
+### Bug Fixes
+
+* better thread safety via early initializing SSL store during HTTP client creation ([70b34dd](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/70b34ddd2ad50a8a9fc573db002fe3c16a9039e3))
+
+
+### Chores
+
+* bump dependency version and update sorbet types ([9262104](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/92621040ccfecd21b5196766ec8b713af83605ba))
+
 ## 3.9.3 (2025-10-16)
 
 Full Changelog: [v3.9.2...v3.9.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.2...v3.9.3)
