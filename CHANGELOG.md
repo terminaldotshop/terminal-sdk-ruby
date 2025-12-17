@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.10.1 (2025-12-17)
+
+Full Changelog: [v3.10.0...v3.10.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.0...v3.10.1)
+
+### Bug Fixes
+
+* calling `break` out of streams should be instantaneous ([6a358cb](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6a358cb492be7a91b5ae925bdecfd167bbae0d5d))
+
+
+### Chores
+
+* explicitly require "base64" gem ([3feced3](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/3feced338b55884bcd41b6429ef86e795026f0f7))
+
 ## 3.10.0 (2025-11-05)
 
 Full Changelog: [v3.9.3...v3.10.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.9.3...v3.10.0)
