@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.2 (2025-12-19)
+
+Full Changelog: [v3.10.1...v3.10.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.1...v3.10.2)
+
+### Bug Fixes
+
+* issue where json.parse errors when receiving HTTP 204 with nobody ([94aa4f7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/94aa4f755ac518ba4c7ae4527cb19e2349405988))
+
 ## 3.10.1 (2025-12-17)
 
 Full Changelog: [v3.10.0...v3.10.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.0...v3.10.1)
