@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.10.3 (2026-01-29)
+
+Full Changelog: [v3.10.2...v3.10.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.2...v3.10.3)
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([ff86a8f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ff86a8f617a44d9df0a24b59d96d1b4fae2404f1))
+
+
+### Chores
+
+* **internal:** codegen related update ([545b7c1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/545b7c1a4e1c4f201a62ae77952a617337a2a22b))
+* **internal:** update `actions/checkout` version ([ba75639](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ba75639d09dde2eb118d992692da037bdc8b36fb))
+* move `cgi` into dependencies for ruby 4 ([626c4e6](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/626c4e64fa92d541cd426394b02cf2762a75e5c1))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([f4d6ff4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f4d6ff4c379ad2881ff828fe1fa92b68f2603433))
+
 ## 3.10.2 (2025-12-19)
 
 Full Changelog: [v3.10.1...v3.10.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.1...v3.10.2)
