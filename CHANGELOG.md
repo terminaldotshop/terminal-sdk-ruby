@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.4 (2026-02-03)
+
+Full Changelog: [v3.10.3...v3.10.4](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.3...v3.10.4)
+
+### Bug Fixes
+
+* **client:** always add content-length to post body, even when empty ([5500cc9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5500cc9f84dda30b0a86050ae382c0939861d297))
+
 ## 3.10.3 (2026-01-29)
 
 Full Changelog: [v3.10.2...v3.10.3](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.2...v3.10.3)
