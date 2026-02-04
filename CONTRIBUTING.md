@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "terminal-shop", git: "https://www.github.com/terminaldotshop/terminal-sdk-ruby"
+gem "terminal-shop", git: "https://github.com/terminaldotshop/terminal-sdk-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://www.github.com/terminaldotshop/terminal-sdk-ruby' '<path-to-repo>'
+$ git clone -- 'https://github.com/terminaldotshop/terminal-sdk-ruby' '<path-to-repo>'
 ```
 
 ```ruby
