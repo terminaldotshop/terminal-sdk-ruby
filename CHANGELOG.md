@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.10.5 (2026-02-07)
+
+Full Changelog: [v3.10.4...v3.10.5](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.4...v3.10.5)
+
+### Bug Fixes
+
+* **client:** loosen json header parsing ([ea99b68](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/ea99b68aa64cdbd86aac81fc0098b8c27beea2af))
+
+
+### Chores
+
+* **docs:** remove www prefix ([d2855a1](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/d2855a1bc3943faf97f08a7241726fc5fa85867e))
+
 ## 3.10.4 (2026-02-03)
 
 Full Changelog: [v3.10.3...v3.10.4](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.3...v3.10.4)
