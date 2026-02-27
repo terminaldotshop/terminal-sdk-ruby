@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.10.6 (2026-02-27)
+
+Full Changelog: [v3.10.5...v3.10.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.5...v3.10.6)
+
+### Bug Fixes
+
+* properly mock time in ruby ci tests ([4640b85](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/4640b85e8b5ea21e88797d5afa1c6733ab6872af))
+
+
+### Chores
+
+* update mock server docs ([c4a57a9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c4a57a9b1a17608cdecc9859dd00d976878ef919))
+
 ## 3.10.5 (2026-02-07)
 
 Full Changelog: [v3.10.4...v3.10.5](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.4...v3.10.5)
