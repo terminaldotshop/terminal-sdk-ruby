@@ -110,20 +110,22 @@ class TerminalShopTest < Minitest::Test
   end
 
   def test_client_retry_after_date
+    time_now = Time.now
+
     stub_request(:get, "http://localhost/product").to_return_json(
       status: 500,
-      headers: {"retry-after" => (Time.now + 10).httpdate},
+      headers: {"retry-after" => (time_now + 10).httpdate},
       body: {}
     )
 
     terminal =
       TerminalShop::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 1)
 
+    Thread.current.thread_variable_set(:time_now, time_now)
     assert_raises(TerminalShop::Errors::InternalServerError) do
-      Thread.current.thread_variable_set(:time_now, Time.now)
       terminal.product.list
-      Thread.current.thread_variable_set(:time_now, nil)
     end
+    Thread.current.thread_variable_set(:time_now, nil)
 
     assert_requested(:any, /./, times: 2)
     assert_in_delta(10, Thread.current.thread_variable_get(:mock_sleep).last, 1.0)
