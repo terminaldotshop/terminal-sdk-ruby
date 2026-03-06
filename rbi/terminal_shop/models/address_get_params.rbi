@@ -11,16 +11,27 @@ module TerminalShop
           T.any(TerminalShop::AddressGetParams, TerminalShop::Internal::AnyHash)
         end
 
+      # ID of the shipping address to get.
+      sig { returns(String) }
+      attr_accessor :id
+
       sig do
-        params(request_options: TerminalShop::RequestOptions::OrHash).returns(
-          T.attached_class
-        )
+        params(
+          id: String,
+          request_options: TerminalShop::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(request_options: {})
+      def self.new(
+        # ID of the shipping address to get.
+        id:,
+        request_options: {}
+      )
       end
 
       sig do
-        override.returns({ request_options: TerminalShop::RequestOptions })
+        override.returns(
+          { id: String, request_options: TerminalShop::RequestOptions }
+        )
       end
       def to_hash
       end

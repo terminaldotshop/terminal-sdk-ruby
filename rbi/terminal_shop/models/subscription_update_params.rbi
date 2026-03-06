@@ -14,6 +14,10 @@ module TerminalShop
           )
         end
 
+      # ID of the subscription to update.
+      sig { returns(String) }
+      attr_accessor :id
+
       # New shipping address ID for the subscription.
       sig { returns(T.nilable(String)) }
       attr_reader :address_id
@@ -54,6 +58,7 @@ module TerminalShop
 
       sig do
         params(
+          id: String,
           address_id: String,
           card_id: String,
           schedule:
@@ -65,6 +70,8 @@ module TerminalShop
         ).returns(T.attached_class)
       end
       def self.new(
+        # ID of the subscription to update.
+        id:,
         # New shipping address ID for the subscription.
         address_id: nil,
         # New payment method ID for the subscription.
@@ -78,6 +85,7 @@ module TerminalShop
       sig do
         override.returns(
           {
+            id: String,
             address_id: String,
             card_id: String,
             schedule:

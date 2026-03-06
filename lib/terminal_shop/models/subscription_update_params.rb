@@ -7,6 +7,12 @@ module TerminalShop
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #   ID of the subscription to update.
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute address_id
       #   New shipping address ID for the subscription.
       #
@@ -25,7 +31,9 @@ module TerminalShop
       #   @return [TerminalShop::Models::SubscriptionUpdateParams::Schedule::Fixed, TerminalShop::Models::SubscriptionUpdateParams::Schedule::Weekly, nil]
       optional :schedule, union: -> { TerminalShop::SubscriptionUpdateParams::Schedule }
 
-      # @!method initialize(address_id: nil, card_id: nil, schedule: nil, request_options: {})
+      # @!method initialize(id:, address_id: nil, card_id: nil, schedule: nil, request_options: {})
+      #   @param id [String] ID of the subscription to update.
+      #
       #   @param address_id [String] New shipping address ID for the subscription.
       #
       #   @param card_id [String] New payment method ID for the subscription.
