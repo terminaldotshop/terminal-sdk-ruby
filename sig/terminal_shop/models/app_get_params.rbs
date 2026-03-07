@@ -1,15 +1,23 @@
 module TerminalShop
   module Models
     type app_get_params =
-      {  } & TerminalShop::Internal::Type::request_parameters
+      { id: String } & TerminalShop::Internal::Type::request_parameters
 
     class AppGetParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: TerminalShop::request_opts) -> void
+      attr_accessor id: String
 
-      def to_hash: -> { request_options: TerminalShop::RequestOptions }
+      def initialize: (
+        id: String,
+        ?request_options: TerminalShop::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        request_options: TerminalShop::RequestOptions
+      }
     end
   end
 end

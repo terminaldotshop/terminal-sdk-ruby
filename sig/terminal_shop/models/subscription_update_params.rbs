@@ -2,6 +2,7 @@ module TerminalShop
   module Models
     type subscription_update_params =
       {
+        id: String,
         address_id: String,
         card_id: String,
         schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule
@@ -11,6 +12,8 @@ module TerminalShop
     class SubscriptionUpdateParams < TerminalShop::Internal::Type::BaseModel
       extend TerminalShop::Internal::Type::RequestParameters::Converter
       include TerminalShop::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader address_id: String?
 
@@ -27,6 +30,7 @@ module TerminalShop
       ) -> TerminalShop::Models::SubscriptionUpdateParams::schedule
 
       def initialize: (
+        id: String,
         ?address_id: String,
         ?card_id: String,
         ?schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule,
@@ -34,6 +38,7 @@ module TerminalShop
       ) -> void
 
       def to_hash: -> {
+        id: String,
         address_id: String,
         card_id: String,
         schedule: TerminalShop::Models::SubscriptionUpdateParams::schedule,
