@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.10.7 (2026-03-07)
+
+Full Changelog: [v3.10.6...v3.10.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.6...v3.10.7)
+
+### Chores
+
+* **ci:** add build step ([8c76e37](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8c76e37457b12cb2d870aa581b301b8f944637cf))
+* **ci:** skip uploading artifacts on stainless-internal branches ([2930d75](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2930d75c7f71c1fd1a6333ba9586288a8ebc298b))
+* **internal:** codegen related update ([1f27a1c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1f27a1cc83708e492621814afaf90bc22200663a))
+* **internal:** codegen related update ([8521f38](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8521f3807b115dc92e8e4805ac233be8bdecd420))
+* **test:** do not count install time for mock server timeout ([f6f271f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f6f271f21610a675a6b9a580e900d11aad7a202b))
+
 ## 3.10.6 (2026-02-27)
 
 Full Changelog: [v3.10.5...v3.10.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.5...v3.10.6)
