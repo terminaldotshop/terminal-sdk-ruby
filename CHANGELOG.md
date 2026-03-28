@@ -1,5 +1,35 @@
 # Changelog
 
+## 3.10.7 (2026-03-28)
+
+Full Changelog: [v3.10.6...v3.10.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.6...v3.10.7)
+
+### Bug Fixes
+
+* **internal:** correct multipart form field name encoding ([224326e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/224326e1e482ca5aabe0e39ba325769b768c0a06))
+
+
+### Chores
+
+* **ci:** add build step ([8c76e37](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8c76e37457b12cb2d870aa581b301b8f944637cf))
+* **ci:** skip lint on metadata-only changes ([2f4a116](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2f4a1160b959edbfa179f8d8c4eca5e56c5f58f2))
+* **ci:** skip uploading artifacts on stainless-internal branches ([2930d75](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/2930d75c7f71c1fd1a6333ba9586288a8ebc298b))
+* **ci:** support opting out of skipping builds on metadata-only commits ([c5b6700](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c5b6700110df88ccee646a7a54b9a7ee3fc49132))
+* **internal:** codegen related update ([1f27a1c](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/1f27a1cc83708e492621814afaf90bc22200663a))
+* **internal:** codegen related update ([8521f38](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/8521f3807b115dc92e8e4805ac233be8bdecd420))
+* **internal:** tweak CI branches ([6884ef4](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6884ef4573fd5210e9272d20e96457f79a35ee47))
+* **internal:** update gitignore ([5153ecc](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/5153ecc0411ad3f62d4e0a951518e31ac970b260))
+* **test:** do not count install time for mock server timeout ([f6f271f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f6f271f21610a675a6b9a580e900d11aad7a202b))
+* **tests:** bump steady to v0.19.4 ([030182a](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/030182aeb309b6dfc0cfbb37a8d481ea9647d13f))
+* **tests:** bump steady to v0.19.5 ([a792461](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a7924612c1cd6cd83ad3f4983669e58956389842))
+* **tests:** bump steady to v0.19.6 ([4359140](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/435914062359e3950cea203b0fc2ebafb305c195))
+* **tests:** bump steady to v0.19.7 ([7b0128f](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7b0128fe2b1bfd6ae52c231f984445b2d643fc7d))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([305f4c8](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/305f4c89d5399ae83cc9d3de0ddb49be00bca15e))
+
 ## 3.10.6 (2026-02-27)
 
 Full Changelog: [v3.10.5...v3.10.6](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.5...v3.10.6)
