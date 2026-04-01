@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.9 (2026-04-01)
+
+Full Changelog: [v3.10.8...v3.10.9](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.8...v3.10.9)
+
+### Bug Fixes
+
+* align path encoding with RFC 3986 section 3.3 ([66f23c9](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/66f23c936cb7aa5d34da0669f2ff44ac9d1d761d))
+
 ## 3.10.8 (2026-04-01)
 
 Full Changelog: [v3.10.7...v3.10.8](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.7...v3.10.8)
