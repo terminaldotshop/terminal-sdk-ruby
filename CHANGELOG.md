@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.10.8 (2026-04-01)
+
+Full Changelog: [v3.10.7...v3.10.8](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.7...v3.10.8)
+
+### Bug Fixes
+
+* variable name typo ([6f25050](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6f2505020bf0af7c63924a05a541535b201e1d73))
+
+
+### Chores
+
+* **tests:** bump steady to v0.20.1 ([c1e537e](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/c1e537ee32cc862736319bee06eba0e625dabad1))
+* **tests:** bump steady to v0.20.2 ([168fa3b](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/168fa3b706a2d89a8a1001104142e2d2ef03ae5c))
+
 ## 3.10.7 (2026-03-28)
 
 Full Changelog: [v3.10.6...v3.10.7](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.6...v3.10.7)
