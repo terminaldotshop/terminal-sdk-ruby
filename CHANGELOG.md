@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.10 (2026-04-09)
+
+Full Changelog: [v3.10.9...v3.10.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.9...v3.10.10)
+
+### Bug Fixes
+
+* multipart encoding for file arrays ([7badd8d](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/7badd8d4148f554c1a73a3476269d260d1d5f41d))
+
 ## 3.10.9 (2026-04-01)
 
 Full Changelog: [v3.10.8...v3.10.9](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.8...v3.10.9)
