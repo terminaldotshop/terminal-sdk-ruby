@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.11.0 (2026-04-28)
+
+Full Changelog: [v3.10.10...v3.11.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.10...v3.11.0)
+
+### Features
+
+* support setting headers via env ([6425e61](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/6425e615b49cecb1bf661d4eb2969a958eca8b0c))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([f9b56f2](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f9b56f2a99fa77dabb97491cd1c1d7539f44d9f8))
+* **tests:** bump steady to v0.22.1 ([b4a58da](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b4a58daf13a53b6c4977b4309cd953d53d27bbb7))
+
 ## 3.10.10 (2026-04-09)
 
 Full Changelog: [v3.10.9...v3.10.10](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.9...v3.10.10)
