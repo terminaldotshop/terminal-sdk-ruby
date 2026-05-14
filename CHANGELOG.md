@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.11.1 (2026-05-14)
+
+Full Changelog: [v3.11.0...v3.11.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.0...v3.11.1)
+
+### Bug Fixes
+
+* **client:** elide content type header on requests without body ([452a7c0](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/452a7c0ed097f8eb20a43b5655dfcfd19da07dec))
+
 ## 3.11.0 (2026-04-28)
 
 Full Changelog: [v3.10.10...v3.11.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.10.10...v3.11.0)
