@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.11.2 (2026-06-17)
+
+Full Changelog: [v3.11.1...v3.11.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.1...v3.11.2)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([f09d9c7](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/f09d9c7feb395eec8c8690b7881a6d1876a382c0))
+
 ## 3.11.1 (2026-05-14)
 
 Full Changelog: [v3.11.0...v3.11.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.0...v3.11.1)
