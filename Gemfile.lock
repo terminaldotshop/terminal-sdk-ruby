@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    terminal-shop (3.11.2)
+    terminal-shop (3.12.0)
       cgi
       connection_pool
 
