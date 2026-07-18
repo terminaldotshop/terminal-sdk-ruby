@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.12.0 (2026-07-18)
+
+Full Changelog: [v3.11.2...v3.12.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.2...v3.12.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([61bb278](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/61bb27863f7294bb0e27363ed6658d2d25045a11))
+
+
+### Chores
+
+* **internal:** bound formatter parallelism to CPU count ([a419a71](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/a419a71202c5fe7b1cf6660902fc4ad62a5edf97))
+
 ## 3.11.2 (2026-06-17)
 
 Full Changelog: [v3.11.1...v3.11.2](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.1...v3.11.2)
