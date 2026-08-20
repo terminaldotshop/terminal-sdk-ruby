@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.12.1 (2026-08-20)
+
+Full Changelog: [v3.12.0...v3.12.1](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.12.0...v3.12.1)
+
+### Chores
+
+* **internal:** allow the mock server port to be set with STAINLESS_MOCK_PORT ([b20e436](https://github.com/terminaldotshop/terminal-sdk-ruby/commit/b20e4361324a0c126adc0920e2eb0ad2d9b14bd6))
+
 ## 3.12.0 (2026-07-18)
 
 Full Changelog: [v3.11.2...v3.12.0](https://github.com/terminaldotshop/terminal-sdk-ruby/compare/v3.11.2...v3.12.0)
